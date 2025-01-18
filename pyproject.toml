@@ -16,4 +16,4 @@ include = ["*"]
 
 [project.scripts]
 "lte.run" = "lte.main:main"
-"lte.eval" = "lte.eval:main"
+"lte.eval" = "lte.eval:eval"
