@@ -29,7 +29,7 @@ class Base:
     
     def modify(self, prompt, model, model_path,**kwargs):
         """Adjust input prompt to fit within the model's token limit."""
-        if hasattr(model.tokenizer, 'apply_chat_template'):
+        if hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
             tokenized_prompt = model.tokenizer.apply_chat_template(
                 [{"role": "user", "content": prompt}],
                 tokenize=True, add_generation_prompt=True
