@@ -1,0 +1,11 @@
+description: null
+fewshot: 0
+generate:
+  method: generate
+  params: ./dataset/utils/llm-params/RULER_llm_params_1.json
+metric:
+  string_match_all: null
+path: ./dataset/General/data/vt.json
+postprocess_task: ruler
+task_name: vt
+transform: ./dataset/utils/transform/transform.py

@@ -1,0 +1,12 @@
+description: null
+fewshot: 0
+generate:
+  method: generate
+  params: ./dataset/utils/llm-params/L-CiteEval_llm_params2.json
+metric:
+  l_cite_eavl_cite:
+
+path: ./dataset/Factuality/data/L-CiteEval-Data_natural_questions.json
+postprocess_task: null
+task_name: L-CiteEval-Data_natural_questions
+transform: ./dataset/utils/transform/L-CiteEval.py

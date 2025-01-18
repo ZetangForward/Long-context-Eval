@@ -1,0 +1,11 @@
+description: null
+fewshot: 0
+generate:
+  method: generate
+  params: ./dataset/utils/llm-params/llm_passage_count.json
+metric:
+  count_score: null
+path: dataset/General/data/passage_count_e.json
+postprocess_task: null
+task_name: passage_count_e
+transform: ./dataset/utils/transform/LongBench.py

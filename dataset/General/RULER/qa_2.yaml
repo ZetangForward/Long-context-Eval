@@ -1,0 +1,11 @@
+description: null
+fewshot: 0
+generate:
+  method: generate
+  params: ./dataset/utils/llm-params/RULER_llm_params_2.json
+metric:
+  string_match_part: null
+path: ./dataset/General/data/qa_2.json
+postprocess_task: ruler
+task_name: qa_2
+transform: ./dataset/utils/transform/transform.py

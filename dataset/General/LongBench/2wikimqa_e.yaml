@@ -1,0 +1,11 @@
+description: null
+fewshot: 0
+generate:
+  method: generate
+  params: ./dataset/utils/llm-params/llm_2wikimqa.json
+metric:
+  qa_f1_score: null
+path: dataset/General/data/2wikimqa_e.json
+postprocess_task: null
+task_name: 2wikimqa_e
+transform: ./dataset/utils/transform/LongBench.py

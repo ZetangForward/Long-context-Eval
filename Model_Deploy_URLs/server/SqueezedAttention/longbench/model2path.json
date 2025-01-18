@@ -1,0 +1,14 @@
+{
+    "llama2-7b-chat-4k": "meta-llama/Llama-2-7b-chat-hf",
+    "longchat-v1.5-7b-32k": "/home/chooper/longchat-7b-v1.5-32k",
+    "xgen-7b-8k": "Salesforce/xgen-7b-8k-inst",
+    "internlm-7b-8k": "internlm/internlm-chat-7b-8k",
+    "chatglm2-6b": "THUDM/chatglm2-6b",
+    "chatglm2-6b-32k": "THUDM/chatglm2-6b-32k",
+    "chatglm3-6b-32k": "THUDM/chatglm3-6b-32k",
+    "vicuna-v1.5-7b-16k": "lmsys/vicuna-7b-v1.5-16k",
+    "LLaMA-2-7B-32K": "/home/chooper/LLaMA-2-7B-32K",
+    "Phi-3-mini-128k-instruct": "/rscratch/chooper/Phi-3-mini-128k-instruct",
+    "LWM-Text-Chat-1M": "/home/chooper/LWM-Text-Chat-1M",
+    "Llama-2-7B-32K-Instruct":"/opt/data/private/models/Llama-2-7B-32K-Instruct"
+}

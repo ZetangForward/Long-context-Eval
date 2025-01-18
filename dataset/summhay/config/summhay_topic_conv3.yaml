@@ -1,0 +1,14 @@
+task_name: summhay_topic_conv3
+path: datasets/summhay/data/topic_conv3.json
+description: ''
+transform: datasets/summhay/transform_gen_v0.py
+fewshot: 0
+generate: 
+        method: generate
+        params: datasets/summhay/llm_params.json
+postprocess_task: 
+metric:
+    accuracy:
+        evaluation:
+            type: GPT_Summhay
+            model: gpt-3.5-turbo

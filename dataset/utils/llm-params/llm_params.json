@@ -1,0 +1,6 @@
+
+{
+    "num_beams": 1,
+    "do_sample": false,
+    "temperature":1.0
+}

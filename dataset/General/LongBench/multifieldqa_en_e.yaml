@@ -1,0 +1,11 @@
+description: null
+fewshot: 0
+generate:
+  method: generate
+  params: ./dataset/utils/llm-params/llm_multifieldqa_en.json
+metric:
+  qa_f1_score: null
+path: dataset/General/data/multifieldqa_en_e.json
+postprocess_task: null
+task_name: multifieldqa_en_e
+transform: ./dataset/utils/transform/LongBench.py

@@ -1,0 +1,55 @@
+/opt/conda/envs/lte/lib/python3.10/site-packages/transformers/utils/generic.py:260: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+/opt/conda/envs/lte/lib/python3.10/site-packages/transformers/utils/generic.py:260: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:38<00:38, 38.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:51<00:00, 23.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:51<00:00, 25.74s/it]
+Using pad_token, but it is not set yet.
+You are resizing the embedding layer without providing a `pad_to_multiple_of` parameter. This means that the new embeding dimension will be 32001. This might induce some performance reduction as *Tensor Cores* will not be available. For more details  about this, or help on choosing the correct value for resizing, refer to this guide: https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html#requirements-tc
+Model and tokenizer initialized.
+Model_deploy time :52.5358567237854
+[2024-12-10 22:50:41,405] ERROR in app: Exception on /infer [POST]
+Traceback (most recent call last):
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/opt/data/private/sora/lab/longtexteval/./Model_Deploy_URLs/transformers/base_transformer.py", line 64, in main
+    generate_ids = model.generate(inputs.input_ids, attention_mask=inputs.attention_mask, **params_dict)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/transformers/generation/utils.py", line 1642, in generate
+    return self.sample(
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/transformers/generation/utils.py", line 2724, in sample
+    outputs = self(
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 809, in forward
+    outputs = self.model(
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 697, in forward
+    layer_outputs = decoder_layer(
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 413, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 351, in forward
+    attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
+  File "/opt/conda/envs/lte/lib/python3.10/site-packages/torch/nn/functional.py", line 2142, in softmax
+    ret = input.softmax(dim, dtype=dtype)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.85 GiB. GPU 0 has a total capacity of 23.68 GiB of which 648.69 MiB is free. Process 1279867 has 23.04 GiB memory in use. Of the allocated memory 18.81 GiB is allocated by PyTorch, and 3.93 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+127.0.0.1 - - [2024-12-10 22:50:41] "POST /infer HTTP/1.1" 500 401 0.506936

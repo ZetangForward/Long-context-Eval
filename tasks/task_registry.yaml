@@ -1,0 +1,193 @@
+#https://hf-mirror.com/datasets/Jonaszky123/L-CiteEval/tree/main/L-CiteEval-Hardness
+L-CiteEval:
+  L-CiteEval-Data_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_narrativeqa
+  L-CiteEval-Data_natural_questions: Jonaszky123/L-CiteEval/L-CiteEval-Data_natural_questions
+  L-CiteEval-Data_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_hotpotqa
+  L-CiteEval-Data_2wikimultihopqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_2wikimultihopqa
+  L-CiteEval-Data_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Data_gov_report
+  L-CiteEval-Data_multi_news: Jonaszky123/L-CiteEval/L-CiteEval-Data_multi_news
+  L-CiteEval-Data_qmsum: Jonaszky123/L-CiteEval/L-CiteEval-Data_qmsum
+  L-CiteEval-Data_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Data_locomo
+  L-CiteEval-Data_dialsim: Jonaszky123/L-CiteEval/L-CiteEval-Data_dialsim
+  L-CiteEval-Data_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Data_counting_stars
+  L-CiteEval-Data_niah: Jonaszky123/L-CiteEval/L-CiteEval-Data_niah
+  L-CiteEval-Hardness_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_narrativeqa
+  L-CiteEval-Hardness_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_narrativeqa
+  L-CiteEval-Hardness_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_hotpotqa
+  L-CiteEval-Hardness_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_gov_report
+  L-CiteEval-Hardness_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_locomo
+  L-CiteEval-Hardness_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_counting_stars
+  L-CiteEval-Length_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Length_narrativeqa
+  L-CiteEval-Length_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Length_hotpotqa
+  L-CiteEval-Length_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Length_gov_report
+  L-CiteEval-Length_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Length_locomo
+  L-CiteEval-Length_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Length_counting_stars
+L-CiteEval-Data_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_narrativeqa
+L-CiteEval-Data_natural_questions: Jonaszky123/L-CiteEval/L-CiteEval-Data_natural_questions
+L-CiteEval-Data_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_hotpotqa
+L-CiteEval-Data_2wikimultihopqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_2wikimultihopqa
+L-CiteEval-Data_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Data_gov_report
+L-CiteEval-Data_multi_news: Jonaszky123/L-CiteEval/L-CiteEval-Data_multi_news
+L-CiteEval-Data_qmsum: Jonaszky123/L-CiteEval/L-CiteEval-Data_qmsum
+L-CiteEval-Data_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Data_locomo
+L-CiteEval-Data_dialsim: Jonaszky123/L-CiteEval/L-CiteEval-Data_dialsim
+L-CiteEval-Data_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Data_counting_stars
+L-CiteEval-Data_niah: Jonaszky123/L-CiteEval/L-CiteEval-Data_niah
+L-CiteEval-Hardness_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_narrativeqa
+L-CiteEval-Hardness_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_narrativeqa
+L-CiteEval-Hardness_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_hotpotqa
+L-CiteEval-Hardness_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_gov_report
+L-CiteEval-Hardness_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_locomo
+L-CiteEval-Hardness_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_counting_stars
+L-CiteEval-Length_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Length_narrativeqa
+L-CiteEval-Length_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Length_hotpotqa
+L-CiteEval-Length_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Length_gov_report
+L-CiteEval-Length_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Length_locomo
+L-CiteEval-Length_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Length_counting_stars
+
+LongBench:
+  narrativeqa: THUDM/LongBench/narrativeqa
+  multifieldqa_zh: THUDM/LongBench/multifieldqa_zh
+  musique: THUDM/LongBench/musique
+  dureader: THUDM/LongBench/dureader
+  qmsum: THUDM/LongBench/qmsum
+  vcsum: THUDM/LongBench/vcsum
+  lsht: THUDM/LongBench/lsht
+  passage_retrieval_zh: THUDM/LongBench/passage_retrieval_zh
+  qasper: THUDM/LongBench/qasper
+
+  multifieldqa_en: THUDM/LongBench/multifieldqa_en
+  hotpotqa: THUDM/LongBench/hotpotqa
+  2wikimqa: THUDM/LongBench/2wikimqa
+  gov_report: THUDM/LongBench/gov_report
+  multi_news: THUDM/LongBench/multi_news
+  trec: THUDM/LongBench/trec
+  triviaqa: THUDM/LongBench/triviaqa
+  samsum: THUDM/LongBench/samsum
+  passage_count: THUDM/LongBench/passage_count
+  passage_retrieval_en: THUDM/LongBench/passage_retrieval_en
+  lcc: THUDM/LongBench/lcc
+  repobench-p: THUDM/LongBench/repobench-p
+
+  qasper_e: THUDM/LongBench/qasper_e
+  multifieldqa_en_e: THUDM/LongBench/multifieldqa_en_e
+  hotpotqa_e: THUDM/LongBench/hotpotqa_e
+  2wikimqa_e: THUDM/LongBench/2wikimqa_e
+  gov_report_e: THUDM/LongBench/gov_report_e
+  multi_news_e: THUDM/LongBench/multi_news_e
+  trec_e: THUDM/LongBench/trec_e
+  triviaqa_e: THUDM/LongBench/triviaqa_e
+  samsum_e: THUDM/LongBench/samsum_e
+  passage_count_e: THUDM/LongBench/passage_count_e
+  passage_retrieval_en_e: THUDM/LongBench/passage_retrieval_en_e
+  lcc_e: THUDM/LongBench/lcc_e
+  repobench-p_e: THUDM/LongBench/repobench-p_e
+
+
+
+narrativeqa: THUDM/LongBench/narrativeqa
+multifieldqa_zh: THUDM/LongBench/multifieldqa_zh
+musique: THUDM/LongBench/musique
+dureader: THUDM/LongBench/dureader
+qmsum: THUDM/LongBench/qmsum
+vcsum: THUDM/LongBench/vcsum
+lsht: THUDM/LongBench/lsht
+passage_retrieval_zh: THUDM/LongBench/passage_retrieval_zh
+qasper: THUDM/LongBench/qasper
+
+multifieldqa_en: THUDM/LongBench/multifieldqa_en
+hotpotqa: THUDM/LongBench/hotpotqa
+2wikimqa: THUDM/LongBench/2wikimqa
+gov_report: THUDM/LongBench/gov_report
+multi_news: THUDM/LongBench/multi_news
+trec: THUDM/LongBench/trec
+triviaqa: THUDM/LongBench/triviaqa
+samsum: THUDM/LongBench/samsum
+passage_count: THUDM/LongBench/passage_count
+passage_retrieval_en: THUDM/LongBench/passage_retrieval_en
+lcc: THUDM/LongBench/lcc
+repobench-p: THUDM/LongBench/repobench-p
+
+qasper_e: THUDM/LongBench/qasper_e
+multifieldqa_en_e: THUDM/LongBench/multifieldqa_en_e
+hotpotqa_e: THUDM/LongBench/hotpotqa_e
+2wikimqa_e: THUDM/LongBench/2wikimqa_e
+gov_report_e: THUDM/LongBench/gov_report_e
+multi_news_e: THUDM/LongBench/multi_news_e
+trec_e: THUDM/LongBench/trec_e
+triviaqa_e: THUDM/LongBench/triviaqa_e
+samsum_e: THUDM/LongBench/samsum_e
+passage_count_e: THUDM/LongBench/passage_count_e
+passage_retrieval_en_e: THUDM/LongBench/passage_retrieval_en_e
+lcc_e: THUDM/LongBench/lcc_e
+repobench-p_e: THUDM/LongBench/repobench-p_e
+
+Counting_Stars:
+  counting_stars_en_reasoning: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_EN_multi-evidence-retrieval-reasoning_128000_32_32.jsonl 
+  counting_stars_en_searching: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_EN_multi-evidence-retrieval-searching_128000_32_32.jsonl 
+  counting_stars_zh_reasoning: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_ZH_multi-evidence-retrieval-reasoning_128000_32_32.jsonl 
+  counting_stars_zh_searching: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_ZH_multi-evidence-retrieval-searching_128000_32_32.jsonl
+counting_stars_en_reasoning: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_EN_multi-evidence-retrieval-reasoning_128000_32_32.jsonl 
+counting_stars_en_searching: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_EN_multi-evidence-retrieval-searching_128000_32_32.jsonl 
+counting_stars_zh_reasoning: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_ZH_multi-evidence-retrieval-reasoning_128000_32_32.jsonl 
+counting_stars_zh_searching: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_ZH_multi-evidence-retrieval-searching_128000_32_32.jsonl 
+
+
+Aggregation:
+
+Genral_Capability:
+  narrativeqa: THUDM/LongBench/narrativeqa
+  multifieldqa_zh: THUDM/LongBench/multifieldqa_zh
+  musique: THUDM/LongBench/musique
+  dureader: THUDM/LongBench/dureader
+  qmsum: THUDM/LongBench/qmsum
+  vcsum: THUDM/LongBench/vcsum
+  lsht: THUDM/LongBench/lsht
+  passage_retrieval_zh: THUDM/LongBench/
+  qasper_e: THUDM/LongBench/qasper_e
+  multifieldqa_en_e: THUDM/LongBench/multifieldqa_en_e
+  hotpotqa_e: THUDM/LongBench/hotpotqa_e
+  2wikimqa_e: THUDM/LongBench/2wikimqa_e
+  gov_report_e: THUDM/LongBench/gov_report_e
+  multi_news_e: THUDM/LongBench/multi_news_e
+  trec_e: THUDM/LongBench/trec_e
+  triviaqa_e: THUDM/LongBench/triviaqa_e
+  samsum_e: THUDM/LongBench/samsum_e
+  passage_count_e: THUDM/LongBench/passage_count_e
+  passage_retrieval_en_e: THUDM/LongBench/passage_retrieval_en_e
+  lcc_e: THUDM/LongBench/lcc_e
+  repobench-p_e: THUDM/LongBench/repobench-p_e
+
+
+
+Reasoing:
+  counting_stars_en_reasoning: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_EN_multi-evidence-retrieval-reasoning_128000_32_32.jsonl 
+  counting_stars_en_searching: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_EN_multi-evidence-retrieval-searching_128000_32_32.jsonl 
+  counting_stars_zh_reasoning: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_ZH_multi-evidence-retrieval-reasoning_128000_32_32.jsonl
+  counting_stars_zh_searching: https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/Counting_Stars_ZH_multi-evidence-retrieval-searching_128000_32_32.jsonl 
+
+Retrieval:
+
+Factuality:
+  L-CiteEval-Data_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_narrativeqa
+  L-CiteEval-Data_natural_questions: Jonaszky123/L-CiteEval/L-CiteEval-Data_natural_questions
+  L-CiteEval-Data_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_hotpotqa
+  L-CiteEval-Data_2wikimultihopqa: Jonaszky123/L-CiteEval/L-CiteEval-Data_2wikimultihopqa
+  L-CiteEval-Data_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Data_gov_report
+  L-CiteEval-Data_multi_news: Jonaszky123/L-CiteEval/L-CiteEval-Data_multi_news
+  L-CiteEval-Data_qmsum: Jonaszky123/L-CiteEval/L-CiteEval-Data_qmsum
+  L-CiteEval-Data_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Data_locomo
+  L-CiteEval-Data_dialsim: Jonaszky123/L-CiteEval/L-CiteEval-Data_dialsim
+  L-CiteEval-Data_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Data_counting_stars
+  L-CiteEval-Data_niah: Jonaszky123/L-CiteEval/L-CiteEval-Data_niah
+  L-CiteEval-Hardness_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_narrativeqa
+  L-CiteEval-Hardness_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_narrativeqa
+  L-CiteEval-Hardness_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_hotpotqa
+  L-CiteEval-Hardness_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_gov_report
+  L-CiteEval-Hardness_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_locomo
+  L-CiteEval-Hardness_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Hardness_counting_stars
+  L-CiteEval-Length_narrativeqa: Jonaszky123/L-CiteEval/L-CiteEval-Length_narrativeqa
+  L-CiteEval-Length_hotpotqa: Jonaszky123/L-CiteEval/L-CiteEval-Length_hotpotqa
+  L-CiteEval-Length_gov_report: Jonaszky123/L-CiteEval/L-CiteEval-Length_gov_report
+  L-CiteEval-Length_locomo: Jonaszky123/L-CiteEval/L-CiteEval-Length_locomo
+  L-CiteEval-Length_counting_stars: Jonaszky123/L-CiteEval/L-CiteEval-Length_counting_stars

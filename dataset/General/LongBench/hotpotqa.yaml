@@ -1,0 +1,11 @@
+description: null
+fewshot: 0
+generate:
+  method: generate
+  params: ./dataset/utils/llm-params/llm_hotpotqa.json
+metric:
+  qa_f1_score: null
+path: dataset/General/data/hotpotqa.json
+postprocess_task: null
+task_name: hotpotqa
+transform: ./dataset/utils/transform/LongBench.py
