@@ -195,10 +195,7 @@ class L_cite_eavl_Niah:
 def remove_citations(sent):
     return re.sub(r"\[\d+", "", re.sub(r" \[\d+", "", sent)).replace(" |", "").replace("]", "")
 
-pipe = pipeline("text-classification",model="tasksource/deberta-base-long-nli", device='cuda')
-def run_nli_autoais(passage, claim):
-
-    global pipe
+def run_nli_autoais(pipe,passage, claim):
     result = pipe([dict(text=passage, text_pair=claim)])[0]['label']
     inference = 1 if result == "entailment" else 0
     return inference
@@ -208,11 +205,11 @@ def format_document(doc):
         return "Passage: %s" % (doc)
     if type(doc) == dict:
         return "Title: %s\nPassage: %s" % (doc['title'], doc['text'])
-    
+
+
 class L_cite_eavl_cite:
     def __init__(self):
-        pass
-
+        self.pipe = pipeline("text-classification",model="tasksource/deberta-base-long-nli", device='cuda')
     def __call__(self, passage, ground_truth, results):
         score = {"f1":0,"recall":0,"precision":0,"cite_num":0}
         sents = sent_tokenize(results)
@@ -243,7 +240,7 @@ class L_cite_eavl_cite:
 
             # If not directly rejected by citation format error, calculate the recall score
             if joint_entail == -1: 
-                joint_entail = run_nli_autoais(joint_passage, target_sent)
+                joint_entail = self.run_nli_autoais(joint_passage, target_sent)
             entail += joint_entail
 
             # calculate the precision score if applicable
@@ -252,14 +249,13 @@ class L_cite_eavl_cite:
                 for psgs_id in ref:
                     # condition A
                     passage_ = format_document(passage[psgs_id]) 
-                    nli_result = run_nli_autoais(passage_, target_sent)
-
+                    nli_result = self.run_nli_autoais(passage_, target_sent)
                     # condition B
                     if not nli_result:
                         subset_exclude = copy.deepcopy(ref)
                         subset_exclude.remove(psgs_id)
                         passage_ = '\n'.join([format_document(passage[pid]) for pid in subset_exclude])
-                        nli_result = run_nli_autoais(passage_, target_sent)
+                        nli_result = self.run_nli_autoais(passage_, target_sent)
                         if nli_result: # psgs_id is not necessary
                             flag = 0
                         else:
@@ -286,6 +282,10 @@ class L_cite_eavl_niah_cite:
     def __init__(self):
         pass
 
+    def run_nli_autoais(self,passage, claim):
+        result = self.pipe([dict(text=passage, text_pair=claim)])[0]['label']
+        inference = 1 if result == "entailment" else 0
+        return inference
     def __call__(self, passage, ground_truth, results):
         score = {"f1":0,"recall":0,"precision":0,"cite_num":0}
 

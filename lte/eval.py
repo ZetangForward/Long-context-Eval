@@ -1,10 +1,8 @@
 ## python lte/eval.py --generation_path /save/genration/01M_18D_15H_23m --output_path /save/output/01M_18D_15H_23m
 
 import os
-import pdb
 import sys
 import json
-import yaml
 sys.path.append(os.path.join(os.path.abspath(__file__)))
 from tqdm import tqdm
 from metrics import get_metric
