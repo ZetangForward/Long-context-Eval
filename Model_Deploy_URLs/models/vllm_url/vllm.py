@@ -66,9 +66,7 @@ class Vllm():
         for i in del_list:
             if i in params_dict:
                 params_dict.pop(i)
-        tokenized_prompt = self.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
-        max_model_len = len(tokenized_prompt)+500
-        outputs = self.model.generate(prompt,SamplingParams(**params_dict) ,max_model_len=max_model_len)
+        outputs = self.model.generate(prompt,SamplingParams(**params_dict))
 
 
         generated_text = outputs[0].outputs[0].text
