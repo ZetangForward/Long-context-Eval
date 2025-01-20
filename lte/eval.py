@@ -56,7 +56,7 @@ def eval():
     args = handle_cli_args()
     benchmark_list = os.listdir(args.generation_path)
     progress_bar = tqdm(benchmark_list)
-    logger.info("*"*20+"  evaluating  "+"*"*20)
+    logger.info("*"*40+"  evaluating  "+"*"*40)
     for benchmark_name in progress_bar:
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
         benchmark = get_benchmark_class(benchmark_name)()

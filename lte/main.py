@@ -114,13 +114,13 @@ class Evaluator():
     #完善transfrom后的数据,加description和num_fewshot
 
 def format_tasks(all_tasks):
-    formatted_tasks = ""
+    formatted_tasks = f"  {len(value)} taks: from"
     l = 0
     for key, value in all_tasks.items():
         formatted_tasks += f"{key}:{value} "
         l += len(value)
-        formatted_tasks += f"the length:{len(value)}\n"
-    formatted_tasks += f"Total length: {l}"
+        formatted_tasks += f"\n"
+    formatted_tasks += f"Totally {l} tasks"
     return formatted_tasks
 def main():
     current_time = time.localtime()
@@ -163,11 +163,11 @@ def main():
         all_tasks[benchmark.benchmark_name]=benchmark.task_names
 
     formatted_output = format_tasks(all_tasks)
-    logger.info(f"The tasks you select are:\n{formatted_output}")
-
+    logger.info(f"The tasks you selected are:\n{formatted_output}")
+    logger.info("benchmark  downoading . .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .")
     progress_bar = tqdm(all_benchmarks)
     for benchmark in progress_bar:
-        logger.info("benchmark  downoading . .. . .. .")
+        
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name}")
         benchmark.download_and_transform_data(args=args)
     
@@ -190,7 +190,7 @@ def main():
     all_time = time.time()-start_time
     
     # 计算小时、分钟和秒
-    logger.info("The total run time is ：{:02d}:{:02d}:{:02d}".format(int(all_time // 3600), int((all_time % 3600) // 60), int(all_time % 60)))
+    logger.info("The total running time was ：{:02d}:{:02d}:{:02d}".format(int(all_time // 3600), int((all_time % 3600) // 60), int(all_time % 60)))
 
 if __name__ == "__main__":
 
