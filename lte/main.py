@@ -9,6 +9,9 @@ import subprocess
 from dataset.utils.benchmark_class import get_benchmark_class
 import re
 from loguru import logger
+logger.add(sys.stdout,
+        colorize=True, 
+        format="<level>{message}</level>")
 from utils.request import Request
 import random
 from tasks.instance import Instance

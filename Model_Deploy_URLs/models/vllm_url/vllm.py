@@ -2,7 +2,11 @@ import time
 import os
 import torch
 from copy import deepcopy
+import sys
 from loguru import logger
+logger.add(sys.stdout,
+        colorize=True, 
+        format="<level>{message}</level>")
 from transformers import AutoTokenizer
 from vllm import LLM, SamplingParams,TokensPrompt
 import time

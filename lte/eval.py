@@ -12,6 +12,9 @@ from utils.eval_args import handle_cli_args
 import numpy as np
 from utils.results_table import results_table
 from loguru import logger
+logger.add(sys.stdout,
+        colorize=True, 
+        format="<level>{message}</level>")
 from dataset.utils.benchmark_class import get_benchmark_class
 
 def print_dict_in_table_format(data,task_name_max_len,metric_max_len):

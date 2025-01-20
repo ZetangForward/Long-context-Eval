@@ -5,6 +5,10 @@ import os
 import time 
 from copy import deepcopy
 from loguru import logger
+import sys
+logger.add(sys.stdout,
+        colorize=True, 
+        format="<level>{message}</level>")
 
 class Transformer():
     def __init__(self,args,devices):
