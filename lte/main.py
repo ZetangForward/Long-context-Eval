@@ -9,6 +9,7 @@ import subprocess
 from dataset.utils.benchmark_class import get_benchmark_class
 import re
 from loguru import logger
+logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")

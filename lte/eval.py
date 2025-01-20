@@ -12,6 +12,7 @@ from utils.eval_args import handle_cli_args
 import numpy as np
 from utils.results_table import results_table
 from loguru import logger
+logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")

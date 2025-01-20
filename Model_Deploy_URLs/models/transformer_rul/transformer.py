@@ -6,6 +6,7 @@ import time
 from copy import deepcopy
 from loguru import logger
 import sys
+logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")
