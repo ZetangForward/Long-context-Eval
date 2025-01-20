@@ -2,6 +2,7 @@ transformers
 torch
 accelerate
 vllm
+loguru
 bert_score
 flask
 torch
