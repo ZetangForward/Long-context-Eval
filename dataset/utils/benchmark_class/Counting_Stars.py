@@ -10,7 +10,7 @@ llm_param = {
     "max_tokens": 128,
     "temperature": 0,
     "top_p": 1,
-    "stop_token_ids":"\n",
+    "stop":"\n",
     "do_sample":False
 }
 metric1 = {"reasoning_acc":None}

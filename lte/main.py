@@ -114,9 +114,10 @@ class Evaluator():
     #完善transfrom后的数据,加description和num_fewshot
 
 def format_tasks(all_tasks):
-    formatted_tasks = f"  {len(value)} taks: from"
+    formatted_tasks = ""
     l = 0
     for key, value in all_tasks.items():
+        formatted_tasks+=f"{len(value)} tasks: from"
         formatted_tasks += f"{key}:{value} "
         l += len(value)
         formatted_tasks += f"\n"

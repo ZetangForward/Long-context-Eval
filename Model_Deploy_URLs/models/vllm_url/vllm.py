@@ -4,6 +4,7 @@ import torch
 from copy import deepcopy
 import sys
 from loguru import logger
+logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")
@@ -16,8 +17,34 @@ class Vllm():
         self.args = args
         self.devices = devices
         os.environ["CUDA_VISIBLE_DEVICES"] = args.device       
-        self.params_dict = {  
+        self.params_dict = {
+            "max_tokens": 16,
+            "temperature": 1,
+            "repetition_penalty": 1.0,
+            "n": 1,
+            "best_of": None,
+            "presence_penalty": 0.0,
+            "frequency_penalty": 0.0,
+            "top_p": 1.0,
+            "top_k": -1,
+            "min_p": 0.0,
+            "seed": None,
+            "stop": None,
+            "stop_token_ids": None,
+            "bad_words": None,
+            "ignore_eos": False,
+            "min_tokens": 0,
+            "logprobs": None,
+            "prompt_logprobs": None,
+            "detokenize": True,
+            "skip_special_tokens": True,
+            "spaces_between_special_tokens": True,
+            "logits_processors": None,
+            "include_stop_str_in_output": False,
+            "truncate_prompt_tokens": None,
+            "output_kind": "CUMULATIVE"
         }
+    # 将 num_beams 和 do_sample 转换为 vllm 的参数
     def deploy(self):
         time_start = time.time()
         self.tokenizer =  AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)
@@ -35,8 +62,10 @@ class Vllm():
     def generate(self,params_dict,prompt):
         params_ = deepcopy(self.params_dict)
         params_.update(params_dict)
-        if "num_beams" in params_dict:
-            params_dict.pop("num_beams")
+        del_list = ["do_sample","num_beams"]
+        for i in del_list:
+            if i in params_dict:
+                params_dict.pop(i)
         tokenized_prompt = self.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
         max_model_len = len(tokenized_prompt)+500
         outputs = self.model.generate(prompt,SamplingParams(**params_dict) ,max_model_len=max_model_len)

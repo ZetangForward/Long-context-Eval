@@ -6,10 +6,10 @@ from dataset.utils.benchmark_class.base_class import Base
 from datasets import load_dataset
 import subprocess
 
-llm_param1 = {"max_tokens": 128,"temperature": 0,"top_p": 1,"stop_token_ids":"\n","do_sample":False}
-llm_param2 = {"max_tokens": 200,"temperature": 0,"top_p": 1,"stop_token_ids":"\n","do_sample":False}
-llm_param3 = {"max_tokens": 800,"temperature": 0,"top_p": 1,"stop_token_ids":"\n","do_sample":False}
-llm_param4 = {"max_tokens": 1000,"temperature": 0,"top_p": 1,"stop_token_ids":"\n","do_sample":False}
+llm_param1 = {"max_tokens": 128,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
+llm_param2 = {"max_tokens": 200,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
+llm_param3 = {"max_tokens": 800,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
+llm_param4 = {"max_tokens": 1000,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
 metric1 = {"l_cite_eavl_cite":None}
 metric2 = {"l_cite_eavl_counting_stars_cite":None}
 metric3 = {"l_cite_eavl_niah_cite":None}
