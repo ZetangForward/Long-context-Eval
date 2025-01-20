@@ -45,10 +45,10 @@ class Counting_Stars(Base):
                     f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
 
     def download_and_transform_data(self,**kwargs):
-        for task_name in tqdm(self.task_names):
+        for task_name in self.task_names:
             download_path = "./dataset/{}/tmp_Rawdata/{}.json".format(self.ability,task_name)
             os.makedirs("./dataset/{}/tmp_Rawdata".format(self.ability),exist_ok=True)
-            command = ["wget",self.hf+task_download_name[task_name],"-O",download_path]
+            command = ["wget","-c",self.hf+task_download_name[task_name],"-O",download_path]
             subprocess.run(command)
             self.make_data(download_path,self.ability,task_name)
 

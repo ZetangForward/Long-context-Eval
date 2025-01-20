@@ -2,31 +2,22 @@
 import os
 import sys
 sys.path.append(os.path.join(os.path.abspath(__file__)))
-import yaml
 import time
 import json
 import subprocess
-
 from dataset.utils.benchmark_class import get_benchmark_class
-from datasets import load_dataset
-from datasets import Dataset
-from utils.utils import import_function_from_path
 import re
-import logging
-import pdb
-import argparse
+from loguru import logger
 from utils.request import Request
 import random
 from tasks.instance import Instance
-from collections import ChainMap
 from tqdm import tqdm
 from Model_Deploy_URLs import get_model
-from tasks.postprocess import get_postprocess
 import numpy as np
 from utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
-logger = logging.getLogger('my_logger')
+
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #设置参数
@@ -87,10 +78,10 @@ class Evaluator():
             if  hasattr(benchmark, 'postprocess'):
                 processed_outputs = benchmark.postprocess(raw_outputs)
 
-            # print("模型输入:\n{}".format(request.instances["input"][-50:]))
-            # print("模型输出结果:\n{}".format(raw_outputs[0]))
-            # print("处理后的结果:\n{}".format(processed_outputs[0]))
-            # print("答案:\n{}".format(request.instances["processed_output"]))
+            # logger.info("模型输入:\n{}".format(request.instances["input"][-50:]))
+            # logger.info("模型输出结果:\n{}".format(raw_outputs[0]))
+            # logger.info("处理后的结果:\n{}".format(processed_outputs[0]))
+            # logger.info("答案:\n{}".format(request.instances["processed_output"]))
             
             request.raw_example.raw_outputs = raw_outputs
             request.raw_example.processed_outputs = processed_outputs
@@ -102,11 +93,12 @@ class Evaluator():
             #     json.dump({"task":task_name,"模型输入":request.instances["input"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth}, f, ensure_ascii=False)
             #     f.write('\n')
             # with open('output.doc', 'a') as f:
-            #     print("评测文本输入:\n{}\n".format(request.raw_example.data["passage"]),file=f)
-            #     print("模型预测:\n{}\n".format(request.raw_example.processed_outputs),file=f)
-            #     print("正确结果:\n{}\n".format(request.raw_example.ground_truth),file=f)
+            #     logger.info("评测文本输入:\n{}\n".format(request.raw_example.data["passage"]),file=f)
+            #     logger.info("模型预测:\n{}\n".format(request.raw_example.processed_outputs),file=f)
+            #     logger.info("正确结果:\n{}\n".format(request.raw_example.ground_truth),file=f)
 
             os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name), exist_ok=True)
+            logger.info(f"All data is stored in {self.args.generation_path}.")
             with open(os.path.join(self.args.generation_path,benchmark.benchmark_name,task_name+".json"), "a", encoding="utf-8") as f:
                 if True:
                     json.dump({"choices":request.raw_example.data["passage"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth,"model_input":request.instances["input"]}, f, ensure_ascii=False)
@@ -116,15 +108,19 @@ class Evaluator():
 
     #完善transfrom后的数据,加description和num_fewshot
 
-
+def format_tasks(all_tasks):
+    formatted_tasks = ""
+    l = 0
+    for key, value in all_tasks.items():
+        formatted_tasks += f"{key}:{value} "
+        l += len(value)
+        formatted_tasks += f"the length:{len(value)}\n"
+    formatted_tasks += f"Total length: {l}"
+    return formatted_tasks
 def main():
     current_time = time.localtime()
-
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
-
     os.environ["HF_ENDPOINT"]="https://hf-mirror.com"
-    
-
     args = handle_cli_args()
     args.generation_path = args.generation_path+"/"+formatted_time
     args.save_path = args.save_path+"/"+formatted_time
@@ -137,9 +133,10 @@ def main():
     os.environ["CUDA_VISIBLE_DEVICES"] = args.device
 
     #task data download
-    all_tasks = []
+    all_tasks = {}
+    task_len = 0
     all_benchmarks= []
-    print(args.benchmark_names)
+    logger.info(f"Loading the config information for benchmarks: {args.benchmark_names}")
     pattern = re.compile(r'_(\d+)')
     for benchmark_name in args.benchmark_names.split(","):
         benchmark_name = benchmark_name.strip()
@@ -157,14 +154,20 @@ def main():
             else:
                 benchmark = get_benchmark_class(benchmark_name)()
         all_benchmarks.append(benchmark)
-        all_tasks.extend(benchmark.task_names)
-    logger.info("the length of tasks is :{}, they are:{}".format(len(all_tasks),all_tasks))
-    for benchmark in tqdm(all_benchmarks):
-        print("benchmark :{}  downoading . .. . .. .".format(benchmark.benchmark_name))
+        task_len += len(benchmark.task_names)
+        all_tasks[all_benchmarks]=benchmark.task_names
+
+    formatted_output = format_tasks(all_tasks)
+    logger.info(f"The tasks you select are:\n{formatted_output}")
+
+    progress_bar = tqdm(all_benchmarks)
+    for benchmark in progress_bar:
+        logger.info("benchmark  downoading . .. . .. .")
+        progress_bar.set_description(f"Downloading {benchmark.benchmark_name}")
         benchmark.download_and_transform_data(args=args)
     
     #开始评测
-    
+    logger.info(f"The model starts generating data.")
     evaluator = Evaluator(args,all_benchmarks)
     evaluator.run(args.device_split_num)
 

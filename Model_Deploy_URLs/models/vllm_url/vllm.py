@@ -2,11 +2,10 @@ import time
 import os
 import torch
 from copy import deepcopy
-import logging
+from loguru import logger
 from transformers import AutoTokenizer
 from vllm import LLM, SamplingParams,TokensPrompt
 import time
-logger = logging.getLogger('my_logger')
 
 class Vllm():
     def __init__(self,args, devices):

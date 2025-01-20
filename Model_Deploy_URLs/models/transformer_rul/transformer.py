@@ -4,8 +4,7 @@ import torch
 import os
 import time 
 from copy import deepcopy
-import logging
-logger = logging.getLogger('my_logger')
+from loguru import logger
 
 class Transformer():
     def __init__(self,args,devices):
