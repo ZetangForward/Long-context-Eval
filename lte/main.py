@@ -1,7 +1,8 @@
 # python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct  --eval --benchmark_names LongBench,Counting_Stars --device 0,1 --device_split_num 2 --limit 1
 import os
 import sys
-sys.path.append(os.path.join(os.path.abspath(__file__)))
+
+sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 import time
 import json
 import subprocess
@@ -53,10 +54,10 @@ class Evaluator():
             logger.info("devices:{}".format(devices))
             p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
             p.start()
-            time.sleep(120)
             processes.append(p)
         for p in processes:
             p.join()
+        
 
     def get_pred(self,i,raw_data,devices):
         #model depoly     
@@ -98,7 +99,7 @@ class Evaluator():
             #     logger.info("正确结果:\n{}\n".format(request.raw_example.ground_truth),file=f)
 
             os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name), exist_ok=True)
-            logger.info(f"All data is stored in {self.args.generation_path}.")
+            
             with open(os.path.join(self.args.generation_path,benchmark.benchmark_name,task_name+".json"), "a", encoding="utf-8") as f:
                 if True:
                     json.dump({"choices":request.raw_example.data["passage"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth,"model_input":request.instances["input"]}, f, ensure_ascii=False)
@@ -155,7 +156,7 @@ def main():
                 benchmark = get_benchmark_class(benchmark_name)()
         all_benchmarks.append(benchmark)
         task_len += len(benchmark.task_names)
-        all_tasks[all_benchmarks]=benchmark.task_names
+        all_tasks[benchmark.benchmark_name]=benchmark.task_names
 
     formatted_output = format_tasks(all_tasks)
     logger.info(f"The tasks you select are:\n{formatted_output}")
@@ -170,6 +171,7 @@ def main():
     logger.info(f"The model starts generating data.")
     evaluator = Evaluator(args,all_benchmarks)
     evaluator.run(args.device_split_num)
+    logger.info(f"All data is stored in {args.generation_path}")
 
     #eval
     if args.eval:
@@ -184,7 +186,7 @@ def main():
     all_time = time.time()-start_time
     
     # 计算小时、分钟和秒
-    logger.info("The total time is ：{:02d}:{:02d}:{:02d}".format(int(all_time // 3600), int((all_time % 3600) // 60), int(all_time % 60)))
+    logger.info("The total run time is ：{:02d}:{:02d}:{:02d}".format(int(all_time // 3600), int((all_time % 3600) // 60), int(all_time % 60)))
 
 if __name__ == "__main__":
 

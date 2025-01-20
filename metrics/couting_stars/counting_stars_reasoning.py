@@ -8,17 +8,12 @@ class Counting_Stars_Reasoning:
 
 
     def __call__(self, passage, ground_truth, results) -> Any:
-        print("启示文本\n：{}".format(results))
-
         try:
             model_ans = results.strip()
-            print(model_ans)
             re.sub(r"\\+", "",model_ans)
-            print(model_ans)
             ind1 = model_ans.index("{")
             ind2 = model_ans.index('}')
             model_ans = json.loads(model_ans[ind1:ind2+1])
-            print(model_ans)
         except:
             return 0
         if "little_penguin" in model_ans:
@@ -27,7 +22,6 @@ class Counting_Stars_Reasoning:
             results = model_ans["小企鹅"]
         else:
             return 0
-        print("list:{}\n".format(results))
         results = results[:32]
         score = 0
         for i in range(len(self.a_stars)):

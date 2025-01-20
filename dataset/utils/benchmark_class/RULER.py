@@ -62,7 +62,9 @@ class RULER(Base):
         subprocess.run(command)
         command = ["bash","./dataset/utils/data_synthetic/RULER/data/synthetic/json/download_qa_dataset.sh"]
         subprocess.run(command)
-        for task_name in self.task_names:
+        progress_bar = tqdm(self.task_names)
+        for task_name in progress_bar:
+            progress_bar.set_description(f"Downloading task: {task_name}")
             task,length = "_".join(task_name.split("_")[:-1]),task_name.split("_")[-1]
             command = ["python","./dataset/utils/data_synthetic/RULER/data/prepare.py",
                         "--save_dir","./dataset/General/data",

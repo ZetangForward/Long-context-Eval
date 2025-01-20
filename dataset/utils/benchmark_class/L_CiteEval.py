@@ -36,7 +36,9 @@ class L_CiteEval(Base):
             # 更新记录文件，写入当前已写入的行数
 
     def download_and_transform_data(self,**kwargs):
-        for task_name in self.task_names:
+        progress_bar = tqdm(self.task_names)
+        for task_name in progress_bar:
+            progress_bar.set_description(f"Downloading task: {task_name}")
             data = load_dataset(self.hf,task_name,cache_dir="./dataset/{}/tmp_Rawdata".format(self.ability), split="test",trust_remote_code=True)
             self.make_data(data,self.ability,task_name)
     

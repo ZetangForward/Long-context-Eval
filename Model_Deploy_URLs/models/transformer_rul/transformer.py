@@ -42,16 +42,16 @@ class Transformer():
 
         # zecheng_note
 
-        input = self.tokenizer(text=prompt, truncation=False, return_tensors="pt").to(self.model.device)
+        input = self.tokenizer(prompt, truncation=False, return_tensors="pt").to(self.model.device)
         context_length = input.input_ids.shape[-1]
         output = self.model.generate(
                 **input,
                 **params_
             )[0]
         
-        del input
-        torch.cuda.empty_cache()
         pred = self.tokenizer.decode(output[context_length:], skip_special_tokens=True)
+        torch.cuda.empty_cache()
+        del input
         del output
         return pred
 

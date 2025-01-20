@@ -13,8 +13,8 @@ llm_param = {
     "stop_token_ids":"\n",
     "do_sample":False
 }
-metric1 = {"counting_stars_reasoning":None}
-metric2 = {"counting_stars_searching":None}
+metric1 = {"reasoning_acc":None}
+metric2 = {"searching_acc":None}
 task_download_name = {
 "counting_stars_en_reasoning": "Counting_Stars_EN_multi-evidence-retrieval-reasoning_128000_32_32.jsonl" ,
 "counting_stars_en_searching": "Counting_Stars_EN_multi-evidence-retrieval-searching_128000_32_32.jsonl" ,
@@ -45,7 +45,9 @@ class Counting_Stars(Base):
                     f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
 
     def download_and_transform_data(self,**kwargs):
-        for task_name in self.task_names:
+        progress_bar = tqdm(self.task_names)
+        for task_name in progress_bar:
+            progress_bar.set_description(f"Downloading task: {task_name}")
             download_path = "./dataset/{}/tmp_Rawdata/{}.json".format(self.ability,task_name)
             os.makedirs("./dataset/{}/tmp_Rawdata".format(self.ability),exist_ok=True)
             command = ["wget","-c",self.hf+task_download_name[task_name],"-O",download_path]

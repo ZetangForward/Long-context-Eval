@@ -78,8 +78,6 @@ class Counting_Stars_Citation_ACC:
             total_correct  = 0
             results['little_penguin'] = results['little_penguin'][:len(gold_ans_lst)]
             for idx, ans in enumerate(results['little_penguin']):
-
                 if ans in gold_ans_lst:
                     total_correct += 1
-            print(gold_ans_lst)
             return total_correct/len(gold_ans_lst)

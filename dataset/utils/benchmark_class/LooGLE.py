@@ -52,23 +52,25 @@ class LooGLE(Base):
                             f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
 
     def download_and_transform_data(self,**kwargs):
-        for task_name in self.task_names:
+        progress_bar = tqdm(self.task_names)
+        for task_name in progress_bar:
+            progress_bar.set_description(f"Downloading task: {task_name}")
             try:
                 data = load_dataset(self.hf,task_name,cache_dir="./dataset/{}/tmp_Rawdata".format(self.ability), split="test",trust_remote_code=True)
                 self.make_data(data,self.ability,task_name)
             except:
-                self.download_data = True
-        if self.download_data:
-            command = ["huggingface-cli","download",
-                            "--repo-type", "dataset" ,
-                            "--resume-download",self.hf,
-                            "--local-dir","./dataset/{}/tmp_Rawdata/{}".format(self.ability,self.benchmark_name)]
-            subprocess.run(command)
-            command = ["unzip","-n","./dataset/{}/tmp_Rawdata/{}/data.zip".format(self.ability,self.benchmark_name),
-                        "-d","./dataset/{}/tmp_Rawdata".format(self.ability)]
-            subprocess.run(command)
-            path = "./dataset/{}/tmp_Rawdata/{}.json".format(self.ability,task_name)
-            self.make_data(path,self.ability,task_name)
+                if not self.download_data:
+                    self.download_data=True
+                    command = ["huggingface-cli","download",
+                                    "--repo-type", "dataset" ,
+                                    "--resume-download",self.hf,
+                                    "--local-dir","./dataset/{}/tmp_Rawdata/{}".format(self.ability,self.benchmark_name)]
+                    subprocess.run(command)
+                    command = ["unzip","-n","./dataset/{}/tmp_Rawdata/{}/data.zip".format(self.ability,self.benchmark_name),
+                                "-d","./dataset/{}/tmp_Rawdata".format(self.ability)]
+                    subprocess.run(command)
+                path = "./dataset/{}/tmp_Rawdata/{}.json".format(self.ability,task_name)
+                self.make_data(path,self.ability,task_name)
 
     def transform(self,data,task_name,**kwargs):
         prompt_list = {

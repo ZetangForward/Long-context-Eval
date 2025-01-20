@@ -6,7 +6,6 @@ class Counting_Stars_Searching:
         self.a_stars = [15, 117, 42, 69, 58, 107, 9, 49, 113, 66, 26, 102, 81, 94, 77, 61, 5, 19, 109, 3, 35, 54, 86, 89, 127, 21, 46, 122, 38, 97, 74, 29]
 
     def __call__(self, passage, ground_truth, results) -> Any:
-        print("启示文本\n：{}".format(results))
         try:
             model_ans = results.strip()
             re.sub(r"\\+", "",model_ans)
@@ -21,7 +20,6 @@ class Counting_Stars_Searching:
             results = model_ans["小企鹅"]
         else:
             return 0
-        print("list:{}\n".format(results))
         results = results[:32]
         results = list(set(results))
         score = 0

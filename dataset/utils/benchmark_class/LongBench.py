@@ -37,7 +37,9 @@ class LongBench(Base):
                 f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
 
     def download_and_transform_data(self,**kwargs):
-        for task_name in self.task_names:
+        progress_bar = tqdm(self.task_names)
+        for task_name in progress_bar:
+            progress_bar.set_description(f"Downloading task: {task_name}")
             data = load_dataset(self.hf,task_name,cache_dir="./dataset/{}/tmp_Rawdata".format(self.ability), split="test",trust_remote_code=True)
             self.make_data(data,self.ability,task_name)
                 
