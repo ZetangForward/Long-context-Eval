@@ -23,7 +23,7 @@ import numpy as np
 from utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
-from Model_Deploy_URLs.rag import get_rag_method
+# from Model_Deploy_URLs.rag import get_rag_method
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #设置参数
