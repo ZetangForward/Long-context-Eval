@@ -4,13 +4,11 @@ from dataset.utils.benchmark_class.LooGLE import LooGLE
 from dataset.utils.benchmark_class.RULER import RULER
 from dataset.utils.benchmark_class.LongBench import LongBench
 from dataset.utils.benchmark_class.Counting_Stars import Counting_Stars
-from dataset.utils.benchmark_class.L_CiteEval import L_CiteEval
 Class_REGISTRY = {
     "LooGLE":LooGLE,
     "RULER":RULER,
     "LongBench":LongBench,
-    "Counting_Stars":Counting_Stars,
-    "L_CiteEval":L_CiteEval
+    "Counting_Stars":Counting_Stars
 }
 
 def get_benchmark_class(benchmark_name):

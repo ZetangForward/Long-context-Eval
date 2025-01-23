@@ -3,6 +3,12 @@ torch
 accelerate
 vllm
 loguru
+
+rank_bm25
+llama_index
+fabric
+raptor
+
 bert_score
 flask
 torch

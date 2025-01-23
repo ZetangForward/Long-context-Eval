@@ -3,7 +3,7 @@ import argparse
 def handle_cli_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_path", required=True,help = "Selects which model type or provider is evaluated. Must be a string corresponding to the name of the model type/provider being used.")
-    
+    parser.add_argument("--rag", default="", choices=["",'openai', 'BM25', 'raptor', 'llamaindex', 'contriever'],help="Selects the model type or provider for information retrieval. You must choose from the following options: 'openai', 'BM25', 'raptor', 'llamaindex', 'contriever'. Each option corresponds to a different approach for retrieving relevant information.")
     parser.add_argument("--server", type=str, default="transformers",help="Selects which reasoning frame , Must be a string `[transformers,vllm]")
     parser.add_argument("--acceleration", type=str, default="",help="Selects which acceleration frame , Must be a string:`[duo_attn,Snapkv,streaming_llm,ms-poe,selfextend,lm-inifinite(llama,gpt-j,mpt)，activation_beacon,tova],现在别用")
     parser.add_argument("--port", type=int, default="5002",help=" Accepts an integer and sets a port for deploying the model.")

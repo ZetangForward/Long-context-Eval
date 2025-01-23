@@ -1,7 +1,8 @@
 # python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct  --eval --benchmark_names LongBench,Counting_Stars --device 0,1 --device_split_num 2 --limit 1
 import os
 import sys
-
+import yaml
+import pdb
 sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 import time
 import json
@@ -22,7 +23,7 @@ import numpy as np
 from utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
-
+from Model_Deploy_URLs.rag import get_rag_method
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #设置参数
@@ -35,7 +36,11 @@ class Evaluator():
         for benchmark in all_benchmarks:
             for task_name in benchmark.task_names:
                 #后处理函数返回【【output】【postprocessed_output】】
-                with open(benchmark.data_path+task_name+".json", "r", encoding="utf-8") as file:
+                if hasattr(benchmark, 'length'):
+                    path = benchmark.data_path+task_name+f"_{benchmark.length}"+".json"
+                else:
+                    path = benchmark.data_path+task_name+".json"
+                with open(path, "r", encoding="utf-8") as file:
                     for index, line in enumerate(file):
                         if index>=self.limit:
                             break
@@ -143,35 +148,46 @@ def main():
     task_len = 0
     all_benchmarks= []
     logger.info(f"Loading the config information for benchmarks: {args.benchmark_names}")
-    pattern = re.compile(r'_(\d+)')
     for benchmark_name in args.benchmark_names.split(","):
         benchmark_name = benchmark_name.strip()
-        if ":" in benchmark_name:
-            benchmark = get_benchmark_class(benchmark_name.split(":")[0])()
-            tasks_list =  benchmark_name.split(":")[1].split("*")
-            for task_name in  tasks_list:
-                task_name = task_name.strip()
-            benchmark.task_names = tasks_list
+        with open(f"tasks/configs/{benchmark_name}.yaml", "r") as f:
+            config = yaml.safe_load(f)
+        if "length" in config:
+            for l in config["length"]:
+                benchmark = get_benchmark_class(benchmark_name)(l)
+                benchmark.task_names = config["tasks"]
+                all_benchmarks.append(benchmark)
+                task_len += len(benchmark.task_names)
+                all_tasks[benchmark.benchmark_name]=benchmark.task_names
         else:
-            match = pattern.search(benchmark_name)
-            if match:
-                benchmark_name,length = "_".join(benchmark_name.split("_")[:-1]),benchmark_name.split("_")[-1]
-                benchmark = get_benchmark_class(benchmark_name)(length)
-            else:
-                benchmark = get_benchmark_class(benchmark_name)()
-        all_benchmarks.append(benchmark)
-        task_len += len(benchmark.task_names)
-        all_tasks[benchmark.benchmark_name]=benchmark.task_names
+            benchmark = get_benchmark_class(benchmark_name)()
+            benchmark.task_names = config["tasks"]
+            all_benchmarks.append(benchmark)
+            task_len += len(benchmark.task_names)
+            all_tasks[benchmark.benchmark_name]=benchmark.task_names
 
     formatted_output = format_tasks(all_tasks)
     logger.info(f"The tasks you selected are:\n{formatted_output}")
     logger.info("benchmark  downoading . .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .")
     progress_bar = tqdm(all_benchmarks)
-    for benchmark in progress_bar:
-        
+    tasks_path_list = []
+    for benchmark in progress_bar:   
+        tasks_list = []
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name}")
         benchmark.download_and_transform_data(args=args)
-    
+        if args.rag!="":
+            data_path = benchmark.data_path
+            for task_name in benchmark.task_names:
+                task_path = data_path+"/"+task_name+".json"
+                tasks_path_list.append(task_path)
+                task_name += f"_{args.rag}"
+                tasks_list.append(task_name)
+            benchmark.task_names = tasks_list
+    if args.rag!="":
+        rag = get_rag_method(args.rag)(args.model_path,tasks_path_list)
+        logger.info("performing information retrieval")
+        rag.traverse_task()            
+
     #开始评测
     logger.info(f"The model starts generating data.")
     evaluator = Evaluator(args,all_benchmarks)

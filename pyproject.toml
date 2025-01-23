@@ -8,7 +8,7 @@ version = "0.1"
 description = "A framework for evaluating lont language models"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["transformers", "loguru","torch", "accelerate", "vllm", "bert_score", "flask", "torch", "gevent", "pandas", "peft", "sacrebleu", "hydra-core", "nltk", "nvidia-ml-py", "openai", "openpyxl", "matplotlib", "rouge", "rouge_chinese", "jieba", "fuzzywuzzy", "pandas", "wonderwords", "tenacity", "python-Levenshtein", "scipy", "PyYAML", "tqdm", "datasets", "html2text", "nemo", "flash_attn", "huggingface_hub"]
+dependencies = ["transformers","loguru","torch", "accelerate", "vllm", "bert_score", "flask", "torch", "gevent", "pandas", "peft", "sacrebleu", "hydra-core", "nltk", "nvidia-ml-py", "openai", "openpyxl", "matplotlib", "rouge", "rouge_chinese", "jieba", "fuzzywuzzy", "pandas", "wonderwords", "tenacity", "python-Levenshtein", "scipy", "PyYAML", "tqdm", "datasets", "html2text", "nemo", "flash_attn", "huggingface_hub"]
 
 [tool.setuptools.packages.find]
 include = ["*"]

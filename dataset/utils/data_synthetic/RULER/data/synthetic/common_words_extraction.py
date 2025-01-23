@@ -27,7 +27,7 @@ python common_words_extraction.py   \
     -freq_cw 30 --freq_ucw 3 --num_cw 10 \
     --template "[INST] Below is a numbered list of words. In these words, some appear more often than others. Memorize the ones that appear most often.\n{context}\nQuestion: What are the 10 most common words in the above list? [/INST] Answer: The top 10 words that appear most often in the list are:"
 """
-
+import pdb
 import os
 import argparse
 from pathlib import Path

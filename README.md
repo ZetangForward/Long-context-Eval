@@ -28,7 +28,7 @@ We also provide a number of optional dependencies for extended functionality. A 
 
 A user guide detailing the full list of supported arguments is provided [here](./docs/interface.md), and on the terminal by calling `lte -h`.
 
-A list of supported tasks (or groupings of tasks) can be viewed with `lm-eval --tasks list`. Task descriptions and links to corresponding subfolders are provided [here](./tasks/README.md).
+A list of supported tasks (or groupings of tasks) can be viewed with `lm-eval --benchmark_names list` Now you can evaluate these benchmarks: ["RULER","LooGLE","Counting_Stars","L_CiteEval"] . Task descriptions and links to corresponding subfolders are provided [here](./tasks/README.md).
 
 ### Hugging Face `transformers`
 
