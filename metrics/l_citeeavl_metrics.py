@@ -1,20 +1,12 @@
 
 import json
-import argparse
-import glob
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from collections import Counter
-from rouge import Rouge
-from tqdm import tqdm
-import numpy as np
+from rouge import rouge
 import re
 import string
-import torch
 from nltk import sent_tokenize
-import logging
 import copy
-import os
-from transformers import pipeline
+
 
 
 def remove_citations(sent):
@@ -65,7 +57,7 @@ def normalize_answer(s):
     return white_space_fix(remove_articles(remove_punc(lower(s))))
 
 class L_cite_eavl_Qa_Score:
-    def __init__(self):
+    def __init__(self,**kwargs):
         pass
     def get_score(self, ground_truth, results):
         if '\n' in results:
@@ -93,7 +85,7 @@ class L_cite_eavl_Qa_Score:
         return score
     
 class L_cite_eavl_Rouge_Score:
-    def __init__(self):
+    def __init__(self,**kwargs):
         pass
     def get_score(self,ground_truth, results):
         model_ans = results.strip()
@@ -123,7 +115,7 @@ class L_cite_eavl_Rouge_Score:
         return self.get_score(ground_truths,results)
 
 class L_cite_eavl_Counting_Stars:
-    def __init__(self):
+    def __init__(self,**kwargs):
         pass
 
     def __call__(self, passage, ground_truth, results):
@@ -167,7 +159,7 @@ class L_cite_eavl_Counting_Stars:
         
 
 class L_cite_eavl_Niah:
-    def __init__(self):
+    def __init__(self,**kwargs):
         pass
     def get_score(self,ground_truth, results):
         model_ans = results.strip()
@@ -195,10 +187,7 @@ class L_cite_eavl_Niah:
 def remove_citations(sent):
     return re.sub(r"\[\d+", "", re.sub(r" \[\d+", "", sent)).replace(" |", "").replace("]", "")
 
-def run_nli_autoais(pipe,passage, claim):
-    result = pipe([dict(text=passage, text_pair=claim)])[0]['label']
-    inference = 1 if result == "entailment" else 0
-    return inference
+
 
 def format_document(doc):
     if type(doc) == str:
@@ -208,8 +197,13 @@ def format_document(doc):
 
 
 class L_cite_eavl_cite:
-    def __init__(self):
-        self.pipe = pipeline("text-classification",model="tasksource/deberta-base-long-nli", device='cuda')
+    def __init__(self,pipe,**kwargs):
+        self.pipe = pipe
+
+    def run_nli_autoais(self,passage, claim):
+        result = self.pipe([dict(text=passage, text_pair=claim)])[0]['label']
+        inference = 1 if result == "entailment" else 0
+        return inference
     def __call__(self, passage, ground_truth, results):
         score = {"f1":0,"recall":0,"precision":0,"cite_num":0}
         sents = sent_tokenize(results)
@@ -279,9 +273,8 @@ class L_cite_eavl_cite:
         score['cite_num']=total_citations
         return score
 class L_cite_eavl_niah_cite:
-    def __init__(self):
-        pass
-
+    def __init__(self,pipe,**kwargs):
+        self.pipe = pipe
     def run_nli_autoais(self,passage, claim):
         result = self.pipe([dict(text=passage, text_pair=claim)])[0]['label']
         inference = 1 if result == "entailment" else 0
@@ -314,7 +307,7 @@ class L_cite_eavl_niah_cite:
         return  score
 
 class L_cite_eavl_counting_stars_cite:
-    def __init__(self):
+    def __init__(self,**kwargs):
         pass
 
     def __call__(self, passage, ground_truth, results):

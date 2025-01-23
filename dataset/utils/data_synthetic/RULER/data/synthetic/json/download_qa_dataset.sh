@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ -f./dataset/General/tmp_Rawdata/squad.json ]; then
+if [ -f dataset/General/tmp_Rawdata/squad.json ]; then
     echo "squad.json already exists"
 else
     wget https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json -O ./dataset/General/tmp_Rawdata/squad.json
 fi
 
-if [ -f./dataset/General/tmp_Rawdata/hotpotqa.json ]; then
+if [ -f dataset/General/tmp_Rawdata/hotpotqa.json ]; then
     echo "hotpotqa.json already exists"
 else
     wget http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distractor_v1.json -O ./dataset/General/tmp_Rawdata/hotpotqa.json

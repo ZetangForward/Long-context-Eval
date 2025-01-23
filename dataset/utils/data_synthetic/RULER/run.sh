@@ -43,7 +43,6 @@ BENCHMARK=synthetic
 declare -n TASKS=$BENCHMARK
 
 
-
 # Start client (prepare data / call model API / obtain final metrics)
 total_time=0
 for MAX_SEQ_LENGTH in "${SEQ_LENGTHS[@]}"; do

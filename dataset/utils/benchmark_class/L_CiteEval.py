@@ -16,7 +16,7 @@ metric3 = {"l_cite_eavl_niah_cite":None}
 class L_CiteEval(Base):
     def __init__(self):
         super().__init__()
-        self.benchmark_name = "L-CiteEval"
+        self.benchmark_name = "L_CiteEval"
         self.task_names = ['L-CiteEval-Length_narrativeqa', 'L-CiteEval-Length_locomo', 'L-CiteEval-Length_hotpotqa', 'L-CiteEval-Length_gov_report', 'L-CiteEval-Length_counting_stars', 'L-CiteEval-Hardness_narrativeqa', 'L-CiteEval-Hardness_locomo', 'L-CiteEval-Hardness_hotpotqa', 'L-CiteEval-Hardness_gov_report', 'L-CiteEval-Hardness_counting_stars', 'L-CiteEval-Data_qmsum', 'L-CiteEval-Data_niah', 'L-CiteEval-Data_natural_questions', 'L-CiteEval-Data_narrativeqa', 'L-CiteEval-Data_multi_news', 'L-CiteEval-Data_locomo', 'L-CiteEval-Data_hotpotqa', 'L-CiteEval-Data_gov_report', 'L-CiteEval-Data_dialsim', 'L-CiteEval-Data_counting_stars', 'L-CiteEval-Data_2wikimultihopqa']
         self.ability = "Factuality"
         self.hf = "Jonaszky123/L-CiteEval"
