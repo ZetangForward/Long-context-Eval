@@ -129,16 +129,16 @@ def format_tasks(all_tasks):
     formatted_tasks += f"Totally {l} tasks"
     return formatted_tasks
 def main():
+    ## init
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
-    os.environ["HF_ENDPOINT"]="https://hf-mirror.com"
     args = handle_cli_args()
+    gpu_count = torch.cuda.device_count()
+    args.device = ','.join(map(str, range(gpu_count)))
     args.generation_path = args.generation_path+"/"+formatted_time
     args.save_path = args.save_path+"/"+formatted_time
-
     seed = 0;random.seed(seed);np.random.seed(seed)
     start_time = time.time()
-    # 读取 asd.json 文件
     if len(args.device.split(","))%args.device_split_num!=0:
         raise ValueError("The number of GPUs cannot be divided evenly by the number of blocks.")
     os.environ["CUDA_VISIBLE_DEVICES"] = args.device
@@ -165,7 +165,6 @@ def main():
             all_benchmarks.append(benchmark)
             task_len += len(benchmark.task_names)
             all_tasks[benchmark.benchmark_name]=benchmark.task_names
-
     formatted_output = format_tasks(all_tasks)
     logger.info(f"The tasks you selected are:\n{formatted_output}")
     logger.info("benchmark  downoading . .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .")
@@ -188,7 +187,7 @@ def main():
         logger.info("performing information retrieval")
         rag.traverse_task()            
 
-    #开始评测
+    #start to generate
     logger.info(f"The model starts generating data.")
     evaluator = Evaluator(args,all_benchmarks)
     evaluator.run(args.device_split_num)
@@ -203,11 +202,9 @@ def main():
         subprocess.run(command)
 
 
-    #查看运行时间
-    all_time = time.time()-start_time
-    
-    # 计算小时、分钟和秒
-    logger.info("The total running time was ：{:02d}:{:02d}:{:02d}".format(int(all_time // 3600), int((all_time % 3600) // 60), int(all_time % 60)))
+    #execution_time
+    execution_time = time.time()-start_time
+    logger.info("The total running time was ：{:02d}:{:02d}:{:02d}".format(int(execution_time // 3600), int((execution_time % 3600) // 60), int(execution_time % 60)))
 
 if __name__ == "__main__":
 

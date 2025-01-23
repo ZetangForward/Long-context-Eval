@@ -19,7 +19,7 @@ def handle_cli_args():
     parser.add_argument("--selfextend_window_size",type=int,default=1024,help="the params of selfextend")
     parser.add_argument("--selfextend_group_size",type=int,default=32,help="the params of selfextend")
     parser.add_argument("--tova_multi_state_size",type=int,default=4096,help="the params of tova")
-    parser.add_argument("--device_split_num",type=int,default=2,help="each task needs the number of gpu")
+    parser.add_argument("--device_split_num",type=int,default=1,help="each task needs the number of gpu")
     parser.add_argument("--generation_path",type=str,default="save/genration",help="e")
     parser.add_argument("--adapter_path",type=str,default="",help="The path to the adapter file")
     # parser.add_argument("--lb_v2_cot", "-cot2", action='store_true') # set to True if using COT,when you test longbench-v2
