@@ -40,25 +40,13 @@ To evaluate a model hosted on the on `LongBench` and `Counting_Stars` you can us
 RUN
 
 ```bash
-<<<<<<< HEAD
-lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct\
-    --eval\
-    --benchmark_config  tasks/task_configs.yaml\
-=======
 lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct \
     --eval \
     --benchmark_names  LongBench,Counting_Stars \
->>>>>>> dfba185f4a41d916f02fb1990af455c05997649a
     --device 0,1 \
     --device_split_num 1 \
     --limit 1 
 or
-<<<<<<< HEAD
-python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark_config tasks/task_configs.yaml   --device 0,1     --device_split_num 2   --limit 1   --device 0,1 --device_split_num 2 --limit 1
-``` 
-To evaluate a model hosted on some tasks, you can modify the configuration file in benchmark_config。
-and
-=======
 python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct  --eval --benchmark_names LongBench,Counting_Stars --device 0,1 --device_split_num 2 --limit 1
 ```
 
@@ -77,7 +65,6 @@ or
 python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct  --eval --benchmark_names LongBench:narrativeqa --device 0,1 --device_split_num 2 --limit 1
 ```
 
->>>>>>> dfba185f4a41d916f02fb1990af455c05997649a
 If you don't select --eval, you need to perform the eval
 
 ```bash

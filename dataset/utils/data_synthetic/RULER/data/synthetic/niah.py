@@ -246,12 +246,12 @@ def generate_samples(num_samples: int, max_seq_length: int, save_dir: str, incre
             input_text = ' '.join(input_text.replace('\n', ' ').replace('\t', ' ').strip().split())
 
         formatted_output = {
-        "passage": "",
-        "question": input_text,
-        "choices": "",
-        "answer": answer,
-        "index": index,
-        "length": length,
+            "passage": "",
+            "question": input_text,
+            "choices": "",
+            "answer": answer,
+            "index": index,
+            "length": length,
         }
         write_jsons.append(formatted_output)
 

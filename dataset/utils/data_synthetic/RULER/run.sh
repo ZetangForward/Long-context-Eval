@@ -60,7 +60,7 @@ for MAX_SEQ_LENGTH in "${SEQ_LENGTHS[@]}"; do
             --tokenizer_type ${TOKENIZER_TYPE} \
             --max_seq_length ${MAX_SEQ_LENGTH} \
             --model_template_type ${MODEL_TEMPLATE_TYPE} \
-            --num_samples ${NUM_SAMPLES} \
+            --num_samples 50 \
             ${REMOVE_NEWLINE_TAB}
     done
 done
