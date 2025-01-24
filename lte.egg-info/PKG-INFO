@@ -1,5 +1,45 @@
-# LongTextEval
+Metadata-Version: 2.2
+Name: lte
+Version: 0.1
+Summary: A framework for evaluating lont language models
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: transformers
+Requires-Dist: loguru
+Requires-Dist: torch
+Requires-Dist: accelerate
+Requires-Dist: vllm
+Requires-Dist: bert_score
+Requires-Dist: flask
+Requires-Dist: torch
+Requires-Dist: gevent
+Requires-Dist: pandas
+Requires-Dist: peft
+Requires-Dist: sacrebleu
+Requires-Dist: hydra-core
+Requires-Dist: nltk
+Requires-Dist: nvidia-ml-py
+Requires-Dist: openai
+Requires-Dist: openpyxl
+Requires-Dist: matplotlib
+Requires-Dist: rouge
+Requires-Dist: rouge_chinese
+Requires-Dist: jieba
+Requires-Dist: fuzzywuzzy
+Requires-Dist: pandas
+Requires-Dist: wonderwords
+Requires-Dist: tenacity
+Requires-Dist: python-Levenshtein
+Requires-Dist: scipy
+Requires-Dist: PyYAML
+Requires-Dist: tqdm
+Requires-Dist: datasets
+Requires-Dist: html2text
+Requires-Dist: nemo
+Requires-Dist: flash_attn
+Requires-Dist: huggingface_hub
 
+# LongTextEval
 An open source framework for evaluating foundation models
 
 ## Overview
@@ -22,64 +62,45 @@ conda create -n lte python=3.10 -y
 conda activate lte
 pip install -e .
 ```
-
 We also provide a number of optional dependencies for extended functionality. A detailed table is available at the end of this document.
 
 # Basic Usage
-
 ### User Guide
 
 A user guide detailing the full list of supported arguments is provided [here](./docs/interface.md), and on the terminal by calling `lte -h`.
 
-A list of supported tasks (or groupings of tasks) can be viewed with `lm-eval --benchmark_names list` Now you can evaluate these benchmarks: ["RULER","LooGLE","Counting_Stars","L_CiteEval"] . Task descriptions and links to corresponding subfolders are provided [here](./tasks/README.md).
+A list of supported tasks (or groupings of tasks) can be viewed with `lm-eval --tasks list`. Task descriptions and links to corresponding subfolders are provided [here](./tasks/README.md).
 
 ### Hugging Face `transformers`
 
 To evaluate a model hosted on the on `LongBench` and `Counting_Stars` you can use the following command (this assumes you are using a CUDA-compatible GPU):
 
 RUN
-
 ```bash
-<<<<<<< HEAD
 lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct\
     --eval\
-    --benchmark_config  tasks/task_configs.yaml\
-=======
-lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct \
-    --eval \
-    --benchmark_names  LongBench,Counting_Stars \
->>>>>>> dfba185f4a41d916f02fb1990af455c05997649a
+    --benchmark_names  LongBench,Counting_Stars\
     --device 0,1 \
     --device_split_num 1 \
     --limit 1 
 or
-<<<<<<< HEAD
-python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark_config tasks/task_configs.yaml   --device 0,1     --device_split_num 2   --limit 1   --device 0,1 --device_split_num 2 --limit 1
-``` 
-To evaluate a model hosted on some tasks, you can modify the configuration file in benchmark_config。
-and
-=======
 python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct  --eval --benchmark_names LongBench,Counting_Stars --device 0,1 --device_split_num 2 --limit 1
-```
-
+``` 
 To evaluate a model hosted on the on `narrativeqa` from `LongBench` you can use the following command (this assumes you are using a CUDA-compatible GPU):
 
 RUN
-
 ```bash
-lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct \
-    --eval \
-    --benchmark_names  LongBench:narrativeqa \
+lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct\
+    --eval\
+    --benchmark_names  LongBench:narrativeqa\
     --device 0,1 \
     --device_split_num 1 \
     --limit 1 
 or
 python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct  --eval --benchmark_names LongBench:narrativeqa --device 0,1 --device_split_num 2 --limit 1
-```
-
->>>>>>> dfba185f4a41d916f02fb1990af455c05997649a
+``` 
 If you don't select --eval, you need to perform the eval
-
 ```bash
 lte.eval --generation_path '' --output_path ''
 ```
+
