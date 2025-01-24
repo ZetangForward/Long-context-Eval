@@ -1,7 +1,7 @@
 from transformers import AutoConfig
 
 class Base:
-    def __init__(self):
+    def __init__(self,**kwargs):
         self.benchmark_name = None
         self.task_names = None
         self.ability = None

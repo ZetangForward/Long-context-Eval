@@ -46,8 +46,9 @@ from dataset.utils.benchmark_class.base_class import Base
 class RULER(Base):
     def __init__(self):
         super().__init__()
-    def __init__(self,length=0):
+    def __init__(self,length=0,num_samples=200):
         self.length = length
+        self.num_samples = num_samples
         self.benchmark_name = f"RULER_{self.length}"
         self.task_names =  ["cwe", "fwe", "niah_multikey_1", "niah_multikey_2", "niah_multikey_3", "niah_multiquery", "niah_multivalue", "niah_single_1", "niah_single_2", "niah_single_3", "qa_1", "qa_2", "vt"]
         self.ability = "General"
@@ -69,7 +70,8 @@ class RULER(Base):
                         "--save_dir","./dataset/General/data",
                         "--task",task_name,
                         "--tokenizer_path",args.model_path,
-                        "--max_seq_length",str(self.length)]
+                        "--max_seq_length",str(self.length),
+                        "--num_samples",str(self.num_samples)]
             subprocess.run(command)
 
             # path = "./dataset/{}/tmp_Rawdata/{}.json".format(self.ability,task_name)

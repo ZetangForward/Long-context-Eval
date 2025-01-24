@@ -1,4 +1,4 @@
-# python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct  --eval --benchmark_names LongBench,Counting_Stars --device 0,1 --device_split_num 2 --limit 1
+# python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark_config tasks/task_configs.yaml   --device 0,1     --device_split_num 2   --limit 1   --device 0,1 --device_split_num 2 --limit 1
 import os
 import sys
 import yaml
@@ -122,7 +122,7 @@ def format_tasks(all_tasks):
     formatted_tasks = ""
     l = 0
     for key, value in all_tasks.items():
-        formatted_tasks+=f"{len(value)} tasks: from"
+        formatted_tasks+=f"{len(value)} tasks: from "
         formatted_tasks += f"{key}:{value} "
         l += len(value)
         formatted_tasks += f"\n"
@@ -133,8 +133,10 @@ def main():
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
     args = handle_cli_args()
-    gpu_count = torch.cuda.device_count()
-    args.device = ','.join(map(str, range(gpu_count)))
+    if args.device ==" ":
+        gpu_count = torch.cuda.device_count()
+        args.device = ','.join(map(str, range(gpu_count)))
+
     args.generation_path = args.generation_path+"/"+formatted_time
     args.save_path = args.save_path+"/"+formatted_time
     seed = 0;random.seed(seed);np.random.seed(seed)
@@ -147,20 +149,26 @@ def main():
     all_tasks = {}
     task_len = 0
     all_benchmarks= []
-    logger.info(f"Loading the config information for benchmarks: {args.benchmark_names}")
-    for benchmark_name in args.benchmark_names.split(","):
-        benchmark_name = benchmark_name.strip()
-        with open(f"tasks/configs/{benchmark_name}.yaml", "r") as f:
-            config = yaml.safe_load(f)
-        if "length" in config:
-            for l in config["length"]:
-                benchmark = get_benchmark_class(benchmark_name)(l)
+    logger.info(f"Loading the config information")
+    with open(args.benchmark_config, "r") as f:
+        configs = yaml.safe_load(f)
+    for benchmark_version in configs:
+        config = configs[benchmark_version]
+        if "_" in benchmark_version:
+            benchmark_name  = benchmark_version.split("_")[0]
+        else:
+            benchmark_name = benchmark_version
+        if "length" in config and "num_samples" in config:
+            for l in config["length"]:            
+                benchmark = get_benchmark_class(benchmark_name)(l,config["num_samples"])
+                benchmark.benchmark_name = benchmark_version
                 benchmark.task_names = config["tasks"]
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
                 all_tasks[benchmark.benchmark_name]=benchmark.task_names
         else:
             benchmark = get_benchmark_class(benchmark_name)()
+            benchmark.benchmark_name = benchmark_version
             benchmark.task_names = config["tasks"]
             all_benchmarks.append(benchmark)
             task_len += len(benchmark.task_names)
