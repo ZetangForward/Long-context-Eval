@@ -1,5 +1,0 @@
-transformers
-pytest
-scikit-learn
-cupy-cuda12x
-cuml-cu12 --extra-index-url=https://pypi.nvidia.com

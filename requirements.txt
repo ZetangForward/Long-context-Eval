@@ -1,5 +1,5 @@
-transformers
 torch
+transformers
 accelerate
 vllm
 loguru
@@ -11,7 +11,6 @@ raptor
 
 bert_score
 flask
-torch
 gevent
 pandas
 peft

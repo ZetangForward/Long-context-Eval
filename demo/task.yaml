@@ -1,6 +1,0 @@
-task_name: ["L-CiteEval-Hardness_gov_report"] # The task we will test,please select tasks from task_name.yaml
-batch_size: "1" 
-limit: "1" #The limition of each task
-output: output # The results save path
-
-

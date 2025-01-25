@@ -1,4 +1,4 @@
-# python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark_config tasks/task_configs.yaml   --device 0,1     --device_split_num 2   --limit 1   --device 0,1 --device_split_num 2 --limit 1
+# python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark RULER:tasks/General/RULER/RULER.yaml  --device 0,1 --device_split_num 2 --limit 1
 import os
 import sys
 import yaml
@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 import time
 import json
 import subprocess
-from dataset.utils.benchmark_class import get_benchmark_class
+from tasks.utils.benchmark_class import get_benchmark_class
 import re
 from loguru import logger
 logger.remove()
@@ -16,9 +16,9 @@ logger.add(sys.stdout,
         format="<level>{message}</level>")
 from utils.request import Request
 import random
-from tasks.instance import Instance
+from evaluation.instance import Instance
 from tqdm import tqdm
-from Model_Deploy_URLs import get_model
+from models_deploy import get_model
 import numpy as np
 from utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
@@ -26,16 +26,15 @@ import torch
 # from Model_Deploy_URLs.rag import get_rag_method
 class Evaluator():
     def __init__(self,args,all_benchmarks):
-        #设置参数
+        #Set parameters
         self.tasks_list = []
         self.args = args
         self.limit = int(args.limit) if args.limit!="auto" else 10000
-        self.build_tasks(all_benchmarks) #根据配置文件创建task
+        self.build_tasks(all_benchmarks) #Create a task based on the configuration file.
 
     def build_tasks(self,all_benchmarks):
         for benchmark in all_benchmarks:
             for task_name in benchmark.task_names:
-                #后处理函数返回【【output】【postprocessed_output】】
                 if hasattr(benchmark, 'length'):
                     path = benchmark.data_path+task_name+f"_{benchmark.length}"+".json"
                 else:
@@ -79,44 +78,35 @@ class Evaluator():
         model.deploy()
         for task_name,benchmark,request in tqdm(raw_data,desc="The {}th chunk".format(i)):
             request.instances["input"] = benchmark.modify(request.instances["input"],model,model_path)
-            #调出模型的生成函数
+            #Call the model's generation function.
             with torch.no_grad(): 
                 result = model.generate(request.params, request.instances["input"])
             
-            #后处理
+            #Post-processing
             raw_outputs, processed_outputs = result[::],result[::]
             if  hasattr(benchmark, 'postprocess'):
                 processed_outputs = benchmark.postprocess(raw_outputs)
-
-            # logger.info("模型输入:\n{}".format(request.instances["input"][-50:]))
-            # logger.info("模型输出结果:\n{}".format(raw_outputs[0]))
-            # logger.info("处理后的结果:\n{}".format(processed_outputs[0]))
-            # logger.info("答案:\n{}".format(request.instances["processed_output"]))
-            
+    
             request.raw_example.raw_outputs = raw_outputs
             request.raw_example.processed_outputs = processed_outputs
             request.raw_example.ground_truth = request.instances["processed_output"]
             request.raw_example.prompt_inputs = request.instances["input"]
-        
-            # os.makedirs("测试", exist_ok=True)
-            # with open(os.path.join("测试",task_name+".json"), "a", encoding="utf-8") as f:
-            #     json.dump({"task":task_name,"模型输入":request.instances["input"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth}, f, ensure_ascii=False)
-            #     f.write('\n')
-            # with open('output.doc', 'a') as f:
-            #     logger.info("评测文本输入:\n{}\n".format(request.raw_example.data["passage"]),file=f)
-            #     logger.info("模型预测:\n{}\n".format(request.raw_example.processed_outputs),file=f)
-            #     logger.info("正确结果:\n{}\n".format(request.raw_example.ground_truth),file=f)
 
-            os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name), exist_ok=True)
             
-            with open(os.path.join(self.args.generation_path,benchmark.benchmark_name,task_name+".json"), "a", encoding="utf-8") as f:
+            
+            if hasattr(benchmark, 'length'):
+                path = os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}",task_name+".json")
+                os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}"), exist_ok=True)
+            else:
+
+                path = os.path.join(self.args.generation_path,benchmark.benchmark_name,task_name+".json")
+                os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name), exist_ok=True)
+            with open(path, "a", encoding="utf-8") as f:
                 if True:
                     json.dump({"choices":request.raw_example.data["passage"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth,"model_input":request.instances["input"]}, f, ensure_ascii=False)
                 else:
                     json.dump({"choices":request.raw_example.data["choices"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth}, f, ensure_ascii=False)
                 f.write('\n')
-
-    #完善transfrom后的数据,加description和num_fewshot
 
 def format_tasks(all_tasks):
     formatted_tasks = ""
@@ -150,37 +140,35 @@ def main():
     task_len = 0
     all_benchmarks= []
     logger.info(f"Loading the config information")
-    with open(args.benchmark_config, "r") as f:
-        configs = yaml.safe_load(f)
-    for benchmark_version in configs:
-        config = configs[benchmark_version]
-        if "_" in benchmark_version:
-            benchmark_name  = benchmark_version.split("_")[0]
-        else:
-            benchmark_name = benchmark_version
-        if "length" in config and "num_samples" in config:
-            for l in config["length"]:            
-                benchmark = get_benchmark_class(benchmark_name)(l,config["num_samples"])
-                benchmark.benchmark_name = benchmark_version
+    progress_bar = tqdm(args.benchmark.split(","))
+    for benchmark in progress_bar:
+        benchmark_name,benchmark_config_path = benchmark.split(":")
+        progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
+        benchmark_name = benchmark_name.strip()
+        benchmark_config_path = benchmark_config_path.strip()
+        with open(benchmark_config_path, "r") as f:
+            config = yaml.safe_load(f)
+            if "length" in config and "num_samples" in config:
+                for l in config["length"]:            
+                    benchmark = get_benchmark_class(benchmark_name)(l,config["num_samples"])
+                    benchmark.task_names = config["tasks"]
+                    all_benchmarks.append(benchmark)
+                    task_len += len(benchmark.task_names)
+                    all_tasks[benchmark.benchmark_name]=benchmark.task_names
+            else:
+                benchmark = get_benchmark_class(benchmark_name)()
                 benchmark.task_names = config["tasks"]
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
                 all_tasks[benchmark.benchmark_name]=benchmark.task_names
-        else:
-            benchmark = get_benchmark_class(benchmark_name)()
-            benchmark.benchmark_name = benchmark_version
-            benchmark.task_names = config["tasks"]
-            all_benchmarks.append(benchmark)
-            task_len += len(benchmark.task_names)
-            all_tasks[benchmark.benchmark_name]=benchmark.task_names
     formatted_output = format_tasks(all_tasks)
     logger.info(f"The tasks you selected are:\n{formatted_output}")
-    logger.info("benchmark  downloading . .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .")
+    logger.info("Benchmark data is being downloaded and transformed . .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .")
     progress_bar = tqdm(all_benchmarks)
-    tasks_path_list = []
+    tasks_path_list = [] 
     for benchmark in progress_bar:   
         tasks_list = []
-        progress_bar.set_description(f"Downloading {benchmark.benchmark_name}")
+        progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
         benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path

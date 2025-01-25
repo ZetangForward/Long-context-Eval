@@ -1,8 +1,13 @@
 
 # Byte-compiled / optimized / DLL files
+/__pycache__
 __pycache__/
 *.py[cod]
 *$py.class
 *.cpython*
-dataset/General/data/*
-dataset/General/tmp_Rawdata/*
+tasks/*/*/data/*
+tasks/*/*/tmp_Rawdata/*
+save
+*.pyc
+*.json
+*.txt
