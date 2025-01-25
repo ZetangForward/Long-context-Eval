@@ -10,4 +10,4 @@ tasks/*/*/tmp_Rawdata/*
 save
 *.pyc
 *.json
-*.txt
+
