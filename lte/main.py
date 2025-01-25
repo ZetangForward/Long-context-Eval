@@ -175,7 +175,7 @@ def main():
             all_tasks[benchmark.benchmark_name]=benchmark.task_names
     formatted_output = format_tasks(all_tasks)
     logger.info(f"The tasks you selected are:\n{formatted_output}")
-    logger.info("benchmark  downoading . .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .")
+    logger.info("benchmark  downloading . .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .")
     progress_bar = tqdm(all_benchmarks)
     tasks_path_list = []
     for benchmark in progress_bar:   
