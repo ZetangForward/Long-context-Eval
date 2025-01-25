@@ -1,7 +1,7 @@
 # _note: metrics 分类 + 归并
 import sys,os
-from .models.transformer_rul.transformer import Transformer
-from .models.vllm_url.vllm import Vllm
+from .models.transformer.transformer import Transformer
+from .models.vllm.vllm import Vllm
 MODEL_REGISTRY = {
     "transformers":Transformer,
     "vllm":Vllm
