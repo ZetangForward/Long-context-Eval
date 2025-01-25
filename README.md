@@ -1,4 +1,4 @@
-# LongTextEval
+# lte(longtextevaluation)
 
 An open source framework for evaluating foundation models
 
@@ -13,11 +13,11 @@ This project provides a unified framework to test long-text-language models on a
 
 ## Install
 
-To install the `longtexteval` package from the github repository, run:
+To install the `lte` package from the github repository, run:
 
 ```bash
-git clone https://gitlab.com/nlp_sora/longtexteval.git
-cd longtexteval
+git clone https://gitlab.com/nlp_sora/lte.git
+cd lte
 conda create -n lte python=3.10 -y
 conda activate lte
 pip install -e .
@@ -29,9 +29,7 @@ We also provide a number of optional dependencies for extended functionality. A 
 
 ### User Guide
 
-A user guide detailing the full list of supported arguments is provided [here](./docs/interface.md), and on the terminal by calling `lte -h`.
-
-A list of supported tasks (or groupings of tasks) can be viewed with `lm-eval --benchmark_names list` Now you can evaluate these benchmarks: ["RULER","LooGLE","Counting_Stars","L_CiteEval"] . Task descriptions and links to corresponding subfolders are provided [here](./tasks/README.md).
+A user guide detailing the full list of supported arguments is provided [here](./lte/interface.md), and on the terminal by calling `lte -h`. Now you can evaluate these benchmarks: ["RULER","LooGLE","Counting_Stars","L_CiteEval"] . Task descriptions and links to corresponding subfolders are provided [here](./tasks/README.md).
 
 ### Hugging Face `transformers`
 
