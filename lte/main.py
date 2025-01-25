@@ -162,8 +162,8 @@ def main():
                 task_len += len(benchmark.task_names)
                 all_tasks[benchmark.benchmark_name]=benchmark.task_names
     formatted_output = format_tasks(all_tasks)
-    logger.info(f"The tasks you selected are:\n{formatted_output}")
-    logger.info("Benchmark data is being downloaded and transformed . .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .. .. . .. .")
+    logger.info(f"The tasks you've selected are as follows:\n{formatted_output}")
+    logger.info("Benchmark data is currently being downloaded and transformed...")
     progress_bar = tqdm(all_benchmarks)
     tasks_path_list = [] 
     for benchmark in progress_bar:   
@@ -184,10 +184,10 @@ def main():
         rag.traverse_task()            
 
     #start to generate
-    logger.info(f"The model starts generating data.")
+    logger.info("The model has initiated the data generation process.")
     evaluator = Evaluator(args,all_benchmarks)
     evaluator.run(args.device_split_num)
-    logger.info(f"All data is stored in {args.generation_path}")
+    logger.info(f"All generated data has been successfully stored in {args.generation_path}.")
 
     #eval
     if args.eval:
@@ -200,7 +200,7 @@ def main():
 
     #execution_time
     execution_time = time.time()-start_time
-    logger.info("The total running time was ：{:02d}:{:02d}:{:02d}".format(int(execution_time // 3600), int((execution_time % 3600) // 60), int(execution_time % 60)))
+    logger.info("The total running time was : {:02d}:{:02d}:{:02d}".format(int(execution_time // 3600), int((execution_time % 3600) // 60), int(execution_time % 60)))
 
 if __name__ == "__main__":
 
