@@ -9,5 +9,5 @@ tasks/*/*/data/*
 tasks/*/*/tmp_Rawdata/*
 save
 *.pyc
-*.json
+
 
