@@ -144,13 +144,15 @@ def main():
     task_len = 0
     all_benchmarks= []
     logger.info(f"Loading the config information")
-    progress_bar = tqdm(args.benchmark_configs.split(","))
-    for benchmark_config_path in progress_bar:
+    progress_bar = tqdm(args.benchmark.split(","))
+
+    for benchmark in progress_bar:
+        benchmark_name, benchmark_config_path = benchmark.split(":")
+        progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
+        benchmark_name = benchmark_name.strip()
         benchmark_config_path = benchmark_config_path.strip()
         with open(benchmark_config_path, "r") as f:
             config = yaml.safe_load(f)
-            benchmark_name = config["benchmark_name"].strip()
-            progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
             if "length" in config and "num_samples" in config:
                 for l in config["length"]:            
                     benchmark = get_benchmark_class(benchmark_name)(l,config["num_samples"])
@@ -173,7 +175,7 @@ def main():
 
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        # benchmark.download_and_transform_data(args=args)
+        benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
