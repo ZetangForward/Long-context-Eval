@@ -90,7 +90,7 @@ class LongBench(Base):
         """Adjust input prompt to fit within the model's token limit."""
         args = handle_cli_args()
         if args.template:
-            prompt = args.template.format(user_input=prompt, assistant_response='')
+            prompt = args.template.format(user_input=prompt)
             tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
         elif hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
             tokenized_prompt = model.tokenizer.apply_chat_template(
