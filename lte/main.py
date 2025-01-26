@@ -2,8 +2,7 @@
 import os
 import sys
 import yaml
-import pdb
-sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import time
 import json
 import subprocess
@@ -14,13 +13,13 @@ logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")
-from utils.request import Request
+from .utils.request import Request
 import random
 from evaluation.instance import Instance
 from tqdm import tqdm
 from models_deploy import get_model
 import numpy as np
-from utils.main_args import handle_cli_args
+from .utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
 # from models_deploy.rag import get_rag_method
@@ -174,7 +173,7 @@ def main():
 
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        # benchmark.download_and_transform_data(args=args)
+        benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
