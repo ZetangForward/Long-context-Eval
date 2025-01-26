@@ -14,13 +14,14 @@ class Base:
     def traverse_task(self):
         progress_bar = tqdm(self.tasks_path)
         for task_path in progress_bar:
-            progress_bar.set_description(f"retrieving {task_path.split('/')[-1][:-5]}:")
+            progress_bar.set_description(f"retrieving {task_path.split('/')[-1][:-5]}")
             with open(task_path,"r", encoding="utf-8") as f:
                 with open(task_path[:-5]+f"_{self.retrieval_methods}.json", "w") as f2:
                     for line in f:
                         data = json.loads(line.strip())
                         data["passage"] = self.retrieve(data["passage"],data["question"])
-                        json.dump(data, f2,indent=4)  
+                        json.dump(data, f2)  
+                        f2.write('\n')
         logger.info(f"rag_file save in {task_path[:-5]}_{self.retrieval_methods}.json")
     def set_treeindex(self):
         pass
@@ -43,3 +44,4 @@ class Base:
         if current_chunk:
             chunks.append(' '.join(current_chunk))
         return chunks
+    

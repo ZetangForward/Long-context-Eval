@@ -4,7 +4,7 @@ import os
 # from llama_index.core.node_parser import SimpleNodeParser
 # from llama_index.core import Settings, SimpleDirectoryReader, VectorStoreIndex, TreeIndex
 
-from Model_Deploy_URLs.rag.bass_class import Base
+from models_deploy.rag.bass_class import Base
 class llamaindex(Base):
     def __init__(self,model_name,context,question):
         super().__init__(model_name,context,question)

@@ -6,7 +6,6 @@ REQUEST_RETURN_LENGTHS = {
 
 class Request:
     def __init__(self, instances, params, raw_example):
-
         self.instances = instances
         self.params = params
         self.raw_example = raw_example

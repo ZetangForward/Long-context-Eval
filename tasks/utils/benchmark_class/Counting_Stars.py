@@ -28,7 +28,7 @@ class Counting_Stars(Base):
         self.hf = "https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/"
         self.llm_params = {"counting_stars_en_reasoning":llm_param,"counting_stars_en_searching":llm_param,"counting_stars_zh_reasoning":llm_param,"counting_stars_zh_searching":llm_param}
         self.metric = {"counting_stars_en_reasoning":metric1,"counting_stars_en_searching":metric2,"counting_stars_zh_reasoning":metric1,"counting_stars_zh_searching":metric2}
-        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data/"
+        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
 
 
     def make_data(self,input_path,ability,task_name):

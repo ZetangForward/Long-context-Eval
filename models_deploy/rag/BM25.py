@@ -1,6 +1,6 @@
 
 from rank_bm25 import BM25Okapi
-from Model_Deploy_URLs.rag.bass_class import Base
+from models_deploy.rag.bass_class import Base
 import json
 import sys
 from loguru import logger
@@ -17,7 +17,7 @@ class BM25(Base):
     def retrieve(self,context,question):
         chunks = self.retrieve_relevant_chunks_for_question(context, question, 300, 5)
         combined_chunks = " ".join(chunks)
-        q = "From the context: " + combined_chunks 
+        q = "From the context " + combined_chunks 
         return q
     
     def retrieve_relevant_chunks_for_question(self,context, question, chunk_size, num_chunks):

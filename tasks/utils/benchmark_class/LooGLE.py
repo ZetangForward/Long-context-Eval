@@ -29,7 +29,7 @@ class LooGLE(Base):
         self.download_all =False
         self.llm_params = {"longdep_qa":llm_params,"longdep_summarization":llm_params}
         self.metric = {"longdep_qa":metric_list,"longdep_summarization":metric_list}
-        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data/"
+        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)

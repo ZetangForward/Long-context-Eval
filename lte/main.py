@@ -31,7 +31,6 @@ class Evaluator():
         self.args = args
         self.limit = int(args.limit) if args.limit!="auto" else 10000
         self.build_tasks(all_benchmarks) #Create a task based on the configuration file.
-
     def build_tasks(self,all_benchmarks):
         for benchmark in all_benchmarks:
             for task_name in benchmark.task_names:
@@ -56,20 +55,18 @@ class Evaluator():
 
     def run(self,device_split_num):
         devices_list=self.args.device.split(",")
-        processes = []
+        tasks = []
         chunk_num = len(devices_list)//device_split_num
         for i in range(0, len(devices_list), device_split_num):   
             raw_data = self.tasks_list[i//device_split_num::chunk_num]
             devices = ",".join(devices_list[i:i + device_split_num])
             logger.info("devices:{}".format(devices))
-            p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
-            p.start()
-            processes.append(p)
-        for p in processes:
-            p.join()
+            tasks.append((i // device_split_num, raw_data, devices))
+        with mp.Pool(processes=len(tasks)) as pool:
+            pool.starmap(self.get_pred, tasks)
         
-
     def get_pred(self,i,raw_data,devices):
+        os.environ["CUDA_VISIBLE_DEVICES"] = devices
         #model depoly     
         try:
             model = get_model(self.args.acceleration)(self.args,devices)
@@ -127,15 +124,12 @@ def main():
     if args.device ==" ":
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
-
     args.generation_path = args.generation_path+"/"+formatted_time
     args.save_path = args.save_path+"/"+formatted_time
     seed = 0;random.seed(seed);np.random.seed(seed)
     start_time = time.time()
     if len(args.device.split(","))%args.device_split_num!=0:
         raise ValueError("The number of GPUs cannot be divided evenly by the number of blocks.")
-    os.environ["CUDA_VISIBLE_DEVICES"] = args.device
-
     #task data download
     all_tasks = {}
     task_len = 0

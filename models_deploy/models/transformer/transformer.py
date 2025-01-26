@@ -1,11 +1,11 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM,AutoConfig
 from peft import PeftModelForCausalLM
 import torch
-import os
 import time 
 from copy import deepcopy
 from loguru import logger
 import sys
+
 logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
@@ -16,17 +16,14 @@ class Transformer():
         self.args = args
         self.devices = devices
         self.params_dict = {}
-
         
     def deploy(self,):
-        os.environ["CUDA_VISIBLE_DEVICES"] = self.devices
         time_start = time.time()
         # Load the model and tokenizer
-        self.model = AutoModelForCausalLM.from_pretrained(self.args.model_path,device_map="auto",torch_dtype=eval(self.args.torch_dtype))
+        self.model = AutoModelForCausalLM.from_pretrained(self.args.model_path,device_map="auto",torch_dtype=eval(self.args.torch_dtype),attn_implementation="flash_attention_2")
         if self.args.adapter_path:
             self.model=PeftModelForCausalLM.from_pretrained(self.model ,self.args.adapter_path)
         self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)
-        
         # Check and add pad token if necessary
         if self.tokenizer.pad_token is None:
             self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})
