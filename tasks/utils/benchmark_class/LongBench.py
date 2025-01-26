@@ -83,21 +83,25 @@ class LongBench(Base):
             "choices": raw_data["all_classes"],
             "answer": raw_data["answers"],
         }
+    
+    # FIXME: 
+    # TODO:
+    
     def modify(self, prompt, model, model_path,**kwargs):
-            """Adjust input prompt to fit within the model's token limit."""
-            if hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
-                tokenized_prompt = model.tokenizer.apply_chat_template(
-                    [{"role": "user", "content": prompt}],
-                    tokenize=True, add_generation_prompt=True
-                )
-            else:
-                tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
-            config = AutoConfig.from_pretrained(model_path)
-            max_length = config.max_position_embeddings - 500
-            if len(tokenized_prompt) > max_length:
-                half = max_length // 2
-                prompt = (
-                    model.tokenizer.decode(tokenized_prompt[:half], skip_special_tokens=True) +
-                    model.tokenizer.decode(tokenized_prompt[-half:], skip_special_tokens=True)
-                )
-            return prompt
+        """Adjust input prompt to fit within the model's token limit."""
+        if hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
+            tokenized_prompt = model.tokenizer.apply_chat_template(
+                [{"role": "user", "content": prompt}],
+                tokenize=True, add_generation_prompt=True
+            )
+        else:
+            tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
+        config = AutoConfig.from_pretrained(model_path)
+        max_length = config.max_position_embeddings - 500
+        if len(tokenized_prompt) > max_length:
+            half = max_length // 2
+            prompt = (
+                model.tokenizer.decode(tokenized_prompt[:half], skip_special_tokens=True) +
+                model.tokenizer.decode(tokenized_prompt[-half:], skip_special_tokens=True)
+            )
+        return prompt

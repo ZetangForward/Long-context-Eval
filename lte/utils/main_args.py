@@ -18,6 +18,7 @@ def handle_cli_args():
     parser.add_argument("--device_split_num",type=int,default=1,help="each task needs the number of gpu")
     parser.add_argument("--generation_path",type=str,default="save/genration",help="This is the path where the model - generated results will be saved.")
     parser.add_argument("--adapter_path",type=str,default="",help="The path to the adapter file")
+    parser.add_argument("--template", type=str, default="[INST]{user_input}[/INST]{assistant_response}", help="user modify template")
     # parser.add_argument("--lb_v2_cot", "-cot2", action='store_true') # set to True if using COT,when you test longbench-v2
     # parser.add_argument("--lb_v2_no_context", "-nc2", action='store_true') # set to True if using no context (directly measuring memorization),when you test longbench-v2
     # parser.add_argument("--lb_v2_rag", "-rag2", type=int, default=0) # set to 0 if RAG is not used, otherwise set to N when using top-N retrieved context,when you test longbench-v2

@@ -69,7 +69,7 @@ class Evaluator():
         os.environ["CUDA_VISIBLE_DEVICES"] = devices
         #model depoly     
         try:
-            model = get_model(self.args.acceleration)(self.args,devices)
+            model = get_model(self.args.acceleration)(self.args, devices)
             model_path = self.args.model_path
         except:
             model = get_model(self.args.server)(self.args,devices)
@@ -85,7 +85,7 @@ class Evaluator():
             raw_outputs, processed_outputs = result[::],result[::]
             if  hasattr(benchmark, 'postprocess'):
                 processed_outputs = benchmark.postprocess(raw_outputs)
-    
+
             request.raw_example.raw_outputs = raw_outputs
             request.raw_example.processed_outputs = processed_outputs
             request.raw_example.ground_truth = request.instances["processed_output"]
@@ -115,7 +115,10 @@ def format_tasks(all_tasks):
         formatted_tasks += f"\n"
     formatted_tasks += f"Totally {l} tasks"
     return formatted_tasks
+
+
 def main():
+    mp.set_start_method('spawn')
     ## init
     mp.set_start_method('spawn')
     current_time = time.localtime()
@@ -136,6 +139,7 @@ def main():
     all_benchmarks= []
     logger.info(f"Loading the config information")
     progress_bar = tqdm(args.benchmark.split(","))
+    
     for benchmark in progress_bar:
         benchmark_name,benchmark_config_path = benchmark.split(":")
         progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
@@ -156,14 +160,16 @@ def main():
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
                 all_tasks[benchmark.benchmark_name]=benchmark.task_names
+    
     formatted_output = format_tasks(all_tasks)
     logger.info(f"The tasks you've selected are as follows:\n{formatted_output}")
     logger.info("Benchmark data is currently being downloaded and transformed...")
     progress_bar = tqdm(all_benchmarks)
     tasks_path_list = [] 
+    
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        benchmark.download_and_transform_data(args=args)
+        # benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
@@ -176,7 +182,7 @@ def main():
 
     #start to generate
     logger.info("The model has initiated the data generation process.")
-    evaluator = Evaluator(args,all_benchmarks)
+    evaluator = Evaluator(args, all_benchmarks)
     evaluator.run(args.device_split_num)
     logger.info(f"All generated data has been successfully stored in {args.generation_path}.")
 
@@ -194,5 +200,4 @@ def main():
     logger.info("The total running time was : {:02d}:{:02d}:{:02d}".format(int(execution_time // 3600), int((execution_time % 3600) // 60), int(execution_time % 60)))
 
 if __name__ == "__main__":
-
     main()
