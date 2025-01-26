@@ -171,9 +171,10 @@ def main():
     devices_list=args.device.split(",")
     tasks = []
     chunk_num = len(devices_list)//args.device_split_num
-    for i in range(0, len(devices_list), args.device_split_num):   
+    for i in range(0, len(devices_list), args.device_split_num):  
         raw_data = evaluator.tasks_list[i//args.device_split_num::chunk_num]
         devices = ",".join(devices_list[i:i + args.device_split_num])
+        os.environ["CUDA_VISIBLE_DEVICES"] = devices 
         logger.info("devices:{}".format(devices))
         tasks.append((args,i // args.device_split_num, raw_data, devices))
     with mp.Pool(processes=len(tasks)) as pool:
