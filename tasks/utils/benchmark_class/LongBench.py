@@ -5,6 +5,8 @@ import os
 from tasks.utils.benchmark_class.base_class import Base
 from datasets import load_dataset
 import subprocess
+from lte.utils.main_args import handle_cli_args
+
 
 task_list = ["narrativeqa", "qasper", "multifieldqa_en", "multifieldqa_zh", "hotpotqa", "2wikimqa", "musique", "dureader", "gov_report", "qmsum", "multi_news", "vcsum", "trec", "triviaqa", "samsum", "lsht", "passage_count", "passage_retrieval_en", "passage_retrieval_zh", "lcc", "repobench-p","qasper_e", "multifieldqa_en_e", "hotpotqa_e", "2wikimqa_e", "gov_report_e", "multi_news_e", "trec_e", "triviaqa_e", "samsum_e", "passage_count_e", "passage_retrieval_en_e", "lcc_e", "repobench-p_e"]
 llm_params1 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 32}
@@ -86,18 +88,24 @@ class LongBench(Base):
     
     # FIXME: 
     # TODO:
-    
+
     def modify(self, prompt, model, model_path,**kwargs):
         """Adjust input prompt to fit within the model's token limit."""
-        if hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
+        args = handle_cli_args()
+        if args.template:
+            prompt = args.template.format(user_input=prompt, assistant_response='')
+            tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
+        elif hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
             tokenized_prompt = model.tokenizer.apply_chat_template(
                 [{"role": "user", "content": prompt}],
                 tokenize=True, add_generation_prompt=True
             )
-        else:
-            tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
-        config = AutoConfig.from_pretrained(model_path)
-        max_length = config.max_position_embeddings - 500
+        # if args.max_lenth:
+        #     tokenized_prompt = tokenized_prompt[:args.max_lenth]
+        #     prompt = model.tokenizer.decode(tokenized_prompt)
+        # else:
+            # config = AutoConfig.from_pretrained(model_path)
+        max_length = args.max_lenth
         if len(tokenized_prompt) > max_length:
             half = max_length // 2
             prompt = (

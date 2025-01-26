@@ -1,4 +1,5 @@
 from transformers import AutoConfig
+from lte.utils.main_args import handle_cli_args
 
 class Base:
     def __init__(self,**kwargs):
@@ -29,11 +30,16 @@ class Base:
     
     def modify(self, prompt, model, model_path,**kwargs):
         """Adjust input prompt to fit within the model's token limit."""
-        if hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
-            tokenized_prompt = model.tokenizer.apply_chat_template(
+        args = handle_cli_args()
+        if args.template:
+            prompt = self.args.template.format(user_input=prompt, assistant_response='')
+        elif hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
+            prompt = model.tokenizer.apply_chat_template(
                 [{"role": "user", "content": prompt}],
-                tokenize=True, add_generation_prompt=True
+                tokenize=False, add_generation_prompt=True
             )
-        else:
-            tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
-        return tokenized_prompt
+        # else:
+        #     tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
+        # if args.max_lenth:
+        #     tokenized_prompt = tokenized_prompt[:args.max_lenth]
+        return prompt
