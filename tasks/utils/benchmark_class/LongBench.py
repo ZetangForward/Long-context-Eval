@@ -85,9 +85,6 @@ class LongBench(Base):
             "choices": raw_data["all_classes"],
             "answer": raw_data["answers"],
         }
-    
-    # FIXME: 
-    # TODO:
 
     def modify(self, prompt, model, model_path,**kwargs):
         """Adjust input prompt to fit within the model's token limit."""
