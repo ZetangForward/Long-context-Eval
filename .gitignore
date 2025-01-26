@@ -9,5 +9,6 @@ tasks/*/*/data/*
 tasks/*/*/tmp_Rawdata/*
 save
 *.pyc
-
+dataset/General/data/
+dataset/General/tmp_Rawdata/
 
