@@ -25,8 +25,7 @@ class LongBench(Base):
         self.download_all =False
         self.llm_params = llm_param
         self.metric = task_metric
-        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data/"
-
+        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
 
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
@@ -42,7 +41,26 @@ class LongBench(Base):
             progress_bar.set_description(f"Downloading task {task_name}")
             data = load_dataset(self.hf,task_name,cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), split="test",trust_remote_code=True)
             self.make_data(data,self.ability,task_name)
-                
+    
+    def modify(self, prompt, model, model_path,**kwargs):
+        """Adjust input prompt to fit within the model's token limit."""
+        if hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
+            tokenized_prompt = model.tokenizer.apply_chat_template(
+                [{"role": "user", "content": prompt}],
+                tokenize=True, add_generation_prompt=True
+            )
+        else:
+            tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
+        
+        config = AutoConfig.from_pretrained(model_path)
+        max_length = config.max_position_embeddings - 500
+        if len(tokenized_prompt) > max_length:
+            half = max_length // 2
+            prompt = (
+                model.tokenizer.decode(tokenized_prompt[:half], skip_special_tokens=True) +
+                model.tokenizer.decode(tokenized_prompt[-half:], skip_special_tokens=True)
+            )
+        return prompt
 
 
     def transform(self,data,task_name,**kwargs):
@@ -77,6 +95,7 @@ class LongBench(Base):
             "output": data["answer"],
             "processed_output": data["answer"],
         }
+    
     def transform_data(self,raw_data):
         return {
             "passage": raw_data["context"],

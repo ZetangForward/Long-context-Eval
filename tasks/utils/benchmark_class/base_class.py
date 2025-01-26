@@ -37,12 +37,5 @@ class Base:
         else:
             tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
         
-        config = AutoConfig.from_pretrained(model_path)
-        max_length = config.max_position_embeddings - 500
-        if len(tokenized_prompt) > max_length:
-            half = max_length // 2
-            prompt = (
-                model.tokenizer.decode(tokenized_prompt[:half], skip_special_tokens=True) +
-                model.tokenizer.decode(tokenized_prompt[-half:], skip_special_tokens=True)
-            )
-        return prompt
+
+        return tokenized_prompt
