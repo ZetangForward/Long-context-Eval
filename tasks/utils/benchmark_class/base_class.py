@@ -36,6 +36,4 @@ class Base:
             )
         else:
             tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
-        
-
         return tokenized_prompt
