@@ -89,7 +89,7 @@ class Evaluator():
             raw_outputs, processed_outputs = result[::],result[::]
             if  hasattr(benchmark, 'postprocess'):
                 processed_outputs = benchmark.postprocess(raw_outputs)
-    
+
             request.raw_example.raw_outputs = raw_outputs
             request.raw_example.processed_outputs = processed_outputs
             request.raw_example.ground_truth = request.instances["processed_output"]
@@ -146,6 +146,7 @@ def main():
     all_benchmarks= []
     logger.info(f"Loading the config information")
     progress_bar = tqdm(args.benchmark.split(","))
+    
     for benchmark in progress_bar:
         benchmark_name,benchmark_config_path = benchmark.split(":")
         progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
