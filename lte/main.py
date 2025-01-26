@@ -68,7 +68,7 @@ class Evaluator():
             processes.append(p)
         for p in processes:
             p.join()
-        
+
 
     def get_pred(self,i,raw_data,devices):
         #model depoly     
@@ -84,7 +84,7 @@ class Evaluator():
             #Call the model's generation function.
             with torch.no_grad(): 
                 result = model.generate(request.params, request.instances["input"])
-            
+
             #Post-processing
             raw_outputs, processed_outputs = result[::],result[::]
             if  hasattr(benchmark, 'postprocess'):
@@ -165,13 +165,13 @@ def main():
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
                 all_tasks[benchmark.benchmark_name]=benchmark.task_names
-    
+
     formatted_output = format_tasks(all_tasks)
     logger.info(f"The tasks you've selected are as follows:\n{formatted_output}")
     logger.info("Benchmark data is currently being downloaded and transformed...")
     progress_bar = tqdm(all_benchmarks)
     tasks_path_list = [] 
-    
+
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
         # benchmark.download_and_transform_data(args=args)
