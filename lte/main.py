@@ -23,8 +23,7 @@ import numpy as np
 from utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
-from models_deploy.rag import get_rag_method
-
+# from models_deploy.rag import get_rag_method
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #Set parameters
@@ -32,6 +31,7 @@ class Evaluator():
         self.args = args
         self.limit = int(args.limit) if args.limit!="auto" else 10000
         self.build_tasks(all_benchmarks) #Create a task based on the configuration file.
+
     def build_tasks(self,all_benchmarks):
         for benchmark in all_benchmarks:
             for task_name in benchmark.task_names:
@@ -54,6 +54,61 @@ class Evaluator():
                         )])
 
 
+    def run(self,device_split_num):
+        devices_list=self.args.device.split(",")
+        processes = []
+        chunk_num = len(devices_list)//device_split_num
+        for i in range(0, len(devices_list), device_split_num):   
+            raw_data = self.tasks_list[i//device_split_num::chunk_num]
+            devices = ",".join(devices_list[i:i + device_split_num])
+            logger.info("devices:{}".format(devices))
+            os.environ["CUDA_VISIBLE_DEVICES"] = devices
+            p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
+            p.start()
+            processes.append(p)
+        for p in processes:
+            p.join()
+        
+
+    def get_pred(self,i,raw_data,devices):
+        #model depoly     
+        try:
+            model = get_model(self.args.acceleration)(self.args, devices)
+            model_path = self.args.model_path
+        except:
+            model = get_model(self.args.server)(self.args,devices)
+            model_path = self.args.model_path
+        model.deploy()
+        for task_name,benchmark,request in tqdm(raw_data,desc="The {}th chunk".format(i)):
+            request.instances["input"] = benchmark.modify(request.instances["input"],model,model_path)
+            #Call the model's generation function.
+            with torch.no_grad(): 
+                result = model.generate(request.params, request.instances["input"])
+            
+            #Post-processing
+            raw_outputs, processed_outputs = result[::],result[::]
+            if  hasattr(benchmark, 'postprocess'):
+                processed_outputs = benchmark.postprocess(raw_outputs)
+
+            request.raw_example.raw_outputs = raw_outputs
+            request.raw_example.processed_outputs = processed_outputs
+            request.raw_example.ground_truth = request.instances["processed_output"]
+            request.raw_example.prompt_inputs = request.instances["input"]
+
+            if hasattr(benchmark, 'length'):
+                path = os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}",task_name+".json")
+                os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}"), exist_ok=True)
+            else:
+
+                path = os.path.join(self.args.generation_path,benchmark.benchmark_name,task_name+".json")
+                os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name), exist_ok=True)
+            with open(path, "a", encoding="utf-8") as f:
+                if True:
+                    json.dump({"choices":request.raw_example.data["passage"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth,"model_input":request.instances["input"]}, f, ensure_ascii=False)
+                else:
+                    json.dump({"choices":request.raw_example.data["choices"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth}, f, ensure_ascii=False)
+                f.write('\n')
+
 def format_tasks(all_tasks):
     formatted_tasks = ""
     l = 0
@@ -64,67 +119,34 @@ def format_tasks(all_tasks):
         formatted_tasks += f"\n"
     formatted_tasks += f"Totally {l} tasks"
     return formatted_tasks
-def get_pred(args,i,raw_data,devices):
-    os.environ["CUDA_VISIBLE_DEVICES"] = devices
-    #model depoly     
-    try:
-        model = get_model(args.acceleration)(args, devices)
-        model_path = args.model_path
-    except:
-        model = get_model(args.server)(args,devices)
-        model_path = args.model_path
-    model.deploy()
-    for task_name,benchmark,request in tqdm(raw_data,desc="The {}th chunk".format(i)):
-        request.instances["input"] = benchmark.modify(request.instances["input"],model,model_path)
-        #Call the model's generation function.
-        with torch.no_grad(): 
-            result = model.generate(request.params, request.instances["input"])
 
-        #Post-processing
-        raw_outputs, processed_outputs = result[::],result[::]
-        if  hasattr(benchmark, 'postprocess'):
-            processed_outputs = benchmark.postprocess(raw_outputs)
-
-        request.raw_example.raw_outputs = raw_outputs
-        request.raw_example.processed_outputs = processed_outputs
-        request.raw_example.ground_truth = request.instances["processed_output"]
-        request.raw_example.prompt_inputs = request.instances["input"]
-
-        if hasattr(benchmark, 'length'):
-            path = os.path.join(args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}",task_name+".json")
-            os.makedirs(os.path.join(args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}"), exist_ok=True)
-        else:
-
-            path = os.path.join(args.generation_path,benchmark.benchmark_name,task_name+".json")
-            os.makedirs(os.path.join(args.generation_path,benchmark.benchmark_name), exist_ok=True)
-        with open(path, "a", encoding="utf-8") as f:
-            if True:
-                json.dump({"choices":request.raw_example.data["passage"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth,"model_input":request.instances["input"]}, f, ensure_ascii=False)
-            else:
-                json.dump({"choices":request.raw_example.data["choices"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth}, f, ensure_ascii=False)
-            f.write('\n')
 
 def main():
-    ## init
     mp.set_start_method('spawn')
+    ## init
+    # mp.set_start_method('spawn')
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
     args = handle_cli_args()
     if args.device ==" ":
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
+
     args.generation_path = args.generation_path+"/"+formatted_time
     args.save_path = args.save_path+"/"+formatted_time
     seed = 0;random.seed(seed);np.random.seed(seed)
     start_time = time.time()
     if len(args.device.split(","))%args.device_split_num!=0:
         raise ValueError("The number of GPUs cannot be divided evenly by the number of blocks.")
+    # os.environ["CUDA_VISIBLE_DEVICES"] = args.device
+
     #task data download
     all_tasks = {}
     task_len = 0
     all_benchmarks= []
     logger.info(f"Loading the config information")
     progress_bar = tqdm(args.benchmark.split(","))
+
     for benchmark in progress_bar:
         benchmark_name,benchmark_config_path = benchmark.split(":")
         progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
@@ -168,18 +190,7 @@ def main():
     #start to generate
     logger.info("The model has initiated the data generation process.")
     evaluator = Evaluator(args, all_benchmarks)
-    devices_list=args.device.split(",")
-    tasks = []
-    chunk_num = len(devices_list)//args.device_split_num
-    for i in range(0, len(devices_list), args.device_split_num):  
-        raw_data = evaluator.tasks_list[i//args.device_split_num::chunk_num]
-        devices = ",".join(devices_list[i:i + args.device_split_num])
-        os.environ["CUDA_VISIBLE_DEVICES"] = devices 
-        logger.info("devices:{}".format(devices))
-        tasks.append((args,i // args.device_split_num, raw_data, devices))
-    with mp.Pool(processes=len(tasks)) as pool:
-        pool.starmap(get_pred, tasks)
-
+    evaluator.run(args.device_split_num)
     logger.info(f"All generated data has been successfully stored in {args.generation_path}.")
 
     #eval
