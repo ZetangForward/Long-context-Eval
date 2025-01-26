@@ -55,7 +55,6 @@ If you want to test multiple benchmarks, separate them with commas. For example:
 ```
 To evaluate a model hosted on some tasks, you can modify the configuration file in tasks/{self.ability}/{self.benchmark_name}/
 ```
- 
 To evaluate a model hosted on the on `narrativeqa` from `LongBench` you can use the following command (this assumes you are using a CUDA-compatible GPU):
 
 If you don't select --eval, you need to perform the eval
