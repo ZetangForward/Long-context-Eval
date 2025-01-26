@@ -47,7 +47,7 @@ lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct \
     --limit 1 
 or
 
-python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark LooGLE:tasks/General/LooGLE/LooGLE.yaml   --device 0,1     --device_split_num 2   --limit 1   --device 0,1 --device_split_num 2 --limit 1
+python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark LooGLE:tasks/General/LooGLE/LooGLE.yaml   --device 0,1     --device_split_num 2   
 
 ``` 
 If you want to test multiple benchmarks, separate them with commas. For example: LooGLE:tasks/General/LooGLE/LooGLE.yaml, RULER:tasks/General/RULER/RULER.yaml.
