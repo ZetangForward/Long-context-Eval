@@ -1,4 +1,4 @@
-# python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark RULER:tasks/General/RULER/RULER.yaml  --device 0,1 --device_split_num 2 --limit 1
+# python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/ --rag BM25   --eval    --benchmark RULER:tasks/General/RULER/RULER.yaml  --device 0,1 --device_split_num 2 --limit 1
 import os
 import sys
 import yaml
@@ -23,7 +23,7 @@ import numpy as np
 from utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
-# from Model_Deploy_URLs.rag import get_rag_method
+from models_deploy.rag import get_rag_method
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #Set parameters
@@ -35,10 +35,12 @@ class Evaluator():
     def build_tasks(self,all_benchmarks):
         for benchmark in all_benchmarks:
             for task_name in benchmark.task_names:
+                if self.args.rag!="":
+                    task_name+=f"_{self.args.rag}"
                 if hasattr(benchmark, 'length'):
-                    path = benchmark.data_path+task_name+f"_{benchmark.length}"+".json"
+                    path = benchmark.data_path+"/"+task_name+f"_{benchmark.length}"+".json"
                 else:
-                    path = benchmark.data_path+task_name+".json"
+                    path = benchmark.data_path+"/"+task_name+".json"
                 with open(path, "r", encoding="utf-8") as file:
                     for index, line in enumerate(file):
                         if index>=self.limit:
@@ -47,7 +49,7 @@ class Evaluator():
                         prompt_input = benchmark.transform(raw_input.data,task_name)
                         self.tasks_list.append([task_name,benchmark,Request(
                             instances=prompt_input,
-                            params=benchmark.llm_params[task_name],
+                            params=benchmark.llm_params[task_name if self.args.rag=="" else "_".join(task_name.split("_")[:-1])],
                             raw_example=raw_input,
                         )])
 
@@ -92,8 +94,6 @@ class Evaluator():
             request.raw_example.ground_truth = request.instances["processed_output"]
             request.raw_example.prompt_inputs = request.instances["input"]
 
-            
-            
             if hasattr(benchmark, 'length'):
                 path = os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}",task_name+".json")
                 os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}"), exist_ok=True)
@@ -120,6 +120,7 @@ def format_tasks(all_tasks):
     return formatted_tasks
 def main():
     ## init
+    mp.set_start_method('spawn')
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
     args = handle_cli_args()
@@ -167,7 +168,6 @@ def main():
     progress_bar = tqdm(all_benchmarks)
     tasks_path_list = [] 
     for benchmark in progress_bar:   
-        tasks_list = []
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
         benchmark.download_and_transform_data(args=args)
         if args.rag!="":
@@ -175,9 +175,6 @@ def main():
             for task_name in benchmark.task_names:
                 task_path = data_path+"/"+task_name+".json"
                 tasks_path_list.append(task_path)
-                task_name += f"_{args.rag}"
-                tasks_list.append(task_name)
-            benchmark.task_names = tasks_list
     if args.rag!="":
         rag = get_rag_method(args.rag)(args.model_path,tasks_path_list)
         logger.info("performing information retrieval")
