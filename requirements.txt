@@ -1,9 +1,10 @@
-transformers
 torch
+transformers
 accelerate
 vllm
 loguru
 
+bs4
 rank_bm25
 llama_index
 fabric
@@ -11,7 +12,6 @@ raptor
 
 bert_score
 flask
-torch
 gevent
 pandas
 peft

@@ -1,7 +1,0 @@
-{
-    "temperature": 0.0,
-    "max_tokens": 500,
-    "include_stop_str_in_output": 1,
-    "stop": "}"
-
-}

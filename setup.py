@@ -15,7 +15,6 @@ setuptools.setup()
 # import setuptools
 # import os
 
-# print("当前工作目录:", os.getcwd())
 # with open("./requirements.txt", 'r', encoding='utf-8') as f:
 #     requirements = f.read().strip().splitlines()
 # with open("./README.md", "r") as f:

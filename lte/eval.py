@@ -1,4 +1,4 @@
-## python lte/eval.py --generation_path save/genration/01M_23D_19H_21m --output_path save/output/01M_20D_11H_31m
+## python lte/eval.py --generation_path save/genration/01M_25D_15H_51m --output_path save/output/01M_20D_11H_31m
 from transformers import pipeline
 import os
 import re
@@ -17,7 +17,7 @@ logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")
-from dataset.utils.benchmark_class import get_benchmark_class
+from tasks.utils.benchmark_class import get_benchmark_class
 
 def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, metric_max_len):
     # 定义每列的宽度，新增 AVG 列
@@ -51,6 +51,7 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
                     str(value).center(column_widths[3], ' '),
                     "".center(column_widths[4], ' ')
                 ))
+
                 try:
                     # 尝试将值转换为浮点数
                     score = float(value)
@@ -59,13 +60,13 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
                 except ValueError:
                     # 处理无法转换为浮点数的情况
                     logger.warning(f"无法将 {value} 转换为浮点数，跳过该值。")
-            # logger.info("|{}|{}|{}|{}|{}|".format(
-            #         "-" * column_widths[0],
-            #         "-" * column_widths[1],
-            #         "-" * column_widths[2],
-            #         "-" * column_widths[3],
-            #         "-" * column_widths[4]
-            #     ))
+            logger.info("|{}|{}|{}|{}|{}|".format(
+                    "-" * column_widths[0],
+                    "-" * column_widths[1],
+                    "-" * column_widths[2],
+                    "-" * column_widths[3],
+                    "-" * column_widths[4]
+                ))
 
         # 计算当前 BenchMark 的平均分
         if benchmark_scores:
