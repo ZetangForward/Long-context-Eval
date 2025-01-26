@@ -23,8 +23,7 @@ class Transformer():
         time_start = time.time()
         # Load the model and tokenizer
         self.model = transformers.AutoModelForCausalLM.from_pretrained(
-            self.args.model_path, use_flash_attention_2="flash_attention_2", device_map="auto", torch_dtype=eval(self.args.torch_dtype).eval()
-        )
+            self.args.model_path, attn_implementation="flash_attention_2", device_map="auto", torch_dtype=eval(self.args.torch_dtype)).eval()
         if self.args.adapter_path:
             self.model=PeftModelForCausalLM.from_pretrained(self.model ,self.args.adapter_path)
         self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)

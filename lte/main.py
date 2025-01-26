@@ -51,20 +51,6 @@ class Evaluator():
                             params=benchmark.llm_params[task_name if self.args.rag=="" else "_".join(task_name.split("_")[:-1])],
                             raw_example=raw_input,
                         )])
-
-
-    def run(self,device_split_num):
-        devices_list=self.args.device.split(",")
-        tasks = []
-        chunk_num = len(devices_list)//device_split_num
-        for i in range(0, len(devices_list), device_split_num):   
-            raw_data = self.tasks_list[i//device_split_num::chunk_num]
-            devices = ",".join(devices_list[i:i + device_split_num])
-            logger.info("devices:{}".format(devices))
-            tasks.append((i // device_split_num, raw_data, devices))
-        with mp.Pool(processes=len(tasks)) as pool:
-            pool.starmap(self.get_pred, tasks)
-        
     def get_pred(self,i,raw_data,devices):
         os.environ["CUDA_VISIBLE_DEVICES"] = devices
         #model depoly     
@@ -118,7 +104,6 @@ def format_tasks(all_tasks):
 
 
 def main():
-    mp.set_start_method('spawn')
     ## init
     mp.set_start_method('spawn')
     current_time = time.localtime()
@@ -139,7 +124,6 @@ def main():
     all_benchmarks= []
     logger.info(f"Loading the config information")
     progress_bar = tqdm(args.benchmark.split(","))
-    
     for benchmark in progress_bar:
         benchmark_name,benchmark_config_path = benchmark.split(":")
         progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
@@ -183,7 +167,17 @@ def main():
     #start to generate
     logger.info("The model has initiated the data generation process.")
     evaluator = Evaluator(args, all_benchmarks)
-    evaluator.run(args.device_split_num)
+    devices_list=args.device.split(",")
+    tasks = []
+    chunk_num = len(devices_list)//args.device_split_num
+    for i in range(0, len(devices_list), args.device_split_num):   
+        raw_data = evaluator.tasks_list[i//args.device_split_num::chunk_num]
+        devices = ",".join(devices_list[i:i + args.device_split_num])
+        logger.info("devices:{}".format(devices))
+        tasks.append((i // args.device_split_num, raw_data, devices))
+    with mp.Pool(processes=len(tasks)) as pool:
+        pool.starmap(evaluator.get_pred, tasks)
+
     logger.info(f"All generated data has been successfully stored in {args.generation_path}.")
 
     #eval
