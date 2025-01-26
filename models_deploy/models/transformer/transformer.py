@@ -1,8 +1,9 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM,AutoConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
 from peft import PeftModelForCausalLM
 import torch
 import os
 import time 
+import transformers
 from copy import deepcopy
 from loguru import logger
 import sys
@@ -18,11 +19,13 @@ class Transformer():
         self.params_dict = {}
 
         
-    def deploy(self,):
-        os.environ["CUDA_VISIBLE_DEVICES"] = self.devices
+    def deploy(self):
+        # os.environ["CUDA_VISIBLE_DEVICES"] = self.devices
         time_start = time.time()
         # Load the model and tokenizer
-        self.model = AutoModelForCausalLM.from_pretrained(self.args.model_path,device_map="auto",torch_dtype=eval(self.args.torch_dtype))
+        self.model = transformers.AutoModelForCausalLM.from_pretrained(
+            self.args.model_path, use_flash_attention_2="flash_attention_2", device_map="auto", torch_dtype=eval(self.args.torch_dtype).eval()
+        )
         if self.args.adapter_path:
             self.model=PeftModelForCausalLM.from_pretrained(self.model ,self.args.adapter_path)
         self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)
@@ -38,6 +41,15 @@ class Transformer():
     def generate(self,params_dict,prompt):
         params_ = deepcopy(self.params_dict)
         params_.update(params_dict)
+
+        if self.args.template:
+            prompt = self.args.template.format(user_input=prompt, assistant_response='')
+        # elif hasattr(self.tokenizer, 'apply_chat_template'):
+        #     prompt = self.tokenizer.apply_chat_template(
+        #         [{'role': 'system', 'content': ''}, {'role': 'user', 'content': prompt}],
+        #         tokenize=False, add_generation_prompt=True
+        #     )
+
         if "stop" in params_:
             params_["eos_token_id"]=[self.tokenizer.eos_token_id, self.tokenizer.encode("{}".format(params_["stop"]), add_special_tokens=False)[-1]]
             params_.pop("stop")

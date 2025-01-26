@@ -24,6 +24,8 @@ from utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
 # from Model_Deploy_URLs.rag import get_rag_method
+# mp.set_start_method('spawn')
+
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #Set parameters
@@ -60,6 +62,7 @@ class Evaluator():
             raw_data = self.tasks_list[i//device_split_num::chunk_num]
             devices = ",".join(devices_list[i:i + device_split_num])
             logger.info("devices:{}".format(devices))
+            os.environ["CUDA_VISIBLE_DEVICES"] = devices
             p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
             p.start()
             processes.append(p)
@@ -70,7 +73,7 @@ class Evaluator():
     def get_pred(self,i,raw_data,devices):
         #model depoly     
         try:
-            model = get_model(self.args.acceleration)(self.args,devices)
+            model = get_model(self.args.acceleration)(self.args, devices)
             model_path = self.args.model_path
         except:
             model = get_model(self.args.server)(self.args,devices)
@@ -91,8 +94,6 @@ class Evaluator():
             request.raw_example.processed_outputs = processed_outputs
             request.raw_example.ground_truth = request.instances["processed_output"]
             request.raw_example.prompt_inputs = request.instances["input"]
-
-            
             
             if hasattr(benchmark, 'length'):
                 path = os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}",task_name+".json")
@@ -118,7 +119,10 @@ def format_tasks(all_tasks):
         formatted_tasks += f"\n"
     formatted_tasks += f"Totally {l} tasks"
     return formatted_tasks
+
+
 def main():
+    mp.set_start_method('spawn')
     ## init
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
@@ -133,7 +137,7 @@ def main():
     start_time = time.time()
     if len(args.device.split(","))%args.device_split_num!=0:
         raise ValueError("The number of GPUs cannot be divided evenly by the number of blocks.")
-    os.environ["CUDA_VISIBLE_DEVICES"] = args.device
+    # os.environ["CUDA_VISIBLE_DEVICES"] = args.device
 
     #task data download
     all_tasks = {}
@@ -161,15 +165,17 @@ def main():
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
                 all_tasks[benchmark.benchmark_name]=benchmark.task_names
+    
     formatted_output = format_tasks(all_tasks)
     logger.info(f"The tasks you've selected are as follows:\n{formatted_output}")
     logger.info("Benchmark data is currently being downloaded and transformed...")
     progress_bar = tqdm(all_benchmarks)
     tasks_path_list = [] 
+    
     for benchmark in progress_bar:   
         tasks_list = []
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        benchmark.download_and_transform_data(args=args)
+        # benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
@@ -185,7 +191,7 @@ def main():
 
     #start to generate
     logger.info("The model has initiated the data generation process.")
-    evaluator = Evaluator(args,all_benchmarks)
+    evaluator = Evaluator(args, all_benchmarks)
     evaluator.run(args.device_split_num)
     logger.info(f"All generated data has been successfully stored in {args.generation_path}.")
 
@@ -203,5 +209,4 @@ def main():
     logger.info("The total running time was : {:02d}:{:02d}:{:02d}".format(int(execution_time // 3600), int((execution_time % 3600) // 60), int(execution_time % 60)))
 
 if __name__ == "__main__":
-
     main()
