@@ -1,5 +1,3 @@
-
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -11,4 +9,3 @@ save
 *.pyc
 dataset/General/data/
 dataset/General/tmp_Rawdata/
-
