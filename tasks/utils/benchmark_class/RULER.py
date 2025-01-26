@@ -42,7 +42,7 @@ class RULER(Base):
         self.download_all =False
         self.llm_params = {"cwe":llm_params4, "fwe":llm_params3, "niah_multikey_1":llm_params5, "niah_multikey_2":llm_params5, "niah_multikey_3":llm_params5, "niah_multiquery":llm_params5, "niah_multivalue":llm_params5, "niah_single_1":llm_params5, "niah_single_2":llm_params5, "niah_single_3":llm_params5, "qa_1":llm_params2, "qa_2":llm_params2, "vt":llm_params1}
         self.metric = {'cwe': metric_list1, 'fwe': metric_list1, 'niah_multikey_1': metric_list1, 'niah_multikey_2': metric_list1, 'niah_multikey_3': metric_list1, 'niah_multiquery': metric_list1, 'niah_multivalue': metric_list1, 'niah_single_1': metric_list1, 'niah_single_2': metric_list1, 'niah_single_3': metric_list1, 'qa_1': metric_list2, 'qa_2': metric_list2, 'vt': metric_list1}
-        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data/"
+        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
     def download_and_transform_data(self,args,**kwargs):
         logger.info("downloading paulgraham_essay")
         command = ["python","./tasks/utils/data_synthetic/RULER/data/synthetic/json/download_paulgraham_essay.py"]

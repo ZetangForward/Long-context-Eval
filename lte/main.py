@@ -148,7 +148,7 @@ def main():
     progress_bar = tqdm(args.benchmark.split(","))
 
     for benchmark in progress_bar:
-        benchmark_name,benchmark_config_path = benchmark.split(":")
+        benchmark_name, benchmark_config_path = benchmark.split(":")
         progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
         benchmark_name = benchmark_name.strip()
         benchmark_config_path = benchmark_config_path.strip()

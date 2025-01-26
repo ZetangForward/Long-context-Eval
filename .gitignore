@@ -1,5 +1,3 @@
-
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -9,5 +7,5 @@ tasks/*/*/data/*
 tasks/*/*/tmp_Rawdata/*
 save
 *.pyc
-
-
+dataset/General/data/
+dataset/General/tmp_Rawdata/

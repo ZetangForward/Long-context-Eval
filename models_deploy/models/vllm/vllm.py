@@ -16,7 +16,6 @@ class Vllm():
     def __init__(self,args, devices):
         self.args = args
         self.devices = devices
-        os.environ["CUDA_VISIBLE_DEVICES"] = args.device       
         self.params_dict = {
             "max_tokens": 16,
             "temperature": 1,
