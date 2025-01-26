@@ -48,11 +48,14 @@ lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct \
 or
 
 python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark LooGLE:tasks/General/LooGLE/LooGLE.yaml   --device 0,1     --device_split_num 2   --limit 1   --device 0,1 --device_split_num 2 --limit 1
+
 ``` 
 If you want to test multiple benchmarks, separate them with commas. For example: LooGLE:tasks/General/LooGLE/LooGLE.yaml, RULER:tasks/General/RULER/RULER.yaml.
-To evaluate a model hosted on some tasks, you can modify the configuration file in tasks/{self.ability}/{self.benchmark_name}/
-
 ```
+```
+To evaluate a model hosted on some tasks, you can modify the configuration file in tasks/{self.ability}/{self.benchmark_name}/
+```
+ 
 To evaluate a model hosted on the on `narrativeqa` from `LongBench` you can use the following command (this assumes you are using a CUDA-compatible GPU):
 
 If you don't select --eval, you need to perform the eval
@@ -60,3 +63,4 @@ If you don't select --eval, you need to perform the eval
 ```bash
 lte.eval --generation_path '' --output_path ''
 ```
+
