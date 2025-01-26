@@ -8,7 +8,7 @@ def handle_cli_args():
     parser.add_argument("--acceleration", type=str, default="",help="Selects which acceleration frame , Must be a string:`[duo_attn,Snapkv,streaming_llm,ms-poe,selfextend,lm-inifinite(llama,gpt-j,mpt)，activation_beacon,tova]")
     parser.add_argument("--device", type=str, default=" ",help=" It is used to set the device on which the model will be placed. The input must be a string, such as `0,1,2,3`.")
     parser.add_argument("--torch_dtype", type=str, default="torch.bfloat16",help="Specifies the PyTorch data type that you want to use. ")
-    parser.add_argument("--benchmark", type=str,required=True,help="Specify the benchmark. You should provide a value in the format like '--benchmark ruler:task/configs'.")
+    parser.add_argument("--benchmark_configs", type=str,required=True,help="Specify the benchmark. You should provide a value in the format like '--benchmark_config tasks/General/LongBench'.")
     parser.add_argument("--limit", type=str, default="auto",help="ccepts an integer,or just `auto` .it will limit the number of documents to evaluate to the first X documents (if an integer) per task of all tasks with `auto`")
     parser.add_argument("--save_path",  type=str, default="save/output",help="This is the path where the evaluation results will be saved.")
     parser.add_argument("--eval", action="store_true", default=False,help="If the --eval option is not provided, the process will terminate after the model generation and before the evaluation.")
