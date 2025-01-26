@@ -84,7 +84,9 @@ class LongBench(Base):
             "answer": raw_data["answers"],
         }
     
-
+    # FIXME: 
+    # TODO:
+    
     def modify(self, prompt, model, model_path,**kwargs):
         """Adjust input prompt to fit within the model's token limit."""
         if hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
