@@ -142,9 +142,9 @@ def eval():
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
         match = re.compile(r'_(\d+)').search(benchmark_name)
         if match:
-            benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1])
+            benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1],10000)
         else:
-            benchmark = get_benchmark_class(benchmark_name)()
+            benchmark = get_benchmark_class(benchmark_name)(10000)
         task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{data_generation_time}")
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:

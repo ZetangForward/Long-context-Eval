@@ -4,6 +4,9 @@ accelerate
 vllm
 loguru
 
+umap
+scikit-learn
+sentence-transformers
 bs4
 rank_bm25
 llama_index
