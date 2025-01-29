@@ -13,16 +13,16 @@ logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")
-from .utils.request import Request
+from lte.utils.request import Request
 import random
 from evaluation.instance import Instance
 from tqdm import tqdm
 from models_deploy import get_model
 import numpy as np
-from .utils.main_args import handle_cli_args
+from lte.utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
-# from models_deploy.rag import get_rag_method
+from models_deploy.rag import get_rag_method
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #Set parameters
@@ -79,7 +79,7 @@ class Evaluator():
             model_path = self.args.model_path
         model.deploy()
         for task_name,benchmark,request in tqdm(raw_data,desc="The {}th chunk".format(i)):
-            request.instances["input"] = benchmark.modify(request.instances["input"],model,model_path)
+            request.instances["input"] = benchmark.modify(request.instances["input"],model,model_path,args=self.args)
             #Call the model's generation function.
             with torch.no_grad(): 
                 result = model.generate(request.params, request.instances["input"])
@@ -88,19 +88,16 @@ class Evaluator():
             raw_outputs, processed_outputs = result[::],result[::]
             if  hasattr(benchmark, 'postprocess'):
                 processed_outputs = benchmark.postprocess(raw_outputs)
-
             request.raw_example.raw_outputs = raw_outputs
             request.raw_example.processed_outputs = processed_outputs
             request.raw_example.ground_truth = request.instances["processed_output"]
             request.raw_example.prompt_inputs = request.instances["input"]
-
             if hasattr(benchmark, 'length'):
-                path = os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}",task_name+".json")
-                os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name+f"_{benchmark.length}"), exist_ok=True)
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time,task_name+f"_{benchmark.length}"+".json")
+                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time), exist_ok=True)
             else:
-
-                path = os.path.join(self.args.generation_path,benchmark.benchmark_name,task_name+".json")
-                os.makedirs(os.path.join(self.args.generation_path,benchmark.benchmark_name), exist_ok=True)
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time,task_name+".json")
+                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time), exist_ok=True)
             with open(path, "a", encoding="utf-8") as f:
                 if True:
                     json.dump({"choices":request.raw_example.data["passage"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth,"model_input":request.instances["input"]}, f, ensure_ascii=False)
@@ -127,12 +124,11 @@ def main():
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
     args = handle_cli_args()
+    args.current_time = formatted_time
     if args.device ==" ":
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
 
-    args.generation_path = args.generation_path+"/"+formatted_time
-    args.save_path = args.save_path+"/"+formatted_time
     seed = 0;random.seed(seed);np.random.seed(seed)
     start_time = time.time()
     if len(args.device.split(","))%args.device_split_num!=0:
@@ -153,13 +149,13 @@ def main():
             progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
             if "length" in config and "num_samples" in config:
                 for l in config["length"]:            
-                    benchmark = get_benchmark_class(benchmark_name)(l,config["num_samples"])
+                    benchmark = get_benchmark_class(benchmark_name)(l,config["num_samples"],args.limit)
                     benchmark.task_names = config["tasks"]
                     all_benchmarks.append(benchmark)
                     task_len += len(benchmark.task_names)
                     all_tasks[benchmark.benchmark_name]=benchmark.task_names
             else:
-                benchmark = get_benchmark_class(benchmark_name)()
+                benchmark = get_benchmark_class(benchmark_name)(args.limit)
                 benchmark.task_names = config["tasks"]
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
@@ -180,22 +176,22 @@ def main():
                 task_path = data_path+"/"+task_name+".json"
                 tasks_path_list.append(task_path)
     if args.rag!="":
-        rag = get_rag_method(args.rag)(args.model_path,tasks_path_list)
+        rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,args.chunk_size,args.num_chunks)
         logger.info("performing information retrieval")
-        rag.traverse_task()            
+        rag.traverse_task()    
+        if args.rag in ["raptor","llamaindex"]:
+            return      
 
     #start to generate
     logger.info("The model has initiated the data generation process.")
     evaluator = Evaluator(args, all_benchmarks)
     evaluator.run(args.device_split_num)
-    logger.info(f"All generated data has been successfully stored in {args.generation_path}.")
+    logger.info(f"All generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/{args.current_time}")
 
     #eval
     if args.eval:
         command = ["python","./lte/eval.py",
-                    "--generation_path",args.generation_path ,
-                    "--output_path",args.save_path,
-                    ]
+                    "--data_generation_time",args.current_time]
         subprocess.run(command)
 
 

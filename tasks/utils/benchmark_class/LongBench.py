@@ -18,7 +18,7 @@ llm_param = {"narrativeqa":llm_params3, "qasper":llm_params3, "multifieldqa_en":
 task_metric = {'vcsum': {'rouge_zh_score': None}, 'triviaqa_e': {'qa_f1_score': None}, 'triviaqa': {'qa_f1_score': None}, 'trec_e': {'classification_score': None}, 'trec': {'classification_score': None}, 'samsum_e': {'rouge_score': None}, 'samsum': {'rouge_score': None}, 'repobench-p_e': {'code_sim_score': None}, 'repobench-p': {'code_sim_score': None}, 'qmsum': {'rouge_score': None}, 'qasper_e': {'qa_f1_score': None}, 'qasper': {'qa_f1_score': None}, 'passage_retrieval_zh': {'retrieval_zh_score': None}, 'passage_retrieval_en_e': {'retrieval_score': None}, 'passage_retrieval_en': {'retrieval_score': None}, 'passage_count_e': {'count_score': None}, 'passage_count': {'count_score': None}, 'narrativeqa': {'qa_f1_score': None}, 'musique': {'qa_f1_score': None}, 'multifieldqa_zh': {'qa_f1_zh_score': None}, 'multifieldqa_en_e': {'qa_f1_score': None}, 'multifieldqa_en': {'qa_f1_score': None}, 'multi_news_e': {'rouge_score': None}, 'multi_news': {'rouge_score': None}, 'lsht': {'classification_score': None}, 'lcc_e': {'code_sim_score': None}, 'lcc': {'code_sim_score': None}, 'hotpotqa_e': {'qa_f1_score': None}, 'hotpotqa': {'qa_f1_score': None}, 'gov_report_e': {'rouge_score': None}, 'gov_report': {'rouge_score': None}, 'dureader': {'rouge_zh_score': None}, '2wikimqa_e': {'qa_f1_score': None}, '2wikimqa': {'qa_f1_score': None}}
 
 class LongBench(Base):
-    def __init__(self):
+    def __init__(self,limit):
         super().__init__()
         self.benchmark_name = "LongBench"
         self.task_names = task_list
@@ -28,12 +28,15 @@ class LongBench(Base):
         self.llm_params = llm_param
         self.metric = task_metric
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
+        self.limit = int(limit) if limit!="auto" else 10000
 
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f2:
-            for raw_data in dataset:
+             for index, raw_data in enumerate(dataset):
+                if index>=self.limit:
+                    break
                 new_data = self.transform_data(raw_data)
                 f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
 
@@ -86,22 +89,18 @@ class LongBench(Base):
             "answer": raw_data["answers"],
         }
 
-    def modify(self, prompt, model, model_path,**kwargs):
+    def modify(self, prompt, model, model_path,args,**kwargs):
         """Adjust input prompt to fit within the model's token limit."""
-        args = handle_cli_args()
         if args.template:
-            prompt = args.template.format(user_input=prompt, assistant_response='')
+            prompt = args.template.format(user_input=prompt)
             tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
         elif hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
             tokenized_prompt = model.tokenizer.apply_chat_template(
                 [{"role": "user", "content": prompt}],
                 tokenize=True, add_generation_prompt=True
             )
-        # if args.max_lenth:
-        #     tokenized_prompt = tokenized_prompt[:args.max_lenth]
-        #     prompt = model.tokenizer.decode(tokenized_prompt)
-        # else:
-            # config = AutoConfig.from_pretrained(model_path)
+        else:
+            tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
         max_length = args.max_lenth
         if len(tokenized_prompt) > max_length:
             half = max_length // 2
@@ -109,4 +108,6 @@ class LongBench(Base):
                 model.tokenizer.decode(tokenized_prompt[:half], skip_special_tokens=True) +
                 model.tokenizer.decode(tokenized_prompt[-half:], skip_special_tokens=True)
             )
+        else:
+            prompt = model.tokenizer.decode(tokenized_prompt, skip_special_tokens=True) 
         return prompt

@@ -47,7 +47,7 @@ lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct \
     --limit 1 
 or
 
-python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark_configs tasks/General/LooGLE/LooGLE.yaml   --device 0,1     --device_split_num 2   
+python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark_configs tasks/Factuality/L_CiteEval/L_CiteEval.yaml   --device 0,1     --device_split_num 2   
 
 ``` 
 If you want to test multiple benchmarks, separate them with commas. For example: tasks/General/LooGLE/LooGLE.yaml, RULER:tasks/General/RULER/RULER.yaml 
@@ -60,6 +60,5 @@ To evaluate a model hosted on the on `narrativeqa` from `LongBench` you can use 
 If you don't select --eval, you need to perform the eval
 
 ```bash
-lte.eval --generation_path '' --output_path ''
+lte.eval --prediction_time 
 ```
-

@@ -10,7 +10,7 @@ import openai
 import tiktoken
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 
-from .EmbeddingModels import BaseEmbeddingModel, OpenAIEmbeddingModel
+from .EmbeddingModels import BaseEmbeddingModel, OpenAIEmbeddingModel,SBertEmbeddingModel
 from .SummarizationModels import (BaseSummarizationModel,
                                   GPT3TurboSummarizationModel)
 from .tree_structures import Node, Tree
@@ -82,7 +82,7 @@ class TreeBuilderConfig:
         self.summarization_model = summarization_model
 
         if embedding_models is None:
-            embedding_models = {"OpenAI": OpenAIEmbeddingModel()}
+            embedding_models = {"SBert": SBertEmbeddingModel()}
         if not isinstance(embedding_models, dict):
             raise ValueError(
                 "embedding_models must be a dictionary of model_name: instance pairs"
@@ -94,8 +94,9 @@ class TreeBuilderConfig:
                 )
         self.embedding_models = embedding_models
 
-        if cluster_embedding_model is None:
-            cluster_embedding_model = "OpenAI"
+        # if cluster_embedding_model is None:
+        #     cluster_embedding_model = "SBert"
+        cluster_embedding_model = "SBert"
         if cluster_embedding_model not in self.embedding_models:
             raise ValueError(
                 "cluster_embedding_model must be a key in the embedding_models dictionary"

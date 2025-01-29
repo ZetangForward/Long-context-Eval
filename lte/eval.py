@@ -1,4 +1,4 @@
-## python lte/eval.py --generation_path save/genration/01M_25D_15H_51m --output_path save/output/01M_20D_11H_31m
+## python lte/eval.py --data_generation_time 01M_27D_20H_15m
 from transformers import pipeline
 import os
 import re
@@ -120,12 +120,23 @@ def eval():
     benchmark_dict = {}
     benchmark_name_max_len,task_name_max_len,metric_max_len = 0,0,0
     args = handle_cli_args()
-    benchmark_list = os.listdir(args.generation_path)
+    benchmark_list = []
+    data_generation_time = args.data_generation_time
+    for ability in os.listdir("tasks"):
+        ability_path = os.path.join("tasks", ability)
+        if os.path.isdir(ability_path):
+            for benchmark in os.listdir(ability_path):
+                benchmark_path = os.path.join(ability_path, benchmark, "prediction",data_generation_time)
+                if os.path.exists(benchmark_path):
+                    if benchmark =="RULER":
+                        for task_name in  os.listdir(benchmark_path):
+                            length = task_name.split("_")[-1][:-5]
+                            benchmark_list.append(benchmark+f"_{length}")
+                    else:
+                        benchmark_list.append(benchmark)
     progress_bar = tqdm(benchmark_list)
-
     logger.info("*"*40+"  evaluating  "+"*"*40)
     for benchmark_name in progress_bar:
-
         benchmark_name_max_len = max(benchmark_name_max_len,len(benchmark_name))
         benchmark_dict[benchmark_name] = {}
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
@@ -134,17 +145,25 @@ def eval():
             benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1])
         else:
             benchmark = get_benchmark_class(benchmark_name)()
-        task_list = os.listdir(args.generation_path+"/"+benchmark_name)
+        task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{data_generation_time}")
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:
+            task_name = task_name[:-5]
             progress_bar2.set_description(f"eval task:{task_name[:-5]}")
             gathered_metrics = defaultdict(list)
-            task_name = task_name[:-5]
+            if "RULER" in benchmark_name:
+                length = task_name.split("_")[-1]
+                if length!=benchmark.length:
+                    continue
+                metrics = construct_metrics(benchmark.metric["_".join(task_name.split("_")[:-1])])
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",data_generation_time,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",data_generation_time,task_name+".json")
+            else:
+                metrics = construct_metrics(benchmark.metric[task_name])
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",data_generation_time,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",data_generation_time,task_name+".json")
             task_name_max_len = max(task_name_max_len,len(task_name))
-            metrics = construct_metrics(benchmark.metric[task_name])
-            save_task_path = os.path.join(args.output_path,benchmark_name,task_name)
             os.makedirs(save_task_path, exist_ok=True)
-            generation_results_path = os.path.join(args.generation_path+"/"+benchmark_name,task_name+".json")
             if not os.path.exists(generation_results_path):
                 continue
             with open(generation_results_path, "r", encoding="utf-8") as f:
@@ -185,7 +204,6 @@ def eval():
                 json.dump(dump_data, fout, indent=4, ensure_ascii=False)
 
     print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len)
-    results_table(args.output_path)
 
 if __name__ =="__main__":
     eval()

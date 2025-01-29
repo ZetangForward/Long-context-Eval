@@ -24,10 +24,6 @@ This mode supports a number of command-line arguments, the details of which can 
 
 - `--torch_dtype` : Specifies the PyTorch data type that you want to use. 
 
-- `--generation_path` : This is the path where the model - generated results will be saved.
-
-- `--save_path` : This is the path where the evaluation results will be saved.
-
 - `--adapter_path` : The path to the adapter file
 
 - `--eval` : If the --eval option is not provided, the process will terminate after the model generation and before the evaluation.

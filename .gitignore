@@ -5,7 +5,8 @@ __pycache__/
 *.cpython*
 tasks/*/*/data/*
 tasks/*/*/tmp_Rawdata/*
-save
+tasks/*/*/prediction/*
+tasks/*/*/result/*
 *.pyc
 dataset/General/data/
 dataset/General/tmp_Rawdata/

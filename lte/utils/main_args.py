@@ -10,15 +10,15 @@ def handle_cli_args():
     parser.add_argument("--torch_dtype", type=str, default="torch.bfloat16",help="Specifies the PyTorch data type that you want to use. ")
     parser.add_argument("--benchmark_configs", type=str,required=True,help="Specify the benchmark. You should provide a value in the format like '--benchmark_config tasks/General/LongBench'.")
     parser.add_argument("--limit", type=str, default="auto",help="ccepts an integer,or just `auto` .it will limit the number of documents to evaluate to the first X documents (if an integer) per task of all tasks with `auto`")
-    parser.add_argument("--save_path",  type=str, default="save/output",help="This is the path where the evaluation results will be saved.")
     parser.add_argument("--eval", action="store_true", default=False,help="If the --eval option is not provided, the process will terminate after the model generation and before the evaluation.")
     parser.add_argument("--selfextend_window_size",type=int,default=1024,help="the params of selfextend")
     parser.add_argument("--selfextend_group_size",type=int,default=32,help="the params of selfextend")
     parser.add_argument("--tova_multi_state_size",type=int,default=4096,help="the params of tova")
     parser.add_argument("--device_split_num",type=int,default=1,help="each task needs the number of gpu")
-    parser.add_argument("--generation_path",type=str,default="save/genration",help="This is the path where the model - generated results will be saved.")
+    parser.add_argument("--chunk_size", type=int, default=300, help="The maximum number of words or tokens in each text chunk during the retrieval augmented generation process.")
+    parser.add_argument("--num_chunks", type=int, default=5, help="The number of text chunks to be retrieved and used for augmented generation in each task.")
     parser.add_argument("--adapter_path",type=str,default="",help="The path to the adapter file")
-    parser.add_argument("--template", type=str, default="[INST]{user_input}[/INST]{assistant_response}", help="user modify template")
+    parser.add_argument("--template", type=str, help="user modify template")
     parser.add_argument("--max_lenth",type=int,default="32000",help="max lenth")
     # parser.add_argument("--lb_v2_cot", "-cot2", action='store_true') # set to True if using COT,when you test longbench-v2
     # parser.add_argument("--lb_v2_no_context", "-nc2", action='store_true') # set to True if using no context (directly measuring memorization),when you test longbench-v2

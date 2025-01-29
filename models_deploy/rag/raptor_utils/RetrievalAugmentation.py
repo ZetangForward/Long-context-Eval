@@ -129,7 +129,7 @@ class RetrievalAugmentationConfig:
         # Assign the created configurations to the instance
         self.tree_builder_config = tree_builder_config
         self.tree_retriever_config = tree_retriever_config
-        self.qa_model = qa_model or GPT4QAModel()
+        self.qa_model = qa_model 
         self.tree_builder_type = tree_builder_type
 
     def log_config(self):

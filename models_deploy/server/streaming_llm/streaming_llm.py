@@ -1,19 +1,15 @@
-import warnings
-
-warnings.filterwarnings("ignore")
-
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
+from peft import PeftModelForCausalLM
 import torch
-import argparse
-import json
-import os
-import time
-import re
-import sys
-
-from tqdm import tqdm
-from streaming_llm.utils import load, download_url, load_jsonl
-from streaming_llm.enable_streaming_llm import enable_streaming_llm
-
+import time 
+import transformers
+from copy import deepcopy
+from loguru import logger
+import sys,os
+import warnings
+warnings.filterwarnings("ignore")
+from models_deploy.server.streaming_llm.utils.utils import load, download_url, load_jsonl
+from models_deploy.server.streaming_llm.utils.enable_streaming_llm import enable_streaming_llm
 
 @torch.no_grad()
 def greedy_generate(model, tokenizer, input_ids, past_key_values, max_gen_len):
@@ -74,67 +70,56 @@ def streaming_inference(model, tokenizer, prompts, kv_cache=None, max_gen_len=10
             model, tokenizer, input_ids, past_key_values, max_gen_len=max_gen_len
         )[0]
     return past_key_values[1]
+logger.remove()
+logger.add(sys.stdout,
+        colorize=True, 
+        format="<level>{message}</level>")
 
-from flask import Flask, request, jsonify
-from transformers import AutoTokenizer, AutoModelForCausalLM,AutoConfig
-import torch
-from gevent.pywsgi import WSGIServer
-import argparse
-import os
-import time 
-
-# from snapkv.monkeypatch.monkeypatch import replace_llama
-# replace_llama() # Use monkey patches enable SnapKV
-time_start = time.time()
-torch_dtype=torch.float16
-parser = argparse.ArgumentParser()
-parser.add_argument("--model_name", type=str, default="/opt/data/private/sora/models/Llama-3-8B-Instruct-Gradient-1048k",help="Model name on hugginface")
-parser.add_argument("--port", type=int, default=5003, help="the port")
-args = parser.parse_args()
-
-app = Flask(__name__)
-
-print("Initializing model and tokenizer...")
-start_size = 4
-recent_size = 2000
-
-# Load the model and tokenizer
-
-model, tokenizer = load(args.model_name)
-
-
-kv_cache = enable_streaming_llm(
-    model, start_size=start_size, recent_size=recent_size
+class Streaming_LLM():
+    def __init__(self,args,devices):
+        self.args = args
+        self.devices = devices
+        self.params_dict = {}
+        self.start_size = 4
+        self.recent_size = 2000  
+        
+    def deploy(self):
+        # os.environ["CUDA_VISIBLE_DEVICES"] = self.devices
+        time_start = time.time()
+        # Load the model and tokenizer
+        self.model, self.tokenizer = load(self.args.model_path)
+        if self.args.adapter_path:
+            self.model=PeftModelForCausalLM.from_pretrained(self.model ,self.args.adapter_path)
+        self.kv_cache = enable_streaming_llm(
+    self.model, start_size=self.start_size, recent_size=self.recent_size
 )
 
+        # Check and add pad token if necessary
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})
+            self.model.resize_token_embeddings(len(self.tokenizer))
+        logger.info("Model and tokenizer initialized.",flush=True )
+        time_cost = time.time()-time_start
+        logger.info("Model_deploy time :{}".format(time_cost),flush=True)
 
+    def generate(self,params_dict,prompt):
+        params_ = deepcopy(self.params_dict)
+        params_.update(params_dict)
 
-params_dict = {  
-    "do_sample": True,
-    "temperature": 0.7,
-    }
+        if "stop" in params_:
+            params_["eos_token_id"]=[self.tokenizer.eos_token_id, self.tokenizer.encode("{}".format(params_["stop"]), add_special_tokens=False)[-1]]
+            params_.pop("stop")
+        if "max_tokens" in params_:
+            params_["max_new_tokens"]=params_["max_tokens"]
+            params_.pop("max_tokens")
 
-@app.route('/infer', methods=['POST'])
-def main():
-    datas = request.get_json()
-    params = datas["params"]
-    prompt = datas["instances"]
-    for key, value in params.items():
-        params_dict[key]=value
-
-    generated_text=streaming_inference(
-        model,
-        tokenizer,
+        generated_text=streaming_inference(
+        self.model,
+        self.tokenizer,
         prompt,
-        kv_cache,
+        self.kv_cache,
     )
+        torch.cuda.empty_cache()
+        return generated_text
 
 
-    print(generated_text)
-    torch.cuda.empty_cache()
-    return jsonify(generated_text)
-
-if __name__ == '__main__':
-    # Run the Flask app
-    http_server = WSGIServer(('127.0.0.1', args.port), app)
-    http_server.serve_forever()

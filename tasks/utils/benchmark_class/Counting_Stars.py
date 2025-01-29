@@ -20,7 +20,7 @@ task_download_name = {
 "counting_stars_zh_searching": "Counting_Stars_ZH_multi-evidence-retrieval-searching_128000_32_32.jsonl"}
 
 class Counting_Stars(Base):
-    def __init__(self):
+    def __init__(self,limit):
         super().__init__()
         self.benchmark_name = "Counting_Stars"
         self.task_names = ["counting_stars_en_reasoning","counting_stars_en_searching","counting_stars_zh_reasoning","counting_stars_zh_searching"]
@@ -29,6 +29,7 @@ class Counting_Stars(Base):
         self.llm_params = {"counting_stars_en_reasoning":llm_param,"counting_stars_en_searching":llm_param,"counting_stars_zh_reasoning":llm_param,"counting_stars_zh_searching":llm_param}
         self.metric = {"counting_stars_en_reasoning":metric1,"counting_stars_en_searching":metric2,"counting_stars_zh_reasoning":metric1,"counting_stars_zh_searching":metric2}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
+        self.limit = int(limit) if limit!="auto" else 10000
 
 
     def make_data(self,input_path,ability,task_name):
@@ -36,7 +37,9 @@ class Counting_Stars(Base):
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f2:
             with open(input_path, "r", encoding="utf-8") as f3:
-                for line in f3:
+                for index, line in enumerate(f3):
+                    if index>=self.limit:
+                            break
                     raw_data = json.loads(line)
                     new_data = self.transform_data(raw_data)
                     f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
