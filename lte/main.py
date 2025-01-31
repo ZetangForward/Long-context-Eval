@@ -78,13 +78,16 @@ class Evaluator():
             model = get_model(self.args.server)(self.args,devices)
             model_path = self.args.model_path
         model.deploy()
+        failed = 0
         for task_name,benchmark,request in tqdm(raw_data,desc="The {}th chunk".format(i)):
             request.instances["input"] = benchmark.modify(request.instances["input"],model,model_path,args=self.args)
-            #Call the model's generation function.
-            with torch.no_grad(): 
-                result = model.generate(request.params, request.instances["input"])
-
-            #Post-processing
+            try:
+                with torch.no_grad(): 
+                    result = model.generate(request.params, request.instances["input"])
+            except Exception as general_err:
+                failed += 1
+                print(f"An unexpected error occurred: {general_err}. Total failed runs: {failed} **********")
+                        #Post-processing
             raw_outputs, processed_outputs = result[::],result[::]
             if  hasattr(benchmark, 'postprocess'):
                 processed_outputs = benchmark.postprocess(raw_outputs)
@@ -98,6 +101,7 @@ class Evaluator():
             else:
                 path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time,task_name+".json")
                 os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time), exist_ok=True)
+
             with open(path, "a", encoding="utf-8") as f:
                 if True:
                     json.dump({"choices":request.raw_example.data["passage"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth,"model_input":request.instances["input"]}, f, ensure_ascii=False)
@@ -169,7 +173,7 @@ def main():
 
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        benchmark.download_and_transform_data(args=args)
+        # benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
