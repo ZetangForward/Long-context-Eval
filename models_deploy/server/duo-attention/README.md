@@ -1,1 +1,0 @@
-## zecheng_note: 单独把环境安装写到文件夹下面的README里面

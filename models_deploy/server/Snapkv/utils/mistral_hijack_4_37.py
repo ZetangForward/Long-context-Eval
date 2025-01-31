@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from typing import List, Optional, Tuple, Union
 import warnings
 from transformers.cache_utils import Cache, DynamicCache
-from transformers.models.mixtral.modeling_mixtral import (
+from transformers.models.mistral.modeling_mistral import (
     apply_rotary_pos_emb,
     repeat_kv,
 )
@@ -13,7 +13,7 @@ from transformers.utils import (
     logging,
     is_flash_attn_2_available,
 )
-from snapkv.monkeypatch.snapkv_utils import init_snapkv
+from .snapkv_utils import init_snapkv
 
 logger = logging.get_logger(__name__)
 
@@ -22,7 +22,7 @@ if is_flash_attn_2_available():
     from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
     _flash_supports_window_size = "window_size" in list(inspect.signature(flash_attn_func).parameters)
 
-def mixtral_flash_attn2_forward(
+def mistral_flash_attn2_forward(
     self,
     hidden_states: torch.Tensor,
     attention_mask: Optional[torch.Tensor] = None,
@@ -50,8 +50,16 @@ def mixtral_flash_attn2_forward(
     query_states = query_states.view(bsz, q_len, self.num_heads, self.head_dim).transpose(1, 2)
     key_states = key_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(1, 2)
     value_states = value_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(1, 2)
-
+    
     kv_seq_len = key_states.shape[-2]
+    # if past_key_value is not None:
+    #     if self.layer_idx is None:
+    #         raise ValueError(
+    #             f"The cache structure has changed since version v4.36. If you are using {self.__class__.__name__} "
+    #             "for auto-regressive decoding with k/v caching, please make sure to initialize the attention class "
+    #             "with a layer index."
+    #         )
+    #     kv_seq_len += past_key_value.get_usable_length(kv_seq_len, self.layer_idx)
     if past_key_value is not None:
         if self.layer_idx is None:
             raise ValueError(
@@ -59,9 +67,7 @@ def mixtral_flash_attn2_forward(
                 "for auto-regressive decoding with k/v caching, please make sure to initialize the attention class "
                 "with a layer index."
             )
-        # kv_seq_len += past_key_value.get_usable_length(kv_seq_len, self.layer_idx)
         if hasattr(self, "kv_seq_len"): #[SnapKV] add kv_seq_len
-            # print('self.kv_seq_len', self.kv_seq_len)
             if self.kv_seq_len != 0:
                 kv_seq_len += self.kv_seq_len
             else:
@@ -75,7 +81,6 @@ def mixtral_flash_attn2_forward(
 
     query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin, position_ids)
 
-    
     use_sliding_windows = (
         _flash_supports_window_size
         and getattr(self.config, "sliding_window", None) is not None
@@ -87,11 +92,10 @@ def mixtral_flash_attn2_forward(
             "The current flash attention version does not support sliding window attention, for a more memory efficient implementation"
             " make sure to upgrade flash-attn library."
         )
-
+    # repeat k/v heads if n_kv_heads < n_heads
     # [SnapKV] move to ahead
     key_states = repeat_kv(key_states, self.num_key_value_groups)
     value_states = repeat_kv(value_states, self.num_key_value_groups)
-
 
     if past_key_value is not None:
         # Activate slicing cache only if the config has a value `sliding_windows` attribute
@@ -120,8 +124,7 @@ def mixtral_flash_attn2_forward(
                 attention_mask = torch.cat([attention_mask, torch.ones_like(attention_mask[:, -1:])], dim=-1)
 
         cache_kwargs = {"sin": sin, "cos": cos}  # Specific to RoPE models
-        # key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
-        if key_states.shape[-2] == kv_seq_len: # [SnapKV] add kv_cluster
+        if key_states.shape[-2] >= kv_seq_len: # [SnapKV] add kv_cluster
             self.kv_seq_len = kv_seq_len
             key_states_compress, value_states_compress = self.kv_cluster.update_kv(key_states, query_states, value_states, attention_mask, self.num_key_value_groups)
             past_key_value.update(key_states_compress, value_states_compress, self.layer_idx, cache_kwargs)
@@ -129,9 +132,9 @@ def mixtral_flash_attn2_forward(
             self.kv_seq_len += q_len
             key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
 
-    # repeat k/v heads if n_kv_heads < n_heads
-    # key_states = repeat_kv(key_states, self.num_key_value_groups)
-    # value_states = repeat_kv(value_states, self.num_key_value_groups)
+        # key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
+
+    
     dropout_rate = 0.0 if not self.training else self.attention_dropout
 
     # In PEFT, usually we cast the layer norms in float32 for training stability reasons
@@ -139,10 +142,8 @@ def mixtral_flash_attn2_forward(
     # cast them back in float16 just to be sure everything works as expected.
     input_dtype = query_states.dtype
     if input_dtype == torch.float32:
-        if torch.is_autocast_enabled():
-            target_dtype = torch.get_autocast_gpu_dtype()
         # Handle the case where the model is quantized
-        elif hasattr(self.config, "_pre_quantization_dtype"):
+        if hasattr(self.config, "_pre_quantization_dtype"):
             target_dtype = self.config._pre_quantization_dtype
         else:
             target_dtype = self.q_proj.weight.dtype
@@ -161,7 +162,9 @@ def mixtral_flash_attn2_forward(
     query_states = query_states.transpose(1, 2)
     key_states = key_states.transpose(1, 2)
     value_states = value_states.transpose(1, 2)
-
+    # print('layer id', self.layer_idx, 'query_states', query_states.shape, 'key_states', key_states.shape, 'value_states', value_states.shape, 'kv_seq_len', kv_seq_len, 'dropout_rate', dropout_rate, 'use_sliding_windows', use_sliding_windows)
+    # [SnapKV] change attention_mask to None
+    # print('layer id', self.layer_idx, 'query_states', query_states.shape, 'key_states', key_states.shape, 'value_states', value_states.shape, 'attention_mask', attention_mask.shape, 'kv_seq_len', kv_seq_len, 'dropout_rate', dropout_rate, 'use_sliding_windows', use_sliding_windows)
     attn_output = self._flash_attention_forward(
         query_states,
         key_states,
@@ -180,25 +183,34 @@ def mixtral_flash_attn2_forward(
 
     return attn_output, attn_weights, past_key_value
 
-def prepare_inputs_for_generation_mixtral(
+def prepare_inputs_for_generation_mistral(
     self, input_ids, past_key_values=None, attention_mask=None, inputs_embeds=None, **kwargs
 ):
-    if past_key_values is None: # [SnapKV]
+    # Omit tokens covered by past_key_values
+    if past_key_values is None:
         for layer in self.model.layers:
             layer.self_attn.kv_seq_len = 0
-    # Omit tokens covered by past_key_values
     if past_key_values is not None:
         if isinstance(past_key_values, Cache):
             cache_length = past_key_values.get_seq_length()
             past_length = past_key_values.seen_tokens
             max_cache_length = past_key_values.get_max_length()
         else:
+            # # cache_length = past_length = past_key_values[0][0].shape[2]
+            # if len(past_key_values) == 0: # [SnapKV] for the first time, past_key_values is empty
+            #     print('fuck')
+            #     for layer in self.model.layers:
+            #         if hasattr(layer, "self_attn"):
+            #             print('yes, layer.self.attn.kv_seq_len exist')
+            #             layer.self_attn.kv_seq_len = 0
+            #     cache_length = past_length = input_ids.shape[1]
+            # else:
             cache_length = past_length = self.model.layers[0].self_attn.kv_seq_len
             max_cache_length = None
 
         # Keep only the unprocessed tokens:
         # 1 - If the length of the attention_mask exceeds the length of input_ids, then we are in a setting where
-        # some of the inputs are exclusively passed as part of the cache (e.g. when passing input_embeds as
+        # some of the inputs are exclusivelly passed as part of the cache (e.g. when passing input_embeds as
         # input)
         if attention_mask is not None and attention_mask.shape[1] > input_ids.shape[1]:
             input_ids = input_ids[:, -(attention_mask.shape[1] - past_length) :]
@@ -230,6 +242,8 @@ def prepare_inputs_for_generation_mixtral(
     else:
         model_inputs = {"input_ids": input_ids}
 
+    # print('prepare position_ids', position_ids)
+    # print('prepare input shape', input_ids.shape)
     model_inputs.update(
         {
             "position_ids": position_ids,

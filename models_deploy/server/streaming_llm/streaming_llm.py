@@ -1,15 +1,13 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
-from peft import PeftModelForCausalLM
+
 import torch
 import time 
-import transformers
 from copy import deepcopy
 from loguru import logger
 import sys,os
 import warnings
 warnings.filterwarnings("ignore")
-from models_deploy.server.streaming_llm.utils.utils import load, download_url, load_jsonl
-from models_deploy.server.streaming_llm.utils.enable_streaming_llm import enable_streaming_llm
+from models_deploy.server.streaming_llm.streaming_llm_utils.utils import load, download_url, load_jsonl
+from models_deploy.server.streaming_llm.streaming_llm_utils.enable_streaming_llm import enable_streaming_llm
 
 @torch.no_grad()
 def greedy_generate(model, tokenizer, input_ids, past_key_values, max_gen_len):
@@ -88,10 +86,8 @@ class Streaming_LLM():
         time_start = time.time()
         # Load the model and tokenizer
         self.model, self.tokenizer = load(self.args.model_path)
-        if self.args.adapter_path:
-            self.model=PeftModelForCausalLM.from_pretrained(self.model ,self.args.adapter_path)
         self.kv_cache = enable_streaming_llm(
-    self.model, start_size=self.start_size, recent_size=self.recent_size
+        self.model, start_size=self.start_size, recent_size=self.recent_size
 )
 
         # Check and add pad token if necessary
@@ -116,7 +112,7 @@ class Streaming_LLM():
         generated_text=streaming_inference(
         self.model,
         self.tokenizer,
-        prompt,
+        [prompt],
         self.kv_cache,
     )
         torch.cuda.empty_cache()
