@@ -173,7 +173,7 @@ def main():
 
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        # benchmark.download_and_transform_data(args=args)
+        benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
