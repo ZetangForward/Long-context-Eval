@@ -8,8 +8,15 @@ from .models.transformer.transformer import Transformer
 # from .server.duo_attention.duo_attn_ import duo_attn
 # from .server.Snapkv.SnapKV import SnapKV
 # from .server.SelfExtend.selfextend_ import SelfExtend
+from .models.vllm.vllm import Vllm
+# from .server.streaming_llm.streaming_llm import Streaming_LLM
+# from .server.Snapkv.SnapKV import SnapKV
+from .server.duo_attention.duo_attn import 
 MODEL_REGISTRY = {
     "transformers":Transformer,
+    "vllm":Vllm,
+    # "streaming_llm":Streaming_LLM,
+    # "SnapKV":SnapKV
     # "vllm":Vllm,
     # "streaming_llm":Streaming_LLM,
     # "SnapKV":SnapKV,

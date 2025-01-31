@@ -110,7 +110,7 @@ def construct_metrics(metrics_configs):
             metrics_configs[metrics_name] = dict()
             metrics_config = {"test":10}
         if metrics_name in ["l_cite_eavl_niah_cite","l_cite_eavl_cite"]:
-            pipe = pipeline("text-classification",model="tasksource/deberta-base-long-nli", device='cuda')
+            pipe = pipeline("text-classification",model="tasksource/deberta-base-long-nli", device='cpu')
         else:
             pipe = "0"
         metrics_configs[metrics_name]["evaluation"] = get_metric(metrics_name)(pipe=pipe,**metrics_config)
