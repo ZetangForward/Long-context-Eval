@@ -24,8 +24,8 @@ class SnapKV():
         time_start = time.time()
         # Load the model and tokenizer
         self.model = transformers.AutoModelForCausalLM.from_pretrained(
-            self.args.model_path, attn_implementation="flash_attention_2", device_map="auto", torch_dtype=eval(self.args.torch_dtype)).eval()
-        self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)
+            self.args.model_path, attn_implementation="flash_attention_2", device_map="auto", torch_dtype=eval(self.args.torch_dtype),trust_remote_code=True).eval()
+        self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False, trust_remote_code=True)
         # Check and add pad token if necessary
         if self.tokenizer.pad_token is None:
             self.tokenizer.add_special_tokens({'pad_token': '[PAD]'})

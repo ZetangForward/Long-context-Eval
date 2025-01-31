@@ -45,6 +45,7 @@ class Transformer():
         if "max_tokens" in params_:
             params_["max_new_tokens"]=params_["max_tokens"]
             params_.pop("max_tokens")
+        print(params_)
 
         # zecheng_note
         input = self.tokenizer(prompt, truncation=False, return_tensors="pt").to(self.model.device)
