@@ -204,6 +204,6 @@ def eval():
                 json.dump(dump_data, fout, indent=4, ensure_ascii=False)
 
     print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len)
-
+    results_table(args.data_generation_time)
 if __name__ =="__main__":
     eval()
