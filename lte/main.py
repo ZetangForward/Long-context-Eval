@@ -1,4 +1,4 @@
-# python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/ --rag BM25   --eval    --benchmark RULER:tasks/General/RULER/RULER.yaml  --device 0,1 --device_split_num 2 --limit 1
+# python lte/main.py --model_path /nvme1/hf_models/Llama-3.1-8B-Instruct --rag raptor   --eval    --benchmark tasks/General/LooGLE/LooGLE.yaml --device 3 --device_split_num 2 --limit 1
 import os
 import sys
 import yaml
@@ -182,14 +182,17 @@ def main():
                 task_path = data_path+"/"+task_name+".json"
                 tasks_path_list.append(task_path)
     if args.rag!="":
+        with open("models_deploy/rag/rag_configs.yaml","r") as f:
+            config = yaml.safe_load(f)
+        chunk_size,num_chunks = config['chunk_size'],config['num_chunks']
         if args.rag in ["raptor","llamaindex"]:
             os.environ["CUDA_VISIBLE_DEVICES"] = "3"
-            rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,args.chunk_size,args.num_chunks,current_time=args.current_time,device = args.device)
+            rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,chunk_size,num_chunks,current_time=args.current_time,device = args.device)
             logger.info("performing information retrieval and inference")
             rag.traverse_task()   
             return 
         else:
-            rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,args.chunk_size,args.num_chunks)
+            rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,chunk_size,num_chunks)
             logger.info("performing information retrieval")
             rag.traverse_task()    
  

@@ -4,6 +4,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import json
 from tqdm import tqdm
 import pdb
+import torch
 from raptor_utils.RetrievalAugmentation import RetrievalAugmentation
 from bass_class import Base
 from sentence_transformers import SentenceTransformer
@@ -106,10 +107,6 @@ class raptor(Base):
                 with open(pred_path, "w") as f2:
                     tree_count =0
                     for line in f:
-                        if i<self.start_point:
-                            i=i+1
-                        else:
-                            continue
                         tree_name = task_name+"_"+str(tree_count)
                         data = json.loads(line.strip())
                         data["pred"] = self.answer_questions(tree_name,data["passage"],data["question"])
