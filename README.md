@@ -25,6 +25,7 @@ git clone https://gitlab.com/nlp_sora/lte.git
 cd lte
 conda create -n lte python=3.10 -y
 conda activate lte
+pip install torch
 pip install -e .
 ```
 
