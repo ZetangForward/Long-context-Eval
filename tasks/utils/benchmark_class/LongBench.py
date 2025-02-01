@@ -102,6 +102,7 @@ class LongBench(Base):
         else:
             tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
         max_length = args.max_lenth
+        
         if len(tokenized_prompt) > max_length:
             half = max_length // 2
             prompt = (

@@ -1,5 +1,5 @@
-# lte(longtextevaluation)
 
+# Long TexT Evaluation (lte)
 An open source framework for evaluating foundation models
 
 ## Overview
@@ -8,7 +8,12 @@ This project provides a unified framework to test long-text-language models on a
 
 **Features:**
 
+- Over 5 standard academic benchmarks for LLMs, with hundreds of subtasks and variants implemented.
+- Support for models loaded via [transformers](https://github.com/huggingface/transformers/) (including information retrieval implemented via [BM25], [Raptors],[opeenai])(https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG), [Snapkv](https://github.com/FasterDecoding/SnapKV), [SelfExtend](https://github.com/datamllab/LongLM), and [streaming_llm](https://github.com/mit-han-lab/streaming-llm) to accelerate model inference, 
 - Support for fast and memory-efficient inference with [vLLM](https://github.com/vllm-project/vllm).
+- Support for evaluation on adapters (e.g. LoRA) supported in [HuggingFace's PEFT library](https://github.com/huggingface/peft).
+- Support for local models and benchmarks.
+- Evaluation with publicly available prompts ensures reproducibility and comparability between papers.
 - Easy support for custom prompts and evaluation metrics.
 
 ## Install
@@ -33,24 +38,26 @@ A user guide detailing the full list of supported arguments is provided [here](.
 
 ### Hugging Face `transformers`
 
-To evaluate a model hosted on the on `LongBench` and `Counting_Stars` you can use the following command (this assumes you are using a CUDA-compatible GPU):
+To evaluate a model hosted on the [HuggingFace Hub](https://huggingface.co/models),(e.g. GPT-J-6B) on `RULER` and  you can use the following command (this assumes you are using a CUDA-compatible GPU)
 
 RUN
 
 ```bash
 
-lte.run --model_path /opt/data/private/models/Llama-2-7B-32K-Instruct \
+lte.run --model_path meta-llama/Llama-3.1-8B-Instruct \
     --eval \
     --benchmark_configs tasks/General/RULER/RULER.yaml \
-    --device 0,1 \
-    --device_split_num 1 \
-    --limit 1 
+    --device 0 \
 or
 
-python lte/main.py --model_path /opt/data/private/models/Llama-3.1-8B-Instruct/   --eval    --benchmark_configs tasks/Factuality/L_CiteEval/L_CiteEval.yaml   --device 0,1     --device_split_num 2   
+python lte/main.py --model_path meta-llama/Llama-3.1-8B-Instruct   --eval  --benchmark_configs tasks/Factuality/L_CiteEval/L_CiteEval.yaml   --device 0  
 
 ``` 
-If you want to test multiple benchmarks, separate them with commas. For example: tasks/General/LooGLE/LooGLE.yaml, RULER:tasks/General/RULER/RULER.yaml 
+> [!Note]
+> Just like you can provide a local path to `transformers.AutoModel`, you can also provide a local path to `lm_eval` via `--model_args pretrained=/path/to/model`
+
+#### Multi-GPU Evaluation with Hugging Face `accelerate`
+
 ```
 ```
 To evaluate a model hosted on some tasks, you can modify the configuration file in tasks/{self.ability}/{self.benchmark_name}/

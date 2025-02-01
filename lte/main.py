@@ -35,20 +35,24 @@ class Evaluator():
         for benchmark in all_benchmarks:
             for task_name in benchmark.task_names:
                 if self.args.rag!="":
-                    task_name+=f"_{self.args.rag}"
-                if hasattr(benchmark, 'length'):
-                    path = benchmark.data_path+"/"+task_name+f"_{benchmark.length}"+".json"
+                    if hasattr(benchmark, 'length'):
+                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+f"_{benchmark.length}"+".json"
+                    else:
+                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+".json"
                 else:
-                    path = benchmark.data_path+"/"+task_name+".json"
+                    if hasattr(benchmark, 'length'):
+                        path = benchmark.data_path+"/"+task_name+f"_{benchmark.length}"+".json"
+                    else:
+                        path = benchmark.data_path+"/"+task_name+".json"
                 with open(path, "r", encoding="utf-8") as file:
                     for index, line in enumerate(file):
                         if index>=self.limit:
                             break
                         raw_input = Instance(json.loads(line.strip()))
-                        prompt_input = benchmark.transform(raw_input.data,task_name)
+                        prompt_input = benchmark.transform(raw_input.data, task_name)
                         self.tasks_list.append([task_name,benchmark,Request(
                             instances=prompt_input,
-                            params=benchmark.llm_params[task_name if self.args.rag=="" else "_".join(task_name.split("_")[:-1])],
+                            params=benchmark.llm_params[task_name],
                             raw_example=raw_input,
                         )])
 
@@ -123,8 +127,6 @@ def format_tasks(all_tasks):
 
 def main():
     mp.set_start_method('spawn')
-    ## init
-    # mp.set_start_method('spawn')
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
     args = handle_cli_args()
@@ -137,7 +139,7 @@ def main():
     start_time = time.time()
     if len(args.device.split(","))%args.device_split_num!=0:
         raise ValueError("The number of GPUs cannot be divided evenly by the number of blocks.")
-    # os.environ["CUDA_VISIBLE_DEVICES"] = args.device
+
 
     #task data download
     all_tasks = {}
@@ -173,18 +175,24 @@ def main():
 
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        benchmark.download_and_transform_data(args=args)
+        # benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
                 task_path = data_path+"/"+task_name+".json"
                 tasks_path_list.append(task_path)
     if args.rag!="":
-        rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,args.chunk_size,args.num_chunks)
-        logger.info("performing information retrieval")
-        rag.traverse_task()    
         if args.rag in ["raptor","llamaindex"]:
-            return      
+            os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+            rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,args.chunk_size,args.num_chunks,current_time=args.current_time,device = args.device)
+            logger.info("performing information retrieval and inference")
+            rag.traverse_task()   
+            return 
+        else:
+            rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,args.chunk_size,args.num_chunks)
+            logger.info("performing information retrieval")
+            rag.traverse_task()    
+ 
 
     #start to generate
     logger.info("The model has initiated the data generation process.")

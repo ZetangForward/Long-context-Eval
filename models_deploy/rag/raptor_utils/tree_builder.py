@@ -10,7 +10,7 @@ import openai
 import tiktoken
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 
-from .EmbeddingModels import BaseEmbeddingModel, OpenAIEmbeddingModel,SBertEmbeddingModel
+from .EmbeddingModels import BaseEmbeddingModel, OpenAIEmbeddingModel
 from .SummarizationModels import (BaseSummarizationModel,
                                   GPT3TurboSummarizationModel)
 from .tree_structures import Node, Tree
@@ -82,7 +82,7 @@ class TreeBuilderConfig:
         self.summarization_model = summarization_model
 
         if embedding_models is None:
-            embedding_models = {"SBert": SBertEmbeddingModel()}
+            embedding_models = {"OpenAI": OpenAIEmbeddingModel()}
         if not isinstance(embedding_models, dict):
             raise ValueError(
                 "embedding_models must be a dictionary of model_name: instance pairs"
@@ -94,9 +94,8 @@ class TreeBuilderConfig:
                 )
         self.embedding_models = embedding_models
 
-        # if cluster_embedding_model is None:
-        #     cluster_embedding_model = "SBert"
-        cluster_embedding_model = "SBert"
+        if cluster_embedding_model is None:
+            cluster_embedding_model = "OpenAI"
         if cluster_embedding_model not in self.embedding_models:
             raise ValueError(
                 "cluster_embedding_model must be a key in the embedding_models dictionary"
@@ -172,11 +171,6 @@ class TreeBuilder:
         """
         if children_indices is None:
             children_indices = set()
-        
-        tokens = self.tokenizer.encode(text)
-        if len(tokens) > 8000:
-            truncated_tokens = tokens[:8000]
-            text = self.tokenizer.decode(truncated_tokens)
 
         embeddings = {
             model_name: model.create_embedding(text)
@@ -275,18 +269,11 @@ class TreeBuilder:
             Tree: The golden tree structure.
         """
         chunks = split_text(text, self.tokenizer, self.max_tokens)
-        chunks = [chunk for chunk in chunks if chunk.strip()]
 
         logging.info("Creating Leaf Nodes")
 
         if use_multithreading:
-            try:
-                leaf_nodes = self.multithreaded_create_leaf_nodes(chunks)
-            except: 
-                leaf_nodes = {}
-                for index, text in enumerate(chunks):
-                    __, node = self.create_node(index, text)
-                    leaf_nodes[index] = node
+            leaf_nodes = self.multithreaded_create_leaf_nodes(chunks)
         else:
             leaf_nodes = {}
             for index, text in enumerate(chunks):

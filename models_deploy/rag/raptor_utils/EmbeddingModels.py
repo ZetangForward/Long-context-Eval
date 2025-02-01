@@ -15,7 +15,7 @@ class BaseEmbeddingModel(ABC):
 
 
 class OpenAIEmbeddingModel(BaseEmbeddingModel):
-    def __init__(self, model="text-embedding-3-small"):
+    def __init__(self, model="text-embedding-ada-002"):
         self.client = OpenAI()
         self.model = model
 

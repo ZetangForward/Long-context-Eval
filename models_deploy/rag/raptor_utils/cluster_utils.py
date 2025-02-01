@@ -27,7 +27,7 @@ def global_cluster_embeddings(
     metric: str = "cosine",
 ) -> np.ndarray:
     if n_neighbors is None:
-        #n_neighbors = int((len(embeddings) - 1) ** 0.5)
+        # n_neighbors = int((len(embeddings) - 1) ** 0.5)
         n_neighbors = max(2, int((len(embeddings) - 1) ** 0.5))
     '''
     if dim <= 0:
@@ -74,6 +74,7 @@ def GMM_cluster(embeddings: np.ndarray, threshold: float, random_state: int = 0)
 def perform_clustering(
     embeddings: np.ndarray, dim: int, threshold: float, verbose: bool = False
 ) -> List[np.ndarray]:
+    print(embeddings)
     reduced_embeddings_global = global_cluster_embeddings(embeddings, min(dim, len(embeddings) -2))
     global_clusters, n_global_clusters = GMM_cluster(
         reduced_embeddings_global, threshold

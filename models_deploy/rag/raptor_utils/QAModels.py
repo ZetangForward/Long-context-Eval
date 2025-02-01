@@ -89,20 +89,15 @@ class GPT3TurboQAModel(BaseQAModel):
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role":"user","content":"Who won the world series in 2020?"},
-                {"role":"assistant","content":"Los Angeles Dodgers"},
-                {"role":"user","content":"Which football player is from Argentina? A. Messi B. Ronaldo C. Di Maria D. Maradona"},
-                {"role":"assistant","content":"ACD"},
+                {"role": "system", "content": "You are Question Answering Portal"},
                 {
                     "role": "user",
-                    "content": f"From the Context: {context}, Directly answer the question without additional explanation. {question}",
+                    "content": f"Given Context: {context} Give the best full answer amongst the option to question {question}",
                 },
             ],
             temperature=0,
         )
 
-        # If question gives options, strictly answer only the option char(s).
         return response.choices[0].message.content.strip()
 
     @retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
@@ -118,13 +113,12 @@ class GPT3TurboQAModel(BaseQAModel):
 
 
 class GPT4QAModel(BaseQAModel):
-    def __init__(self, model="gpt-4o-2024-05-13"):
+    def __init__(self, model="gpt-4"):
         """
-        gpt-4-turbo-2024-04-09 gpt-4o-2024-05-13
-        Initializes the GPT-4o model with the specified model version.
+        Initializes the GPT-3 model with the specified model version.
 
         Args:
-            model (str, optional): The GPT-4o model version to use for generating summaries.
+            model (str, optional): The GPT-3 model version to use for generating summaries. Defaults to "text-davinci-003".
         """
         self.model = model
         self.client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
@@ -147,19 +141,14 @@ class GPT4QAModel(BaseQAModel):
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role":"user","content":"Who won the world series in 2020?"},
-                {"role":"assistant","content":"Los Angeles Dodgers"},
-                {"role":"user","content":"Which football player is from Argentina? A. Messi B. Ronaldo C. Di Maria D. Maradona"},
-                {"role":"assistant","content":"ACD"},
+                {"role": "system", "content": "You are Question Answering Portal"},
                 {
                     "role": "user",
-                    "content": f"From the Context: {context}, Directly answer the question without additional explanation. If question gives options, strictly answer only the option char(s). {question}",
+                    "content": f"Given Context: {context} Give the best full answer amongst the option to question {question}",
                 },
             ],
             temperature=0,
         )
-        # If question gives options, strictly answer only the option char(s).
 
         return response.choices[0].message.content.strip()
 
