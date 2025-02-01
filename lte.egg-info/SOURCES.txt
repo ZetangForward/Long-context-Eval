@@ -1,6 +1,5 @@
 README.md
 pyproject.toml
-setup.py
 evaluation/__init__.py
 evaluation/instance.py
 evaluation/postprocess.py
@@ -48,7 +47,7 @@ models_deploy/rag/__init__.py
 models_deploy/rag/bass_class.py
 models_deploy/rag/contriever.py
 models_deploy/rag/llamaindex.py
-models_deploy/rag/openai.py
+models_deploy/rag/openai_.py
 models_deploy/rag/raptor.py
 models_deploy/rag/raptor_utils/EmbeddingModels.py
 models_deploy/rag/raptor_utils/FaissRetriever.py
