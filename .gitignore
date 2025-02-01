@@ -8,7 +8,7 @@ tasks/*/*/data/*
 tasks/*/*/tmp_Rawdata/*
 tasks/*/*/prediction/*
 tasks/*/*/result/*
-
+/lte/lte.egg-info
 
 dataset/General/data/
 dataset/General/tmp_Rawdata/
