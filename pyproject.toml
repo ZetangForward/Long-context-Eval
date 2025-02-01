@@ -8,7 +8,7 @@ version = "0.1"
 description = "A framework for evaluating lont language models"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ['torch', 'transformers', 'accelerate', 'vllm', 'loguru', '', 'replicate', 'umap-learn==0.5.5', 'llama_index.embeddings.huggingface', 'llama_index.llms.huggingface', 'llama_index.readers.string_iterable', 'scikit-learn', 'sentence-transformers', 'bs4', 'rank_bm25', 'llama_index', 'fabric', 'raptor', '', 'bert_score', 'flask', 'gevent', 'pandas', 'peft', 'sacrebleu', 'hydra-core', 'nltk', 'nvidia-ml-py', 'openai', 'openpyxl', 'matplotlib', 'rouge', 'rouge_chinese', 'jieba', 'fuzzywuzzy', 'pandas', 'wonderwords', 'tenacity', 'python-Levenshtein', 'scipy', 'PyYAML', 'tqdm', 'datasets', 'html2text', 'nemo', 'flash_attn', 'huggingface_hub']
+dependencies = ["torch", "transformers", "accelerate", "vllm", "loguru", "", "replicate", "umap-learn==0.5.5", "llama_index.embeddings.huggingface", "llama_index.llms.huggingface", "llama_index.readers.string_iterable", "scikit-learn", "sentence-transformers", "bs4", "rank_bm25", "llama_index", "fabric", "raptor", "", "bert_score", "flask", "gevent", "pandas", "peft", "sacrebleu", "hydra-core", "nltk", "nvidia-ml-py", "openai", "openpyxl", "matplotlib", "rouge", "rouge_chinese", "jieba", "fuzzywuzzy", "pandas", "wonderwords", "tenacity", "python-Levenshtein", "scipy", "PyYAML", "tqdm", "datasets", "html2text", "nemo", "flash_attn", "huggingface_hub"]
 
 [tool.setuptools.packages.find]
 include = ["*"]
