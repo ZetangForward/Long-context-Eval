@@ -1,10 +1,10 @@
-torch
+
 transformers
 accelerate
 vllm
 loguru
-
 replicate
+torch
 umap-learn==0.5.5
 llama_index.embeddings.huggingface
 llama_index.llms.huggingface
@@ -16,7 +16,6 @@ rank_bm25
 llama_index
 fabric
 raptor
-
 bert_score
 flask
 gevent
@@ -43,5 +42,5 @@ tqdm
 datasets
 html2text
 nemo
-flash_attn
 huggingface_hub
+flash_attn
