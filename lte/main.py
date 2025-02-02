@@ -186,7 +186,6 @@ def main():
             config = yaml.safe_load(f)
         chunk_size,num_chunks = config['chunk_size'],config['num_chunks']
         if args.rag in ["raptor","llamaindex"]:
-            os.environ["CUDA_VISIBLE_DEVICES"] = "3"
             rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,chunk_size,num_chunks,current_time=args.current_time,device = args.device)
             logger.info("performing information retrieval and inference")
             rag.traverse_task()   

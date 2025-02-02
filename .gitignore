@@ -9,6 +9,6 @@ tasks/*/*/tmp_Rawdata/*
 tasks/*/*/prediction/*
 tasks/*/*/result/*
 /lte/lte.egg-info
-
+*.xlsx
 dataset/General/data/
 dataset/General/tmp_Rawdata/

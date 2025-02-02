@@ -22,10 +22,13 @@ def results_table(data_generation_time):
 
     # 将字典转换为DataFrame
     df = pd.DataFrame.from_dict(results, orient='index')
-    output_path = "./lte/tasks"
+    output_path = f"./tasks/{data_generation_time}"
+    os.makedirs(output_path,exist_ok=True)
     # 重置索引并将其命名为'task_name'
     df = df.reset_index()
     df = df.rename(columns={'index': 'task_name'})
     table_path = os.path.join(output_path,'output_table.xlsx')
+    print(table_path)
     df.to_excel(table_path, index=False)
     logger.info("results_table is saved in {}".format(table_path))
+results_table("01M_31D_16H_15m")
