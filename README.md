@@ -59,7 +59,7 @@ To evaluate a model on specific tasks within a benchmark, you can modify the con
 if you do not select the --eval option during the initial run, you can perform the evaluation separately using the following command:
 ```bash
 
-lte.eval --prediction_time  or python lte/eval.py --prediction_time
+lte.eval --data_save_path  or python lte/eval.py --data_save_path
 
 ```
 Here, --prediction_time represents the duration of your previous run. This function will evaluate all benchmark results generated during that run.

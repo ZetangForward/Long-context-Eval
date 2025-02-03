@@ -20,8 +20,10 @@ task_download_name = {
 "counting_stars_zh_searching": "Counting_Stars_ZH_multi-evidence-retrieval-searching_128000_32_32.jsonl"}
 
 class Counting_Stars(Base):
-    def __init__(self,limit):
+    def __init__(self,args):
         super().__init__()
+        self.args = args
+        self.limit = int(self.args.limit) if args.limit!="auto" else 10000
         self.benchmark_name = "Counting_Stars"
         self.task_names = ["counting_stars_en_reasoning","counting_stars_en_searching","counting_stars_zh_reasoning","counting_stars_zh_searching"]
         self.ability = "Reasoning"
@@ -29,7 +31,7 @@ class Counting_Stars(Base):
         self.llm_params = {"counting_stars_en_reasoning":llm_param,"counting_stars_en_searching":llm_param,"counting_stars_zh_reasoning":llm_param,"counting_stars_zh_searching":llm_param}
         self.metric = {"counting_stars_en_reasoning":metric1,"counting_stars_en_searching":metric2,"counting_stars_zh_reasoning":metric1,"counting_stars_zh_searching":metric2}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-        self.limit = int(limit) if limit!="auto" else 10000
+  
 
 
     def make_data(self,input_path,ability,task_name):

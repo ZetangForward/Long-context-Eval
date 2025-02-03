@@ -12,6 +12,7 @@ from .longbench_metrics import Count_Score,Retrieval_Score,Retrieval_ZH_Score,Co
 from .couting_stars.counting_stars_citation import  Counting_Stars_Citation_ACC,Counting_Stars_Citation_Precision,Counting_Stars_Citation_Recall,Counting_Stars_Citation_F1
 from .general_metrics.string_math import  String_Match_Part, String_Match_All
 from .l_citeeavl_metrics import L_cite_eavl_Counting_Stars,L_cite_eavl_Niah,L_cite_eavl_Qa_Score,L_cite_eavl_Rouge_Score,L_cite_eavl_cite,L_cite_eavl_niah_cite,L_cite_eavl_counting_stars_cite
+from .niah import niah
 METRICS_REGISTRY = {
     "bert_score":Bert_Score,
     "bleu1": BLEU1,
@@ -49,9 +50,8 @@ METRICS_REGISTRY = {
     
     "l_cite_eavl_cite":L_cite_eavl_cite,
     "l_cite_eavl_niah_cite":L_cite_eavl_niah_cite,
-    "l_cite_eavl_counting_stars_cite":L_cite_eavl_counting_stars_cite
-    
-    
+    "l_cite_eavl_counting_stars_cite":L_cite_eavl_counting_stars_cite,
+    "niah":niah
 }
 
 

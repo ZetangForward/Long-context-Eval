@@ -8,3 +8,5 @@ We have categorized the benchmarks according to abilities, and the specific conf
 1. Counting_Stars
 ## Factuality
 1. L_CiteEval
+## Retrieve
+1. NIAH

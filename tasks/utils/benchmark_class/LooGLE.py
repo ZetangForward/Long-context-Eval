@@ -20,7 +20,7 @@ metric_list = {"bleu1":None,"bleu4":None,"rouge":None,"meteor_score":None,"bert_
 from tasks.utils.benchmark_class.base_class import Base
 
 class LooGLE(Base):
-    def __init__(self,limit):
+    def __init__(self,args):
         super().__init__()
         self.benchmark_name = "LooGLE"
         self.task_names = ["longdep_qa","longdep_summarization"]
@@ -30,7 +30,8 @@ class LooGLE(Base):
         self.llm_params = {"longdep_qa":llm_params,"longdep_summarization":llm_params}
         self.metric = {"longdep_qa":metric_list,"longdep_summarization":metric_list}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-        self.limit = int(limit) if limit!="auto" else 10000
+        self.args = args
+        self.limit = int(self.args.limit) if args.limit!="auto" else 10000
     
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
