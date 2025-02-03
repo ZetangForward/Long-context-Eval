@@ -175,7 +175,7 @@ def main():
 
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        # benchmark.download_and_transform_data(args=args)
+        benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
@@ -186,7 +186,6 @@ def main():
             config = yaml.safe_load(f)
         chunk_size,num_chunks = config['chunk_size'],config['num_chunks']
         if args.rag in ["raptor","llamaindex"]:
-            os.environ["CUDA_VISIBLE_DEVICES"] = "3"
             rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,chunk_size,num_chunks,current_time=args.current_time,device = args.device)
             logger.info("performing information retrieval and inference")
             rag.traverse_task()   

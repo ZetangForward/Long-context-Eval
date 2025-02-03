@@ -3,15 +3,16 @@ from transformers import pipeline
 import os
 import re
 import sys
+import pandas as pd
 import json
 sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 from tqdm import tqdm
 import pdb
 from metrics import get_metric
 from collections import defaultdict
-from utils.eval_args import handle_cli_args
+from .utils.eval_args import handle_cli_args
 import numpy as np
-from utils.results_table import results_table
+from .utils.results_table import results_table
 from loguru import logger
 logger.remove()
 logger.add(sys.stdout,
@@ -19,7 +20,7 @@ logger.add(sys.stdout,
         format="<level>{message}</level>")
 from tasks.utils.benchmark_class import get_benchmark_class
 
-def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, metric_max_len):
+def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, metric_max_len, excel_file_path):
     # 定义每列的宽度，新增 AVG 列
     column_widths = [benchmark_name_max_len + 2, task_name_max_len + 10, metric_max_len + 5, 10, 10]
     header = ["BenchMark", "Tasks", "Metric", "Score", "AVG"]
@@ -40,6 +41,7 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
     ))
 
     all_scores = []
+    rows = []
     for benchmark_name, tasks in data.items():
         benchmark_scores = []
         for task, metrics in tasks.items():
@@ -51,6 +53,7 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
                     str(value).center(column_widths[3], ' '),
                     "".center(column_widths[4], ' ')
                 ))
+                rows.append([benchmark_name, task, metric, value, ""])
 
                 try:
                     # 尝试将值转换为浮点数
@@ -61,12 +64,12 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
                     # 处理无法转换为浮点数的情况
                     logger.warning(f"无法将 {value} 转换为浮点数，跳过该值。")
             logger.info("|{}|{}|{}|{}|{}|".format(
-                    "-" * column_widths[0],
-                    "-" * column_widths[1],
-                    "-" * column_widths[2],
-                    "-" * column_widths[3],
-                    "-" * column_widths[4]
-                ))
+                "-" * column_widths[0],
+                "-" * column_widths[1],
+                "-" * column_widths[2],
+                "-" * column_widths[3],
+                "-" * column_widths[4]
+            ))
 
         # 计算当前 BenchMark 的平均分
         if benchmark_scores:
@@ -78,6 +81,7 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
                 str(benchmark_avg).center(column_widths[3], ' '),
                 "".center(column_widths[4], ' ')
             ))
+            rows.append([benchmark_name, "Average", "Overall", benchmark_avg, ""])
         logger.info("|{}|{}|{}|{}|{}|".format(
             "-" * column_widths[0],
             "-" * column_widths[1],
@@ -104,6 +108,12 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
             "-" * column_widths[3],
             "-" * column_widths[4]
         ))
+        rows.append(["Total", "Average", "Overall", "", total_avg])
+
+    # 创建 DataFrame
+    df = pd.DataFrame(rows, columns=header)
+    # 保存到 Excel 文件
+    df.to_excel(excel_file_path, index=False)
 def construct_metrics(metrics_configs):
     for metrics_name,metrics_config in metrics_configs.items():
         if not metrics_config:
@@ -202,8 +212,9 @@ def eval():
                 os.path.join(save_task_path, "final_metrics.json"), "w", encoding="utf-8"
             ) as fout:
                 json.dump(dump_data, fout, indent=4, ensure_ascii=False)
-
-    print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len)
-
+    output_path = f"./tasks/results/{data_generation_time}"
+    os.makedirs(output_path,exist_ok=True)
+    print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/results/{data_generation_time}/output_table.xlsx")
+    logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
 if __name__ =="__main__":
     eval()
