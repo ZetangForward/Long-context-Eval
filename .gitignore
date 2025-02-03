@@ -1,11 +1,14 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.pyc
 *.py[cod]
 *$py.class
 *.cpython*
 tasks/*/*/data/*
 tasks/*/*/tmp_Rawdata/*
-save
-*.pyc
+tasks/*/*/prediction/*
+tasks/*/*/result/*
+/lte/lte.egg-info
+*.xlsx
 dataset/General/data/
 dataset/General/tmp_Rawdata/

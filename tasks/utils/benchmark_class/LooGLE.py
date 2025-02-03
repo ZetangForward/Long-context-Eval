@@ -20,7 +20,7 @@ metric_list = {"bleu1":None,"bleu4":None,"rouge":None,"meteor_score":None,"bert_
 from tasks.utils.benchmark_class.base_class import Base
 
 class LooGLE(Base):
-    def __init__(self):
+    def __init__(self,limit):
         super().__init__()
         self.benchmark_name = "LooGLE"
         self.task_names = ["longdep_qa","longdep_summarization"]
@@ -30,6 +30,8 @@ class LooGLE(Base):
         self.llm_params = {"longdep_qa":llm_params,"longdep_summarization":llm_params}
         self.metric = {"longdep_qa":metric_list,"longdep_summarization":metric_list}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
+        self.limit = int(limit) if limit!="auto" else 10000
+    
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
@@ -42,11 +44,16 @@ class LooGLE(Base):
         else:
             with open(output_path, "w", encoding="utf-8") as f2:
                 if task_name.endswith("summarization"):
-                    for raw_data in dataset:
+                    for index, raw_data in enumerate(dataset):
+                        if index>=self.limit:
+                            break
                         new_data = self.transform_data(raw_data)
                         f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
                 else:
-                    for raw_data in dataset:
+                    for index, raw_data in enumerate(dataset):
+
+                        if index>=self.limit:
+                            break
                         for qa in eval(raw_data["qa_pairs"]):
                             new_data = self.transform_data_qa(raw_data)
                             f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
@@ -106,7 +113,9 @@ class LooGLE(Base):
     def convert(self,input_path, output_path):
         with open(input_path, "r", encoding="utf-8") as f1:
             with open(output_path, "w", encoding="utf-8") as f2:
-                for line in f1:
+                for index, line in enumerate(f1):
+                    if index>=self.limit:
+                        break
                     raw_data = json.loads(line.strip())
                     new_data = self.transform_data(raw_data)
                     f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
@@ -114,7 +123,9 @@ class LooGLE(Base):
     def convert_qa(self,input_path, output_path):
         with open(input_path, "r", encoding="utf-8") as f1:
             with open(output_path, "w", encoding="utf-8") as f2:
-                for line in f1:
+                for index, line in enumerate(f1):
+                    if index>=self.limit:
+                        break
                     raw_data = json.loads(line.strip())
                     for qa in eval(raw_data["qa_pairs"]):
                         new_data = self.transform_data_qa(raw_data, qa)

@@ -14,7 +14,7 @@ metric1 = {"l_cite_eavl_cite":None}
 metric2 = {"l_cite_eavl_counting_stars_cite":None}
 metric3 = {"l_cite_eavl_niah_cite":None}
 class L_CiteEval(Base):
-    def __init__(self):
+    def __init__(self,limit):
         super().__init__()
         self.benchmark_name = "L_CiteEval"
         self.task_names = ['L-CiteEval-Length_narrativeqa', 'L-CiteEval-Length_locomo', 'L-CiteEval-Length_hotpotqa', 'L-CiteEval-Length_gov_report', 'L-CiteEval-Length_counting_stars', 'L-CiteEval-Hardness_narrativeqa', 'L-CiteEval-Hardness_locomo', 'L-CiteEval-Hardness_hotpotqa', 'L-CiteEval-Hardness_gov_report', 'L-CiteEval-Hardness_counting_stars', 'L-CiteEval-Data_qmsum', 'L-CiteEval-Data_niah', 'L-CiteEval-Data_natural_questions', 'L-CiteEval-Data_narrativeqa', 'L-CiteEval-Data_multi_news', 'L-CiteEval-Data_locomo', 'L-CiteEval-Data_hotpotqa', 'L-CiteEval-Data_gov_report', 'L-CiteEval-Data_dialsim', 'L-CiteEval-Data_counting_stars', 'L-CiteEval-Data_2wikimultihopqa']
@@ -24,12 +24,14 @@ class L_CiteEval(Base):
         self.llm_params = {'L-CiteEval-Length_narrativeqa':llm_param2, 'L-CiteEval-Length_locomo':llm_param2, 'L-CiteEval-Length_hotpotqa':llm_param2, 'L-CiteEval-Length_gov_report':llm_param3, 'L-CiteEval-Length_counting_stars':llm_param1, 'L-CiteEval-Hardness_narrativeqa':llm_param2, 'L-CiteEval-Hardness_locomo':llm_param2, 'L-CiteEval-Hardness_hotpotqa':llm_param2, 'L-CiteEval-Hardness_gov_report':llm_param3, 'L-CiteEval-Hardness_counting_stars':llm_param1, 'L-CiteEval-Data_qmsum':llm_param3, 'L-CiteEval-Data_niah':llm_param1, 'L-CiteEval-Data_natural_questions':llm_param2, 'L-CiteEval-Data_narrativeqa':llm_param2, 'L-CiteEval-Data_multi_news':llm_param3, 'L-CiteEval-Data_locomo':llm_param2, 'L-CiteEval-Data_hotpotqa':llm_param2, 'L-CiteEval-Data_gov_report':llm_param3, 'L-CiteEval-Data_dialsim':llm_param2, 'L-CiteEval-Data_counting_stars':llm_param1, 'L-CiteEval-Data_2wikimultihopqa':llm_param2}
         self.metric = {'L-CiteEval-Length_narrativeqa':metric1, 'L-CiteEval-Length_locomo':metric1, 'L-CiteEval-Length_hotpotqa':metric1, 'L-CiteEval-Length_gov_report':metric1, 'L-CiteEval-Length_counting_stars':metric2, 'L-CiteEval-Hardness_narrativeqa':metric1, 'L-CiteEval-Hardness_locomo':metric1, 'L-CiteEval-Hardness_hotpotqa':metric1, 'L-CiteEval-Hardness_gov_report':metric1, 'L-CiteEval-Hardness_counting_stars':metric2, 'L-CiteEval-Data_qmsum':metric1, 'L-CiteEval-Data_niah':metric3, 'L-CiteEval-Data_natural_questions':metric1, 'L-CiteEval-Data_narrativeqa':metric1, 'L-CiteEval-Data_multi_news':metric1, 'L-CiteEval-Data_locomo':metric1, 'L-CiteEval-Data_hotpotqa':metric1, 'L-CiteEval-Data_gov_report':metric1, 'L-CiteEval-Data_dialsim':metric1, 'L-CiteEval-Data_counting_stars':metric2, 'L-CiteEval-Data_2wikimultihopqa':metric1}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-
+        self.limit = int(limit) if limit!="auto" else 10000
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f2:
-            for raw_data in dataset :
+             for index, raw_data in enumerate(dataset):
+                if index>=self.limit:
+                    break
                 new_data = self.transform_data(raw_data)
                 f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
             # 更新记录文件，写入当前已写入的行数

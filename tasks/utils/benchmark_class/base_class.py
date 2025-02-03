@@ -12,6 +12,7 @@ class Base:
         self.download_data =False
         self.llm_params = {}
         self.metric = {}
+        self.limit=1000000
     
     def download_and_transform_data(self,**kwargs):
         """Placeholder for the data-making logic."""

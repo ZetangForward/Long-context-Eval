@@ -30,9 +30,8 @@ metric_list2 = {"string_match_part": None}
 from tasks.utils.benchmark_class.base_class import Base
 
 class RULER(Base):
-    def __init__(self):
+    def __init__(self,length=0, num_samples=200,limit=1000000):
         super().__init__()
-    def __init__(self,length=0,num_samples=200):
         self.length = length
         self.benchmark_name="RULER"
         self.num_samples = num_samples
@@ -43,6 +42,7 @@ class RULER(Base):
         self.llm_params = {"cwe":llm_params4, "fwe":llm_params3, "niah_multikey_1":llm_params5, "niah_multikey_2":llm_params5, "niah_multikey_3":llm_params5, "niah_multiquery":llm_params5, "niah_multivalue":llm_params5, "niah_single_1":llm_params5, "niah_single_2":llm_params5, "niah_single_3":llm_params5, "qa_1":llm_params2, "qa_2":llm_params2, "vt":llm_params1}
         self.metric = {'cwe': metric_list1, 'fwe': metric_list1, 'niah_multikey_1': metric_list1, 'niah_multikey_2': metric_list1, 'niah_multikey_3': metric_list1, 'niah_multiquery': metric_list1, 'niah_multivalue': metric_list1, 'niah_single_1': metric_list1, 'niah_single_2': metric_list1, 'niah_single_3': metric_list1, 'qa_1': metric_list2, 'qa_2': metric_list2, 'vt': metric_list1}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
+        self.limit = int(limit) if limit!="auto" else 10000
     def download_and_transform_data(self,args,**kwargs):
         logger.info("downloading paulgraham_essay")
         command = ["python","./tasks/utils/data_synthetic/RULER/data/synthetic/json/download_paulgraham_essay.py"]
@@ -87,7 +87,9 @@ class RULER(Base):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f2:
-            for raw_data in dataset:
+            for index, raw_data in enumerate(dataset):
+                if index>=self.limit:
+                    break
                 new_data = self.transform_data(raw_data)
                 f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
     def transform_data(raw_data):

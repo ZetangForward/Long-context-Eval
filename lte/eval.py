@@ -1,8 +1,9 @@
-## python lte/eval.py --generation_path save/genration/01M_25D_15H_51m --output_path save/output/01M_20D_11H_31m
+## python lte/eval.py --data_generation_time 01M_27D_20H_15m
 from transformers import pipeline
 import os
 import re
 import sys
+import pandas as pd
 import json
 sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 from tqdm import tqdm
@@ -19,7 +20,7 @@ logger.add(sys.stdout,
         format="<level>{message}</level>")
 from tasks.utils.benchmark_class import get_benchmark_class
 
-def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, metric_max_len):
+def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, metric_max_len, excel_file_path):
     # 定义每列的宽度，新增 AVG 列
     column_widths = [benchmark_name_max_len + 2, task_name_max_len + 10, metric_max_len + 5, 10, 10]
     header = ["BenchMark", "Tasks", "Metric", "Score", "AVG"]
@@ -40,6 +41,7 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
     ))
 
     all_scores = []
+    rows = []
     for benchmark_name, tasks in data.items():
         benchmark_scores = []
         for task, metrics in tasks.items():
@@ -51,6 +53,7 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
                     str(value).center(column_widths[3], ' '),
                     "".center(column_widths[4], ' ')
                 ))
+                rows.append([benchmark_name, task, metric, value, ""])
 
                 try:
                     # 尝试将值转换为浮点数
@@ -61,12 +64,12 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
                     # 处理无法转换为浮点数的情况
                     logger.warning(f"无法将 {value} 转换为浮点数，跳过该值。")
             logger.info("|{}|{}|{}|{}|{}|".format(
-                    "-" * column_widths[0],
-                    "-" * column_widths[1],
-                    "-" * column_widths[2],
-                    "-" * column_widths[3],
-                    "-" * column_widths[4]
-                ))
+                "-" * column_widths[0],
+                "-" * column_widths[1],
+                "-" * column_widths[2],
+                "-" * column_widths[3],
+                "-" * column_widths[4]
+            ))
 
         # 计算当前 BenchMark 的平均分
         if benchmark_scores:
@@ -78,6 +81,7 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
                 str(benchmark_avg).center(column_widths[3], ' '),
                 "".center(column_widths[4], ' ')
             ))
+            rows.append([benchmark_name, "Average", "Overall", benchmark_avg, ""])
         logger.info("|{}|{}|{}|{}|{}|".format(
             "-" * column_widths[0],
             "-" * column_widths[1],
@@ -104,13 +108,19 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
             "-" * column_widths[3],
             "-" * column_widths[4]
         ))
+        rows.append(["Total", "Average", "Overall", "", total_avg])
+
+    # 创建 DataFrame
+    df = pd.DataFrame(rows, columns=header)
+    # 保存到 Excel 文件
+    df.to_excel(excel_file_path, index=False)
 def construct_metrics(metrics_configs):
     for metrics_name,metrics_config in metrics_configs.items():
         if not metrics_config:
             metrics_configs[metrics_name] = dict()
             metrics_config = {"test":10}
         if metrics_name in ["l_cite_eavl_niah_cite","l_cite_eavl_cite"]:
-            pipe = pipeline("text-classification",model="tasksource/deberta-base-long-nli", device='cuda')
+            pipe = pipeline("text-classification",model="tasksource/deberta-base-long-nli", device='cpu')
         else:
             pipe = "0"
         metrics_configs[metrics_name]["evaluation"] = get_metric(metrics_name)(pipe=pipe,**metrics_config)
@@ -120,31 +130,50 @@ def eval():
     benchmark_dict = {}
     benchmark_name_max_len,task_name_max_len,metric_max_len = 0,0,0
     args = handle_cli_args()
-    benchmark_list = os.listdir(args.generation_path)
+    benchmark_list = []
+    data_generation_time = args.data_generation_time
+    for ability in os.listdir("tasks"):
+        ability_path = os.path.join("tasks", ability)
+        if os.path.isdir(ability_path):
+            for benchmark in os.listdir(ability_path):
+                benchmark_path = os.path.join(ability_path, benchmark, "prediction",data_generation_time)
+                if os.path.exists(benchmark_path):
+                    if benchmark =="RULER":
+                        for task_name in  os.listdir(benchmark_path):
+                            length = task_name.split("_")[-1][:-5]
+                            benchmark_list.append(benchmark+f"_{length}")
+                    else:
+                        benchmark_list.append(benchmark)
     progress_bar = tqdm(benchmark_list)
-
     logger.info("*"*40+"  evaluating  "+"*"*40)
     for benchmark_name in progress_bar:
-
         benchmark_name_max_len = max(benchmark_name_max_len,len(benchmark_name))
         benchmark_dict[benchmark_name] = {}
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
         match = re.compile(r'_(\d+)').search(benchmark_name)
         if match:
-            benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1])
+            benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1],10000)
         else:
-            benchmark = get_benchmark_class(benchmark_name)()
-        task_list = os.listdir(args.generation_path+"/"+benchmark_name)
+            benchmark = get_benchmark_class(benchmark_name)(10000)
+        task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{data_generation_time}")
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:
+            task_name = task_name[:-5]
             progress_bar2.set_description(f"eval task:{task_name[:-5]}")
             gathered_metrics = defaultdict(list)
-            task_name = task_name[:-5]
+            if "RULER" in benchmark_name:
+                length = task_name.split("_")[-1]
+                if length!=benchmark.length:
+                    continue
+                metrics = construct_metrics(benchmark.metric["_".join(task_name.split("_")[:-1])])
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",data_generation_time,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",data_generation_time,task_name+".json")
+            else:
+                metrics = construct_metrics(benchmark.metric[task_name])
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",data_generation_time,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",data_generation_time,task_name+".json")
             task_name_max_len = max(task_name_max_len,len(task_name))
-            metrics = construct_metrics(benchmark.metric[task_name])
-            save_task_path = os.path.join(args.output_path,benchmark_name,task_name)
             os.makedirs(save_task_path, exist_ok=True)
-            generation_results_path = os.path.join(args.generation_path+"/"+benchmark_name,task_name+".json")
             if not os.path.exists(generation_results_path):
                 continue
             with open(generation_results_path, "r", encoding="utf-8") as f:
@@ -183,9 +212,9 @@ def eval():
                 os.path.join(save_task_path, "final_metrics.json"), "w", encoding="utf-8"
             ) as fout:
                 json.dump(dump_data, fout, indent=4, ensure_ascii=False)
-
-    print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len)
-    results_table(args.output_path)
-
+    output_path = f"./tasks/results/{data_generation_time}"
+    os.makedirs(output_path,exist_ok=True)
+    print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/results/{data_generation_time}/output_table.xlsx")
+    logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
 if __name__ =="__main__":
     eval()

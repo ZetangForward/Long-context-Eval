@@ -81,7 +81,6 @@ class L_cite_eavl_Qa_Score:
         score["f1"] = max(score["f1"],all_score[0])
         score["precision"] = max(score["precision"],all_score[2])
         score["recall"] = max(score["f1"],all_score[1])
-        print(score)
         return score
     
 class L_cite_eavl_Rouge_Score:
@@ -311,7 +310,6 @@ class L_cite_eavl_counting_stars_cite:
         pass
 
     def __call__(self, passage, ground_truth, results):
-        print("results:{}".format(results))
         score = {"f1":0,"recall":0,"precision":0,"cite_num":0}
 
         gold_ind_lst = []
@@ -338,8 +336,6 @@ class L_cite_eavl_counting_stars_cite:
                 return score 
 
         total_correct = cite_correct = 0
-        print("gold_ind_lst:{}".format(gold_ind_lst))
-        print("model_ans:{}".format(model_ans))
 
         if 'passage_id' not in model_ans:
             return score

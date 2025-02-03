@@ -1,1 +1,4 @@
-## zecheng_note: 单独把环境安装写到文件夹下面的README里面
+git clone https://github.com/datamllab/LongLM.git
+transformers==4.38.2
+flash_attn==2.5.6 
+pip install -e .

@@ -3,14 +3,17 @@ import json
 import re
 from loguru import logger
 from tqdm import tqdm
+import pdb
 logger.remove()
 logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")
 class Base:
-    def __init__(self,model_name,path_list):
+    def __init__(self,model_name,path_list,chunk_size,num_chunks,**kwargs):
         self.model_name = model_name
         self.tasks_path = path_list
+        self.chunk_size = chunk_size
+        self.num_chunks = num_chunks
     def traverse_task(self):
         progress_bar = tqdm(self.tasks_path)
         for task_path in progress_bar:
@@ -23,18 +26,18 @@ class Base:
                         json.dump(data, f2)  
                         f2.write('\n')
         logger.info(f"rag_file save in {task_path[:-5]}_{self.retrieval_methods}.json")
-    def set_treeindex(self):
+    def set_treeindex(self,context):
         pass
     def retrieve(self):
         pass
-    def chunk_text(self,context, chunk_size):
+    def chunk_text(self,context):
         sentences = re.split(r'(?<=[.!?]) +', context)
         chunks = []
         current_chunk = []
         current_length = 0
         for sentence in sentences:
             sentence_length = len(sentence.split())
-            if current_length + sentence_length <= chunk_size:
+            if current_length + sentence_length <= self.chunk_size:
                 current_chunk.append(sentence)
                 current_length += sentence_length
             else:
