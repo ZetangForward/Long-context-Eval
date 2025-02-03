@@ -1,4 +1,5 @@
-## python lte/eval.py --data_generation_time 01M_27D_20H_15m
+## python lte/eval.py --data_generation_time 01M_31D_18H_55m
+#02M_03D_14H_32m
 from transformers import pipeline
 import os
 import re
@@ -12,7 +13,6 @@ from metrics import get_metric
 from collections import defaultdict
 from utils.eval_args import handle_cli_args
 import numpy as np
-from utils.results_table import results_table
 from loguru import logger
 logger.remove()
 logger.add(sys.stdout,
