@@ -13,7 +13,7 @@ from tqdm import tqdm
 import pdb
 from metrics import get_metric
 from collections import defaultdict
-from .utils.eval_args import handle_cli_args
+from utils.eval_args import handle_cli_args
 import numpy as np
 from loguru import logger
 logger.remove()

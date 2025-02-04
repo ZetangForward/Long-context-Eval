@@ -81,7 +81,7 @@ def main():
     # Add a vertical line at the desired column index
     plt.axvline(x=pretrained_len + 0.8, color='white', linestyle='--', linewidth=4)
     
-    png_path = file_path+"/img.png"
+    png_path = file_path.replace("prediction","result")+"/img.png"
     print("heatmap saving at %s" % png_path )
     plt.savefig(png_path, dpi=150)
 
