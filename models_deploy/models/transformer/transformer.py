@@ -22,8 +22,16 @@ class Transformer():
         # os.environ["CUDA_VISIBLE_DEVICES"] = self.devices
         time_start = time.time()
         # Load the model and tokenizer
+        model_config = AutoConfig.from_pretrained(self.args.model_path)
+        if self.args.model_path == "/nvme1/hf_models/Meta-Llama-3-8B":
+            pass
+        #     model_config.rope_scaling={
+        #     "factor": 4.0,
+        #     "original_max_position_embeddings": 8192,
+        #     "type": "yarn"
+        #     }
         self.model = transformers.AutoModelForCausalLM.from_pretrained(
-            self.args.model_path, attn_implementation="flash_attention_2", device_map="auto", torch_dtype=eval(self.args.torch_dtype)).eval()
+            self.args.model_path, config = model_config,attn_implementation="flash_attention_2", device_map="auto", torch_dtype=eval(self.args.torch_dtype)).eval()
         if self.args.adapter_path:
             self.model=PeftModelForCausalLM.from_pretrained(self.model ,self.args.adapter_path)
         self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)

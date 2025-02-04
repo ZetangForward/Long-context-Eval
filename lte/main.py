@@ -71,6 +71,7 @@ class Evaluator():
             os.environ["CUDA_VISIBLE_DEVICES"] = devices
             p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
             p.start()
+            time.sleep(3)
             processes.append(p)
         for p in processes:
             p.join()
@@ -103,11 +104,11 @@ class Evaluator():
             request.raw_example.ground_truth = request.instances["processed_output"]
             request.raw_example.prompt_inputs = request.instances["input"]
             if hasattr(benchmark, 'length'):
-                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.model_name}_{self.args.current_time}",task_name+f"_{benchmark.length}"+".json")
-                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.model_name}_{self.args.current_time}"), exist_ok=True)
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+f"_{benchmark.length}"+".json")
+                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}"), exist_ok=True)
             else:
-                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.model_name}_{self.args.current_time}",task_name+".json")
-                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.model_name}_{self.args.current_time}"), exist_ok=True)
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+".json")
+                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}"), exist_ok=True)
 
             with open(path, "a", encoding="utf-8") as f:
                 data = request.raw_example.data
@@ -135,8 +136,9 @@ def main():
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
     args = handle_cli_args()
     args.model_name = args.model_path.split("/")[-1] if args.model_path.split("/")[-1]!="" else args.model_path.split("/")[-2]
-
     args.current_time = formatted_time
+    if args.file_name=="":
+        args.file_name = f"{args.model_name}_{args.current_time}"
     if args.device ==" ":
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
@@ -206,12 +208,12 @@ def main():
     logger.info("The model has initiated the data generation process.")
     evaluator = Evaluator(args, all_benchmarks)
     evaluator.run(args.device_split_num)
-    logger.info(f"All generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/{args.model_name}_{args.current_time}")
+    logger.info(f"All generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/{args.file_name}")
 
     #eval
     if args.eval:
         command = ["python","./lte/eval.py",
-                    "--data_save_path",f"{args.model_name}_{args.current_time}"]
+                    "--data_save_path",f"{args.file_name}"]
         subprocess.run(command)
 
 

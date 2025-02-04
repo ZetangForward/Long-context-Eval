@@ -1,4 +1,4 @@
-## python lte/eval.py --data_save_path 02M_04D_00H_42m_Llama-3.1-8B-Instruct
+## python lte/eval.py --data_save_path Llama-3.1-8B_02M_04D_14H_52m
 #02M_03D_14H_32m
 from transformers import pipeline
 import os
@@ -155,7 +155,7 @@ def eval():
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
         match = re.compile(r'_(\d+)').search(benchmark_name)
         if match:
-            benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1])(args)
+            benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1],args)
         else:
             benchmark = get_benchmark_class(benchmark_name)(args)
         task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{data_save_path}")
