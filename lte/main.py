@@ -56,7 +56,6 @@ class Evaluator():
                             raw_example=raw_input,
                         )])
 
-
     def run(self,device_split_num):
         devices_list=self.args.device.split(",")
         processes = []
@@ -194,7 +193,9 @@ def main():
             rag = get_rag_method(args.rag)(args.model_path,tasks_path_list,chunk_size,num_chunks)
             logger.info("performing information retrieval")
             rag.traverse_task()    
- 
+    
+    if args.save_tag is not None:
+        args.current_time = args.save_tag
 
     #start to generate
     logger.info("The model has initiated the data generation process.")

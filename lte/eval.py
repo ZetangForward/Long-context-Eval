@@ -10,9 +10,9 @@ from tqdm import tqdm
 import pdb
 from metrics import get_metric
 from collections import defaultdict
-from .utils.eval_args import handle_cli_args
+from utils.eval_args import handle_cli_args
 import numpy as np
-from .utils.results_table import results_table
+from utils.results_table import results_table
 from loguru import logger
 logger.remove()
 logger.add(sys.stdout,
@@ -216,5 +216,6 @@ def eval():
     os.makedirs(output_path,exist_ok=True)
     print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/results/{data_generation_time}/output_table.xlsx")
     logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
+    
 if __name__ =="__main__":
     eval()

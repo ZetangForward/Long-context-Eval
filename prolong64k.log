@@ -1,0 +1,578 @@
+[1mLoading the config information[0m
+  0%|          | 0/1 [00:00<?, ?it/s]Loading RULER config from /mnt/petrelfs/tangzecheng/lte/tasks/General/RULER/RULER.yaml:   0%|          | 0/1 [00:00<?, ?it/s]Loading RULER config from /mnt/petrelfs/tangzecheng/lte/tasks/General/RULER/RULER.yaml: 100%|██████████| 1/1 [00:00<00:00, 284.09it/s]
+[1mThe tasks you've selected are as follows:
+13 tasks: from RULER:['cwe', 'fwe', 'niah_multikey_1', 'niah_multikey_2', 'niah_multikey_3', 'niah_multiquery', 'niah_multivalue', 'niah_single_1', 'niah_single_2', 'niah_single_3', 'qa_1', 'qa_2', 'vt'] 
+Totally 13 tasks[0m
+[1mBenchmark data is currently being downloaded and transformed...[0m
+  0%|          | 0/1 [00:00<?, ?it/s]Downloading RULER data:   0%|          | 0/1 [00:00<?, ?it/s][1mdownloading paulgraham_essay[0m
+PaulGrahamEssays.json already exists
+[1mdownloading qa_dataset[0m
+squad.json already exists
+hotpotqa.json already exists
+
+  0%|          | 0/13 [00:00<?, ?it/s][A
+preparing task cwe_32000:   0%|          | 0/13 [00:00<?, ?it/s][ASkip preparing cwe with lines: 50 to tasks/General/RULER/data/cwe_32000.json (file exists)
+
+preparing task cwe_32000:   8%|▊         | 1/13 [00:03<00:43,  3.59s/it][A
+preparing task fwe_32000:   8%|▊         | 1/13 [00:03<00:43,  3.59s/it][ASkip preparing fwe with lines: 50 to tasks/General/RULER/data/fwe_32000.json (file exists)
+
+preparing task fwe_32000:  15%|█▌        | 2/13 [00:07<00:39,  3.57s/it][A
+preparing task niah_multikey_1_32000:  15%|█▌        | 2/13 [00:07<00:39,  3.57s/it][ASkip preparing niah_multikey_1 with lines: 50 to tasks/General/RULER/data/niah_multikey_1_32000.json (file exists)
+
+preparing task niah_multikey_1_32000:  23%|██▎       | 3/13 [00:10<00:35,  3.58s/it][A
+preparing task niah_multikey_2_32000:  23%|██▎       | 3/13 [00:10<00:35,  3.58s/it][ASkip preparing niah_multikey_2 with lines: 50 to tasks/General/RULER/data/niah_multikey_2_32000.json (file exists)
+
+preparing task niah_multikey_2_32000:  31%|███       | 4/13 [00:14<00:33,  3.73s/it][A
+preparing task niah_multikey_3_32000:  31%|███       | 4/13 [00:14<00:33,  3.73s/it][ASkip preparing niah_multikey_3 with lines: 50 to tasks/General/RULER/data/niah_multikey_3_32000.json (file exists)
+
+preparing task niah_multikey_3_32000:  38%|███▊      | 5/13 [00:18<00:29,  3.67s/it][A
+preparing task niah_multiquery_32000:  38%|███▊      | 5/13 [00:18<00:29,  3.67s/it][ASkip preparing niah_multiquery with lines: 50 to tasks/General/RULER/data/niah_multiquery_32000.json (file exists)
+
+preparing task niah_multiquery_32000:  46%|████▌     | 6/13 [00:22<00:26,  3.73s/it][A
+preparing task niah_multivalue_32000:  46%|████▌     | 6/13 [00:22<00:26,  3.73s/it][ASkip preparing niah_multivalue with lines: 50 to tasks/General/RULER/data/niah_multivalue_32000.json (file exists)
+
+preparing task niah_multivalue_32000:  54%|█████▍    | 7/13 [00:25<00:22,  3.70s/it][A
+preparing task niah_single_1_32000:  54%|█████▍    | 7/13 [00:25<00:22,  3.70s/it]  [ASkip preparing niah_single_1 with lines: 50 to tasks/General/RULER/data/niah_single_1_32000.json (file exists)
+
+preparing task niah_single_1_32000:  62%|██████▏   | 8/13 [00:29<00:18,  3.77s/it][A
+preparing task niah_single_2_32000:  62%|██████▏   | 8/13 [00:29<00:18,  3.77s/it][ASkip preparing niah_single_2 with lines: 50 to tasks/General/RULER/data/niah_single_2_32000.json (file exists)
+
+preparing task niah_single_2_32000:  69%|██████▉   | 9/13 [00:33<00:14,  3.72s/it][A
+preparing task niah_single_3_32000:  69%|██████▉   | 9/13 [00:33<00:14,  3.72s/it][ASkip preparing niah_single_3 with lines: 50 to tasks/General/RULER/data/niah_single_3_32000.json (file exists)
+
+preparing task niah_single_3_32000:  77%|███████▋  | 10/13 [00:36<00:11,  3.67s/it][A
+preparing task qa_1_32000:  77%|███████▋  | 10/13 [00:36<00:11,  3.67s/it]         [ASkip preparing qa_1 with lines: 50 to tasks/General/RULER/data/qa_1_32000.json (file exists)
+
+preparing task qa_1_32000:  85%|████████▍ | 11/13 [00:40<00:07,  3.63s/it][A
+preparing task qa_2_32000:  85%|████████▍ | 11/13 [00:40<00:07,  3.63s/it][ASkip preparing qa_2 with lines: 50 to tasks/General/RULER/data/qa_2_32000.json (file exists)
+
+preparing task qa_2_32000:  92%|█████████▏| 12/13 [00:44<00:03,  3.70s/it][A
+preparing task vt_32000:  92%|█████████▏| 12/13 [00:44<00:03,  3.70s/it]  [ASkip preparing vt with lines: 50 to tasks/General/RULER/data/vt_32000.json (file exists)
+
+preparing task vt_32000: 100%|██████████| 13/13 [00:47<00:00,  3.66s/it][Apreparing task vt_32000: 100%|██████████| 13/13 [00:47<00:00,  3.68s/it]
+Downloading RULER data: 100%|██████████| 1/1 [00:48<00:00, 48.27s/it]Downloading RULER data: 100%|██████████| 1/1 [00:48<00:00, 48.27s/it]
+[1mThe model has initiated the data generation process.[0m
+[1mdevices:0[0m
+[1mdevices:1[0m
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:06,  1.16s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:02<00:05,  1.14s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:04,  1.16s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:04<00:03,  1.17s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:05<00:02,  1.16s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:07<00:01,  1.20s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:07<00:00,  1.02s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:07<00:00,  1.10s/it]
+[1mModel and tokenizer initialized.[0m
+[1mModel_deploy time :13.393915176391602[0m
+The 0th chunk:   0%|          | 0/82 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[1mdevices:2[0m
+The 0th chunk:   1%|          | 1/82 [00:09<12:16,  9.09s/it]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:06,  1.02s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:01<00:04,  1.01it/s]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:04,  1.01s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:04<00:03,  1.03s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:05<00:02,  1.05s/it]The 0th chunk:   2%|▏         | 2/82 [00:16<10:36,  7.96s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:06<00:01,  1.06s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:06<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 7/7 [00:06<00:00,  1.02it/s]
+[1mModel and tokenizer initialized.[0m
+[1mModel_deploy time :12.10266661643982[0m
+The 1th chunk:   0%|          | 0/82 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The 0th chunk:   4%|▎         | 3/82 [00:23<10:02,  7.62s/it][1mdevices:3[0m
+The 1th chunk:   1%|          | 1/82 [00:08<12:04,  8.94s/it]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:07,  1.28s/it]The 0th chunk:   5%|▍         | 4/82 [00:30<09:47,  7.53s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:02<00:06,  1.23s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:04,  1.25s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:04<00:03,  1.25s/it]The 1th chunk:   2%|▏         | 2/82 [00:16<10:40,  8.01s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:06<00:02,  1.26s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:07<00:01,  1.29s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.12s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.20s/it]
+[1mModel and tokenizer initialized.[0m
+[1mModel_deploy time :14.121234893798828[0m
+The 2th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The 0th chunk:   6%|▌         | 5/82 [00:38<09:37,  7.51s/it]The 1th chunk:   4%|▎         | 3/82 [00:23<10:07,  7.69s/it][1mdevices:4[0m
+The 0th chunk:   7%|▋         | 6/82 [00:45<09:25,  7.44s/it]The 2th chunk:   1%|          | 1/81 [00:08<11:57,  8.96s/it]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:06,  1.06s/it]The 1th chunk:   5%|▍         | 4/82 [00:31<09:52,  7.60s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:02<00:05,  1.06s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:04,  1.06s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:04<00:03,  1.12s/it]The 0th chunk:   9%|▊         | 7/82 [00:52<09:13,  7.38s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:05<00:02,  1.23s/it]The 2th chunk:   2%|▏         | 2/81 [00:16<10:42,  8.13s/it]The 1th chunk:   6%|▌         | 5/82 [00:38<09:41,  7.55s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:09<00:02,  2.00s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:10<00:00,  1.57s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:10<00:00,  1.43s/it]
+The 0th chunk:  10%|▉         | 8/82 [00:57<08:03,  6.53s/it][1mModel and tokenizer initialized.[0m
+[1mModel_deploy time :15.177275657653809[0m
+The 3th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+[1mdevices:5[0m
+The 0th chunk:  11%|█         | 9/82 [01:01<06:54,  5.68s/it]The 2th chunk:   4%|▎         | 3/81 [00:23<10:07,  7.78s/it]The 1th chunk:   7%|▋         | 6/82 [00:45<09:27,  7.47s/it]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]The 0th chunk:  12%|█▏        | 10/82 [01:06<06:25,  5.35s/it]The 3th chunk:   1%|          | 1/81 [00:08<11:48,  8.86s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:07,  1.20s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:02<00:06,  1.23s/it]The 2th chunk:   5%|▍         | 4/81 [00:31<09:42,  7.57s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:05,  1.29s/it]The 0th chunk:  13%|█▎        | 11/82 [01:10<06:00,  5.07s/it]The 1th chunk:   9%|▊         | 7/82 [00:53<09:19,  7.45s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:05<00:03,  1.31s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:06<00:02,  1.33s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:07<00:01,  1.28s/it]The 3th chunk:   2%|▏         | 2/81 [00:16<10:33,  8.02s/it]The 0th chunk:  15%|█▍        | 12/82 [01:14<05:23,  4.62s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.12s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.21s/it]
+The 1th chunk:  10%|▉         | 8/82 [00:57<07:46,  6.31s/it][1mModel and tokenizer initialized.[0m
+[1mModel_deploy time :13.65968370437622[0m
+The 4th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The 2th chunk:   6%|▌         | 5/81 [00:38<09:30,  7.50s/it]The 0th chunk:  16%|█▌        | 13/82 [01:18<05:05,  4.42s/it]The 1th chunk:  11%|█         | 9/82 [01:00<06:41,  5.50s/it][1mdevices:6[0m
+The 3th chunk:   4%|▎         | 3/81 [00:23<10:01,  7.71s/it]The 0th chunk:  17%|█▋        | 14/82 [01:21<04:46,  4.22s/it]The 1th chunk:  12%|█▏        | 10/82 [01:04<05:59,  5.00s/it]The 2th chunk:   7%|▋         | 6/81 [00:45<09:20,  7.47s/it]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]The 4th chunk:   1%|          | 1/81 [00:09<12:15,  9.20s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:07,  1.25s/it]The 0th chunk:  18%|█▊        | 15/82 [01:25<04:31,  4.05s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:02<00:06,  1.24s/it]The 1th chunk:  13%|█▎        | 11/82 [01:09<05:50,  4.94s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:04,  1.19s/it]The 2th chunk:   9%|▊         | 7/81 [00:50<08:02,  6.52s/it]The 3th chunk:   5%|▍         | 4/81 [00:31<09:46,  7.62s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:04<00:03,  1.24s/it]The 0th chunk:  20%|█▉        | 16/82 [01:29<04:20,  3.94s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:06<00:02,  1.26s/it]The 1th chunk:  15%|█▍        | 12/82 [01:13<05:18,  4.55s/it]The 4th chunk:   2%|▏         | 2/81 [00:16<10:40,  8.11s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:07<00:01,  1.28s/it]The 2th chunk:  10%|▉         | 8/81 [00:54<06:50,  5.62s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.11s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.18s/it]
+[1mModel and tokenizer initialized.[0m
+[1mModel_deploy time :13.556469917297363[0m
+The 5th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The 1th chunk:  16%|█▌        | 13/82 [01:17<05:13,  4.54s/it]The 2th chunk:  11%|█         | 9/81 [00:57<06:02,  5.04s/it]The 3th chunk:   6%|▌         | 5/81 [00:38<09:34,  7.55s/it]The 0th chunk:  21%|██        | 17/82 [01:36<05:26,  5.03s/it][1mdevices:7[0m
+The 4th chunk:   4%|▎         | 3/81 [00:23<10:03,  7.74s/it]The 1th chunk:  17%|█▋        | 14/82 [01:21<04:53,  4.32s/it]The 2th chunk:  12%|█▏        | 10/81 [01:02<05:47,  4.90s/it]The 5th chunk:   1%|          | 1/81 [00:08<11:59,  9.00s/it]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]The 1th chunk:  18%|█▊        | 15/82 [01:25<04:38,  4.15s/it]The 3th chunk:   7%|▋         | 6/81 [00:45<09:18,  7.45s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:06,  1.06s/it]The 0th chunk:  22%|██▏       | 18/82 [01:44<06:08,  5.76s/it]The 2th chunk:  14%|█▎        | 11/81 [01:06<05:21,  4.59s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:02<00:05,  1.20s/it]The 4th chunk:   5%|▍         | 4/81 [00:31<09:46,  7.62s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:05,  1.31s/it]The 1th chunk:  20%|█▉        | 16/82 [01:29<04:26,  4.04s/it]The 0th chunk:  23%|██▎       | 19/82 [01:47<05:23,  5.14s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:05<00:03,  1.29s/it]The 3th chunk:   9%|▊         | 7/81 [00:50<08:00,  6.49s/it]The 2th chunk:  15%|█▍        | 12/81 [01:10<05:01,  4.36s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:06<00:02,  1.20s/it]The 5th chunk:   2%|▏         | 2/81 [00:16<10:35,  8.04s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:07<00:01,  1.24s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.05s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.15s/it]
+[1mModel and tokenizer initialized.[0m
+[1mModel_deploy time :13.489497184753418[0m
+The 6th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The 0th chunk:  24%|██▍       | 20/82 [01:51<04:52,  4.73s/it]The 3th chunk:  10%|▉         | 8/81 [00:54<06:54,  5.67s/it]The 2th chunk:  16%|█▌        | 13/81 [01:14<04:46,  4.21s/it]The 4th chunk:   6%|▌         | 5/81 [00:38<09:33,  7.55s/it]The 1th chunk:  21%|██        | 17/82 [01:36<05:34,  5.14s/it]The 0th chunk:  26%|██▌       | 21/82 [01:55<04:29,  4.41s/it]The 2th chunk:  17%|█▋        | 14/81 [01:17<04:32,  4.06s/it]The 3th chunk:  11%|█         | 9/81 [00:58<06:17,  5.25s/it]The 5th chunk:   4%|▎         | 3/81 [00:23<10:01,  7.71s/it]The 1th chunk:  22%|██▏       | 18/82 [01:40<05:01,  4.71s/it]The 0th chunk:  27%|██▋       | 22/82 [01:58<04:11,  4.19s/it]The 2th chunk:  19%|█▊        | 15/81 [01:21<04:21,  3.96s/it]The 3th chunk:  12%|█▏        | 10/81 [01:02<05:42,  4.82s/it]The 6th chunk:   1%|          | 1/81 [00:08<11:47,  8.85s/it]The 4th chunk:   7%|▋         | 6/81 [00:45<09:18,  7.45s/it]Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]The 1th chunk:  23%|██▎       | 19/82 [01:44<04:38,  4.42s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:06,  1.13s/it]The 0th chunk:  28%|██▊       | 23/82 [02:02<03:58,  4.04s/it]The 2th chunk:  20%|█▉        | 16/81 [01:25<04:12,  3.88s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:02<00:05,  1.08s/it]The 5th chunk:   5%|▍         | 4/81 [00:31<09:45,  7.60s/it]The 3th chunk:  14%|█▎        | 11/81 [01:06<05:19,  4.57s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:04,  1.10s/it]The 4th chunk:   9%|▊         | 7/81 [00:50<08:03,  6.53s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:04<00:03,  1.13s/it]The 1th chunk:  24%|██▍       | 20/82 [01:47<04:21,  4.21s/it]The 0th chunk:  29%|██▉       | 24/82 [02:06<03:47,  3.93s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:05<00:02,  1.15s/it]The 6th chunk:   2%|▏         | 2/81 [00:16<10:27,  7.95s/it]The 3th chunk:  15%|█▍        | 12/81 [01:10<04:59,  4.34s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:06<00:01,  1.17s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:07<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 7/7 [00:07<00:00,  1.07s/it]
+[1mModel and tokenizer initialized.[0m
+[1mModel_deploy time :12.528701543807983[0m
+The 7th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+The 4th chunk:  10%|▉         | 8/81 [00:54<06:49,  5.62s/it]The 1th chunk:  26%|██▌       | 21/82 [01:51<04:08,  4.07s/it]The 0th chunk:  30%|███       | 25/82 [02:10<03:39,  3.85s/it]The 2th chunk:  21%|██        | 17/81 [01:32<05:19,  4.99s/it]The 5th chunk:   6%|▌         | 5/81 [00:38<09:32,  7.53s/it]The 3th chunk:  16%|█▌        | 13/81 [01:13<04:41,  4.14s/it]The 1th chunk:  27%|██▋       | 22/82 [01:55<03:58,  3.97s/it]The 4th chunk:  11%|█         | 9/81 [00:58<06:21,  5.30s/it]The 0th chunk:  32%|███▏      | 26/82 [02:14<03:38,  3.91s/it]The 2th chunk:  22%|██▏       | 18/81 [01:36<04:50,  4.61s/it]The 6th chunk:   4%|▎         | 3/81 [00:23<09:58,  7.67s/it]The 3th chunk:  17%|█▋        | 14/81 [01:17<04:27,  4.00s/it]The 1th chunk:  28%|██▊       | 23/82 [01:59<03:50,  3.90s/it]The 7th chunk:   1%|          | 1/81 [00:08<11:02,  8.28s/it]The 4th chunk:  12%|█▏        | 10/81 [01:02<05:41,  4.80s/it]The 2th chunk:  23%|██▎       | 19/81 [01:40<04:29,  4.34s/it]The 0th chunk:  33%|███▎      | 27/82 [02:18<03:37,  3.96s/it]The 5th chunk:   7%|▋         | 6/81 [00:45<09:20,  7.47s/it]The 3th chunk:  19%|█▊        | 15/81 [01:21<04:17,  3.90s/it]The 1th chunk:  29%|██▉       | 24/82 [02:02<03:43,  3.85s/it]The 2th chunk:  25%|██▍       | 20/81 [01:44<04:13,  4.16s/it]The 4th chunk:  14%|█▎        | 11/81 [01:07<05:30,  4.72s/it]The 6th chunk:   5%|▍         | 4/81 [00:30<09:36,  7.49s/it]The 0th chunk:  34%|███▍      | 28/82 [02:22<03:35,  3.99s/it]The 3th chunk:  20%|█▉        | 16/81 [01:24<04:09,  3.84s/it]The 5th chunk:   9%|▊         | 7/81 [00:49<07:45,  6.29s/it]The 1th chunk:  30%|███       | 25/82 [02:06<03:39,  3.84s/it]The 7th chunk:   2%|▏         | 2/81 [00:15<10:04,  7.66s/it]The 2th chunk:  26%|██▌       | 21/81 [01:47<04:01,  4.03s/it]The 4th chunk:  15%|█▍        | 12/81 [01:10<05:00,  4.36s/it]The 3th chunk:  21%|██        | 17/81 [01:28<04:01,  3.78s/it]The 0th chunk:  35%|███▌      | 29/82 [02:26<03:33,  4.02s/it]The 5th chunk:  10%|▉         | 8/81 [00:53<06:47,  5.59s/it]The 1th chunk:  32%|███▏      | 26/82 [02:10<03:40,  3.94s/it]The 2th chunk:  27%|██▋       | 22/81 [01:51<03:51,  3.93s/it]The 4th chunk:  16%|█▌        | 13/81 [01:14<04:42,  4.15s/it]The 6th chunk:   6%|▌         | 5/81 [00:37<09:21,  7.39s/it]The 3th chunk:  22%|██▏       | 18/81 [01:32<03:55,  3.75s/it]The 0th chunk:  37%|███▋      | 30/82 [02:30<03:28,  4.02s/it]The 5th chunk:  11%|█         | 9/81 [00:58<06:16,  5.23s/it]The 7th chunk:   4%|▎         | 3/81 [00:22<09:42,  7.47s/it]The 1th chunk:  33%|███▎      | 27/82 [02:15<03:40,  4.01s/it]The 4th chunk:  17%|█▋        | 14/81 [01:17<04:28,  4.00s/it]The 2th chunk:  28%|██▊       | 23/81 [01:55<03:45,  3.90s/it]The 3th chunk:  23%|██▎       | 19/81 [01:35<03:50,  3.72s/it]The 0th chunk:  38%|███▊      | 31/82 [02:34<03:24,  4.02s/it]The 5th chunk:  12%|█▏        | 10/81 [01:01<05:38,  4.76s/it]The 4th chunk:  19%|█▊        | 15/81 [01:21<04:17,  3.90s/it]The 6th chunk:   7%|▋         | 6/81 [00:45<09:11,  7.35s/it]The 2th chunk:  30%|██▉       | 24/81 [01:58<03:39,  3.85s/it]The 1th chunk:  34%|███▍      | 28/82 [02:19<03:39,  4.06s/it]The 3th chunk:  25%|██▍       | 20/81 [01:39<03:46,  3.71s/it]The 0th chunk:  39%|███▉      | 32/82 [02:38<03:22,  4.04s/it]The 5th chunk:  14%|█▎        | 11/81 [01:05<05:13,  4.47s/it]The 7th chunk:   5%|▍         | 4/81 [00:30<09:28,  7.38s/it]The 4th chunk:  20%|█▉        | 16/81 [01:25<04:08,  3.83s/it]The 2th chunk:  31%|███       | 25/81 [02:02<03:33,  3.82s/it]The 3th chunk:  26%|██▌       | 21/81 [01:43<03:42,  3.70s/it]The 6th chunk:   9%|▊         | 7/81 [00:49<07:55,  6.43s/it]The 1th chunk:  35%|███▌      | 29/82 [02:23<03:37,  4.10s/it]The 5th chunk:  15%|█▍        | 12/81 [01:09<04:57,  4.31s/it]The 4th chunk:  21%|██        | 17/81 [01:28<04:01,  3.77s/it]The 0th chunk:  40%|████      | 33/82 [02:43<03:39,  4.49s/it]The 3th chunk:  27%|██▋       | 22/81 [01:46<03:38,  3.70s/it]The 2th chunk:  32%|███▏      | 26/81 [02:06<03:35,  3.91s/it]The 6th chunk:  10%|▉         | 8/81 [00:53<06:44,  5.55s/it]The 1th chunk:  37%|███▋      | 30/82 [02:27<03:34,  4.13s/it]The 5th chunk:  16%|█▌        | 13/81 [01:13<04:41,  4.15s/it]The 7th chunk:   6%|▌         | 5/81 [00:37<09:18,  7.35s/it]The 4th chunk:  22%|██▏       | 18/81 [01:32<03:54,  3.73s/it]The 3th chunk:  28%|██▊       | 23/81 [01:50<03:34,  3.69s/it]The 6th chunk:  11%|█         | 9/81 [00:57<05:59,  5.00s/it]The 2th chunk:  33%|███▎      | 27/81 [02:11<03:35,  3.98s/it]The 0th chunk:  41%|████▏     | 34/82 [02:48<03:42,  4.65s/it]The 1th chunk:  38%|███▊      | 31/82 [02:31<03:30,  4.13s/it]The 5th chunk:  17%|█▋        | 14/81 [01:17<04:29,  4.02s/it]The 4th chunk:  23%|██▎       | 19/81 [01:36<03:49,  3.71s/it]The 3th chunk:  30%|██▉       | 24/81 [01:54<03:30,  3.69s/it]The 6th chunk:  12%|█▏        | 10/81 [01:00<05:28,  4.62s/it]The 2th chunk:  35%|███▍      | 28/81 [02:15<03:32,  4.01s/it]The 7th chunk:   7%|▋         | 6/81 [00:44<09:08,  7.31s/it]The 1th chunk:  39%|███▉      | 32/82 [02:35<03:27,  4.15s/it]The 5th chunk:  19%|█▊        | 15/81 [01:20<04:19,  3.93s/it]The 4th chunk:  25%|██▍       | 20/81 [01:39<03:45,  3.70s/it]The 0th chunk:  43%|████▎     | 35/82 [02:55<03:58,  5.07s/it]The 3th chunk:  31%|███       | 25/81 [01:58<03:26,  3.69s/it]The 6th chunk:  14%|█▎        | 11/81 [01:04<05:05,  4.37s/it]The 2th chunk:  36%|███▌      | 29/81 [02:19<03:30,  4.05s/it]The 5th chunk:  20%|█▉        | 16/81 [01:24<04:11,  3.87s/it]The 7th chunk:   9%|▊         | 7/81 [00:49<07:56,  6.43s/it]The 4th chunk:  26%|██▌       | 21/81 [01:43<03:41,  3.69s/it]The 3th chunk:  32%|███▏      | 26/81 [02:02<03:29,  3.81s/it]The 1th chunk:  40%|████      | 33/82 [02:41<03:48,  4.67s/it]The 6th chunk:  15%|█▍        | 12/81 [01:09<04:59,  4.34s/it]The 0th chunk:  44%|████▍     | 36/82 [03:01<04:07,  5.38s/it]The 5th chunk:  21%|██        | 17/81 [01:28<04:04,  3.83s/it]The 2th chunk:  37%|███▋      | 30/81 [02:23<03:29,  4.11s/it]The 4th chunk:  27%|██▋       | 22/81 [01:47<03:37,  3.69s/it]The 7th chunk:  10%|▉         | 8/81 [00:54<07:14,  5.95s/it]The 3th chunk:  33%|███▎      | 27/81 [02:06<03:28,  3.87s/it]The 6th chunk:  16%|█▌        | 13/81 [01:12<04:41,  4.15s/it]The 5th chunk:  22%|██▏       | 18/81 [01:32<03:58,  3.79s/it]The 2th chunk:  38%|███▊      | 31/81 [02:27<03:25,  4.11s/it]The 4th chunk:  28%|██▊       | 23/81 [01:50<03:33,  3.69s/it]The 7th chunk:  11%|█         | 9/81 [00:57<06:17,  5.24s/it]The 1th chunk:  41%|████▏     | 34/82 [02:49<04:26,  5.55s/it]The 3th chunk:  35%|███▍      | 28/81 [02:10<03:27,  3.92s/it]The 0th chunk:  45%|████▌     | 37/82 [03:08<04:30,  6.01s/it]The 4th chunk:  30%|██▉       | 24/81 [01:54<03:30,  3.68s/it]The 7th chunk:  12%|█▏        | 10/81 [01:01<05:39,  4.79s/it]The 2th chunk:  40%|███▉      | 32/81 [02:33<03:49,  4.68s/it]The 6th chunk:  17%|█▋        | 14/81 [01:20<05:45,  5.16s/it]The 3th chunk:  36%|███▌      | 29/81 [02:14<03:29,  4.02s/it]The 1th chunk:  43%|████▎     | 35/82 [02:54<04:12,  5.38s/it]The 5th chunk:  23%|██▎       | 19/81 [01:39<05:05,  4.92s/it]The 4th chunk:  31%|███       | 25/81 [01:58<03:26,  3.68s/it]The 0th chunk:  46%|████▋     | 38/82 [03:13<04:14,  5.78s/it]The 7th chunk:  14%|█▎        | 11/81 [01:06<05:29,  4.71s/it]The 6th chunk:  19%|█▊        | 15/81 [01:23<05:11,  4.71s/it]The 3th chunk:  37%|███▋      | 30/81 [02:18<03:25,  4.04s/it]The 5th chunk:  25%|██▍       | 20/81 [01:43<04:38,  4.57s/it]The 4th chunk:  32%|███▏      | 26/81 [02:02<03:27,  3.78s/it]The 2th chunk:  41%|████      | 33/81 [02:39<04:03,  5.07s/it]The 1th chunk:  44%|████▍     | 36/82 [03:00<04:10,  5.45s/it]The 0th chunk:  48%|████▊     | 39/82 [03:18<03:59,  5.58s/it]The 7th chunk:  15%|█▍        | 12/81 [01:10<05:25,  4.71s/it]The 5th chunk:  26%|██▌       | 21/81 [01:47<04:19,  4.32s/it]The 3th chunk:  38%|███▊      | 31/81 [02:22<03:21,  4.02s/it]The 4th chunk:  33%|███▎      | 27/81 [02:06<03:28,  3.86s/it]The 6th chunk:  20%|█▉        | 16/81 [01:31<06:00,  5.55s/it]The 1th chunk:  45%|████▌     | 37/82 [03:05<04:05,  5.45s/it]The 7th chunk:  16%|█▌        | 13/81 [01:14<04:59,  4.41s/it]The 5th chunk:  27%|██▋       | 22/81 [01:50<04:04,  4.15s/it]The 0th chunk:  49%|████▉     | 40/82 [03:24<03:57,  5.65s/it]The 2th chunk:  42%|████▏     | 34/81 [02:47<04:34,  5.83s/it]The 4th chunk:  35%|███▍      | 28/81 [02:10<03:27,  3.91s/it]The 3th chunk:  40%|███▉      | 32/81 [02:28<03:47,  4.63s/it]The 6th chunk:  21%|██        | 17/81 [01:35<05:19,  4.99s/it]The 7th chunk:  17%|█▋        | 14/81 [01:18<04:40,  4.19s/it]The 5th chunk:  28%|██▊       | 23/81 [01:54<03:53,  4.03s/it]The 4th chunk:  36%|███▌      | 29/81 [02:14<03:24,  3.94s/it]The 6th chunk:  22%|██▏       | 18/81 [01:38<04:49,  4.60s/it]The 1th chunk:  46%|████▋     | 38/82 [03:13<04:27,  6.08s/it]The 7th chunk:  19%|█▊        | 15/81 [01:21<04:26,  4.04s/it]The 5th chunk:  30%|██▉       | 24/81 [01:58<03:44,  3.94s/it]The 2th chunk:  43%|████▎     | 35/81 [02:53<04:36,  6.00s/it]The 3th chunk:  41%|████      | 33/81 [02:34<03:55,  4.90s/it]The 0th chunk:  50%|█████     | 41/82 [03:32<04:14,  6.20s/it]The 4th chunk:  37%|███▋      | 30/81 [02:18<03:22,  3.98s/it]The 6th chunk:  23%|██▎       | 19/81 [01:42<04:28,  4.33s/it]The 5th chunk:  31%|███       | 25/81 [02:02<03:38,  3.89s/it]The 2th chunk:  44%|████▍     | 36/81 [02:59<04:23,  5.86s/it]The 0th chunk:  51%|█████     | 42/82 [03:37<03:55,  5.89s/it]The 4th chunk:  38%|███▊      | 31/81 [02:22<03:20,  4.02s/it]The 6th chunk:  25%|██▍       | 20/81 [01:46<04:12,  4.14s/it]The 3th chunk:  42%|████▏     | 34/81 [02:40<04:10,  5.33s/it]The 1th chunk:  48%|████▊     | 39/82 [03:20<04:40,  6.52s/it]The 7th chunk:  20%|█▉        | 16/81 [01:29<05:30,  5.09s/it]The 5th chunk:  32%|███▏      | 26/81 [02:06<03:37,  3.96s/it]The 6th chunk:  26%|██▌       | 21/81 [01:49<04:01,  4.03s/it]The 0th chunk:  52%|█████▏    | 43/82 [03:42<03:42,  5.71s/it]The 2th chunk:  46%|████▌     | 37/81 [03:04<04:16,  5.83s/it]The 5th chunk:  33%|███▎      | 27/81 [02:10<03:36,  4.02s/it]The 1th chunk:  49%|████▉     | 40/82 [03:25<04:15,  6.09s/it]The 3th chunk:  43%|████▎     | 35/81 [02:46<04:12,  5.49s/it]The 6th chunk:  27%|██▋       | 22/81 [01:53<03:51,  3.93s/it]The 4th chunk:  40%|███▉      | 32/81 [02:30<04:08,  5.07s/it]The 7th chunk:  21%|██        | 17/81 [01:36<06:12,  5.82s/it]The 5th chunk:  35%|███▍      | 28/81 [02:14<03:37,  4.10s/it]The 2th chunk:  47%|████▋     | 38/81 [03:10<04:07,  5.75s/it]The 1th chunk:  50%|█████     | 41/82 [03:30<03:56,  5.76s/it]The 6th chunk:  28%|██▊       | 23/81 [01:57<03:44,  3.86s/it]The 3th chunk:  44%|████▍     | 36/81 [02:51<04:00,  5.34s/it]The 7th chunk:  22%|██▏       | 18/81 [01:40<05:26,  5.19s/it]The 0th chunk:  54%|█████▎    | 44/82 [03:50<03:57,  6.24s/it]The 5th chunk:  36%|███▌      | 29/81 [02:18<03:34,  4.13s/it]The 6th chunk:  30%|██▉       | 24/81 [02:01<03:37,  3.81s/it]The 4th chunk:  41%|████      | 33/81 [02:37<04:38,  5.80s/it]The 1th chunk:  51%|█████     | 42/82 [03:35<03:36,  5.42s/it]The 2th chunk:  48%|████▊     | 39/81 [03:15<03:51,  5.52s/it]The 7th chunk:  23%|██▎       | 19/81 [01:44<04:54,  4.74s/it]The 0th chunk:  55%|█████▍    | 45/82 [03:53<03:21,  5.45s/it]The 5th chunk:  37%|███▋      | 30/81 [02:22<03:29,  4.10s/it]The 6th chunk:  31%|███       | 25/81 [02:04<03:32,  3.79s/it]The 3th chunk:  46%|████▌     | 37/81 [02:58<04:23,  5.99s/it]The 7th chunk:  25%|██▍       | 20/81 [01:48<04:30,  4.43s/it]The 0th chunk:  56%|█████▌    | 46/82 [03:57<02:56,  4.89s/it]The 4th chunk:  42%|████▏     | 34/81 [02:43<04:36,  5.89s/it]The 2th chunk:  49%|████▉     | 40/81 [03:21<03:50,  5.62s/it]The 6th chunk:  32%|███▏      | 26/81 [02:08<03:31,  3.85s/it]The 5th chunk:  38%|███▊      | 31/81 [02:27<03:28,  4.17s/it]The 1th chunk:  52%|█████▏    | 43/82 [03:42<03:56,  6.06s/it]The 7th chunk:  26%|██▌       | 21/81 [01:51<04:12,  4.21s/it]The 0th chunk:  57%|█████▋    | 47/82 [04:00<02:37,  4.50s/it]The 3th chunk:  47%|████▋     | 38/81 [03:04<04:10,  5.82s/it]The 6th chunk:  33%|███▎      | 27/81 [02:12<03:31,  3.92s/it]The 7th chunk:  27%|██▋       | 22/81 [01:55<03:59,  4.06s/it]The 0th chunk:  59%|█████▊    | 48/82 [04:04<02:23,  4.23s/it]The 5th chunk:  40%|███▉      | 32/81 [02:32<03:44,  4.57s/it]The 4th chunk:  43%|████▎     | 35/81 [02:51<04:53,  6.37s/it]The 2th chunk:  51%|█████     | 41/81 [03:28<04:08,  6.20s/it]The 1th chunk:  54%|█████▎    | 44/82 [03:48<03:49,  6.04s/it]The 3th chunk:  48%|████▊     | 39/81 [03:10<04:05,  5.84s/it]The 0th chunk:  60%|█████▉    | 49/82 [04:08<02:13,  4.04s/it]The 7th chunk:  28%|██▊       | 23/81 [01:59<03:49,  3.95s/it]The 6th chunk:  35%|███▍      | 28/81 [02:16<03:31,  3.98s/it]The 1th chunk:  55%|█████▍    | 45/82 [03:52<03:16,  5.32s/it]The 5th chunk:  41%|████      | 33/81 [02:38<03:54,  4.88s/it]The 4th chunk:  44%|████▍     | 36/81 [02:56<04:34,  6.11s/it]The 0th chunk:  61%|██████    | 50/82 [04:11<02:05,  3.91s/it]The 7th chunk:  30%|██▉       | 24/81 [02:02<03:40,  3.87s/it]The 2th chunk:  52%|█████▏    | 42/81 [03:34<03:55,  6.04s/it]The 6th chunk:  36%|███▌      | 29/81 [02:21<03:28,  4.01s/it]The 3th chunk:  49%|████▉     | 40/81 [03:15<03:54,  5.73s/it]The 1th chunk:  56%|█████▌    | 46/82 [03:56<02:53,  4.82s/it]The 0th chunk:  62%|██████▏   | 51/82 [04:15<01:59,  3.84s/it]The 7th chunk:  31%|███       | 25/81 [02:06<03:33,  3.82s/it]The 6th chunk:  37%|███▋      | 30/81 [02:25<03:24,  4.01s/it]The 4th chunk:  46%|████▌     | 37/81 [03:02<04:26,  6.07s/it]The 1th chunk:  57%|█████▋    | 47/82 [03:59<02:36,  4.47s/it]The 5th chunk:  42%|████▏     | 34/81 [02:45<04:27,  5.69s/it]The 0th chunk:  63%|██████▎   | 52/82 [04:19<01:53,  3.78s/it]The 3th chunk:  51%|█████     | 41/81 [03:21<03:52,  5.81s/it]The 7th chunk:  32%|███▏      | 26/81 [02:10<03:33,  3.87s/it]The 2th chunk:  53%|█████▎    | 43/81 [03:42<04:07,  6.51s/it]The 6th chunk:  38%|███▊      | 31/81 [02:29<03:20,  4.02s/it]The 1th chunk:  59%|█████▊    | 48/82 [04:03<02:23,  4.22s/it]The 0th chunk:  65%|██████▍   | 53/82 [04:22<01:48,  3.74s/it]The 4th chunk:  47%|████▋     | 38/81 [03:08<04:15,  5.94s/it]The 7th chunk:  33%|███▎      | 27/81 [02:14<03:34,  3.97s/it]The 3th chunk:  52%|█████▏    | 42/81 [03:27<03:44,  5.76s/it]The 1th chunk:  60%|█████▉    | 49/82 [04:07<02:13,  4.06s/it]The 6th chunk:  40%|███▉      | 32/81 [02:34<03:41,  4.53s/it]The 0th chunk:  66%|██████▌   | 54/82 [04:26<01:43,  3.71s/it]The 5th chunk:  43%|████▎     | 35/81 [02:53<04:47,  6.25s/it]The 2th chunk:  54%|█████▍    | 44/81 [03:49<04:12,  6.82s/it]The 7th chunk:  35%|███▍      | 28/81 [02:18<03:31,  4.00s/it]The 1th chunk:  61%|██████    | 50/82 [04:10<02:05,  3.93s/it]The 4th chunk:  48%|████▊     | 39/81 [03:14<04:11,  5.99s/it]The 0th chunk:  67%|██████▋   | 55/82 [04:30<01:39,  3.70s/it]The 3th chunk:  53%|█████▎    | 43/81 [03:32<03:37,  5.73s/it]The 2th chunk:  56%|█████▌    | 45/81 [03:53<03:31,  5.86s/it]The 7th chunk:  36%|███▌      | 29/81 [02:22<03:30,  4.05s/it]The 1th chunk:  62%|██████▏   | 51/82 [04:14<01:59,  3.86s/it]The 0th chunk:  68%|██████▊   | 56/82 [04:33<01:35,  3.68s/it]The 6th chunk:  41%|████      | 33/81 [02:42<04:20,  5.42s/it]The 5th chunk:  44%|████▍     | 36/81 [03:01<04:58,  6.64s/it]The 4th chunk:  49%|████▉     | 40/81 [03:19<03:53,  5.69s/it]The 2th chunk:  57%|█████▋    | 46/81 [03:56<03:02,  5.21s/it]The 1th chunk:  63%|██████▎   | 52/82 [04:18<01:54,  3.81s/it]The 7th chunk:  37%|███▋      | 30/81 [02:27<03:27,  4.06s/it]The 0th chunk:  70%|██████▉   | 57/82 [04:37<01:31,  3.67s/it]The 3th chunk:  54%|█████▍    | 44/81 [03:40<03:49,  6.21s/it]The 2th chunk:  58%|█████▊    | 47/81 [04:00<02:41,  4.75s/it]The 1th chunk:  65%|██████▍   | 53/82 [04:21<01:49,  3.78s/it]The 5th chunk:  46%|████▌     | 37/81 [03:07<04:42,  6.43s/it]The 7th chunk:  38%|███▊      | 31/81 [02:31<03:26,  4.13s/it]The 6th chunk:  42%|████▏     | 34/81 [02:49<04:44,  6.04s/it]The 3th chunk:  56%|█████▌    | 45/81 [03:43<03:16,  5.45s/it]The 0th chunk:  71%|███████   | 58/82 [04:41<01:32,  3.86s/it]The 4th chunk:  51%|█████     | 41/81 [03:26<04:09,  6.23s/it]The 2th chunk:  59%|█████▉    | 48/81 [04:04<02:25,  4.42s/it]The 1th chunk:  66%|██████▌   | 54/82 [04:25<01:45,  3.75s/it]The 3th chunk:  57%|█████▋    | 46/81 [03:47<02:51,  4.90s/it]The 5th chunk:  47%|████▋     | 38/81 [03:12<04:24,  6.16s/it]The 2th chunk:  60%|██████    | 49/81 [04:07<02:14,  4.19s/it]The 0th chunk:  72%|███████▏  | 59/82 [04:46<01:33,  4.06s/it]The 7th chunk:  40%|███▉      | 32/81 [02:37<03:52,  4.75s/it]The 1th chunk:  67%|██████▋   | 55/82 [04:29<01:40,  3.73s/it]The 6th chunk:  43%|████▎     | 35/81 [02:55<04:36,  6.01s/it]The 4th chunk:  52%|█████▏    | 42/81 [03:32<03:57,  6.09s/it]The 3th chunk:  58%|█████▊    | 47/81 [03:51<02:33,  4.51s/it]The 2th chunk:  62%|██████▏   | 50/81 [04:11<02:05,  4.03s/it]The 0th chunk:  73%|███████▎  | 60/82 [04:50<01:31,  4.14s/it]The 1th chunk:  68%|██████▊   | 56/82 [04:32<01:36,  3.73s/it]The 7th chunk:  41%|████      | 33/81 [02:42<03:51,  4.82s/it]The 3th chunk:  59%|█████▉    | 48/81 [03:54<02:20,  4.25s/it]The 6th chunk:  44%|████▍     | 36/81 [03:01<04:26,  5.91s/it]The 4th chunk:  53%|█████▎    | 43/81 [03:37<03:41,  5.84s/it]The 5th chunk:  48%|████▊     | 39/81 [03:20<04:36,  6.58s/it]The 2th chunk:  63%|██████▎   | 51/81 [04:15<01:58,  3.94s/it]The 1th chunk:  70%|██████▉   | 57/82 [04:36<01:33,  3.73s/it]The 0th chunk:  74%|███████▍  | 61/82 [04:54<01:27,  4.19s/it]The 3th chunk:  60%|██████    | 49/81 [03:58<02:09,  4.06s/it]The 2th chunk:  64%|██████▍   | 52/81 [04:19<01:52,  3.88s/it]The 7th chunk:  42%|████▏     | 34/81 [02:48<04:00,  5.12s/it]The 4th chunk:  54%|█████▍    | 44/81 [03:43<03:31,  5.72s/it]The 6th chunk:  46%|████▌     | 37/81 [03:07<04:17,  5.86s/it]The 1th chunk:  71%|███████   | 58/82 [04:41<01:34,  3.92s/it]The 0th chunk:  76%|███████▌  | 62/82 [04:59<01:24,  4.21s/it]The 3th chunk:  62%|██████▏   | 50/81 [04:01<02:01,  3.93s/it]The 5th chunk:  49%|████▉     | 40/81 [03:27<04:41,  6.87s/it]The 2th chunk:  65%|██████▌   | 53/81 [04:22<01:47,  3.83s/it]The 4th chunk:  56%|█████▌    | 45/81 [03:46<03:03,  5.09s/it]The 7th chunk:  43%|████▎     | 35/81 [02:53<04:00,  5.22s/it]The 1th chunk:  72%|███████▏  | 59/82 [04:45<01:32,  4.03s/it]The 0th chunk:  77%|███████▋  | 63/82 [05:03<01:19,  4.20s/it]The 3th chunk:  63%|██████▎   | 51/81 [04:05<01:55,  3.85s/it]The 6th chunk:  47%|████▋     | 38/81 [03:12<03:59,  5.56s/it]The 2th chunk:  67%|██████▋   | 54/81 [04:26<01:42,  3.80s/it]The 5th chunk:  51%|█████     | 41/81 [03:32<04:09,  6.25s/it]The 4th chunk:  57%|█████▋    | 46/81 [03:50<02:42,  4.63s/it]The 3th chunk:  64%|██████▍   | 52/81 [04:09<01:50,  3.79s/it]The 0th chunk:  78%|███████▊  | 64/82 [05:07<01:13,  4.10s/it]The 1th chunk:  73%|███████▎  | 60/82 [04:49<01:31,  4.14s/it]The 2th chunk:  68%|██████▊   | 55/81 [04:30<01:37,  3.77s/it]The 7th chunk:  44%|████▍     | 36/81 [02:59<03:58,  5.29s/it]The 4th chunk:  58%|█████▊    | 47/81 [03:54<02:26,  4.32s/it]The 6th chunk:  48%|████▊     | 39/81 [03:19<04:18,  6.15s/it]The 0th chunk:  79%|███████▉  | 65/82 [05:11<01:11,  4.20s/it]The 2th chunk:  69%|██████▉   | 56/81 [04:33<01:33,  3.75s/it]The 1th chunk:  74%|███████▍  | 61/82 [04:54<01:28,  4.22s/it]The 4th chunk:  59%|█████▉    | 48/81 [03:57<02:15,  4.11s/it]The 5th chunk:  52%|█████▏    | 42/81 [03:40<04:18,  6.64s/it]The 3th chunk:  65%|██████▌   | 53/81 [04:16<02:17,  4.90s/it]The 0th chunk:  80%|████████  | 66/82 [05:14<01:03,  3.98s/it]The 7th chunk:  46%|████▌     | 37/81 [03:06<04:22,  5.96s/it]The 2th chunk:  70%|███████   | 57/81 [04:38<01:34,  3.94s/it]The 4th chunk:  60%|██████    | 49/81 [04:01<02:06,  3.95s/it]The 1th chunk:  76%|███████▌  | 62/82 [04:58<01:25,  4.28s/it]The 5th chunk:  53%|█████▎    | 43/81 [03:44<03:50,  6.08s/it]The 3th chunk:  67%|██████▋   | 54/81 [04:20<02:02,  4.52s/it]The 0th chunk:  82%|████████▏ | 67/82 [05:18<00:56,  3.79s/it]The 6th chunk:  49%|████▉     | 40/81 [03:27<04:28,  6.55s/it]The 4th chunk:  62%|██████▏   | 50/81 [04:04<01:59,  3.84s/it]The 2th chunk:  72%|███████▏  | 58/81 [04:42<01:33,  4.06s/it]The 1th chunk:  77%|███████▋  | 63/82 [05:02<01:21,  4.28s/it]The 3th chunk:  68%|██████▊   | 55/81 [04:24<01:50,  4.26s/it]The 0th chunk:  83%|████████▎ | 68/82 [05:21<00:51,  3.69s/it]The 5th chunk:  54%|█████▍    | 44/81 [03:50<03:37,  5.88s/it]The 7th chunk:  47%|████▋     | 38/81 [03:14<04:36,  6.42s/it]The 4th chunk:  63%|██████▎   | 51/81 [04:08<01:53,  3.79s/it]The 6th chunk:  51%|█████     | 41/81 [03:32<04:07,  6.20s/it]The 1th chunk:  78%|███████▊  | 64/82 [05:06<01:13,  4.10s/it]The 2th chunk:  73%|███████▎  | 59/81 [04:47<01:31,  4.15s/it]The 3th chunk:  69%|██████▉   | 56/81 [04:27<01:41,  4.08s/it]The 0th chunk:  84%|████████▍ | 69/82 [05:25<00:48,  3.76s/it]The 5th chunk:  56%|█████▌    | 45/81 [03:53<03:07,  5.21s/it]The 4th chunk:  64%|██████▍   | 52/81 [04:12<01:48,  3.75s/it]The 7th chunk:  48%|████▊     | 39/81 [03:18<04:01,  5.75s/it]The 1th chunk:  79%|███████▉  | 65/82 [05:10<01:11,  4.21s/it]The 6th chunk:  52%|█████▏    | 42/81 [03:37<03:47,  5.84s/it]The 2th chunk:  74%|███████▍  | 60/81 [04:51<01:28,  4.20s/it]The 3th chunk:  70%|███████   | 57/81 [04:32<01:39,  4.15s/it]The 0th chunk:  85%|████████▌ | 70/82 [05:29<00:46,  3.86s/it]The 5th chunk:  57%|█████▋    | 46/81 [03:57<02:46,  4.75s/it]The 4th chunk:  65%|██████▌   | 53/81 [04:15<01:44,  3.72s/it]The 1th chunk:  80%|████████  | 66/82 [05:14<01:04,  4.03s/it]The 7th chunk:  49%|████▉     | 40/81 [03:23<03:49,  5.59s/it]The 0th chunk:  87%|████████▋ | 71/82 [05:33<00:40,  3.71s/it]The 2th chunk:  75%|███████▌  | 61/81 [04:55<01:24,  4.23s/it]The 6th chunk:  53%|█████▎    | 43/81 [03:42<03:32,  5.58s/it]The 3th chunk:  72%|███████▏  | 58/81 [04:36<01:36,  4.21s/it]The 5th chunk:  58%|█████▊    | 47/81 [04:01<02:30,  4.42s/it]The 4th chunk:  67%|██████▋   | 54/81 [04:19<01:39,  3.69s/it]The 1th chunk:  82%|████████▏ | 67/82 [05:18<00:59,  3.95s/it]The 0th chunk:  88%|████████▊ | 72/82 [05:37<00:38,  3.80s/it]The 6th chunk:  54%|█████▍    | 44/81 [03:46<03:05,  5.00s/it]The 5th chunk:  59%|█████▉    | 48/81 [04:04<02:18,  4.20s/it]The 2th chunk:  77%|███████▋  | 62/81 [05:00<01:21,  4.28s/it]The 4th chunk:  68%|██████▊   | 55/81 [04:23<01:35,  3.68s/it]The 7th chunk:  51%|█████     | 41/81 [03:29<03:46,  5.66s/it]The 1th chunk:  83%|████████▎ | 68/82 [05:22<00:54,  3.88s/it]The 0th chunk:  89%|████████▉ | 73/82 [05:40<00:32,  3.64s/it]The 6th chunk:  56%|█████▌    | 45/81 [03:49<02:45,  4.60s/it]The 5th chunk:  60%|██████    | 49/81 [04:08<02:09,  4.05s/it]The 3th chunk:  73%|███████▎  | 59/81 [04:43<01:54,  5.20s/it]The 4th chunk:  69%|██████▉   | 56/81 [04:26<01:31,  3.67s/it]The 2th chunk:  78%|███████▊  | 63/81 [05:04<01:16,  4.28s/it]The 7th chunk:  52%|█████▏    | 42/81 [03:34<03:33,  5.47s/it]The 1th chunk:  84%|████████▍ | 69/82 [05:25<00:50,  3.88s/it]The 0th chunk:  90%|█████████ | 74/82 [05:44<00:29,  3.66s/it]The 6th chunk:  57%|█████▋    | 46/81 [03:53<02:30,  4.31s/it]The 5th chunk:  62%|██████▏   | 50/81 [04:12<02:02,  3.94s/it]The 2th chunk:  79%|███████▉  | 64/81 [05:07<01:08,  4.04s/it]The 3th chunk:  74%|███████▍  | 60/81 [04:48<01:43,  4.94s/it]The 4th chunk:  70%|███████   | 57/81 [04:31<01:32,  3.85s/it]The 0th chunk:  91%|█████████▏| 75/82 [05:47<00:25,  3.63s/it]The 1th chunk:  85%|████████▌ | 70/82 [05:30<00:47,  3.99s/it]The 6th chunk:  58%|█████▊    | 47/81 [03:56<02:19,  4.11s/it]The 7th chunk:  53%|█████▎    | 43/81 [03:39<03:24,  5.37s/it]The 5th chunk:  63%|██████▎   | 51/81 [04:15<01:56,  3.87s/it]The 2th chunk:  80%|████████  | 65/81 [05:11<01:04,  4.01s/it]The 3th chunk:  75%|███████▌  | 61/81 [04:52<01:33,  4.70s/it]The 4th chunk:  72%|███████▏  | 58/81 [04:35<01:31,  3.96s/it]The 1th chunk:  87%|████████▋ | 71/82 [05:33<00:41,  3.79s/it]The 6th chunk:  59%|█████▉    | 48/81 [04:00<02:10,  3.96s/it]The 0th chunk:  93%|█████████▎| 76/82 [05:52<00:23,  3.87s/it]The 7th chunk:  54%|█████▍    | 44/81 [03:43<02:59,  4.85s/it]The 5th chunk:  64%|██████▍   | 52/81 [04:19<01:51,  3.83s/it]The 2th chunk:  81%|████████▏ | 66/81 [05:15<00:58,  3.90s/it]The 4th chunk:  73%|███████▎  | 59/81 [04:39<01:30,  4.10s/it]The 3th chunk:  77%|███████▋  | 62/81 [04:57<01:29,  4.72s/it]The 7th chunk:  56%|█████▌    | 45/81 [03:47<02:43,  4.53s/it]The 6th chunk:  60%|██████    | 49/81 [04:04<02:08,  4.02s/it]The 1th chunk:  88%|████████▊ | 72/82 [05:38<00:40,  4.10s/it]The 5th chunk:  65%|██████▌   | 53/81 [04:24<01:52,  4.00s/it]The 2th chunk:  83%|████████▎ | 67/81 [05:19<00:54,  3.90s/it]The 0th chunk:  94%|█████████▍| 77/82 [05:57<00:20,  4.20s/it]The 3th chunk:  78%|███████▊  | 63/81 [05:01<01:24,  4.71s/it]The 4th chunk:  74%|███████▍  | 60/81 [04:44<01:29,  4.28s/it]The 7th chunk:  57%|█████▋    | 46/81 [03:50<02:29,  4.27s/it]The 6th chunk:  62%|██████▏   | 50/81 [04:08<02:00,  3.90s/it]The 1th chunk:  89%|████████▉ | 73/82 [05:42<00:36,  4.06s/it]The 5th chunk:  67%|██████▋   | 54/81 [04:27<01:45,  3.92s/it]The 2th chunk:  84%|████████▍ | 68/81 [05:23<00:50,  3.86s/it]The 0th chunk:  95%|█████████▌| 78/82 [06:02<00:18,  4.50s/it]The 3th chunk:  79%|███████▉  | 64/81 [05:05<01:15,  4.45s/it]The 6th chunk:  63%|██████▎   | 51/81 [04:12<01:56,  3.88s/it]The 7th chunk:  58%|█████▊    | 47/81 [03:54<02:21,  4.15s/it]The 4th chunk:  75%|███████▌  | 61/81 [04:48<01:26,  4.32s/it]The 1th chunk:  90%|█████████ | 74/82 [05:45<00:31,  3.95s/it]The 2th chunk:  85%|████████▌ | 69/81 [05:26<00:45,  3.79s/it]The 5th chunk:  68%|██████▊   | 55/81 [04:31<01:42,  3.93s/it]The 0th chunk:  96%|█████████▋| 79/82 [06:06<00:13,  4.36s/it]The 6th chunk:  64%|██████▍   | 52/81 [04:15<01:50,  3.81s/it]The 7th chunk:  59%|█████▉    | 48/81 [03:58<02:11,  4.00s/it]The 3th chunk:  80%|████████  | 65/81 [05:09<01:09,  4.35s/it]The 2th chunk:  86%|████████▋ | 70/81 [05:29<00:40,  3.65s/it]The 1th chunk:  91%|█████████▏| 75/82 [05:50<00:28,  4.02s/it]The 4th chunk:  77%|███████▋  | 62/81 [04:53<01:21,  4.31s/it]The 5th chunk:  69%|██████▉   | 56/81 [04:35<01:36,  3.87s/it]The 0th chunk:  98%|█████████▊| 80/82 [06:10<00:08,  4.39s/it]The 7th chunk:  60%|██████    | 49/81 [04:01<02:04,  3.89s/it]The 6th chunk:  65%|██████▌   | 53/81 [04:19<01:45,  3.77s/it]The 3th chunk:  81%|████████▏ | 66/81 [05:13<01:02,  4.14s/it]The 2th chunk:  88%|████████▊ | 71/81 [05:33<00:35,  3.60s/it]The 4th chunk:  78%|███████▊  | 63/81 [04:56<01:13,  4.08s/it]The 1th chunk:  93%|█████████▎| 76/82 [05:54<00:25,  4.17s/it]The 5th chunk:  70%|███████   | 57/81 [04:39<01:36,  4.02s/it]The 7th chunk:  62%|██████▏   | 50/81 [04:05<01:58,  3.81s/it]The 6th chunk:  67%|██████▋   | 54/81 [04:23<01:40,  3.74s/it]The 3th chunk:  83%|████████▎ | 67/81 [05:17<00:56,  4.02s/it]The 2th chunk:  89%|████████▉ | 72/81 [05:36<00:32,  3.57s/it]The 0th chunk:  99%|█████████▉| 81/82 [06:15<00:04,  4.41s/it]The 4th chunk:  79%|███████▉  | 64/81 [05:01<01:10,  4.17s/it]The 1th chunk:  94%|█████████▍| 77/82 [05:59<00:21,  4.27s/it]The 5th chunk:  72%|███████▏  | 58/81 [04:44<01:35,  4.14s/it]The 2th chunk:  90%|█████████ | 73/81 [05:40<00:28,  3.51s/it]The 7th chunk:  63%|██████▎   | 51/81 [04:09<01:53,  3.78s/it]The 6th chunk:  68%|██████▊   | 55/81 [04:26<01:36,  3.72s/it]The 3th chunk:  84%|████████▍ | 68/81 [05:21<00:51,  3.99s/it]The 0th chunk: 100%|██████████| 82/82 [06:19<00:00,  4.30s/it]The 0th chunk: 100%|██████████| 82/82 [06:19<00:00,  4.63s/it]
+The 4th chunk:  80%|████████  | 65/81 [05:05<01:06,  4.14s/it]The 5th chunk:  73%|███████▎  | 59/81 [04:48<01:32,  4.19s/it]The 2th chunk:  91%|█████████▏| 74/81 [05:43<00:24,  3.47s/it]The 1th chunk:  95%|█████████▌| 78/82 [06:03<00:17,  4.34s/it]The 7th chunk:  64%|██████▍   | 52/81 [04:12<01:48,  3.75s/it]The 6th chunk:  69%|██████▉   | 56/81 [04:30<01:32,  3.70s/it]The 3th chunk:  85%|████████▌ | 69/81 [05:24<00:45,  3.82s/it]The 4th chunk:  81%|████████▏ | 66/81 [05:08<01:01,  4.07s/it]The 2th chunk:  93%|█████████▎| 75/81 [05:47<00:21,  3.53s/it]The 3th chunk:  86%|████████▋ | 70/81 [05:27<00:40,  3.67s/it]The 7th chunk:  65%|██████▌   | 53/81 [04:16<01:44,  3.73s/it]The 5th chunk:  74%|███████▍  | 60/81 [04:52<01:28,  4.22s/it]The 1th chunk:  96%|█████████▋| 79/82 [06:08<00:13,  4.39s/it]The 6th chunk:  70%|███████   | 57/81 [04:34<01:32,  3.87s/it]The 4th chunk:  83%|████████▎ | 67/81 [05:12<00:55,  3.94s/it]The 3th chunk:  88%|████████▊ | 71/81 [05:31<00:36,  3.70s/it]The 2th chunk:  94%|█████████▍| 76/81 [05:51<00:19,  3.82s/it]The 5th chunk:  75%|███████▌  | 61/81 [04:57<01:25,  4.26s/it]The 6th chunk:  72%|███████▏  | 58/81 [04:39<01:31,  3.97s/it]The 1th chunk:  98%|█████████▊| 80/82 [06:12<00:08,  4.43s/it]The 4th chunk:  84%|████████▍ | 68/81 [05:16<00:50,  3.88s/it]The 3th chunk:  89%|████████▉ | 72/81 [05:35<00:33,  3.73s/it]The 7th chunk:  67%|██████▋   | 54/81 [04:24<02:11,  4.86s/it]The 2th chunk:  95%|█████████▌| 77/81 [05:56<00:16,  4.02s/it]The 5th chunk:  77%|███████▋  | 62/81 [05:01<01:20,  4.24s/it]The 1th chunk:  99%|█████████▉| 81/82 [06:16<00:04,  4.31s/it]The 6th chunk:  73%|███████▎  | 59/81 [04:43<01:29,  4.05s/it]The 4th chunk:  85%|████████▌ | 69/81 [05:20<00:45,  3.81s/it]The 3th chunk:  90%|█████████ | 73/81 [05:38<00:29,  3.64s/it]The 7th chunk:  68%|██████▊   | 55/81 [04:27<01:57,  4.51s/it]The 5th chunk:  78%|███████▊  | 63/81 [05:05<01:15,  4.22s/it]The 2th chunk:  96%|█████████▋| 78/81 [06:00<00:12,  4.18s/it]The 4th chunk:  86%|████████▋ | 70/81 [05:23<00:41,  3.79s/it]The 6th chunk:  74%|███████▍  | 60/81 [04:47<01:26,  4.13s/it]The 1th chunk: 100%|██████████| 82/82 [06:21<00:00,  4.36s/it]The 1th chunk: 100%|██████████| 82/82 [06:21<00:00,  4.65s/it]
+The 3th chunk:  91%|█████████▏| 74/81 [05:42<00:25,  3.59s/it]The 7th chunk:  69%|██████▉   | 56/81 [04:31<01:46,  4.25s/it]The 4th chunk:  88%|████████▊ | 71/81 [05:27<00:37,  3.74s/it]The 5th chunk:  79%|███████▉  | 64/81 [05:09<01:11,  4.20s/it]The 2th chunk:  98%|█████████▊| 79/81 [06:05<00:08,  4.28s/it]The 6th chunk:  75%|███████▌  | 61/81 [04:51<01:24,  4.21s/it]The 3th chunk:  93%|█████████▎| 75/81 [05:46<00:22,  3.78s/it]The 7th chunk:  70%|███████   | 57/81 [04:35<01:42,  4.25s/it]The 4th chunk:  89%|████████▉ | 72/81 [05:31<00:33,  3.77s/it]The 5th chunk:  80%|████████  | 65/81 [05:13<01:06,  4.18s/it]The 6th chunk:  77%|███████▋  | 62/81 [04:56<01:19,  4.19s/it]The 2th chunk:  99%|█████████▉| 80/81 [06:09<00:04,  4.34s/it]The 3th chunk:  94%|█████████▍| 76/81 [05:50<00:19,  3.99s/it]The 7th chunk:  72%|███████▏  | 58/81 [04:40<01:38,  4.29s/it]The 4th chunk:  90%|█████████ | 73/81 [05:34<00:30,  3.77s/it]The 5th chunk:  81%|████████▏ | 66/81 [05:17<01:00,  4.01s/it]The 6th chunk:  78%|███████▊  | 63/81 [04:59<01:13,  4.08s/it]The 2th chunk: 100%|██████████| 81/81 [06:14<00:00,  4.40s/it]The 2th chunk: 100%|██████████| 81/81 [06:14<00:00,  4.62s/it]
+The 3th chunk:  95%|█████████▌| 77/81 [05:55<00:16,  4.13s/it]The 7th chunk:  73%|███████▎  | 59/81 [04:44<01:34,  4.32s/it]The 4th chunk:  91%|█████████▏| 74/81 [05:38<00:26,  3.80s/it]The 5th chunk:  83%|████████▎ | 67/81 [05:21<00:56,  4.04s/it]The 6th chunk:  79%|███████▉  | 64/81 [05:04<01:09,  4.11s/it]The 3th chunk:  96%|█████████▋| 78/81 [05:59<00:12,  4.10s/it]The 4th chunk:  93%|█████████▎| 75/81 [05:42<00:22,  3.71s/it]The 7th chunk:  74%|███████▍  | 60/81 [04:48<01:31,  4.34s/it]The 5th chunk:  84%|████████▍ | 68/81 [05:25<00:52,  4.01s/it]The 6th chunk:  80%|████████  | 65/81 [05:07<01:03,  3.99s/it]The 3th chunk:  98%|█████████▊| 79/81 [06:03<00:08,  4.21s/it]The 4th chunk:  94%|█████████▍| 76/81 [05:46<00:19,  3.94s/it]The 5th chunk:  85%|████████▌ | 69/81 [05:29<00:46,  3.90s/it]The 7th chunk:  75%|███████▌  | 61/81 [04:53<01:26,  4.34s/it]The 6th chunk:  81%|████████▏ | 66/81 [05:11<00:58,  3.89s/it]The 3th chunk:  99%|█████████▉| 80/81 [06:07<00:04,  4.15s/it]The 4th chunk:  95%|█████████▌| 77/81 [05:50<00:15,  3.95s/it]The 5th chunk:  86%|████████▋ | 70/81 [05:33<00:44,  4.04s/it]The 7th chunk:  77%|███████▋  | 62/81 [04:57<01:22,  4.36s/it]The 6th chunk:  83%|████████▎ | 67/81 [05:15<00:55,  3.93s/it]The 3th chunk: 100%|██████████| 81/81 [06:11<00:00,  4.09s/it]The 3th chunk: 100%|██████████| 81/81 [06:11<00:00,  4.59s/it]
+The 4th chunk:  96%|█████████▋| 78/81 [05:55<00:12,  4.10s/it]The 7th chunk:  78%|███████▊  | 63/81 [05:01<01:14,  4.14s/it]The 5th chunk:  88%|████████▊ | 71/81 [05:37<00:40,  4.01s/it]The 6th chunk:  84%|████████▍ | 68/81 [05:19<00:50,  3.88s/it]The 5th chunk:  89%|████████▉ | 72/81 [05:41<00:35,  3.90s/it]The 7th chunk:  79%|███████▉  | 64/81 [05:05<01:09,  4.08s/it]The 6th chunk:  85%|████████▌ | 69/81 [05:23<00:46,  3.89s/it]The 4th chunk:  98%|█████████▊| 79/81 [05:59<00:08,  4.21s/it]The 5th chunk:  90%|█████████ | 73/81 [05:44<00:30,  3.78s/it]The 7th chunk:  80%|████████  | 65/81 [05:08<01:02,  3.90s/it]The 6th chunk:  86%|████████▋ | 70/81 [05:27<00:44,  4.01s/it]The 4th chunk:  99%|█████████▉| 80/81 [06:04<00:04,  4.28s/it]The 5th chunk:  91%|█████████▏| 74/81 [05:48<00:26,  3.79s/it]The 7th chunk:  81%|████████▏ | 66/81 [05:13<01:01,  4.07s/it]The 6th chunk:  88%|████████▊ | 71/81 [05:30<00:38,  3.83s/it]The 4th chunk: 100%|██████████| 81/81 [06:08<00:00,  4.33s/it]The 4th chunk: 100%|██████████| 81/81 [06:08<00:00,  4.55s/it]
+The 5th chunk:  93%|█████████▎| 75/81 [05:52<00:22,  3.79s/it]The 7th chunk:  83%|████████▎ | 67/81 [05:16<00:55,  3.98s/it]The 6th chunk:  89%|████████▉ | 72/81 [05:35<00:35,  3.96s/it]The 7th chunk:  84%|████████▍ | 68/81 [05:20<00:49,  3.78s/it]The 5th chunk:  94%|█████████▍| 76/81 [05:56<00:20,  4.01s/it]The 6th chunk:  90%|█████████ | 73/81 [05:38<00:30,  3.78s/it]The 7th chunk:  85%|████████▌ | 69/81 [05:24<00:46,  3.90s/it]The 6th chunk:  91%|█████████▏| 74/81 [05:42<00:25,  3.70s/it]The 5th chunk:  95%|█████████▌| 77/81 [06:01<00:16,  4.16s/it]The 7th chunk:  86%|████████▋ | 70/81 [05:27<00:41,  3.75s/it]The 6th chunk:  93%|█████████▎| 75/81 [05:45<00:22,  3.69s/it]The 5th chunk:  96%|█████████▋| 78/81 [06:05<00:12,  4.27s/it]The 7th chunk:  88%|████████▊ | 71/81 [05:31<00:37,  3.72s/it]The 6th chunk:  94%|█████████▍| 76/81 [05:50<00:19,  3.94s/it]The 5th chunk:  98%|█████████▊| 79/81 [06:09<00:08,  4.20s/it]The 7th chunk:  89%|████████▉ | 72/81 [05:35<00:33,  3.72s/it]The 6th chunk:  95%|█████████▌| 77/81 [05:54<00:16,  4.10s/it]The 5th chunk:  99%|█████████▉| 80/81 [06:14<00:04,  4.29s/it]The 7th chunk:  90%|█████████ | 73/81 [05:38<00:30,  3.77s/it]The 6th chunk:  96%|█████████▋| 78/81 [05:59<00:12,  4.21s/it]The 7th chunk:  91%|█████████▏| 74/81 [05:42<00:25,  3.71s/it]The 5th chunk: 100%|██████████| 81/81 [06:18<00:00,  4.36s/it]The 5th chunk: 100%|██████████| 81/81 [06:18<00:00,  4.68s/it]
+The 6th chunk:  98%|█████████▊| 79/81 [06:03<00:08,  4.29s/it]The 7th chunk:  93%|█████████▎| 75/81 [05:45<00:21,  3.63s/it]The 6th chunk:  99%|█████████▉| 80/81 [06:08<00:04,  4.35s/it]The 7th chunk:  94%|█████████▍| 76/81 [05:50<00:19,  3.88s/it]The 6th chunk: 100%|██████████| 81/81 [06:12<00:00,  4.39s/it]The 6th chunk: 100%|██████████| 81/81 [06:12<00:00,  4.60s/it]
+The 7th chunk:  95%|█████████▌| 77/81 [05:54<00:16,  4.06s/it]The 7th chunk:  96%|█████████▋| 78/81 [05:59<00:12,  4.18s/it]The 7th chunk:  98%|█████████▊| 79/81 [06:03<00:08,  4.27s/it]The 7th chunk:  99%|█████████▉| 80/81 [06:07<00:04,  4.20s/it]The 7th chunk: 100%|██████████| 81/81 [06:12<00:00,  4.28s/it]The 7th chunk: 100%|██████████| 81/81 [06:12<00:00,  4.60s/it]
+[1mAll generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/prolong64k[0m
+./tasks/01M_31D_16H_15m/output_table.xlsx
+[1mresults_table is saved in ./tasks/01M_31D_16H_15m/output_table.xlsx[0m
+  0%|          | 0/13 [00:00<?, ?it/s][1m****************************************  evaluating  ****************************************[0m
+eval benchmark:RULER_32000:   0%|          | 0/13 [00:00<?, ?it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 19.34it/s][A
+eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 19.34it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 19.34it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  15%|█▌        | 2/13 [00:00<00:00, 19.34it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  38%|███▊      | 5/13 [00:00<00:00, 22.10it/s][A
+eval task:niah_multikey_2_:  38%|███▊      | 5/13 [00:00<00:00, 22.10it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multiquery_:  38%|███▊      | 5/13 [00:00<00:00, 22.10it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  38%|███▊      | 5/13 [00:00<00:00, 22.10it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 24.15it/s][A
+eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 24.15it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 24.15it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 24.15it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  62%|██████▏   | 8/13 [00:00<00:00, 24.15it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_3_:  92%|█████████▏| 12/13 [00:00<00:00, 26.24it/s][A
+eval task:fwe_:  92%|█████████▏| 12/13 [00:00<00:00, 26.24it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 25.79it/s]
+eval benchmark:RULER_32000:   8%|▊         | 1/13 [00:00<00:06,  1.98it/s]eval benchmark:RULER_32000:   8%|▊         | 1/13 [00:00<00:06,  1.98it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.04it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.04it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.04it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.04it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.53it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.53it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.53it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.53it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.53it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.85it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.85it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.85it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.85it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.90it/s]
+eval benchmark:RULER_32000:  15%|█▌        | 2/13 [00:00<00:05,  2.07it/s]eval benchmark:RULER_32000:  15%|█▌        | 2/13 [00:00<00:05,  2.07it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 20.96it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 20.96it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 20.96it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 20.96it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 24.66it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 24.66it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 24.66it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 24.66it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 24.66it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 28.97it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 28.97it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 28.97it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 28.97it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 28.04it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.11it/s]
+eval benchmark:RULER_32000:  23%|██▎       | 3/13 [00:01<00:04,  2.08it/s]eval benchmark:RULER_32000:  23%|██▎       | 3/13 [00:01<00:04,  2.08it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 19.66it/s][A
+eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 19.66it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 19.66it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  15%|█▌        | 2/13 [00:00<00:00, 19.66it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  38%|███▊      | 5/13 [00:00<00:00, 23.51it/s][A
+eval task:niah_multikey_2_:  38%|███▊      | 5/13 [00:00<00:00, 23.51it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multiquery_:  38%|███▊      | 5/13 [00:00<00:00, 23.51it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  38%|███▊      | 5/13 [00:00<00:00, 23.51it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 25.82it/s][A
+eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 25.82it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 25.82it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 25.82it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  62%|██████▏   | 8/13 [00:00<00:00, 25.82it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_3_:  92%|█████████▏| 12/13 [00:00<00:00, 28.02it/s][A
+eval task:fwe_:  92%|█████████▏| 12/13 [00:00<00:00, 28.02it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.49it/s]
+eval benchmark:RULER_32000:  31%|███       | 4/13 [00:01<00:04,  2.09it/s]eval benchmark:RULER_32000:  31%|███       | 4/13 [00:01<00:04,  2.09it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.36it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.36it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.36it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.36it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.69it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.69it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.69it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.69it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.69it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.50it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.50it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.50it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.50it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 28.61it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.84it/s]
+eval benchmark:RULER_32000:  38%|███▊      | 5/13 [00:02<00:03,  2.11it/s]eval benchmark:RULER_32000:  38%|███▊      | 5/13 [00:02<00:03,  2.11it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.64it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.64it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.64it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.64it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.31it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.31it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.31it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.31it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.31it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.65it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.65it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.65it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.65it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.75it/s]
+eval benchmark:RULER_32000:  46%|████▌     | 6/13 [00:02<00:03,  2.12it/s]eval benchmark:RULER_32000:  46%|████▌     | 6/13 [00:02<00:03,  2.12it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.90it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.90it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.90it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.90it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.08it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.08it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.08it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.08it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.08it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.26it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.26it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.26it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.26it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 28.38it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.53it/s]
+eval benchmark:RULER_32000:  54%|█████▍    | 7/13 [00:03<00:02,  2.12it/s]eval benchmark:RULER_32000:  54%|█████▍    | 7/13 [00:03<00:02,  2.12it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.67it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.67it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.67it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.67it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.27it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.27it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.27it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.27it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.27it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.57it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.57it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.57it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.57it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 28.93it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.91it/s]
+eval benchmark:RULER_32000:  62%|██████▏   | 8/13 [00:03<00:02,  2.12it/s]eval benchmark:RULER_32000:  62%|██████▏   | 8/13 [00:03<00:02,  2.12it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.84it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.84it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.84it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.84it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.30it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.30it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.30it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.30it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.30it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.30it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.30it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.30it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.30it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 28.65it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.72it/s]
+eval benchmark:RULER_32000:  69%|██████▉   | 9/13 [00:04<00:01,  2.13it/s]eval benchmark:RULER_32000:  69%|██████▉   | 9/13 [00:04<00:01,  2.13it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.86it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.86it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.86it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.86it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.20it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.20it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.20it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.20it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.20it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.39it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.39it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.39it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.39it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 28.54it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.66it/s]
+eval benchmark:RULER_32000:  77%|███████▋  | 10/13 [00:04<00:01,  2.13it/s]eval benchmark:RULER_32000:  77%|███████▋  | 10/13 [00:04<00:01,  2.13it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.00it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.00it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.00it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.00it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.05it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.05it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.05it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.05it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.05it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.81it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.81it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.81it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.81it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.74it/s]
+eval benchmark:RULER_32000:  85%|████████▍ | 11/13 [00:05<00:00,  2.13it/s]eval benchmark:RULER_32000:  85%|████████▍ | 11/13 [00:05<00:00,  2.13it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.04it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.04it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.04it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.04it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.11it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.11it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.11it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.11it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.11it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.39it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.39it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.39it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.39it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 28.86it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.85it/s]
+eval benchmark:RULER_32000:  92%|█████████▏| 12/13 [00:05<00:00,  2.13it/s]eval benchmark:RULER_32000:  92%|█████████▏| 12/13 [00:05<00:00,  2.13it/s]
+  0%|          | 0/13 [00:00<?, ?it/s][A
+eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 60.0}[0m
+
+eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:niah_multikey_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.07it/s][A
+eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.07it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.07it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.07it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 25.09it/s][A
+eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 25.09it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 98.0}[0m
+
+eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 25.09it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
+
+eval task:niah_multikey_3_:  46%|████▌     | 6/13 [00:00<00:00, 25.09it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:cwe_:  46%|████▌     | 6/13 [00:00<00:00, 25.09it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 50.8}[0m
+
+eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.44it/s][A
+eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 29.44it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 56.0}[0m
+
+eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 29.44it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
+
+eval task:fwe_:  77%|███████▋  | 10/13 [00:00<00:00, 29.44it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 90.0}[0m
+
+eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.89it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 27.28it/s]
+eval benchmark:RULER_32000: 100%|██████████| 13/13 [00:06<00:00,  2.12it/s]eval benchmark:RULER_32000: 100%|██████████| 13/13 [00:06<00:00,  2.11it/s]
+[1m|  BenchMark  |             Tasks             |        Metric        |  Score   |   AVG    |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |           qa_1_32000          |  string_match_part   |   60.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |     niah_multivalue_32000     |   string_match_all   |   98.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |     niah_multikey_1_32000     |   string_match_all   |  100.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |      niah_single_2_32000      |   string_match_all   |  100.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |      niah_single_1_32000      |   string_match_all   |  100.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |     niah_multikey_2_32000     |   string_match_all   |  100.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |     niah_multiquery_32000     |   string_match_all   |   98.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |            vt_32000           |   string_match_all   |   99.6   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |     niah_multikey_3_32000     |   string_match_all   |  100.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |           cwe_32000           |   string_match_all   |   50.8   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |           qa_2_32000          |  string_match_part   |   56.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |      niah_single_3_32000      |   string_match_all   |  100.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |           fwe_32000           |   string_match_all   |   90.0   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m| RULER_32000 |            Average            |       Overall        |  88.65   |          |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1m|    Total    |            Average            |       Overall        |          |  88.65   |[0m
+[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
+[1mresults_table is saved in ./tasks/results/prolong64k/output_table.xlsx[0m
+[1mThe total running time was : 00:10:06[0m

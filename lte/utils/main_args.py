@@ -14,6 +14,7 @@ def handle_cli_args():
     parser.add_argument("--device_split_num",type=int,default=1,help="each task needs the number of gpu")
     parser.add_argument("--adapter_path",type=str,default="",help="the adapter_path parameter specifies the location of an adapter model.")
     parser.add_argument("--template", type=str, help="specifies adding a template to the data for the model to generate, for example: ''[INST] Below is a context and an instruction.")
+    parser.add_argument("--save_tag", type=str, default=None, help="save_dir_name")
     parser.add_argument("--max_lenth",type=int,default="32000",help="The maximum length. It refers to the maximum length of data that a model can load for a single task. If the length exceeds this limit, the data will be split in the middle.")
     args = parser.parse_args()
     return args
