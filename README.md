@@ -44,9 +44,13 @@ RUN
 ```bash
 
 lte.run --model_path meta-llama/Llama-3.1-8B-Instruct \
+    # The '--eval' option indicates that the framework should not only generate data but also perform evaluations.
     --eval \
+    # The '--benchmark_configs' option is used to provide the path(s) to the configuration file(s) for the evaluation tasks. Multiple paths can be specified and separated by commas.
     --benchmark_configs tasks/General/RULER/RULER.yaml \
+    # The '--device' option specifies the device (e.g., GPU) on which the evaluation will be carried out.
     --device 0 \
+    # The '--save_tag' option determines the name of the folder where the evaluation results will be saved.
     --save_tag "tmp";
 or
 
@@ -59,11 +63,14 @@ python lte/main.py --model_path meta-llama/Llama-3.1-8B-Instruct   --eval  --ben
 
 To evaluate a model on specific tasks within a benchmark, you can modify the configuration file located at tasks/{ability}/{benchmark_name}/
 
-if you do not select the --eval option during the initial run, you can perform the evaluation separately using the following command:
+if you do not select the --eval option during the initial run, you can perform the evaluation separately using 
+the following command:
 
 ```bash
-
-lte.eval --data_save_path  or python lte/eval.py --data_save_path
+## --folder_name the folder name that saves the result such as Llama-3.1-8B-Instruct_02M_04D_14H_53m 
+lte.eval --folder_name  Llama-3.1-8B-Instruct_02M_04D_14H_53m  --model_name your_model_name 
+or 
+python lte/eval.py --folder_name Llama-3.1-8B-Instruct_02M_04D_14H_53m   --model_name your_model_name
 
 ```
 
@@ -71,7 +78,7 @@ Here, --prediction_time represents the duration of your previous run. This funct
 
 When using it, there are more relevant parameters, such as
 
-- `file_name`: "Optional parameter. Use this to specify the name of the file to be saved."
+- `save_tag`: "Optional parameter. Use this to specify the name of the file to be saved."
 - `torch_dtype`: Specifies the PyTorch data type that you want to use.default="torch.bfloat16"
 - `limit`: accepts an integer,or just `auto` .it will limit the number of documents to evaluate to the first X documents.default="auto"
 - `adapter_path`: the adapter_path parameter specifies the location of an adapter model.

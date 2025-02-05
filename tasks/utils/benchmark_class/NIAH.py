@@ -33,6 +33,9 @@ class NIAH(Base):
         self.llm_params = {"niah":llm_params}
         self.metric = {"niah":metric_list}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
+        with open("./tasks/Retrieve/NIAH/NIAH.yaml", "r") as f:
+            self.config = yaml.safe_load(f)
+        
         
     def download_and_transform_data(self,args,**kwargs):
         logger.info("downloading paulgraham_essay")

@@ -10,5 +10,7 @@ tasks/*/*/prediction/*
 tasks/*/*/result/*
 /lte/lte.egg-info
 *.xlsx
+*.log
+=
 dataset/General/data/
 dataset/General/tmp_Rawdata/

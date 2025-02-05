@@ -14,10 +14,11 @@ import json
 import glob
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("--file_path",  required=True, help='dataset folder to save dataset')
+parser.add_argument("--save_path",  required=True, help='dataset folder to save dataset')
 parser.add_argument("--model_name",  required=True, help='dataset folder to save dataset')
 args = parser.parse_args()
-file_path = args.file_path
+save_path = args.save_path
+save_path = save_path.replace("prediction","result")
 MODEL_NAME = args.model_name
 PRETRAINED_LEN=81920
 
@@ -25,7 +26,7 @@ def main():
     # List to hold the data
     data = []
     # Iterating through each file and extract the 3 columns we need
-    with open(file_path+"/niah.json", 'r') as f:
+    with open(save_path+"/niah.json", 'r') as f:
         for line in f:
             json_data = json.loads(line)
             pred = json_data.get("pred", None)
@@ -74,7 +75,6 @@ def main():
         linestyle='--'
     )
 
-
     # More aesthetics
     model_name_ = MODEL_NAME
     plt.title(f'Pressure Testing {model_name_} \nFact Retrieval Across Context Lengths ("Needle In A HayStack")')  # Adds a title
@@ -83,14 +83,10 @@ def main():
     plt.xticks(rotation=45)  # Rotates the x-axis labels to prevent overlap
     plt.yticks(rotation=0)  # Ensures the y-axis labels are horizontal
     plt.tight_layout()  # Fits everything neatly into the figure area
-
     # Add a vertical line at the desired column index
     plt.axvline(x=pretrained_len + 0.8, color='white', linestyle='--', linewidth=4)
-    
-    png_path = file_path.replace("prediction","result")+f"/{i}.png"
-    logger.info("heatmap saving at %s" % png_path )
-    plt.savefig(png_path, dpi=150)
-
+    logger.info("heatmap saving at %s" % save_path+"/image.png" )
+    plt.savefig(save_path+"/image.png", dpi=150)
 
 if __name__ == "__main__":
     main()

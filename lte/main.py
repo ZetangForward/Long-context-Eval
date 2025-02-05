@@ -103,11 +103,11 @@ class Evaluator():
             request.raw_example.ground_truth = request.instances["processed_output"]
             request.raw_example.prompt_inputs = request.instances["input"]
             if hasattr(benchmark, 'length'):
-                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+f"_{benchmark.length}"+".json")
-                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}"), exist_ok=True)
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.folder_name}",task_name+f"_{benchmark.length}"+".json")
+                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.folder_name}"), exist_ok=True)
             else:
-                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+".json")
-                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}"), exist_ok=True)
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.folder_name}",task_name+".json")
+                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.folder_name}"), exist_ok=True)
 
             with open(path, "a", encoding="utf-8") as f:
                 data = request.raw_example.data
@@ -136,8 +136,10 @@ def main():
     args = handle_cli_args()
     args.model_name = args.model_path.split("/")[-1] if args.model_path.split("/")[-1]!="" else args.model_path.split("/")[-2]
     args.current_time = formatted_time
-    if args.file_name=="":
-        args.file_name = f"{args.model_name}_{args.current_time}"
+    if args.save_tag is not None:
+        args.folder_name = args.save_tag
+    else:
+        args.folder_name = f"{args.model_name}_{args.current_time}"
     if args.device ==" ":
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
@@ -202,19 +204,19 @@ def main():
             logger.info("performing information retrieval")
             rag.traverse_task()    
     
-    if args.save_tag is not None:
-        args.current_time = args.save_tag
+   
 
     #start to generate
     logger.info("The model has initiated the data generation process.")
     evaluator = Evaluator(args, all_benchmarks)
     evaluator.run(args.device_split_num)
-    logger.info(f"All generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/{args.file_name}")
+    logger.info(f"All generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/{args.folder_name}")
 
     #eval
     if args.eval:
         command = ["python","./lte/eval.py",
-                    "--data_save_path",f"{args.file_name}"]
+                   "--model_name",args.model_name,
+                    "--folder_name",f"{args.folder_name}"]
         subprocess.run(command)
 
 
