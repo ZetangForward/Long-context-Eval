@@ -230,5 +230,6 @@ def eval():
     os.makedirs(output_path,exist_ok=True)
     print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/results/{data_save_path}/output_table.xlsx")
     logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
+    
 if __name__ =="__main__":
     eval()
