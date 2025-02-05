@@ -11,6 +11,6 @@ tasks/*/*/result/*
 /lte/lte.egg-info
 *.xlsx
 *.log
-=
+*.json
 dataset/General/data/
 dataset/General/tmp_Rawdata/
