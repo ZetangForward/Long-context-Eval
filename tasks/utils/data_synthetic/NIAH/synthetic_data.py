@@ -2,9 +2,16 @@
 
 
 import yaml,os,json
+from tqdm import tqdm
 from transformers import  AutoTokenizer
 import numpy as np
+import pdb,sys
 import argparse
+from loguru import logger
+logger.remove()
+logger.add(sys.stdout,
+        colorize=True, 
+        format="<level>{message}</level>")
 class NeedleHaystackDataSy:
     def __init__(self,model_path,config):
         self.model_path = model_path
@@ -19,19 +26,20 @@ class NeedleHaystackDataSy:
 
         self.print_start_test_summary()
     def print_start_test_summary(self):
-        print ("\n")
-        print ("Starting to generate data for Needle In A Haystack...")
-        print (f"- Context Lengths: {len(self.context_lengths)}, Min: {min(self.context_lengths)}, Max: {max(self.context_lengths)}")
-        print (f"- Document Depths: {len(self.document_depth_percents)}, Min: {min(self.document_depth_percents)}%, Max: {max(self.document_depth_percents)}%")
-        print (f"- Needle: {self.needle.strip()}")
-        print ("\n")
+        logger.info ("Starting to generate data for Needle In A Haystack...")
+        logger.info (f"- Context Lengths: {len(self.context_lengths)}, Min: {min(self.context_lengths)}, Max: {max(self.context_lengths)}")
+        logger.info (f"- Document Depths: {len(self.document_depth_percents)}, Min: {min(self.document_depth_percents)}%, Max: {max(self.document_depth_percents)}%")
+        logger.info (f"- Needle: {self.needle.strip()}")
+        logger.info ("\n")
     def run(self, args):
             # Run through each iteration of context_lengths and depths
             path = "./tasks/Retrieve/NIAH/data/niah.json"
             os.makedirs("./tasks/Retrieve/NIAH/data/",exist_ok=True)
             with open(path,"w") as f:
-                for context_length in self.context_lengths:
-                    for depth_percent in self.document_depth_percents:
+                progress_bar = tqdm(self.context_lengths)
+                for context_length in progress_bar:
+                    progress_bar.set_description(f"Processing context length_{context_length}")
+                    for depth_percent in  self.document_depth_percents:
                         context = self.generate_context(context_length, depth_percent)
                         data =  {'context_length' : int(context_length),'depth_percent' : float(depth_percent),'needle' : self.needle,"passage": context,"question": self.config["retrieval_question"],"choices": "","answer": self.config["needle"]}
                         f.write(json.dumps(data, ensure_ascii=False) + "\n")
@@ -91,18 +99,13 @@ class NeedleHaystackDataSy:
             # tokens_new_context represents the tokens before the needle
             tokens_new_context = tokens_context[:insertion_point]
             # We want to make sure that we place our needle at a sentence break so we first see what token a '.' is
-            if  "LLaMA".lower() in self.model_path.lower() or  "LongLLaMA".lower() in self.model_path.lower():
-                period_tokens = [29889, 869]
-            elif "Mistral".lower() in self.model_path.lower():
-                period_tokens = [842, 28723]
-            elif "GLM".lower() in self.model_path.lower():
-                period_tokens = [918, 30930]
-            else: period_tokens = self.encode_text_to_tokens('.')
+
+            period_tokens = self.encode_text_to_tokens('.')
             # Then we iteration backwards until we find the first period
             while tokens_new_context and tokens_new_context[-1] not in period_tokens:
                 insertion_point -= 1
                 tokens_new_context = tokens_context[:insertion_point]
-            print("insertion at %d" % insertion_point)
+            logger.info("insertion at %d" % insertion_point)
             # Once we get there, then add in your needle, and stick the rest of your context in on the other end.
             # Now we have a needle in a haystack
             tokens_new_context += tokens_needle + tokens_context[insertion_point:]

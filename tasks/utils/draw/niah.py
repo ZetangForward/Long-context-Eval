@@ -1,7 +1,12 @@
 
 import pandas as pd
 import seaborn as sns
-import os
+import os,sys
+from loguru import logger
+logger.remove()
+logger.add(sys.stdout,
+        colorize=True, 
+        format="<level>{message}</level>")
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import pandas as pd
@@ -23,20 +28,21 @@ def main():
     with open(file_path+"/niah.json", 'r') as f:
         for line in f:
             json_data = json.loads(line)
+            pred = json_data.get("pred", None)
+            answer  = json_data.get("answer", None)
             # Extracting the required fields
             document_depth = json_data.get("depth_percent", None)
             context_length = json_data.get("context_length", None)
-            # score = json_data.get("score", None)
-  
-            needle = json_data.get("needle", None).lower()
-            expected_answer = "eat a sandwich and sit in Dolores Park on a sunny day.".lower().split()
             score = json_data.get("score", None)
+  
             # Appending to the list
             data.append({
                 "Document Depth": document_depth,
                 "Context Length": context_length,
                 "Score": score
             })
+                        # Appending to the list
+
 
     # Creating a DataFrame
     df = pd.DataFrame(data)
@@ -46,8 +52,8 @@ def main():
         if(l > PRETRAINED_LEN): break
     pretrained_len = li
 
-    print(df.head())
-    print("Overall score %.3f" % df["Score"].mean())
+    logger.info(df.head())
+    logger.info("Overall score %.3f" % df["Score"].mean())
 
     pivot_table = pd.pivot_table(df, values='Score', index=['Document Depth', 'Context Length'], aggfunc='mean').reset_index() # This will aggregate
     pivot_table = pivot_table.pivot(index="Document Depth", columns="Context Length", values="Score") # This will turn into a proper pivot
@@ -81,8 +87,8 @@ def main():
     # Add a vertical line at the desired column index
     plt.axvline(x=pretrained_len + 0.8, color='white', linestyle='--', linewidth=4)
     
-    png_path = file_path.replace("prediction","result")+"/img.png"
-    print("heatmap saving at %s" % png_path )
+    png_path = file_path.replace("prediction","result")+f"/{i}.png"
+    logger.info("heatmap saving at %s" % png_path )
     plt.savefig(png_path, dpi=150)
 
 

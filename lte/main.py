@@ -94,7 +94,7 @@ class Evaluator():
                     result = model.generate(request.params, request.instances["input"])
             except Exception as general_err:
                 failed += 1
-                print(f"An unexpected error occurred: {general_err}. Total failed runs: {failed} **********")
+                logger.info(f"An unexpected error occurred: {general_err}. Total failed runs: {failed} **********")
                         #Post-processing
             raw_outputs, processed_outputs = result[::],result[::]
             if  hasattr(benchmark, 'postprocess'):

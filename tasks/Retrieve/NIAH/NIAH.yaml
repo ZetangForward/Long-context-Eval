@@ -18,3 +18,5 @@ document_depth_percent_intervals: 10
 
 document_depth_percent_interval_type: "linear"  #linear or sigmoid
 final_context_length_buffer: 200
+
+draw_heatmap: True
