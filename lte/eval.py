@@ -31,7 +31,7 @@ def make_df_niah(data,PRETRAINED_LEN,save_path):
     pivot_table = pd.pivot_table(df, values='Score', index=['Document Depth', 'Context Length'], aggfunc='mean').reset_index() # This will aggregate
     pivot_table = pivot_table.pivot(index="Document Depth", columns="Context Length", values="Score") # This will turn into a proper pivot
     pivot_table.iloc[:5, :5]
-    pivot_table.to_excel(save_path+'/heatmap.xlsx', index=False)
+    pivot_table.to_excel(save_path+'/heatmap.xlsx')
     logger.info(f"heatmap_excel  in {save_path}/niah.xlsx...")
     return pivot_table,pretrained_len
 def draw_heatmap_niah(pivot_table,model_name,pretrained_len,save_path):
