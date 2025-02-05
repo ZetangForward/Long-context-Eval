@@ -16,5 +16,6 @@ def handle_cli_args():
     parser.add_argument("--template", type=str, help="specifies adding a template to the data for the model to generate, for example: ''[INST] Below is a context and an instruction.")
     parser.add_argument("--save_tag", type=str, default=None, help="save_dir_name")
     parser.add_argument("--max_lenth",type=int,default="32000",help="The maximum length. It refers to the maximum length of data that a model can load for a single task. If the length exceeds this limit, the data will be split in the middle.")
+    parser.add_argument("--file_name",type=str,default="",help="Optional parameter. Use this to specify the name of the file to be saved.")
     args = parser.parse_args()
     return args

@@ -5,6 +5,7 @@ import subprocess
 import json
 import copy
 import re
+import yaml
 from tqdm import tqdm
 from loguru import logger
 logger.remove()
@@ -30,11 +31,15 @@ metric_list2 = {"string_match_part": None}
 from tasks.utils.benchmark_class.base_class import Base
 
 class RULER(Base):
-    def __init__(self,length=0, num_samples=200,limit=1000000):
+    def __init__(self,length,args):
         super().__init__()
+        with open("./tasks/General/RULER/RULER.yaml") as f:
+            config = yaml.safe_load(f)
+        self.args = args
+        self.limit = int(args.limit) if args.limit!="auto" else 100000
         self.length = length
         self.benchmark_name="RULER"
-        self.num_samples = num_samples
+        self.num_samples = config["num_samples"]
         self.task_names =  ["cwe", "fwe", "niah_multikey_1", "niah_multikey_2", "niah_multikey_3", "niah_multiquery", "niah_multivalue", "niah_single_1", "niah_single_2", "niah_single_3", "qa_1", "qa_2", "vt"]
         self.ability = "General"
         self.hf = None
@@ -42,7 +47,7 @@ class RULER(Base):
         self.llm_params = {"cwe":llm_params4, "fwe":llm_params3, "niah_multikey_1":llm_params5, "niah_multikey_2":llm_params5, "niah_multikey_3":llm_params5, "niah_multiquery":llm_params5, "niah_multivalue":llm_params5, "niah_single_1":llm_params5, "niah_single_2":llm_params5, "niah_single_3":llm_params5, "qa_1":llm_params2, "qa_2":llm_params2, "vt":llm_params1}
         self.metric = {'cwe': metric_list1, 'fwe': metric_list1, 'niah_multikey_1': metric_list1, 'niah_multikey_2': metric_list1, 'niah_multikey_3': metric_list1, 'niah_multiquery': metric_list1, 'niah_multivalue': metric_list1, 'niah_single_1': metric_list1, 'niah_single_2': metric_list1, 'niah_single_3': metric_list1, 'qa_1': metric_list2, 'qa_2': metric_list2, 'vt': metric_list1}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-        self.limit = int(limit) if limit!="auto" else 10000
+
     def download_and_transform_data(self,args,**kwargs):
         logger.info("downloading paulgraham_essay")
         command = ["python","./tasks/utils/data_synthetic/RULER/data/synthetic/json/download_paulgraham_essay.py"]

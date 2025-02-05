@@ -59,12 +59,13 @@ To evaluate a model on specific tasks within a benchmark, you can modify the con
 if you do not select the --eval option during the initial run, you can perform the evaluation separately using the following command:
 ```bash
 
-lte.eval --prediction_time  or python lte/eval.py --prediction_time
+lte.eval --data_save_path  or python lte/eval.py --data_save_path
 
 ```
 Here, --prediction_time represents the duration of your previous run. This function will evaluate all benchmark results generated during that run.
 
 When using it, there are more relevant parameters, such as
+- `file_name`: "Optional parameter. Use this to specify the name of the file to be saved."
 - `torch_dtype`: Specifies the PyTorch data type that you want to use.default="torch.bfloat16"
 - `limit`: accepts an integer,or just `auto` .it will limit the number of documents to evaluate to the first X documents.default="auto"
 - `adapter_path`: the adapter_path parameter specifies the location of an adapter model.

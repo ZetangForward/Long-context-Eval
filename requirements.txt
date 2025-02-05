@@ -12,6 +12,8 @@ llama_index.readers.string_iterable
 scikit-learn
 sentence-transformers
 bs4
+seaborn
+rouge_score
 rank_bm25
 llama_index
 fabric

@@ -30,6 +30,9 @@ class Evaluator():
         self.args = args
         self.limit = int(args.limit) if args.limit!="auto" else 10000
         self.build_tasks(all_benchmarks) #Create a task based on the configuration file.
+        self.model_name = self.args.model_name
+        
+
 
     def build_tasks(self,all_benchmarks):
         for benchmark in all_benchmarks:
@@ -67,6 +70,7 @@ class Evaluator():
             os.environ["CUDA_VISIBLE_DEVICES"] = devices
             p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
             p.start()
+            time.sleep(3)
             processes.append(p)
         for p in processes:
             p.join()
@@ -99,17 +103,18 @@ class Evaluator():
             request.raw_example.ground_truth = request.instances["processed_output"]
             request.raw_example.prompt_inputs = request.instances["input"]
             if hasattr(benchmark, 'length'):
-                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time,task_name+f"_{benchmark.length}"+".json")
-                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time), exist_ok=True)
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+f"_{benchmark.length}"+".json")
+                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}"), exist_ok=True)
             else:
-                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time,task_name+".json")
-                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",self.args.current_time), exist_ok=True)
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+".json")
+                os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}"), exist_ok=True)
 
             with open(path, "a", encoding="utf-8") as f:
-                if True:
-                    json.dump({"choices":request.raw_example.data["passage"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth,"model_input":request.instances["input"]}, f, ensure_ascii=False)
-                else:
-                    json.dump({"choices":request.raw_example.data["choices"],"pred": request.raw_example.processed_outputs, "answers": request.raw_example.ground_truth}, f, ensure_ascii=False)
+                data = request.raw_example.data
+                data["choices"] = data["passage"]
+                data["pred"] = request.raw_example.processed_outputs
+                data["model_input"] = request.instances["input"]
+                json.dump(data, f, ensure_ascii=False)
                 f.write('\n')
 
 def format_tasks(all_tasks):
@@ -129,7 +134,10 @@ def main():
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
     args = handle_cli_args()
+    args.model_name = args.model_path.split("/")[-1] if args.model_path.split("/")[-1]!="" else args.model_path.split("/")[-2]
     args.current_time = formatted_time
+    if args.file_name=="":
+        args.file_name = f"{args.model_name}_{args.current_time}"
     if args.device ==" ":
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
@@ -154,13 +162,13 @@ def main():
             progress_bar.set_description(f"Loading {benchmark_name} config from {benchmark_config_path}")
             if "length" in config and "num_samples" in config:
                 for l in config["length"]:            
-                    benchmark = get_benchmark_class(benchmark_name)(l,config["num_samples"],args.limit)
+                    benchmark = get_benchmark_class(benchmark_name)(l,args)
                     benchmark.task_names = config["tasks"]
                     all_benchmarks.append(benchmark)
                     task_len += len(benchmark.task_names)
                     all_tasks[benchmark.benchmark_name]=benchmark.task_names
             else:
-                benchmark = get_benchmark_class(benchmark_name)(args.limit)
+                benchmark = get_benchmark_class(benchmark_name)(args)
                 benchmark.task_names = config["tasks"]
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
@@ -201,12 +209,12 @@ def main():
     logger.info("The model has initiated the data generation process.")
     evaluator = Evaluator(args, all_benchmarks)
     evaluator.run(args.device_split_num)
-    logger.info(f"All generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/{args.current_time}")
+    logger.info(f"All generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/{args.file_name}")
 
     #eval
     if args.eval:
         command = ["python","./lte/eval.py",
-                    "--data_generation_time",args.current_time]
+                    "--data_save_path",f"{args.file_name}"]
         subprocess.run(command)
 
 

@@ -1,7 +1,10 @@
-## python lte/eval.py --data_generation_time 01M_27D_20H_15m
+## python lte/eval.py --data_save_path Llama-3.1-8B_02M_04D_14H_52m
+#02M_03D_14H_32m
 from transformers import pipeline
 import os
+import fileinput
 import re
+import subprocess
 import sys
 import pandas as pd
 import json
@@ -12,7 +15,6 @@ from metrics import get_metric
 from collections import defaultdict
 from utils.eval_args import handle_cli_args
 import numpy as np
-from utils.results_table import results_table
 from loguru import logger
 logger.remove()
 logger.add(sys.stdout,
@@ -130,13 +132,14 @@ def eval():
     benchmark_dict = {}
     benchmark_name_max_len,task_name_max_len,metric_max_len = 0,0,0
     args = handle_cli_args()
+    args.limit = "auto"
     benchmark_list = []
-    data_generation_time = args.data_generation_time
+    data_save_path = args.data_save_path
     for ability in os.listdir("tasks"):
         ability_path = os.path.join("tasks", ability)
         if os.path.isdir(ability_path):
             for benchmark in os.listdir(ability_path):
-                benchmark_path = os.path.join(ability_path, benchmark, "prediction",data_generation_time)
+                benchmark_path = os.path.join(ability_path, benchmark, "prediction",data_save_path)
                 if os.path.exists(benchmark_path):
                     if benchmark =="RULER":
                         for task_name in  os.listdir(benchmark_path):
@@ -152,10 +155,10 @@ def eval():
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
         match = re.compile(r'_(\d+)').search(benchmark_name)
         if match:
-            benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1],10000)
+            benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1],args)
         else:
-            benchmark = get_benchmark_class(benchmark_name)(10000)
-        task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{data_generation_time}")
+            benchmark = get_benchmark_class(benchmark_name)(args)
+        task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{data_save_path}")
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:
             task_name = task_name[:-5]
@@ -166,36 +169,42 @@ def eval():
                 if length!=benchmark.length:
                     continue
                 metrics = construct_metrics(benchmark.metric["_".join(task_name.split("_")[:-1])])
-                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",data_generation_time,task_name+".json")
-                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",data_generation_time,task_name+".json")
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",data_save_path,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",data_save_path,task_name+".json")
             else:
                 metrics = construct_metrics(benchmark.metric[task_name])
-                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",data_generation_time,task_name+".json")
-                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",data_generation_time,task_name+".json")
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",data_save_path,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",data_save_path,task_name+".json")
             task_name_max_len = max(task_name_max_len,len(task_name))
             os.makedirs(save_task_path, exist_ok=True)
             if not os.path.exists(generation_results_path):
                 continue
+            data = []
             with open(generation_results_path, "r", encoding="utf-8") as f:
                 for line in f:
                     try:
                         eval_dict = json.loads(line.strip())
                     except:
                         continue
-                    choices,pred,answers = eval_dict["choices"],eval_dict["pred"],eval_dict["answers"]
+                    choices,pred,answer = eval_dict["choices"],eval_dict["pred"],eval_dict["answer"]
                     if task_name in ["trec", "triviaqa", "samsum", "lsht"]:
                         pred= pred.lstrip('\n').split('\n')[0]
                     for metric_name,metric in metrics.items():
-                        score = metrics[metric_name]["evaluation"](choices,answers, pred)
+                        score = metrics[metric_name]["evaluation"](choices,answer, pred)
+                        eval_dict["score"] = score 
+                        data.append(eval_dict)
                         if isinstance(score,dict):
                             for metric_name_sub in score:
                                 gathered_metrics[metric_name_sub].append(score[metric_name_sub])
                         else:
                             gathered_metrics[metric_name].append(score)
+            with open(generation_results_path, "w", encoding="utf-8") as f:
+                for eval_dict in data:
+                    f.write(json.dumps(eval_dict, ensure_ascii=False) + '\n')
             final_metrics = {}
             for metric in gathered_metrics:
                 metric_max_len = max(len(metric),metric_max_len)
-                if metric in ["cite_num"]:
+                if metric in ["cite_num","niah"]:
                     final_metrics[metric] = round(np.array(gathered_metrics[metric]).mean(),2)
                 else:
                     final_metrics[metric] = round(100*np.array(gathered_metrics[metric]).mean(),2)
@@ -212,9 +221,14 @@ def eval():
                 os.path.join(save_task_path, "final_metrics.json"), "w", encoding="utf-8"
             ) as fout:
                 json.dump(dump_data, fout, indent=4, ensure_ascii=False)
-    output_path = f"./tasks/results/{data_generation_time}"
+            if benchmark.benchmark_name == "NIAH":
+                command = ["python","../lte/tasks/utils/draw/niah.py",
+                    "--file_path",f"./tasks/Retrieve/NIAH/prediction/{data_save_path}",
+                    "--model_name",data_save_path.split("_")[-1]]
+                subprocess.run(command)
+    output_path = f"./tasks/results/{data_save_path}"
     os.makedirs(output_path,exist_ok=True)
-    print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/results/{data_generation_time}/output_table.xlsx")
+    print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/results/{data_save_path}/output_table.xlsx")
     logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
     
 if __name__ =="__main__":
