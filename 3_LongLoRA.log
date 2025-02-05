@@ -1,1273 +1,0 @@
-[1mLoading the config information[0m
-  0%|          | 0/1 [00:00<?, ?it/s]Loading RULER config from /mnt/petrelfs/tangzecheng/lte/tasks/General/RULER/RULER.yaml:   0%|          | 0/1 [00:00<?, ?it/s]Loading RULER config from /mnt/petrelfs/tangzecheng/lte/tasks/General/RULER/RULER.yaml: 100%|██████████| 1/1 [00:00<00:00, 252.03it/s]
-[1mThe tasks you've selected are as follows:
-13 tasks: from RULER:['cwe', 'fwe', 'niah_multikey_1', 'niah_multikey_2', 'niah_multikey_3', 'niah_multiquery', 'niah_multivalue', 'niah_single_1', 'niah_single_2', 'niah_single_3', 'qa_1', 'qa_2', 'vt'] 
-Totally 13 tasks[0m
-[1mBenchmark data is currently being downloaded and transformed...[0m
-  0%|          | 0/1 [00:00<?, ?it/s]Downloading RULER data:   0%|          | 0/1 [00:00<?, ?it/s][1mdownloading paulgraham_essay[0m
-PaulGrahamEssays.json already exists
-[1mdownloading qa_dataset[0m
-squad.json already exists
-hotpotqa.json already exists
-
-  0%|          | 0/13 [00:00<?, ?it/s][A
-preparing task cwe_32000:   0%|          | 0/13 [00:00<?, ?it/s][ASkip preparing cwe with lines: 50 to tasks/General/RULER/data/cwe_32000.json (file exists)
-
-preparing task cwe_32000:   8%|▊         | 1/13 [00:03<00:46,  3.87s/it][A
-preparing task fwe_32000:   8%|▊         | 1/13 [00:03<00:46,  3.87s/it][ASkip preparing fwe with lines: 50 to tasks/General/RULER/data/fwe_32000.json (file exists)
-
-preparing task fwe_32000:  15%|█▌        | 2/13 [00:07<00:41,  3.79s/it][A
-preparing task niah_multikey_1_32000:  15%|█▌        | 2/13 [00:07<00:41,  3.79s/it][ASkip preparing niah_multikey_1 with lines: 50 to tasks/General/RULER/data/niah_multikey_1_32000.json (file exists)
-
-preparing task niah_multikey_1_32000:  23%|██▎       | 3/13 [00:11<00:37,  3.80s/it][A
-preparing task niah_multikey_2_32000:  23%|██▎       | 3/13 [00:11<00:37,  3.80s/it][ASkip preparing niah_multikey_2 with lines: 50 to tasks/General/RULER/data/niah_multikey_2_32000.json (file exists)
-
-preparing task niah_multikey_2_32000:  31%|███       | 4/13 [00:15<00:33,  3.78s/it][A
-preparing task niah_multikey_3_32000:  31%|███       | 4/13 [00:15<00:33,  3.78s/it][ASkip preparing niah_multikey_3 with lines: 50 to tasks/General/RULER/data/niah_multikey_3_32000.json (file exists)
-
-preparing task niah_multikey_3_32000:  38%|███▊      | 5/13 [00:18<00:30,  3.78s/it][A
-preparing task niah_multiquery_32000:  38%|███▊      | 5/13 [00:18<00:30,  3.78s/it][ASkip preparing niah_multiquery with lines: 50 to tasks/General/RULER/data/niah_multiquery_32000.json (file exists)
-
-preparing task niah_multiquery_32000:  46%|████▌     | 6/13 [00:22<00:26,  3.82s/it][A
-preparing task niah_multivalue_32000:  46%|████▌     | 6/13 [00:22<00:26,  3.82s/it][ASkip preparing niah_multivalue with lines: 50 to tasks/General/RULER/data/niah_multivalue_32000.json (file exists)
-
-preparing task niah_multivalue_32000:  54%|█████▍    | 7/13 [00:26<00:23,  3.88s/it][A
-preparing task niah_single_1_32000:  54%|█████▍    | 7/13 [00:26<00:23,  3.88s/it]  [ASkip preparing niah_single_1 with lines: 50 to tasks/General/RULER/data/niah_single_1_32000.json (file exists)
-
-preparing task niah_single_1_32000:  62%|██████▏   | 8/13 [00:30<00:19,  3.89s/it][A
-preparing task niah_single_2_32000:  62%|██████▏   | 8/13 [00:30<00:19,  3.89s/it][ASkip preparing niah_single_2 with lines: 50 to tasks/General/RULER/data/niah_single_2_32000.json (file exists)
-
-preparing task niah_single_2_32000:  69%|██████▉   | 9/13 [00:34<00:15,  3.92s/it][A
-preparing task niah_single_3_32000:  69%|██████▉   | 9/13 [00:34<00:15,  3.92s/it][ASkip preparing niah_single_3 with lines: 50 to tasks/General/RULER/data/niah_single_3_32000.json (file exists)
-
-preparing task niah_single_3_32000:  77%|███████▋  | 10/13 [00:38<00:11,  3.92s/it][A
-preparing task qa_1_32000:  77%|███████▋  | 10/13 [00:38<00:11,  3.92s/it]         [ASkip preparing qa_1 with lines: 50 to tasks/General/RULER/data/qa_1_32000.json (file exists)
-
-preparing task qa_1_32000:  85%|████████▍ | 11/13 [00:42<00:07,  3.91s/it][A
-preparing task qa_2_32000:  85%|████████▍ | 11/13 [00:42<00:07,  3.91s/it][ASkip preparing qa_2 with lines: 50 to tasks/General/RULER/data/qa_2_32000.json (file exists)
-
-preparing task qa_2_32000:  92%|█████████▏| 12/13 [00:46<00:03,  3.91s/it][A
-preparing task vt_32000:  92%|█████████▏| 12/13 [00:46<00:03,  3.91s/it]  [ASkip preparing vt with lines: 50 to tasks/General/RULER/data/vt_32000.json (file exists)
-
-preparing task vt_32000: 100%|██████████| 13/13 [00:50<00:00,  3.90s/it][Apreparing task vt_32000: 100%|██████████| 13/13 [00:50<00:00,  3.87s/it]
-Downloading RULER data: 100%|██████████| 1/1 [00:50<00:00, 50.86s/it]Downloading RULER data: 100%|██████████| 1/1 [00:50<00:00, 50.86s/it]
-[1mThe model has initiated the data generation process.[0m
-[1mdevices:0[0m
-[1mdevices:1[0m
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.92s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.88s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.78s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.28s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.49s/it]
-The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-[1mdevices:2[0m
-The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.64s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.64s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.75s/it][1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :31.007253408432007[0m
-The 0th chunk:   0%|          | 0/82 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.29s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.44s/it]
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 0th chunk:   1%|          | 1/82 [00:07<10:29,  7.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:3[0m
-The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]The 0th chunk:   2%|▏         | 2/82 [00:15<10:02,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.07s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.05s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.88s/it][1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :30.78593397140503[0m
-The 1th chunk:   0%|          | 0/82 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.37s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.60s/it]
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 0th chunk:   4%|▎         | 3/82 [00:22<09:55,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:   1%|          | 1/82 [00:07<10:19,  7.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:4[0m
-The 0th chunk:   5%|▍         | 4/82 [00:30<09:46,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]The 1th chunk:   2%|▏         | 2/82 [00:15<09:58,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.76s/it]The 0th chunk:   6%|▌         | 5/82 [00:37<09:36,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.73s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.82s/it][1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :30.85031294822693[0m
-The 2th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.35s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.50s/it]
-The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 1th chunk:   4%|▎         | 3/82 [00:22<09:58,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:   7%|▋         | 6/82 [00:45<09:47,  7.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   1%|          | 1/81 [00:07<10:04,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:5[0m
-The 1th chunk:   5%|▍         | 4/82 [00:30<09:54,  7.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:   9%|▊         | 7/82 [00:53<09:35,  7.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 2th chunk:   2%|▏         | 2/81 [00:14<09:47,  7.44s/it]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.22s/it]The 1th chunk:   6%|▌         | 5/82 [00:37<09:39,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  10%|▉         | 8/82 [00:58<08:22,  6.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.13s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:01,  2.00s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.48s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.70s/it]
-The 2th chunk:   4%|▎         | 3/81 [00:22<09:32,  7.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 0th chunk:  11%|█         | 9/82 [01:03<07:33,  6.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :34.05774402618408[0m
-The 3th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:   7%|▋         | 6/82 [00:45<09:27,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:6[0m
-The 0th chunk:  12%|█▏        | 10/82 [01:08<07:01,  5.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   5%|▍         | 4/81 [00:29<09:23,  7.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   1%|          | 1/81 [00:07<10:36,  7.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:   9%|▊         | 7/82 [00:52<09:21,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]The 0th chunk:  13%|█▎        | 11/82 [01:13<06:33,  5.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.95s/it]The 2th chunk:   6%|▌         | 5/81 [00:36<09:17,  7.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.90s/it]The 1th chunk:  10%|▉         | 8/82 [00:57<08:13,  6.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  15%|█▍        | 12/82 [01:17<06:12,  5.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.79s/it]The 3th chunk:   2%|▏         | 2/81 [00:15<10:03,  7.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.29s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.50s/it]
-The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :32.368088722229004[0m
-The 4th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  11%|█         | 9/82 [01:02<07:27,  6.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  16%|█▌        | 13/82 [01:23<06:03,  5.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   7%|▋         | 6/81 [00:44<09:13,  7.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:7[0m
-The 3th chunk:   4%|▎         | 3/81 [00:23<10:00,  7.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  12%|█▏        | 10/82 [01:07<06:56,  5.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   9%|▊         | 7/81 [00:49<08:10,  6.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   1%|          | 1/81 [00:07<10:36,  7.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 0th chunk:  17%|█▋        | 14/82 [01:30<06:51,  6.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]The 1th chunk:  13%|█▎        | 11/82 [01:12<06:32,  5.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.73s/it]The 2th chunk:  10%|▉         | 8/81 [00:54<07:21,  6.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   5%|▍         | 4/81 [00:30<09:43,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.85s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.91s/it]The 4th chunk:   2%|▏         | 2/81 [00:15<09:59,  7.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.41s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.57s/it]
-The 1th chunk:  15%|█▍        | 12/82 [01:17<06:13,  5.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 2th chunk:  11%|█         | 9/81 [00:58<06:46,  5.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  18%|█▊        | 15/82 [01:38<07:21,  6.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :31.669292211532593[0m
-The 5th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   6%|▌         | 5/81 [00:37<09:30,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  16%|█▌        | 13/82 [01:22<06:04,  5.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  12%|█▏        | 10/81 [01:03<06:23,  5.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   4%|▎         | 3/81 [00:22<09:50,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  20%|█▉        | 16/82 [01:46<07:36,  6.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   1%|          | 1/81 [00:07<10:09,  7.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  14%|█▎        | 11/81 [01:08<06:09,  5.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   7%|▋         | 6/81 [00:45<09:21,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 1th chunk:  17%|█▋        | 14/82 [01:30<06:48,  6.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]The 4th chunk:   5%|▍         | 4/81 [00:30<09:37,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  15%|█▍        | 12/81 [01:13<05:55,  5.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   9%|▊         | 7/81 [00:50<08:11,  6.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   2%|▏         | 2/81 [00:14<09:49,  7.46s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  21%|██        | 17/82 [01:54<07:44,  7.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.03s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:01,  1.97s/it]The 1th chunk:  18%|█▊        | 15/82 [01:37<07:16,  6.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  16%|█▌        | 13/81 [01:18<05:44,  5.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :32.295987367630005[0m
-The 6th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.46s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.67s/it]
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  10%|▉         | 8/81 [00:55<07:28,  6.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 4th chunk:   6%|▌         | 5/81 [00:37<09:24,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   4%|▎         | 3/81 [00:22<09:33,  7.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  22%|██▏       | 18/82 [02:01<07:46,  7.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  11%|█         | 9/81 [01:00<06:53,  5.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  20%|█▉        | 16/82 [01:45<07:30,  6.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  17%|█▋        | 14/81 [01:25<06:28,  5.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   1%|          | 1/81 [00:07<10:21,  7.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   7%|▋         | 6/81 [00:44<09:13,  7.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   5%|▍         | 4/81 [00:29<09:23,  7.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  12%|█▏        | 10/81 [01:05<06:30,  5.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The new lm_head weights will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
-The 0th chunk:  23%|██▎       | 19/82 [02:09<07:44,  7.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   9%|▊         | 7/81 [00:49<08:02,  6.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  21%|██        | 17/82 [01:53<07:38,  7.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  19%|█▊        | 15/81 [01:33<06:57,  6.33s/it]The 6th chunk:   2%|▏         | 2/81 [00:14<09:47,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  14%|█▎        | 11/81 [01:10<06:16,  5.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   6%|▌         | 5/81 [00:36<09:14,  7.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  10%|▉         | 8/81 [00:54<07:15,  5.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  24%|██▍       | 20/82 [02:16<07:40,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :30.727234363555908[0m
-The 7th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  15%|█▍        | 12/81 [01:15<06:00,  5.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   4%|▎         | 3/81 [00:22<09:31,  7.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  22%|██▏       | 18/82 [02:00<07:41,  7.21s/it]The 2th chunk:  20%|█▉        | 16/81 [01:41<07:14,  6.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  26%|██▌       | 21/82 [02:20<06:31,  6.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  11%|█         | 9/81 [00:59<06:46,  5.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   7%|▋         | 6/81 [00:43<09:05,  7.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  16%|█▌        | 13/81 [01:19<05:46,  5.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   1%|          | 1/81 [00:07<10:04,  7.56s/it]The 4th chunk:  12%|█▏        | 10/81 [01:03<06:19,  5.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   5%|▍         | 4/81 [00:29<09:19,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   9%|▊         | 7/81 [00:48<08:00,  6.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  23%|██▎       | 19/82 [02:08<07:40,  7.31s/it]The 2th chunk:  21%|██        | 17/81 [01:48<07:23,  6.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  27%|██▋       | 22/82 [02:28<06:46,  6.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  14%|█▎        | 11/81 [01:08<06:03,  5.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  17%|█▋        | 14/81 [01:27<06:30,  5.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  10%|▉         | 8/81 [00:53<07:21,  6.04s/it]The 7th chunk:   2%|▏         | 2/81 [00:14<09:41,  7.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   6%|▌         | 5/81 [00:36<09:10,  7.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  15%|█▍        | 12/81 [01:13<05:46,  5.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  24%|██▍       | 20/82 [02:15<07:38,  7.39s/it]The 2th chunk:  22%|██▏       | 18/81 [01:56<07:28,  7.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  28%|██▊       | 23/82 [02:36<06:54,  7.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  11%|█         | 9/81 [00:58<06:46,  5.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  19%|█▊        | 15/81 [01:34<06:57,  6.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  26%|██▌       | 21/82 [02:19<06:29,  6.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  29%|██▉       | 24/82 [02:40<05:55,  6.12s/it]The 7th chunk:   4%|▎         | 3/81 [00:21<09:28,  7.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   7%|▋         | 6/81 [00:43<09:01,  7.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  12%|█▏        | 10/81 [01:03<06:21,  5.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  16%|█▌        | 13/81 [01:20<06:33,  5.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  23%|██▎       | 19/81 [02:03<07:29,  7.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  20%|█▉        | 16/81 [01:42<07:14,  6.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   9%|▊         | 7/81 [00:48<07:59,  6.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  14%|█▎        | 11/81 [01:08<06:04,  5.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   5%|▍         | 4/81 [00:29<09:19,  7.27s/it]The 1th chunk:  27%|██▋       | 22/82 [02:27<06:45,  6.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  30%|███       | 25/82 [02:47<06:14,  6.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  17%|█▋        | 14/81 [01:28<07:02,  6.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  25%|██▍       | 20/81 [02:11<07:26,  7.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  28%|██▊       | 23/82 [02:31<05:50,  5.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  10%|▉         | 8/81 [00:53<07:11,  5.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  15%|█▍        | 12/81 [01:13<05:54,  5.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  21%|██        | 17/81 [01:49<07:24,  6.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   6%|▌         | 5/81 [00:36<09:11,  7.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  32%|███▏      | 26/82 [02:55<06:22,  6.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  11%|█         | 9/81 [00:58<06:41,  5.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  19%|█▊        | 15/81 [01:35<07:19,  6.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  26%|██▌       | 21/81 [02:18<07:23,  7.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  29%|██▉       | 24/82 [02:39<06:13,  6.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  16%|█▌        | 13/81 [01:20<06:38,  5.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  22%|██▏       | 18/81 [01:57<07:28,  7.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  12%|█▏        | 10/81 [01:03<06:19,  5.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   7%|▋         | 6/81 [00:43<09:04,  7.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  33%|███▎      | 27/82 [03:02<06:25,  7.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  20%|█▉        | 16/81 [01:43<07:29,  6.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  27%|██▋       | 22/81 [02:26<07:19,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  14%|█▎        | 11/81 [01:07<06:02,  5.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  30%|███       | 25/82 [02:46<06:27,  6.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   9%|▊         | 7/81 [00:48<08:01,  6.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  17%|█▋        | 14/81 [01:28<07:07,  6.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  23%|██▎       | 19/81 [02:05<07:28,  7.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  34%|███▍      | 28/82 [03:10<06:25,  7.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  15%|█▍        | 12/81 [01:12<05:45,  5.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  10%|▉         | 8/81 [00:53<07:22,  6.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  21%|██        | 17/81 [01:50<07:33,  7.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  28%|██▊       | 23/81 [02:33<07:14,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  32%|███▏      | 26/82 [02:53<06:29,  6.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  19%|█▊        | 15/81 [01:35<07:23,  6.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  25%|██▍       | 20/81 [02:12<07:26,  7.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  11%|█         | 9/81 [00:58<06:47,  5.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  35%|███▌      | 29/82 [03:17<06:22,  7.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  16%|█▌        | 13/81 [01:19<06:32,  5.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  22%|██▏       | 18/81 [01:58<07:34,  7.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  30%|██▉       | 24/81 [02:41<07:08,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  33%|███▎      | 27/82 [03:01<06:30,  7.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  12%|█▏        | 10/81 [01:03<06:24,  5.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  20%|█▉        | 16/81 [01:43<07:32,  6.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  26%|██▌       | 21/81 [02:20<07:22,  7.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  37%|███▋      | 30/82 [03:24<06:17,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  31%|███       | 25/81 [02:45<06:02,  6.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  17%|█▋        | 14/81 [01:27<07:02,  6.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  14%|█▎        | 11/81 [01:08<06:08,  5.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  23%|██▎       | 19/81 [02:05<07:32,  7.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  34%|███▍      | 28/82 [03:08<06:29,  7.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  21%|██        | 17/81 [01:50<07:35,  7.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  27%|██▋       | 22/81 [02:27<07:19,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  15%|█▍        | 12/81 [01:13<05:58,  5.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  38%|███▊      | 31/82 [03:32<06:14,  7.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  32%|███▏      | 26/81 [02:52<06:09,  6.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  19%|█▊        | 15/81 [01:35<07:19,  6.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  25%|██▍       | 20/81 [02:13<07:28,  7.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  35%|███▌      | 29/82 [03:16<06:23,  7.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  22%|██▏       | 18/81 [01:58<07:37,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  28%|██▊       | 23/81 [02:35<07:13,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  16%|█▌        | 13/81 [01:20<06:40,  5.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  26%|██▌       | 21/81 [02:17<06:20,  6.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  39%|███▉      | 32/82 [03:39<06:08,  7.38s/it]The 2th chunk:  33%|███▎      | 27/81 [03:00<06:13,  6.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  20%|█▉        | 16/81 [01:42<07:29,  6.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  37%|███▋      | 30/82 [03:23<06:19,  7.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  23%|██▎       | 19/81 [02:05<07:34,  7.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  30%|██▉       | 24/81 [02:42<07:06,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  17%|█▋        | 14/81 [01:28<07:06,  6.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  27%|██▋       | 22/81 [02:24<06:34,  6.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  35%|███▍      | 28/81 [03:07<06:12,  7.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  40%|████      | 33/82 [03:47<06:05,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  21%|██        | 17/81 [01:49<07:32,  7.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  25%|██▍       | 20/81 [02:09<06:26,  6.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  38%|███▊      | 31/82 [03:30<06:12,  7.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  31%|███       | 25/81 [02:50<07:00,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  19%|█▊        | 15/81 [01:35<07:22,  6.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  28%|██▊       | 23/81 [02:32<06:42,  6.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  36%|███▌      | 29/81 [03:14<06:09,  7.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  41%|████▏     | 34/82 [03:55<06:00,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  22%|██▏       | 18/81 [01:57<07:33,  7.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  26%|██▌       | 21/81 [02:17<06:41,  6.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  39%|███▉      | 32/82 [03:38<06:05,  7.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  32%|███▏      | 26/81 [02:57<06:48,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  20%|█▉        | 16/81 [01:43<07:32,  6.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  30%|██▉       | 24/81 [02:39<06:44,  7.10s/it]The 2th chunk:  37%|███▋      | 30/81 [03:22<06:04,  7.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  43%|████▎     | 35/82 [04:02<05:54,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  23%|██▎       | 19/81 [02:04<07:31,  7.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  27%|██▋       | 22/81 [02:25<06:49,  6.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  40%|████      | 33/82 [03:45<06:02,  7.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  33%|███▎      | 27/81 [03:04<06:38,  7.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  38%|███▊      | 31/81 [03:29<05:59,  7.19s/it]The 7th chunk:  21%|██        | 17/81 [01:50<07:35,  7.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  31%|███       | 25/81 [02:47<06:44,  7.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  44%|████▍     | 36/82 [04:10<05:47,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  25%|██▍       | 20/81 [02:12<07:27,  7.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  28%|██▊       | 23/81 [02:32<06:52,  7.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  41%|████▏     | 34/82 [03:53<05:57,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  26%|██▌       | 21/81 [02:16<06:19,  6.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  35%|███▍      | 28/81 [03:12<06:28,  7.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  32%|███▏      | 26/81 [02:54<06:38,  7.24s/it]The 7th chunk:  22%|██▏       | 18/81 [01:58<07:35,  7.22s/it]The 2th chunk:  40%|███▉      | 32/81 [03:36<05:57,  7.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  45%|████▌     | 37/82 [04:17<05:41,  7.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  30%|██▉       | 24/81 [02:40<06:52,  7.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  43%|████▎     | 35/82 [04:00<05:51,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  27%|██▋       | 22/81 [02:23<06:34,  6.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  36%|███▌      | 29/81 [03:19<06:21,  7.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  33%|███▎      | 27/81 [03:01<06:31,  7.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  23%|██▎       | 19/81 [02:05<07:32,  7.30s/it]The 2th chunk:  41%|████      | 33/81 [03:44<05:53,  7.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  46%|████▋     | 38/82 [04:25<05:33,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  28%|██▊       | 23/81 [02:27<05:41,  5.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  31%|███       | 25/81 [02:47<06:50,  7.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  44%|████▍     | 36/82 [04:08<05:45,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  37%|███▋      | 30/81 [03:26<06:13,  7.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  30%|██▉       | 24/81 [02:31<05:03,  5.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  35%|███▍      | 28/81 [03:09<06:24,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  25%|██▍       | 20/81 [02:13<07:28,  7.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  42%|████▏     | 34/81 [03:51<05:48,  7.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  48%|████▊     | 39/82 [04:33<05:26,  7.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  32%|███▏      | 26/81 [02:54<06:43,  7.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  45%|████▌     | 37/82 [04:16<05:38,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  38%|███▊      | 31/81 [03:33<06:05,  7.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  31%|███       | 25/81 [02:39<05:34,  5.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  36%|███▌      | 29/81 [03:16<06:17,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  26%|██▌       | 21/81 [02:20<07:23,  7.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  43%|████▎     | 35/81 [03:59<05:42,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  49%|████▉     | 40/82 [04:40<05:18,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  33%|███▎      | 27/81 [03:02<06:34,  7.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  27%|██▋       | 22/81 [02:24<06:16,  6.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  46%|████▋     | 38/82 [04:23<05:30,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  40%|███▉      | 32/81 [03:41<06:01,  7.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  32%|███▏      | 26/81 [02:46<05:50,  6.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  37%|███▋      | 30/81 [03:23<06:10,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  44%|████▍     | 36/81 [04:06<05:36,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  50%|█████     | 41/82 [04:48<05:10,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  35%|███▍      | 28/81 [03:09<06:27,  7.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  28%|██▊       | 23/81 [02:32<06:29,  6.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  48%|████▊     | 39/82 [04:31<05:23,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  33%|███▎      | 27/81 [02:53<05:58,  6.64s/it]The 3th chunk:  41%|████      | 33/81 [03:48<05:55,  7.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  38%|███▊      | 31/81 [03:31<06:04,  7.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  46%|████▌     | 37/81 [04:14<05:30,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  36%|███▌      | 29/81 [03:16<06:20,  7.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  51%|█████     | 42/82 [04:56<05:05,  7.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  30%|██▉       | 24/81 [02:39<06:35,  6.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  49%|████▉     | 40/82 [04:38<05:15,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  35%|███▍      | 28/81 [03:01<06:02,  6.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  42%|████▏     | 34/81 [03:56<05:49,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  40%|███▉      | 32/81 [03:38<06:01,  7.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  47%|████▋     | 38/81 [04:22<05:23,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  37%|███▋      | 30/81 [03:24<06:12,  7.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  52%|█████▏    | 43/82 [05:03<04:56,  7.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  31%|███       | 25/81 [02:47<06:38,  7.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  50%|█████     | 41/82 [04:46<05:08,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  36%|███▌      | 29/81 [03:08<06:02,  6.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  43%|████▎     | 35/81 [04:03<05:43,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  41%|████      | 33/81 [03:46<05:55,  7.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  48%|████▊     | 39/81 [04:29<05:15,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  38%|███▊      | 31/81 [03:31<06:04,  7.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  54%|█████▎    | 44/82 [05:11<04:48,  7.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  32%|███▏      | 26/81 [02:54<06:34,  7.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  51%|█████     | 42/82 [04:53<05:01,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  37%|███▋      | 30/81 [03:15<05:59,  7.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  44%|████▍     | 36/81 [04:11<05:36,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  42%|████▏     | 34/81 [03:53<05:49,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  49%|████▉     | 40/81 [04:37<05:08,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  40%|███▉      | 32/81 [03:38<06:00,  7.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  55%|█████▍    | 45/82 [05:18<04:40,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  33%|███▎      | 27/81 [03:01<06:29,  7.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  52%|█████▏    | 43/82 [05:01<04:53,  7.53s/it]The 6th chunk:  38%|███▊      | 31/81 [03:23<05:55,  7.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  46%|████▌     | 37/81 [04:18<05:29,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  43%|████▎     | 35/81 [04:01<05:42,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  51%|█████     | 41/81 [04:44<05:00,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  41%|████      | 33/81 [03:46<05:56,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  56%|█████▌    | 46/82 [05:26<04:32,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  35%|███▍      | 28/81 [03:09<06:23,  7.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  40%|███▉      | 32/81 [03:30<05:54,  7.23s/it]The 1th chunk:  54%|█████▎    | 44/82 [05:08<04:46,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  47%|████▋     | 38/81 [04:26<05:21,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  44%|████▍     | 36/81 [04:08<05:36,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  52%|█████▏    | 42/81 [04:52<04:53,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  42%|████▏     | 34/81 [03:54<05:50,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  57%|█████▋    | 47/82 [05:33<04:25,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  36%|███▌      | 29/81 [03:16<06:16,  7.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  55%|█████▍    | 45/82 [05:16<04:37,  7.51s/it]The 6th chunk:  41%|████      | 33/81 [03:38<05:50,  7.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  48%|████▊     | 39/81 [04:33<05:14,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  46%|████▌     | 37/81 [04:16<05:28,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  53%|█████▎    | 43/81 [04:59<04:45,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  43%|████▎     | 35/81 [04:02<05:57,  7.76s/it]The 0th chunk:  59%|█████▊    | 48/82 [05:41<04:19,  7.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  37%|███▋      | 30/81 [03:24<06:27,  7.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  56%|█████▌    | 46/82 [05:23<04:29,  7.49s/it]The 6th chunk:  42%|████▏     | 34/81 [03:45<05:45,  7.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  49%|████▉     | 40/81 [04:41<05:07,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  47%|████▋     | 38/81 [04:23<05:23,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  54%|█████▍    | 44/81 [05:07<04:43,  7.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  44%|████▍     | 36/81 [04:10<05:47,  7.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  60%|█████▉    | 49/82 [05:49<04:12,  7.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  38%|███▊      | 31/81 [03:32<06:14,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  57%|█████▋    | 47/82 [05:31<04:21,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  43%|████▎     | 35/81 [03:53<05:40,  7.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  51%|█████     | 41/81 [04:48<04:59,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  48%|████▊     | 39/81 [04:31<05:15,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  56%|█████▌    | 45/81 [05:15<04:32,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  46%|████▌     | 37/81 [04:17<05:37,  7.66s/it]The 0th chunk:  61%|██████    | 50/82 [05:56<04:03,  7.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  40%|███▉      | 32/81 [03:39<06:07,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  59%|█████▊    | 48/82 [05:38<04:13,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  44%|████▍     | 36/81 [04:00<05:34,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  52%|█████▏    | 42/81 [04:56<04:51,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  49%|████▉     | 40/81 [04:38<05:08,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  57%|█████▋    | 46/81 [05:22<04:23,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  47%|████▋     | 38/81 [04:25<05:27,  7.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  62%|██████▏   | 51/82 [06:04<03:55,  7.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  41%|████      | 33/81 [03:47<06:00,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  60%|█████▉    | 49/82 [05:46<04:06,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  46%|████▌     | 37/81 [04:08<05:27,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  53%|█████▎    | 43/81 [05:03<04:44,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  51%|█████     | 41/81 [04:46<05:00,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  58%|█████▊    | 47/81 [05:29<04:15,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  48%|████▊     | 39/81 [04:32<05:18,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  63%|██████▎   | 52/82 [06:11<03:47,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  42%|████▏     | 34/81 [03:54<05:52,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  61%|██████    | 50/82 [05:53<03:59,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  47%|████▋     | 38/81 [04:15<05:21,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  54%|█████▍    | 44/81 [05:11<04:37,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  52%|█████▏    | 42/81 [04:53<04:52,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  59%|█████▉    | 48/81 [05:37<04:06,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  49%|████▉     | 40/81 [04:40<05:10,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  65%|██████▍   | 53/82 [06:19<03:39,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  43%|████▎     | 35/81 [04:02<05:45,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  62%|██████▏   | 51/82 [06:01<03:52,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  48%|████▊     | 39/81 [04:23<05:14,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  56%|█████▌    | 45/81 [05:18<04:28,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  53%|█████▎    | 43/81 [05:01<04:45,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  60%|██████    | 49/81 [05:44<03:59,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  51%|█████     | 41/81 [04:47<05:02,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  66%|██████▌   | 54/82 [06:27<03:31,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  44%|████▍     | 36/81 [04:09<05:37,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  63%|██████▎   | 52/82 [06:08<03:45,  7.52s/it]The 6th chunk:  49%|████▉     | 40/81 [04:30<05:06,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  57%|█████▋    | 46/81 [05:26<04:20,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  54%|█████▍    | 44/81 [05:08<04:37,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  62%|██████▏   | 50/81 [05:52<03:51,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  52%|█████▏    | 42/81 [04:55<04:54,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  67%|██████▋   | 55/82 [06:34<03:23,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  46%|████▌     | 37/81 [04:17<05:30,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  51%|█████     | 41/81 [04:37<04:59,  7.48s/it]The 1th chunk:  65%|██████▍   | 53/82 [06:16<03:38,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  58%|█████▊    | 47/81 [05:33<04:13,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  56%|█████▌    | 45/81 [05:16<04:28,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  63%|██████▎   | 51/81 [05:59<03:44,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  53%|█████▎    | 43/81 [05:02<04:46,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  68%|██████▊   | 56/82 [06:42<03:16,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  47%|████▋     | 38/81 [04:24<05:22,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  52%|█████▏    | 42/81 [04:45<04:51,  7.48s/it]The 1th chunk:  66%|██████▌   | 54/82 [06:23<03:30,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  59%|█████▉    | 48/81 [05:41<04:05,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  57%|█████▋    | 46/81 [05:23<04:21,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  64%|██████▍   | 52/81 [06:07<03:37,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  54%|█████▍    | 44/81 [05:10<04:38,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  70%|██████▉   | 57/82 [06:49<03:09,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  48%|████▊     | 39/81 [04:32<05:14,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  53%|█████▎    | 43/81 [04:52<04:44,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  67%|██████▋   | 55/82 [06:31<03:23,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  60%|██████    | 49/81 [05:48<03:57,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  58%|█████▊    | 47/81 [05:31<04:13,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  65%|██████▌   | 53/81 [06:14<03:29,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  56%|█████▌    | 45/81 [05:17<04:30,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  71%|███████   | 58/82 [06:57<03:01,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  49%|████▉     | 40/81 [04:39<05:07,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  54%|█████▍    | 44/81 [05:00<04:36,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  68%|██████▊   | 56/82 [06:38<03:15,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  62%|██████▏   | 50/81 [05:55<03:50,  7.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  59%|█████▉    | 48/81 [05:38<04:05,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  67%|██████▋   | 54/81 [06:22<03:22,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  57%|█████▋    | 46/81 [05:25<04:22,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  72%|███████▏  | 59/82 [07:04<02:53,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  51%|█████     | 41/81 [04:47<04:59,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  56%|█████▌    | 45/81 [05:07<04:28,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  70%|██████▉   | 57/82 [06:46<03:08,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  63%|██████▎   | 51/81 [06:03<03:43,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  60%|██████    | 49/81 [05:45<03:57,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  68%|██████▊   | 55/81 [06:29<03:15,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  58%|█████▊    | 47/81 [05:32<04:14,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  73%|███████▎  | 60/82 [07:12<02:46,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  52%|█████▏    | 42/81 [04:54<04:52,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  57%|█████▋    | 46/81 [05:15<04:20,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  71%|███████   | 58/82 [06:54<03:01,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  64%|██████▍   | 52/81 [06:10<03:36,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  62%|██████▏   | 50/81 [05:53<03:49,  7.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  69%|██████▉   | 56/81 [06:37<03:07,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  59%|█████▉    | 48/81 [05:40<04:06,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  74%|███████▍  | 61/82 [07:19<02:38,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  53%|█████▎    | 43/81 [05:02<04:45,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  58%|█████▊    | 47/81 [05:22<04:13,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  72%|███████▏  | 59/82 [07:01<02:53,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  65%|██████▌   | 53/81 [06:18<03:29,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  63%|██████▎   | 51/81 [06:00<03:43,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  70%|███████   | 57/81 [06:44<03:00,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  60%|██████    | 49/81 [05:47<03:58,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  76%|███████▌  | 62/82 [07:27<02:30,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  54%|█████▍    | 44/81 [05:09<04:37,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  59%|█████▉    | 48/81 [05:30<04:05,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  73%|███████▎  | 60/82 [07:09<02:45,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  67%|██████▋   | 54/81 [06:25<03:22,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  64%|██████▍   | 52/81 [06:08<03:35,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  72%|███████▏  | 58/81 [06:52<02:52,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  62%|██████▏   | 50/81 [05:55<03:51,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  77%|███████▋  | 63/82 [07:34<02:23,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  56%|█████▌    | 45/81 [05:17<04:29,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  60%|██████    | 49/81 [05:37<03:57,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  74%|███████▍  | 61/82 [07:16<02:38,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  68%|██████▊   | 55/81 [06:33<03:14,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  65%|██████▌   | 53/81 [06:15<03:28,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  78%|███████▊  | 64/82 [07:39<01:58,  6.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  73%|███████▎  | 59/81 [06:59<02:45,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  63%|██████▎   | 51/81 [06:02<03:44,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  57%|█████▋    | 46/81 [05:24<04:21,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  62%|██████▏   | 50/81 [05:44<03:50,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  79%|███████▉  | 65/82 [07:43<01:41,  5.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  76%|███████▌  | 62/82 [07:24<02:30,  7.54s/it]The 3th chunk:  69%|██████▉   | 56/81 [06:40<03:07,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  67%|██████▋   | 54/81 [06:23<03:21,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  74%|███████▍  | 60/81 [07:07<02:37,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  80%|████████  | 66/82 [07:47<01:23,  5.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  64%|██████▍   | 52/81 [06:10<03:37,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  58%|█████▊    | 47/81 [05:32<04:14,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  63%|██████▎   | 51/81 [05:52<03:43,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  82%|████████▏ | 67/82 [07:51<01:13,  4.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  77%|███████▋  | 63/82 [07:31<02:23,  7.55s/it]The 3th chunk:  70%|███████   | 57/81 [06:48<02:59,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  68%|██████▊   | 55/81 [06:30<03:14,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  75%|███████▌  | 61/81 [07:14<02:30,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  83%|████████▎ | 68/82 [07:55<01:06,  4.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  78%|███████▊  | 64/82 [07:36<01:59,  6.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  65%|██████▌   | 53/81 [06:17<03:30,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  59%|█████▉    | 48/81 [05:39<04:06,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  64%|██████▍   | 52/81 [05:59<03:36,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  72%|███████▏  | 58/81 [06:55<02:52,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  79%|███████▉  | 65/82 [07:39<01:37,  5.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  69%|██████▉   | 56/81 [06:38<03:07,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  84%|████████▍ | 69/82 [08:00<01:00,  4.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  77%|███████▋  | 62/81 [07:22<02:22,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  85%|████████▌ | 70/82 [08:03<00:51,  4.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  80%|████████  | 66/82 [07:43<01:23,  5.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  67%|██████▋   | 54/81 [06:25<03:23,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  60%|██████    | 49/81 [05:47<03:59,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  65%|██████▌   | 53/81 [06:07<03:29,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  73%|███████▎  | 59/81 [07:03<02:44,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  70%|███████   | 57/81 [06:45<02:59,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  87%|████████▋ | 71/82 [08:08<00:47,  4.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  82%|████████▏ | 67/82 [07:48<01:15,  5.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  78%|███████▊  | 63/81 [07:29<02:15,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  68%|██████▊   | 55/81 [06:32<03:15,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  83%|████████▎ | 68/82 [07:52<01:05,  4.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  88%|████████▊ | 72/82 [08:12<00:43,  4.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  62%|██████▏   | 50/81 [05:54<03:51,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  67%|██████▋   | 54/81 [06:14<03:21,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  79%|███████▉  | 64/81 [07:34<01:51,  6.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  74%|███████▍  | 60/81 [07:10<02:37,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  72%|███████▏  | 58/81 [06:53<02:52,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  84%|████████▍ | 69/82 [07:55<00:56,  4.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  89%|████████▉ | 73/82 [08:16<00:38,  4.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  80%|████████  | 65/81 [07:38<01:34,  5.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  69%|██████▉   | 56/81 [06:40<03:08,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  63%|██████▎   | 51/81 [06:01<03:44,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  85%|████████▌ | 70/82 [08:00<00:52,  4.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  68%|██████▊   | 55/81 [06:22<03:14,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  90%|█████████ | 74/82 [08:21<00:34,  4.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  75%|███████▌  | 61/81 [07:18<02:29,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  73%|███████▎  | 59/81 [07:00<02:44,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  81%|████████▏ | 66/81 [07:43<01:22,  5.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  87%|████████▋ | 71/82 [08:04<00:47,  4.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  91%|█████████▏| 75/82 [08:25<00:30,  4.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  70%|███████   | 57/81 [06:47<03:00,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  83%|████████▎ | 67/81 [07:47<01:11,  5.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  64%|██████▍   | 52/81 [06:09<03:36,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  69%|██████▉   | 56/81 [06:29<03:06,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  88%|████████▊ | 72/82 [08:08<00:42,  4.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  77%|███████▋  | 62/81 [07:25<02:22,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  93%|█████████▎| 76/82 [08:29<00:26,  4.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  74%|███████▍  | 60/81 [07:08<02:37,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  84%|████████▍ | 68/81 [07:51<01:02,  4.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  89%|████████▉ | 73/82 [08:12<00:38,  4.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  94%|█████████▍| 77/82 [08:34<00:21,  4.40s/it]The 5th chunk:  72%|███████▏  | 58/81 [06:55<02:53,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  65%|██████▌   | 53/81 [06:16<03:29,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  85%|████████▌ | 69/81 [07:55<00:56,  4.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  70%|███████   | 57/81 [06:37<02:59,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  78%|███████▊  | 63/81 [07:33<02:14,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  90%|█████████ | 74/82 [08:17<00:34,  4.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  75%|███████▌  | 61/81 [07:15<02:30,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  95%|█████████▌| 78/82 [08:38<00:17,  4.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  86%|████████▋ | 70/81 [07:59<00:49,  4.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  79%|███████▉  | 64/81 [07:37<01:50,  6.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  91%|█████████▏| 75/82 [08:21<00:29,  4.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  73%|███████▎  | 59/81 [07:02<02:45,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  67%|██████▋   | 54/81 [06:24<03:22,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  72%|███████▏  | 58/81 [06:44<02:52,  7.48s/it]The 0th chunk:  96%|█████████▋| 79/82 [08:43<00:13,  4.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  88%|████████▊ | 71/81 [08:04<00:44,  4.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  77%|███████▋  | 62/81 [07:23<02:22,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  80%|████████  | 65/81 [07:41<01:33,  5.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  93%|█████████▎| 76/82 [08:25<00:25,  4.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  89%|████████▉ | 72/81 [08:07<00:37,  4.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  98%|█████████▊| 80/82 [08:47<00:08,  4.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  78%|███████▊  | 63/81 [07:27<01:57,  6.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  81%|████████▏ | 66/81 [07:45<01:19,  5.32s/it]The 5th chunk:  74%|███████▍  | 60/81 [07:10<02:38,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  68%|██████▊   | 55/81 [06:31<03:14,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  94%|█████████▍| 77/82 [08:30<00:21,  4.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  73%|███████▎  | 59/81 [06:52<02:44,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  90%|█████████ | 73/81 [08:11<00:33,  4.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  99%|█████████▉| 81/82 [08:52<00:04,  4.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  79%|███████▉  | 64/81 [07:31<01:39,  5.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  83%|████████▎ | 67/81 [07:50<01:10,  5.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  95%|█████████▌| 78/82 [08:34<00:17,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  91%|█████████▏| 74/81 [08:16<00:29,  4.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk: 100%|██████████| 82/82 [08:56<00:00,  4.48s/it]The 0th chunk: 100%|██████████| 82/82 [08:56<00:00,  6.55s/it]
-The 5th chunk:  75%|███████▌  | 61/81 [07:17<02:30,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  69%|██████▉   | 56/81 [06:39<03:07,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  80%|████████  | 65/81 [07:35<01:25,  5.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  74%|███████▍  | 60/81 [06:59<02:37,  7.48s/it]The 3th chunk:  84%|████████▍ | 68/81 [07:54<01:03,  4.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  96%|█████████▋| 79/82 [08:39<00:13,  4.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  93%|█████████▎| 75/81 [08:20<00:25,  4.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  81%|████████▏ | 66/81 [07:40<01:15,  5.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  85%|████████▌ | 69/81 [07:59<00:56,  4.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  98%|█████████▊| 80/82 [08:43<00:08,  4.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  77%|███████▋  | 62/81 [07:25<02:22,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  94%|█████████▍| 76/81 [08:25<00:21,  4.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  70%|███████   | 57/81 [06:46<02:59,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  75%|███████▌  | 61/81 [07:07<02:29,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  83%|████████▎ | 67/81 [07:44<01:07,  4.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  86%|████████▋ | 70/81 [08:03<00:49,  4.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  99%|█████████▉| 81/82 [08:48<00:04,  4.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  78%|███████▊  | 63/81 [07:29<01:58,  6.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  95%|█████████▌| 77/81 [08:29<00:17,  4.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  84%|████████▍ | 68/81 [07:49<01:01,  4.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  88%|████████▊ | 71/81 [08:07<00:45,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  72%|███████▏  | 58/81 [06:54<02:52,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk: 100%|██████████| 82/82 [08:52<00:00,  4.48s/it]The 1th chunk: 100%|██████████| 82/82 [08:52<00:00,  6.50s/it]
-The 6th chunk:  77%|███████▋  | 62/81 [07:14<02:22,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  79%|███████▉  | 64/81 [07:34<01:41,  6.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  96%|█████████▋| 78/81 [08:33<00:13,  4.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  85%|████████▌ | 69/81 [07:53<00:55,  4.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  89%|████████▉ | 72/81 [08:12<00:40,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  78%|███████▊  | 63/81 [07:19<01:57,  6.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  80%|████████  | 65/81 [07:38<01:28,  5.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  98%|█████████▊| 79/81 [08:38<00:08,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  86%|████████▋ | 70/81 [07:57<00:50,  4.56s/it]The 3th chunk:  90%|█████████ | 73/81 [08:16<00:35,  4.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  73%|███████▎  | 59/81 [07:01<02:44,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  79%|███████▉  | 64/81 [07:23<01:38,  5.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  81%|████████▏ | 66/81 [07:43<01:17,  5.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  99%|█████████▉| 80/81 [08:42<00:04,  4.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  88%|████████▊ | 71/81 [08:01<00:44,  4.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  91%|█████████▏| 74/81 [08:20<00:30,  4.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  80%|████████  | 65/81 [07:27<01:26,  5.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  83%|████████▎ | 67/81 [07:47<01:09,  4.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk: 100%|██████████| 81/81 [08:47<00:00,  4.44s/it]The 2th chunk: 100%|██████████| 81/81 [08:47<00:00,  6.51s/it]
-The 4th chunk:  89%|████████▉ | 72/81 [08:05<00:37,  4.20s/it]The 7th chunk:  74%|███████▍  | 60/81 [07:09<02:37,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  93%|█████████▎| 75/81 [08:24<00:25,  4.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  81%|████████▏ | 66/81 [07:31<01:15,  5.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  84%|████████▍ | 68/81 [07:52<01:02,  4.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  90%|█████████ | 73/81 [08:10<00:34,  4.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  94%|█████████▍| 76/81 [08:29<00:21,  4.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  83%|████████▎ | 67/81 [07:36<01:07,  4.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  75%|███████▌  | 61/81 [07:16<02:30,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  85%|████████▌ | 69/81 [07:56<00:56,  4.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  91%|█████████▏| 74/81 [08:14<00:29,  4.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  95%|█████████▌| 77/81 [08:33<00:17,  4.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  84%|████████▍ | 68/81 [07:40<01:00,  4.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  86%|████████▋ | 70/81 [08:00<00:48,  4.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  93%|█████████▎| 75/81 [08:18<00:25,  4.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  96%|█████████▋| 78/81 [08:38<00:13,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  77%|███████▋  | 62/81 [07:24<02:22,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  85%|████████▌ | 69/81 [07:44<00:54,  4.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  88%|████████▊ | 71/81 [08:04<00:43,  4.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  94%|█████████▍| 76/81 [08:23<00:21,  4.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  98%|█████████▊| 79/81 [08:42<00:08,  4.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  78%|███████▊  | 63/81 [07:28<01:58,  6.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  86%|████████▋ | 70/81 [07:49<00:48,  4.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  89%|████████▉ | 72/81 [08:08<00:38,  4.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  95%|█████████▌| 77/81 [08:27<00:17,  4.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  99%|█████████▉| 80/81 [08:47<00:04,  4.46s/it]The 6th chunk:  88%|████████▊ | 71/81 [07:52<00:41,  4.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  79%|███████▉  | 64/81 [07:33<01:40,  5.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  90%|█████████ | 73/81 [08:12<00:34,  4.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  96%|█████████▋| 78/81 [08:31<00:13,  4.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  89%|████████▉ | 72/81 [07:56<00:37,  4.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk: 100%|██████████| 81/81 [08:51<00:00,  4.48s/it]The 3th chunk: 100%|██████████| 81/81 [08:51<00:00,  6.56s/it]
-The 7th chunk:  80%|████████  | 65/81 [07:37<01:26,  5.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  91%|█████████▏| 74/81 [08:17<00:29,  4.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  98%|█████████▊| 79/81 [08:36<00:08,  4.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  90%|█████████ | 73/81 [08:00<00:33,  4.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  93%|█████████▎| 75/81 [08:20<00:24,  4.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  81%|████████▏ | 66/81 [07:41<01:16,  5.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  99%|█████████▉| 80/81 [08:40<00:04,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  91%|█████████▏| 74/81 [08:05<00:29,  4.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  94%|█████████▍| 76/81 [08:25<00:21,  4.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  83%|████████▎ | 67/81 [07:46<01:08,  4.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk: 100%|██████████| 81/81 [08:45<00:00,  4.42s/it]The 4th chunk: 100%|██████████| 81/81 [08:45<00:00,  6.48s/it]
-The 6th chunk:  93%|█████████▎| 75/81 [08:09<00:25,  4.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  84%|████████▍ | 68/81 [07:50<01:00,  4.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  95%|█████████▌| 77/81 [08:29<00:17,  4.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  94%|█████████▍| 76/81 [08:13<00:21,  4.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  85%|████████▌ | 69/81 [07:54<00:55,  4.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  96%|█████████▋| 78/81 [08:34<00:13,  4.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  95%|█████████▌| 77/81 [08:18<00:17,  4.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  86%|████████▋ | 70/81 [07:59<00:49,  4.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  98%|█████████▊| 79/81 [08:38<00:08,  4.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  96%|█████████▋| 78/81 [08:22<00:13,  4.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  88%|████████▊ | 71/81 [08:03<00:43,  4.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  99%|█████████▉| 80/81 [08:43<00:04,  4.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  89%|████████▉ | 72/81 [08:07<00:38,  4.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  98%|█████████▊| 79/81 [08:27<00:08,  4.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk: 100%|██████████| 81/81 [08:47<00:00,  4.44s/it]The 5th chunk: 100%|██████████| 81/81 [08:47<00:00,  6.52s/it]
-The 7th chunk:  90%|█████████ | 73/81 [08:11<00:33,  4.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  99%|█████████▉| 80/81 [08:31<00:04,  4.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  91%|█████████▏| 74/81 [08:15<00:29,  4.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk: 100%|██████████| 81/81 [08:36<00:00,  4.44s/it]The 6th chunk: 100%|██████████| 81/81 [08:36<00:00,  6.37s/it]
-The 7th chunk:  93%|█████████▎| 75/81 [08:19<00:23,  3.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  94%|█████████▍| 76/81 [08:24<00:22,  4.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  95%|█████████▌| 77/81 [08:29<00:17,  4.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  96%|█████████▋| 78/81 [08:33<00:13,  4.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  98%|█████████▊| 79/81 [08:38<00:09,  4.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  99%|█████████▉| 80/81 [08:42<00:04,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk: 100%|██████████| 81/81 [08:47<00:00,  4.49s/it]The 7th chunk: 100%|██████████| 81/81 [08:47<00:00,  6.51s/it]
-[1mAll generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/3_LongLoRA[0m
-./tasks/01M_31D_16H_15m/output_table.xlsx
-[1mresults_table is saved in ./tasks/01M_31D_16H_15m/output_table.xlsx[0m
-  0%|          | 0/13 [00:00<?, ?it/s][1m****************************************  evaluating  ****************************************[0m
-eval benchmark:RULER_32000:   0%|          | 0/13 [00:00<?, ?it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.51it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.51it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.51it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.64it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.64it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.64it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.56it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.56it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.56it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.64it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.64it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.64it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.64it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.55it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.55it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.55it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.83it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.60it/s]
-eval benchmark:RULER_32000:   8%|▊         | 1/13 [00:00<00:10,  1.12it/s]eval benchmark:RULER_32000:   8%|▊         | 1/13 [00:00<00:10,  1.12it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.95it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.95it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.95it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.94it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.94it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.94it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.84it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.84it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.84it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.92it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.92it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.92it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.92it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.82it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.82it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.82it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 16.07it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.88it/s]
-eval benchmark:RULER_32000:  15%|█▌        | 2/13 [00:01<00:09,  1.13it/s]eval benchmark:RULER_32000:  15%|█▌        | 2/13 [00:01<00:09,  1.13it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.77it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.77it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.77it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.91it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.91it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.91it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.78it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.78it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.78it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.98it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.98it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.98it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.98it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.89it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.89it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.89it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.91it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.80it/s]
-eval benchmark:RULER_32000:  23%|██▎       | 3/13 [00:02<00:08,  1.14it/s]eval benchmark:RULER_32000:  23%|██▎       | 3/13 [00:02<00:08,  1.14it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.69it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.69it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.69it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.74it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.74it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.74it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.84it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.84it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.84it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.78it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.78it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.78it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.78it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.75it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.75it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.75it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.90it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.74it/s]
-eval benchmark:RULER_32000:  31%|███       | 4/13 [00:03<00:07,  1.13it/s]eval benchmark:RULER_32000:  31%|███       | 4/13 [00:03<00:07,  1.13it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.86it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.86it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.86it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.81it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.81it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.81it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.86it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.86it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.86it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.94it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.94it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.94it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.94it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.77it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.77it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.77it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.87it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.77it/s]
-eval benchmark:RULER_32000:  38%|███▊      | 5/13 [00:04<00:07,  1.14it/s]eval benchmark:RULER_32000:  38%|███▊      | 5/13 [00:04<00:07,  1.14it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.82it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.82it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.82it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.88it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.88it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.88it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.75it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.75it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.75it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.93it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.93it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.93it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.93it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.64it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.64it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.64it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.78it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.71it/s]
-eval benchmark:RULER_32000:  46%|████▌     | 6/13 [00:05<00:06,  1.13it/s]eval benchmark:RULER_32000:  46%|████▌     | 6/13 [00:05<00:06,  1.13it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.75it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.75it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.75it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.83it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.83it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.83it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.85it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.85it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.85it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.87it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.87it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.87it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.87it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.62it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.62it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.62it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.74it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.68it/s]
-eval benchmark:RULER_32000:  54%|█████▍    | 7/13 [00:06<00:05,  1.13it/s]eval benchmark:RULER_32000:  54%|█████▍    | 7/13 [00:06<00:05,  1.13it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.98it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.98it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.98it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.85it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.85it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.85it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.72it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.72it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.72it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.84it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.84it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.84it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.84it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.80it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.80it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.80it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.89it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.76it/s]
-eval benchmark:RULER_32000:  62%|██████▏   | 8/13 [00:07<00:04,  1.13it/s]eval benchmark:RULER_32000:  62%|██████▏   | 8/13 [00:07<00:04,  1.13it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.76it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.76it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.76it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.89it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.89it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.89it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.95it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.95it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.95it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.78it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.78it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.78it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.78it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.73it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.73it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.73it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.91it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.77it/s]
-eval benchmark:RULER_32000:  69%|██████▉   | 9/13 [00:07<00:03,  1.13it/s]eval benchmark:RULER_32000:  69%|██████▉   | 9/13 [00:07<00:03,  1.13it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.78it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.78it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.78it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.66it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.66it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.66it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.77it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.77it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.77it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.92it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.92it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.92it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.92it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.85it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.85it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.85it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 15.97it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.78it/s]
-eval benchmark:RULER_32000:  77%|███████▋  | 10/13 [00:08<00:02,  1.13it/s]eval benchmark:RULER_32000:  77%|███████▋  | 10/13 [00:08<00:02,  1.13it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 11.85it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 11.85it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 11.85it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 11.82it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 11.82it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 11.82it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 13.69it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 13.69it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 13.69it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 13.74it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 13.74it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 13.74it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 13.74it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 15.75it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 15.75it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:00<00:00, 15.75it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 16.00it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.78it/s]
-eval benchmark:RULER_32000:  85%|████████▍ | 11/13 [00:09<00:01,  1.14it/s]eval benchmark:RULER_32000:  85%|████████▍ | 11/13 [00:09<00:01,  1.14it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:niah_multivalue_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multivalue_:  15%|█▌        | 2/13 [00:00<00:00, 12.02it/s][A
-eval task:niah_multikey_1_:  15%|█▌        | 2/13 [00:00<00:00, 12.02it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  15%|█▌        | 2/13 [00:00<00:00, 12.02it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_2_:  31%|███       | 4/13 [00:00<00:00, 10.87it/s][A
-eval task:niah_single_1_:  31%|███       | 4/13 [00:00<00:00, 10.87it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  31%|███       | 4/13 [00:00<00:00, 10.87it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  46%|████▌     | 6/13 [00:00<00:00, 12.07it/s][A
-eval task:niah_multiquery_:  46%|████▌     | 6/13 [00:00<00:00, 12.07it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 12.07it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:vt_:  62%|██████▏   | 8/13 [00:00<00:00, 11.23it/s][A
-eval task:niah_multikey_3_:  62%|██████▏   | 8/13 [00:00<00:00, 11.23it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  62%|██████▏   | 8/13 [00:00<00:00, 11.23it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:qa_2_:  62%|██████▏   | 8/13 [00:00<00:00, 11.23it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:qa_2_:  85%|████████▍ | 11/13 [00:00<00:00, 12.84it/s][A
-eval task:niah_single_3_:  85%|████████▍ | 11/13 [00:00<00:00, 12.84it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:fwe_:  85%|████████▍ | 11/13 [00:01<00:00, 12.84it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-
-eval task:fwe_: 100%|██████████| 13/13 [00:01<00:00, 12.79it/s][Aeval task:fwe_: 100%|██████████| 13/13 [00:01<00:00, 12.32it/s]
-eval benchmark:RULER_32000:  92%|█████████▏| 12/13 [00:10<00:00,  1.07it/s]eval benchmark:RULER_32000:  92%|█████████▏| 12/13 [00:10<00:00,  1.07it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:qa_1_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 80.0}[0m
-
-eval task:qa_1_:   8%|▊         | 1/13 [00:00<00:01,  8.55it/s][A
-eval task:niah_multivalue_:   8%|▊         | 1/13 [00:00<00:01,  8.55it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multikey_1_:   8%|▊         | 1/13 [00:00<00:01,  8.55it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_1_:  23%|██▎       | 3/13 [00:00<00:00, 10.34it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 10.34it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_1_:  23%|██▎       | 3/13 [00:00<00:00, 10.34it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_1_:  38%|███▊      | 5/13 [00:00<00:00, 11.87it/s][A
-eval task:niah_multikey_2_:  38%|███▊      | 5/13 [00:00<00:00, 11.87it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multiquery_:  38%|███▊      | 5/13 [00:00<00:00, 11.87it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 99.5}[0m
-
-eval task:niah_multiquery_:  54%|█████▍    | 7/13 [00:00<00:00, 12.69it/s][A
-eval task:vt_:  54%|█████▍    | 7/13 [00:00<00:00, 12.69it/s]             [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.6}[0m
-
-eval task:niah_multikey_3_:  54%|█████▍    | 7/13 [00:00<00:00, 12.69it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  54%|█████▍    | 7/13 [00:00<00:00, 12.69it/s]            [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 67.8}[0m
-
-eval task:cwe_:  77%|███████▋  | 10/13 [00:00<00:00, 15.93it/s][A
-eval task:qa_2_:  77%|███████▋  | 10/13 [00:00<00:00, 15.93it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 60.0}[0m
-
-eval task:niah_single_3_:  77%|███████▋  | 10/13 [00:00<00:00, 15.93it/s][A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_single_3_:  92%|█████████▏| 12/13 [00:00<00:00, 14.56it/s][A
-eval task:fwe_:  92%|█████████▏| 12/13 [00:00<00:00, 14.56it/s]          [A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 96.0}[0m
-eval task:fwe_: 100%|██████████| 13/13 [00:00<00:00, 14.05it/s]
-eval benchmark:RULER_32000: 100%|██████████| 13/13 [00:11<00:00,  1.07it/s]eval benchmark:RULER_32000: 100%|██████████| 13/13 [00:11<00:00,  1.11it/s]
-[1m|  BenchMark  |             Tasks             |        Metric        |  Score   |   AVG    |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |           qa_1_32000          |  string_match_part   |   80.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multivalue_32000     |   string_match_all   |   99.5   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multikey_1_32000     |   string_match_all   |  100.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |      niah_single_2_32000      |   string_match_all   |  100.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |      niah_single_1_32000      |   string_match_all   |  100.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multikey_2_32000     |   string_match_all   |  100.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multiquery_32000     |   string_match_all   |   99.5   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |            vt_32000           |   string_match_all   |   99.6   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multikey_3_32000     |   string_match_all   |  100.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |           cwe_32000           |   string_match_all   |   67.8   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |           qa_2_32000          |  string_match_part   |   60.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |      niah_single_3_32000      |   string_match_all   |  100.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |           fwe_32000           |   string_match_all   |   96.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |            Average            |       Overall        |  92.49   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m|    Total    |            Average            |       Overall        |          |  92.49   |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1mresults_table is saved in ./tasks/results/3_LongLoRA/output_table.xlsx[0m
-[1mThe total running time was : 00:13:18[0m

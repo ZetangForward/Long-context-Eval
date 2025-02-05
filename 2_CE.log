@@ -1,1138 +1,0 @@
-[1mLoading the config information[0m
-  0%|          | 0/1 [00:00<?, ?it/s]Loading RULER config from /mnt/petrelfs/tangzecheng/lte/tasks/General/RULER/RULER.yaml:   0%|          | 0/1 [00:00<?, ?it/s]Loading RULER config from /mnt/petrelfs/tangzecheng/lte/tasks/General/RULER/RULER.yaml: 100%|██████████| 1/1 [00:00<00:00, 292.25it/s]
-[1mThe tasks you've selected are as follows:
-13 tasks: from RULER:['cwe', 'fwe', 'niah_multikey_1', 'niah_multikey_2', 'niah_multikey_3', 'niah_multiquery', 'niah_multivalue', 'niah_single_1', 'niah_single_2', 'niah_single_3', 'qa_1', 'qa_2', 'vt'] 
-Totally 13 tasks[0m
-[1mBenchmark data is currently being downloaded and transformed...[0m
-  0%|          | 0/1 [00:00<?, ?it/s]Downloading RULER data:   0%|          | 0/1 [00:00<?, ?it/s][1mdownloading paulgraham_essay[0m
-PaulGrahamEssays.json already exists
-[1mdownloading qa_dataset[0m
-squad.json already exists
-hotpotqa.json already exists
-
-  0%|          | 0/13 [00:00<?, ?it/s][A
-preparing task cwe_32000:   0%|          | 0/13 [00:00<?, ?it/s][ASkip preparing cwe with lines: 50 to tasks/General/RULER/data/cwe_32000.json (file exists)
-
-preparing task cwe_32000:   8%|▊         | 1/13 [00:03<00:42,  3.56s/it][A
-preparing task fwe_32000:   8%|▊         | 1/13 [00:03<00:42,  3.56s/it][ASkip preparing fwe with lines: 50 to tasks/General/RULER/data/fwe_32000.json (file exists)
-
-preparing task fwe_32000:  15%|█▌        | 2/13 [00:07<00:39,  3.57s/it][A
-preparing task niah_multikey_1_32000:  15%|█▌        | 2/13 [00:07<00:39,  3.57s/it][ASkip preparing niah_multikey_1 with lines: 50 to tasks/General/RULER/data/niah_multikey_1_32000.json (file exists)
-
-preparing task niah_multikey_1_32000:  23%|██▎       | 3/13 [00:10<00:35,  3.55s/it][A
-preparing task niah_multikey_2_32000:  23%|██▎       | 3/13 [00:10<00:35,  3.55s/it][ASkip preparing niah_multikey_2 with lines: 50 to tasks/General/RULER/data/niah_multikey_2_32000.json (file exists)
-
-preparing task niah_multikey_2_32000:  31%|███       | 4/13 [00:14<00:32,  3.58s/it][A
-preparing task niah_multikey_3_32000:  31%|███       | 4/13 [00:14<00:32,  3.58s/it][ASkip preparing niah_multikey_3 with lines: 50 to tasks/General/RULER/data/niah_multikey_3_32000.json (file exists)
-
-preparing task niah_multikey_3_32000:  38%|███▊      | 5/13 [00:18<00:29,  3.71s/it][A
-preparing task niah_multiquery_32000:  38%|███▊      | 5/13 [00:18<00:29,  3.71s/it][ASkip preparing niah_multiquery with lines: 50 to tasks/General/RULER/data/niah_multiquery_32000.json (file exists)
-
-preparing task niah_multiquery_32000:  46%|████▌     | 6/13 [00:22<00:26,  3.73s/it][A
-preparing task niah_multivalue_32000:  46%|████▌     | 6/13 [00:22<00:26,  3.73s/it][ASkip preparing niah_multivalue with lines: 50 to tasks/General/RULER/data/niah_multivalue_32000.json (file exists)
-
-preparing task niah_multivalue_32000:  54%|█████▍    | 7/13 [00:25<00:22,  3.72s/it][A
-preparing task niah_single_1_32000:  54%|█████▍    | 7/13 [00:25<00:22,  3.72s/it]  [ASkip preparing niah_single_1 with lines: 50 to tasks/General/RULER/data/niah_single_1_32000.json (file exists)
-
-preparing task niah_single_1_32000:  62%|██████▏   | 8/13 [00:29<00:18,  3.68s/it][A
-preparing task niah_single_2_32000:  62%|██████▏   | 8/13 [00:29<00:18,  3.68s/it][ASkip preparing niah_single_2 with lines: 50 to tasks/General/RULER/data/niah_single_2_32000.json (file exists)
-
-preparing task niah_single_2_32000:  69%|██████▉   | 9/13 [00:33<00:15,  3.85s/it][A
-preparing task niah_single_3_32000:  69%|██████▉   | 9/13 [00:33<00:15,  3.85s/it][ASkip preparing niah_single_3 with lines: 50 to tasks/General/RULER/data/niah_single_3_32000.json (file exists)
-
-preparing task niah_single_3_32000:  77%|███████▋  | 10/13 [00:37<00:11,  3.78s/it][A
-preparing task qa_1_32000:  77%|███████▋  | 10/13 [00:37<00:11,  3.78s/it]         [ASkip preparing qa_1 with lines: 50 to tasks/General/RULER/data/qa_1_32000.json (file exists)
-
-preparing task qa_1_32000:  85%|████████▍ | 11/13 [00:41<00:07,  3.82s/it][A
-preparing task qa_2_32000:  85%|████████▍ | 11/13 [00:41<00:07,  3.82s/it][ASkip preparing qa_2 with lines: 50 to tasks/General/RULER/data/qa_2_32000.json (file exists)
-
-preparing task qa_2_32000:  92%|█████████▏| 12/13 [00:44<00:03,  3.76s/it][A
-preparing task vt_32000:  92%|█████████▏| 12/13 [00:44<00:03,  3.76s/it]  [ASkip preparing vt with lines: 50 to tasks/General/RULER/data/vt_32000.json (file exists)
-
-preparing task vt_32000: 100%|██████████| 13/13 [00:48<00:00,  3.72s/it][Apreparing task vt_32000: 100%|██████████| 13/13 [00:48<00:00,  3.72s/it]
-Downloading RULER data: 100%|██████████| 1/1 [00:48<00:00, 48.80s/it]Downloading RULER data: 100%|██████████| 1/1 [00:48<00:00, 48.80s/it]
-[1mThe model has initiated the data generation process.[0m
-[1mdevices:0[0m
-[1mdevices:1[0m
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.98s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.11s/it]
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :14.362043857574463[0m
-The 0th chunk:   0%|          | 0/82 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:2[0m
-The 0th chunk:   1%|          | 1/82 [00:09<12:25,  9.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]The 0th chunk:   2%|▏         | 2/82 [00:16<10:56,  8.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.35s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.19s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.81s/it]
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :13.870877504348755[0m
-The 1th chunk:   0%|          | 0/82 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:3[0m
-The 0th chunk:   4%|▎         | 3/82 [00:23<10:14,  7.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:   1%|          | 1/82 [00:09<12:26,  9.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]The 0th chunk:   5%|▍         | 4/82 [00:31<10:03,  7.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:   2%|▏         | 2/82 [00:16<10:45,  8.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.13s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.73s/it]
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :12.851801633834839[0m
-The 2th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:   6%|▌         | 5/82 [00:38<09:43,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:4[0m
-The 1th chunk:   4%|▎         | 3/82 [00:23<10:08,  7.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   1%|          | 1/81 [00:08<11:49,  8.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:   7%|▋         | 6/82 [00:46<09:31,  7.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]The 1th chunk:   5%|▍         | 4/82 [00:31<09:49,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   2%|▏         | 2/81 [00:16<10:31,  7.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:   9%|▊         | 7/82 [00:53<09:20,  7.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.30s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.86s/it]
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :13.081099033355713[0m
-The 3th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:   6%|▌         | 5/82 [00:38<09:34,  7.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  10%|▉         | 8/82 [00:58<08:11,  6.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   4%|▎         | 3/81 [00:23<09:57,  7.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:5[0m
-The 0th chunk:  11%|█         | 9/82 [01:03<07:27,  6.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   1%|          | 1/81 [00:08<11:50,  8.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:   7%|▋         | 6/82 [00:45<09:23,  7.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]The 2th chunk:   5%|▍         | 4/81 [00:30<09:37,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  12%|█▏        | 10/82 [01:08<06:55,  5.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   2%|▏         | 2/81 [00:16<10:33,  8.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:   9%|▊         | 7/82 [00:52<09:12,  7.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.68s/it]
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :12.61863088607788[0m
-The 4th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  13%|█▎        | 11/82 [01:13<06:29,  5.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   6%|▌         | 5/81 [00:38<09:22,  7.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  10%|▉         | 8/82 [00:57<08:06,  6.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  15%|█▍        | 12/82 [01:18<06:08,  5.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   4%|▎         | 3/81 [00:23<09:58,  7.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:6[0m
-The 1th chunk:  11%|█         | 9/82 [01:02<07:22,  6.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   7%|▋         | 6/81 [00:45<09:14,  7.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   1%|          | 1/81 [00:08<11:48,  8.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  16%|█▌        | 13/82 [01:23<06:00,  5.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]The 3th chunk:   5%|▍         | 4/81 [00:30<09:41,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  12%|█▏        | 10/82 [01:07<06:51,  5.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:   9%|▊         | 7/81 [00:50<08:07,  6.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   2%|▏         | 2/81 [00:16<10:33,  8.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  17%|█▋        | 14/82 [01:30<06:44,  5.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  13%|█▎        | 11/82 [01:12<06:28,  5.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  10%|▉         | 8/81 [00:55<07:20,  6.03s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.22s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.86s/it]
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :13.011463642120361[0m
-The 5th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   6%|▌         | 5/81 [00:38<09:26,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  15%|█▍        | 12/82 [01:17<06:07,  5.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  11%|█         | 9/81 [00:59<06:45,  5.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   4%|▎         | 3/81 [00:23<09:59,  7.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mdevices:7[0m
-The 0th chunk:  18%|█▊        | 15/82 [01:38<07:11,  6.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   7%|▋         | 6/81 [00:45<09:18,  7.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  12%|█▏        | 10/81 [01:04<06:21,  5.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  16%|█▌        | 13/82 [01:22<05:56,  5.17s/it]The 5th chunk:   1%|          | 1/81 [00:08<11:57,  8.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]The 4th chunk:   5%|▍         | 4/81 [00:30<09:43,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:   9%|▊         | 7/81 [00:50<08:08,  6.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  14%|█▎        | 11/81 [01:09<06:09,  5.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  20%|█▉        | 16/82 [01:46<07:27,  6.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   2%|▏         | 2/81 [00:16<10:41,  8.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  17%|█▋        | 14/82 [01:30<06:46,  5.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.90s/it]
-The 3th chunk:  10%|▉         | 8/81 [00:55<07:24,  6.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  15%|█▍        | 12/81 [01:14<05:56,  5.17s/it][1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :13.346604108810425[0m
-The 6th chunk:   0%|          | 0/81 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   6%|▌         | 5/81 [00:38<09:29,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  21%|██        | 17/82 [01:53<07:38,  7.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  18%|█▊        | 15/82 [01:36<06:55,  6.19s/it]The 3th chunk:  11%|█         | 9/81 [01:00<06:50,  5.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  16%|█▌        | 13/81 [01:19<05:44,  5.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   4%|▎         | 3/81 [00:23<10:04,  7.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   7%|▋         | 6/81 [00:45<09:20,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   1%|          | 1/81 [00:08<11:50,  8.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  12%|█▏        | 10/81 [01:05<06:28,  5.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]The 0th chunk:  22%|██▏       | 18/82 [02:01<07:43,  7.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  20%|█▉        | 16/82 [01:44<07:17,  6.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   5%|▍         | 4/81 [00:31<09:46,  7.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  17%|█▋        | 14/81 [01:27<06:33,  5.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:   9%|▊         | 7/81 [00:50<08:08,  6.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  14%|█▎        | 11/81 [01:10<06:16,  5.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   2%|▏         | 2/81 [00:16<10:24,  7.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.89s/it]The 4th chunk:  10%|▉         | 8/81 [00:55<07:18,  6.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.19s/it]
-The 0th chunk:  23%|██▎       | 19/82 [02:09<07:42,  7.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-[1mModel and tokenizer initialized.[0m
-[1mModel_deploy time :13.63818645477295[0m
-The 7th chunk:   0%|          | 0/81 [00:00<?, ?it/s]/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
-  warnings.warn(
-/mnt/petrelfs/tangzecheng/anaconda3/envs/lte/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:650: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `32` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
-  warnings.warn(
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  15%|█▍        | 12/81 [01:15<06:04,  5.29s/it]The 5th chunk:   6%|▌         | 5/81 [00:38<09:34,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  21%|██        | 17/82 [01:52<07:33,  6.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  19%|█▊        | 15/81 [01:34<07:03,  6.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  11%|█         | 9/81 [01:00<06:49,  5.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   4%|▎         | 3/81 [00:23<09:56,  7.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  16%|█▌        | 13/81 [01:20<05:50,  5.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  24%|██▍       | 20/82 [02:16<07:41,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   7%|▋         | 6/81 [00:46<09:21,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  12%|█▏        | 10/81 [01:05<06:22,  5.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   1%|          | 1/81 [00:08<11:50,  8.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  22%|██▏       | 18/82 [01:59<07:39,  7.18s/it]The 2th chunk:  20%|█▉        | 16/81 [01:42<07:19,  6.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   5%|▍         | 4/81 [00:30<09:36,  7.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:   9%|▊         | 7/81 [00:50<08:12,  6.66s/it]The 4th chunk:  14%|█▎        | 11/81 [01:09<06:06,  5.24s/it]The 3th chunk:  17%|█▋        | 14/81 [01:27<06:33,  5.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  26%|██▌       | 21/82 [02:24<07:38,  7.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   2%|▏         | 2/81 [00:16<10:26,  7.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  21%|██        | 17/81 [01:50<07:27,  6.99s/it]The 1th chunk:  23%|██▎       | 19/82 [02:07<07:40,  7.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  15%|█▍        | 12/81 [01:14<05:50,  5.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  10%|▉         | 8/81 [00:56<07:30,  6.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   6%|▌         | 5/81 [00:37<09:24,  7.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  19%|█▊        | 15/81 [01:35<07:00,  6.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  27%|██▋       | 22/82 [02:31<07:32,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   4%|▎         | 3/81 [00:23<09:53,  7.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  11%|█         | 9/81 [01:00<06:54,  5.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  22%|██▏       | 18/81 [01:57<07:31,  7.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  24%|██▍       | 20/82 [02:15<07:40,  7.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  16%|█▌        | 13/81 [01:22<06:37,  5.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   7%|▋         | 6/81 [00:45<09:12,  7.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  12%|█▏        | 10/81 [01:05<06:27,  5.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  20%|█▉        | 16/81 [01:42<07:16,  6.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  28%|██▊       | 23/82 [02:39<07:26,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   5%|▍         | 4/81 [00:30<09:35,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:   9%|▊         | 7/81 [00:50<08:09,  6.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  23%|██▎       | 19/81 [02:05<07:31,  7.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  26%|██▌       | 21/82 [02:22<07:37,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  14%|█▎        | 11/81 [01:10<06:09,  5.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  17%|█▋        | 14/81 [01:29<07:06,  6.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  21%|██        | 17/81 [01:50<07:25,  6.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  10%|▉         | 8/81 [00:55<07:20,  6.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   6%|▌         | 5/81 [00:37<09:22,  7.40s/it]The 0th chunk:  29%|██▉       | 24/82 [02:47<07:19,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  15%|█▍        | 12/81 [01:15<05:58,  5.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  25%|██▍       | 20/81 [02:12<07:29,  7.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  27%|██▋       | 22/82 [02:30<07:33,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  19%|█▊        | 15/81 [01:37<07:23,  6.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  11%|█         | 9/81 [00:59<06:47,  5.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  22%|██▏       | 18/81 [01:58<07:30,  7.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   7%|▋         | 6/81 [00:45<09:11,  7.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  30%|███       | 25/82 [02:54<07:12,  7.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  16%|█▌        | 13/81 [01:23<06:42,  5.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  12%|█▏        | 10/81 [01:04<06:25,  5.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  26%|██▌       | 21/81 [02:20<07:26,  7.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  28%|██▊       | 23/82 [02:38<07:27,  7.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  20%|█▉        | 16/81 [01:44<07:34,  6.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:   9%|▊         | 7/81 [00:50<08:06,  6.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  14%|█▎        | 11/81 [01:09<06:09,  5.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  23%|██▎       | 19/81 [02:05<07:30,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  32%|███▏      | 26/82 [03:02<07:01,  7.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  17%|█▋        | 14/81 [01:30<07:11,  6.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  27%|██▋       | 22/81 [02:27<07:21,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  29%|██▉       | 24/82 [02:45<07:21,  7.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  10%|▉         | 8/81 [00:55<07:25,  6.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  15%|█▍        | 12/81 [01:14<05:53,  5.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  21%|██        | 17/81 [01:52<07:39,  7.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  25%|██▍       | 20/81 [02:13<07:29,  7.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  11%|█         | 9/81 [01:00<06:49,  5.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 0th chunk:  33%|███▎      | 27/82 [03:09<06:51,  7.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  19%|█▊        | 15/81 [01:38<07:28,  6.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  28%|██▊       | 23/81 [02:35<07:14,  7.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  30%|███       | 25/82 [02:53<07:15,  7.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  16%|█▌        | 13/81 [01:22<06:37,  5.84s/it]Setting `pad_token_id` to `eos_tThe 5th chunk:  28%|██▊       | 23/81 [08:18<21:52, 22.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  31%|███       | 25/81 [09:05<21:49, 23.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  34%|███▍      | 28/82 [09:50<23:24, 26.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  32%|███▏      | 26/81 [09:35<23:32, 25.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  28%|██▊       | 23/81 [07:54<21:50, 22.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  30%|██▉       | 24/81 [08:05<18:04, 19.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  30%|██▉       | 24/81 [08:45<22:52, 24.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  32%|███▏      | 26/81 [09:31<22:20, 24.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  35%|███▌      | 29/82 [10:17<23:03, 26.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  31%|███       | 25/81 [08:15<15:05, 16.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  31%|███       | 25/81 [08:56<18:50, 20.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  33%|███▎      | 27/81 [10:02<23:26, 26.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  32%|███▏      | 26/81 [09:06<15:38, 17.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  33%|███▎      | 27/81 [09:58<22:33, 25.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  37%|███▋      | 30/82 [10:43<22:40, 26.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  32%|███▏      | 26/81 [08:40<17:23, 18.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  35%|███▍      | 28/81 [10:29<23:17, 26.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  33%|███▎      | 27/81 [09:33<18:00, 20.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  35%|███▍      | 28/81 [10:25<22:32, 25.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  33%|███▎      | 27/81 [09:05<18:43, 20.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  38%|███▊      | 31/82 [11:09<22:17, 26.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  36%|███▌      | 29/81 [10:56<23:03, 26.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  35%|███▍      | 28/81 [09:59<19:28, 22.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  36%|███▌      | 29/81 [10:51<22:27, 25.91s/it]The 7th chunk:  35%|███▍      | 28/81 [09:30<19:21, 21.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  39%|███▉      | 32/82 [11:36<21:53, 26.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  37%|███▋      | 30/81 [11:24<22:45, 26.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  36%|███▌      | 29/81 [10:26<20:20, 23.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  36%|███▌      | 29/81 [09:55<19:52, 22.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  37%|███▋      | 30/81 [11:18<22:14, 26.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  40%|████      | 33/82 [12:03<21:42, 26.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  38%|███▊      | 31/81 [11:51<22:21, 26.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  41%|████▏     | 34/82 [12:14<17:28, 21.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  37%|███▋      | 30/81 [10:53<20:47, 24.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  37%|███▋      | 30/81 [10:20<20:01, 23.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  38%|███▊      | 31/81 [11:45<21:57, 26.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  40%|███▉      | 32/81 [12:18<22:08, 27.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  43%|████▎     | 35/82 [12:41<18:20, 23.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  38%|███▊      | 31/81 [11:20<20:55, 25.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  38%|███▊      | 31/81 [10:45<20:00, 24.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  41%|████      | 33/81 [12:30<18:01, 22.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  40%|███▉      | 32/81 [12:13<21:48, 26.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  41%|████      | 33/81 [12:24<17:45, 22.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  44%|████▍     | 36/82 [13:08<18:45, 24.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  40%|███▉      | 32/81 [11:47<20:57, 25.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  40%|███▉      | 32/81 [11:11<20:00, 24.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  45%|████▌     | 37/82 [13:19<15:25, 20.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  42%|████▏     | 34/81 [12:58<18:48, 24.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  41%|████      | 33/81 [11:21<16:11, 20.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  43%|████▎     | 35/81 [13:09<15:24, 20.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  42%|████▏     | 34/81 [12:52<18:35, 23.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  41%|████      | 33/81 [12:14<20:50, 26.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  43%|████▎     | 35/81 [13:03<15:16, 19.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  46%|████▋     | 38/82 [13:46<16:24, 22.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  42%|████▏     | 34/81 [11:47<17:07, 21.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  42%|████▏     | 34/81 [12:25<16:59, 21.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  44%|████▍     | 36/81 [13:36<16:47, 22.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  44%|████▍     | 36/81 [13:29<16:30, 22.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  48%|████▊     | 39/82 [14:12<16:50, 23.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  43%|████▎     | 35/81 [12:12<17:37, 22.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  43%|████▎     | 35/81 [12:52<17:52, 23.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  49%|████▉     | 40/82 [14:22<13:40, 19.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  46%|████▌     | 37/81 [14:04<17:39, 24.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  44%|████▍     | 36/81 [13:04<14:50, 19.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  46%|████▌     | 37/81 [13:57<17:17, 23.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  44%|████▍     | 36/81 [12:38<17:51, 23.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  50%|█████     | 41/82 [14:49<14:50, 21.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  47%|████▋     | 38/81 [14:32<17:58, 25.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  46%|████▌     | 37/81 [13:31<16:07, 21.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  48%|████▊     | 39/81 [14:43<14:42, 21.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  47%|████▋     | 38/81 [14:24<17:40, 24.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  46%|████▌     | 37/81 [13:04<17:52, 24.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  51%|█████     | 42/82 [15:16<15:30, 23.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  47%|████▋     | 38/81 [13:58<16:55, 23.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  49%|████▉     | 40/81 [15:11<15:46, 23.07s/it]The 7th chunk:  47%|████▋     | 38/81 [13:29<17:44, 24.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  48%|████▊     | 39/81 [14:51<17:52, 25.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  48%|████▊     | 39/81 [14:09<13:47, 19.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  52%|█████▏    | 43/82 [15:43<15:48, 24.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  48%|████▊     | 39/81 [13:55<17:31, 25.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  49%|████▉     | 40/81 [15:19<17:50, 26.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  51%|█████     | 41/81 [15:39<16:21, 24.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  49%|████▉     | 40/81 [14:36<14:59, 21.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  54%|█████▎    | 44/82 [16:09<15:52, 25.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  52%|█████▏    | 42/81 [15:51<13:22, 20.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  49%|████▉     | 40/81 [14:21<17:14, 25.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  51%|█████     | 41/81 [15:46<17:38, 26.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  51%|█████     | 41/81 [15:03<15:38, 23.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  55%|█████▍    | 45/82 [16:36<15:44, 25.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  53%|█████▎    | 43/81 [16:18<14:21, 22.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  56%|█████▌    | 46/82 [16:46<12:33, 20.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  51%|█████     | 41/81 [14:47<16:55, 25.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  54%|█████▍    | 44/81 [16:29<11:47, 19.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  52%|█████▏    | 42/81 [16:13<17:21, 26.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  52%|█████▏    | 42/81 [15:30<15:56, 24.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  53%|█████▎    | 43/81 [16:24<13:49, 21.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  53%|█████▎    | 43/81 [15:41<12:52, 20.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  57%|█████▋    | 47/82 [17:13<13:13, 22.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  52%|█████▏    | 42/81 [15:12<16:34, 25.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  56%|█████▌    | 45/81 [16:57<13:07, 21.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  54%|█████▍    | 44/81 [16:52<14:31, 23.56s/it]The 5th chunk:  54%|█████▍    | 44/81 [16:08<13:49, 22.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  59%|█████▊    | 48/82 [17:40<13:33, 23.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  53%|█████▎    | 43/81 [15:38<16:13, 25.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  57%|█████▋    | 46/81 [17:25<13:43, 23.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  56%|█████▌    | 45/81 [17:19<14:48, 24.68s/it]The 5th chunk:  56%|█████▌    | 45/81 [16:35<14:19, 23.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  60%|█████▉    | 49/82 [18:07<13:36, 24.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  54%|█████▍    | 44/81 [16:04<15:46, 25.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  58%|█████▊    | 47/81 [17:52<14:01, 24.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  59%|█████▉    | 48/81 [18:03<11:20, 20.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  57%|█████▋    | 46/81 [17:02<14:28, 24.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  57%|█████▋    | 46/81 [17:46<14:51, 25.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  56%|█████▌    | 45/81 [16:29<15:22, 25.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  61%|██████    | 50/82 [18:33<13:30, 25.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  60%|██████    | 49/81 [18:13<09:18, 17.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  62%|██████▏   | 51/82 [18:43<10:45, 20.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  58%|█████▊    | 47/81 [17:28<14:16, 25.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  58%|█████▊    | 47/81 [18:13<14:44, 26.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  57%|█████▋    | 46/81 [16:55<14:56, 25.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  62%|██████▏   | 50/81 [18:41<10:35, 20.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  63%|██████▎   | 52/82 [19:11<11:20, 22.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  59%|█████▉    | 48/81 [17:55<14:09, 25.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  59%|█████▉    | 48/81 [18:41<14:31, 26.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  58%|█████▊    | 47/81 [17:21<14:31, 25.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  63%|██████▎   | 51/81 [19:08<11:19, 22.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  65%|██████▍   | 53/82 [19:37<11:32, 23.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  60%|██████    | 49/81 [18:22<13:58, 26.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  60%|██████    | 49/81 [19:08<14:11, 26.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  59%|█████▉    | 48/81 [17:46<14:05, 25.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  64%|██████▍   | 52/81 [19:36<11:39, 24.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  66%|██████▌   | 54/82 [20:04<11:32, 24.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  62%|██████▏   | 50/81 [18:50<13:40, 26.48s/it]The 7th chunk:  60%|██████    | 49/81 [18:12<13:36, 25.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  62%|██████▏   | 50/81 [19:35<13:47, 26.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  62%|██████▏   | 50/81 [18:21<10:45, 20.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  65%|██████▌   | 53/81 [20:03<11:43, 25.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  67%|██████▋   | 55/82 [20:31<11:25, 25.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  63%|██████▎   | 51/81 [19:17<13:20, 26.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  63%|██████▎   | 51/81 [20:02<13:23, 26.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  63%|██████▎   | 51/81 [18:46<11:02, 22.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  67%|██████▋   | 54/81 [20:31<11:37, 25.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  68%|██████▊   | 56/82 [20:58<11:12, 25.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  68%|██████▊   | 55/81 [20:41<09:10, 21.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  64%|██████▍   | 52/81 [19:44<12:57, 26.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  64%|██████▍   | 52/81 [20:29<12:59, 26.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  64%|██████▍   | 52/81 [19:11<11:00, 22.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  70%|██████▉   | 57/82 [21:25<10:55, 26.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  69%|██████▉   | 56/81 [21:09<09:37, 23.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  65%|██████▌   | 53/81 [20:11<12:32, 26.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  65%|██████▌   | 53/81 [20:56<12:35, 26.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  65%|██████▌   | 53/81 [19:35<10:49, 23.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  67%|██████▋   | 54/81 [20:21<09:49, 21.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  71%|███████   | 58/82 [21:52<10:36, 26.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  70%|███████   | 57/81 [21:36<09:46, 24.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  67%|██████▋   | 54/81 [19:59<10:35, 23.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  67%|██████▋   | 54/81 [21:23<12:11, 27.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  68%|██████▊   | 55/81 [20:09<08:22, 19.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  68%|██████▊   | 55/81 [20:48<10:08, 23.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  72%|███████▏  | 59/82 [22:19<10:14, 26.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  72%|███████▏  | 58/81 [22:04<09:42, 25.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  73%|███████▎  | 60/82 [22:30<08:03, 21.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  68%|██████▊   | 55/81 [21:51<11:49, 27.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  69%|██████▉   | 56/81 [20:34<08:45, 21.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  69%|██████▉   | 56/81 [21:15<10:11, 24.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  73%|███████▎  | 59/81 [22:32<09:35, 26.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  74%|███████▍  | 61/82 [22:57<08:12, 23.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  69%|██████▉   | 56/81 [22:19<11:24, 27.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  70%|███████   | 57/81 [20:59<08:51, 22.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  70%|███████   | 57/81 [21:42<10:05, 25.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  74%|███████▍  | 60/81 [23:00<09:20, 26.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  76%|███████▌  | 62/82 [23:24<08:09, 24.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  72%|███████▏  | 58/81 [21:23<08:46, 22.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  70%|███████   | 57/81 [22:47<11:00, 27.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  72%|███████▏  | 58/81 [22:09<09:55, 25.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  75%|███████▌  | 61/81 [23:28<09:04, 27.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  77%|███████▋  | 63/82 [23:51<07:57, 25.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  73%|███████▎  | 59/81 [21:48<08:36, 23.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  72%|███████▏  | 58/81 [23:15<10:41, 27.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  73%|███████▎  | 59/81 [22:37<09:39, 26.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  78%|███████▊  | 64/82 [24:05<06:32, 21.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  74%|███████▍  | 60/81 [22:13<08:21, 23.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  77%|███████▋  | 62/81 [23:56<08:42, 27.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  79%|███████▉  | 65/82 [24:20<05:37, 19.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  73%|███████▎  | 59/81 [23:43<10:13, 27.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  74%|███████▍  | 60/81 [23:04<09:20, 26.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  80%|████████  | 66/82 [24:33<04:46, 17.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  75%|███████▌  | 61/81 [22:38<08:04, 24.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  78%|███████▊  | 63/81 [24:24<08:16, 27.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  82%|████████▏ | 67/82 [24:49<04:18, 17.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  74%|███████▍  | 60/81 [24:11<09:46, 27.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  75%|███████▌  | 61/81 [23:32<09:02, 27.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  79%|███████▉  | 64/81 [24:40<06:47, 23.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  83%|████████▎ | 68/82 [25:04<03:50, 16.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  77%|███████▋  | 62/81 [23:03<07:44, 24.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  80%|████████  | 65/81 [24:55<05:43, 21.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  84%|████████▍ | 69/82 [25:19<03:29, 16.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  78%|███████▊  | 63/81 [23:17<06:22, 21.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  75%|███████▌  | 61/81 [24:39<09:18, 27.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  77%|███████▋  | 62/81 [24:00<08:35, 27.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  81%|████████▏ | 66/81 [25:12<04:58, 19.87s/it]The 1th chunk:  85%|████████▌ | 70/82 [25:33<03:06, 15.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  79%|███████▉  | 64/81 [23:30<05:21, 18.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  78%|███████▊  | 63/81 [24:15<07:02, 23.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  80%|████████  | 65/81 [23:43<04:35, 17.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  87%|████████▋ | 71/82 [25:48<02:47, 15.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  83%|████████▎ | 67/81 [25:26<04:16, 18.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  77%|███████▋  | 62/81 [25:07<08:50, 27.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  79%|███████▉  | 64/81 [24:30<05:59, 21.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  78%|███████▊  | 63/81 [25:18<06:53, 22.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  81%|████████▏ | 66/81 [23:58<04:06, 16.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  88%|████████▊ | 72/82 [26:02<02:30, 15.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  84%|████████▍ | 68/81 [25:42<03:47, 17.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  80%|████████  | 65/81 [24:45<05:06, 19.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  83%|████████▎ | 67/81 [24:08<03:23, 14.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  79%|███████▉  | 64/81 [25:33<05:46, 20.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  89%|████████▉ | 73/82 [26:17<02:13, 14.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  85%|████████▌ | 69/81 [25:57<03:20, 16.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  84%|████████▍ | 68/81 [24:22<03:04, 14.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  81%|████████▏ | 66/81 [25:00<04:29, 17.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  80%|████████  | 65/81 [25:49<05:03, 18.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  90%|█████████ | 74/82 [26:31<01:58, 14.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  86%|████████▋ | 70/81 [26:12<02:59, 16.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  85%|████████▌ | 69/81 [24:35<02:48, 14.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  83%|████████▎ | 67/81 [25:15<03:59, 17.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  91%|█████████▏| 75/82 [26:41<01:33, 13.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  88%|████████▊ | 71/81 [26:22<02:24, 14.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  81%|████████▏ | 66/81 [26:03<04:24, 17.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  93%|█████████▎| 76/82 [26:51<01:14, 12.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  86%|████████▋ | 70/81 [24:49<02:33, 13.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  84%|████████▍ | 68/81 [25:30<03:36, 16.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  89%|████████▉ | 72/81 [26:38<02:12, 14.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  83%|████████▎ | 67/81 [26:19<04:00, 17.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  94%|█████████▍| 77/82 [27:02<00:58, 11.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  88%|████████▊ | 71/81 [25:02<02:16, 13.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  85%|████████▌ | 69/81 [25:45<03:13, 16.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  95%|█████████▌| 78/82 [27:12<00:45, 11.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  84%|████████▍ | 68/81 [26:31<03:22, 15.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  89%|████████▉ | 72/81 [25:10<01:47, 11.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  90%|█████████ | 73/81 [26:53<01:58, 14.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  96%|█████████▋| 79/82 [27:22<00:32, 10.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  90%|█████████ | 73/81 [25:19<01:28, 11.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  85%|████████▌ | 69/81 [26:41<02:45, 13.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  86%|████████▋ | 70/81 [26:01<02:54, 15.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  91%|█████████▏| 74/81 [27:08<01:44, 14.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  91%|█████████▏| 74/81 [25:27<01:12, 10.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  98%|█████████▊| 80/82 [27:32<00:21, 10.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  86%|████████▋ | 70/81 [26:51<02:20, 12.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  93%|█████████▎| 75/81 [25:36<00:59,  9.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  88%|████████▊ | 71/81 [26:15<02:33, 15.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  99%|█████████▉| 81/82 [27:42<00:10, 10.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  93%|█████████▎| 75/81 [27:21<01:27, 14.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  88%|████████▊ | 71/81 [27:02<02:01, 12.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  94%|█████████▍| 76/81 [25:46<00:49,  9.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk: 100%|██████████| 82/82 [27:52<00:00, 10.44s/it]The 1th chunk: 100%|██████████| 82/82 [27:52<00:00, 20.40s/it]
-An unexpected error occurred: CUDA out of memory. Tried to allocate 868.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 483.56 MiB is free. Process 203406 has 26.91 GiB memory in use. Process 211047 has 26.96 GiB memory in use. Including non-PyTorch memory, this process has 24.98 GiB memory in use. Of the allocated memory 21.28 GiB is allocated by PyTorch, and 1.95 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 1 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 868.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 805.56 MiB is free. Process 203406 has 26.93 GiB memory in use. Process 211047 has 26.62 GiB memory in use. Including non-PyTorch memory, this process has 24.98 GiB memory in use. Of the allocated memory 21.28 GiB is allocated by PyTorch, and 1.95 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 2 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 846.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 731.56 MiB is free. Process 203406 has 26.92 GiB memory in use. Process 211047 has 26.91 GiB memory in use. Including non-PyTorch memory, this process has 24.78 GiB memory in use. Of the allocated memory 21.11 GiB is allocated by PyTorch, and 1.92 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 3 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 818.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 747.56 MiB is free. Process 203406 has 26.92 GiB memory in use. Process 211047 has 26.91 GiB memory in use. Including non-PyTorch memory, this process has 24.76 GiB memory in use. Of the allocated memory 20.91 GiB is allocated by PyTorch, and 2.10 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 4 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 866.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 543.56 MiB is free. Process 203406 has 26.92 GiB memory in use. Process 211047 has 26.91 GiB memory in use. Including non-PyTorch memory, this process has 24.96 GiB memory in use. Of the allocated memory 21.25 GiB is allocated by PyTorch, and 1.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 5 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 866.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 789.56 MiB is free. Process 203406 has 26.97 GiB memory in use. Process 211047 has 26.62 GiB memory in use. Including non-PyTorch memory, this process has 24.96 GiB memory in use. Of the allocated memory 21.25 GiB is allocated by PyTorch, and 1.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 6 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 868.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 861.56 MiB is free. Process 203406 has 26.56 GiB memory in use. Process 211047 has 26.93 GiB memory in use. Including non-PyTorch memory, this process has 24.98 GiB memory in use. Of the allocated memory 21.27 GiB is allocated by PyTorch, and 1.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 7 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 866.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 585.56 MiB is free. Process 203406 has 26.91 GiB memory in use. Process 211047 has 26.87 GiB memory in use. Including non-PyTorch memory, this process has 24.97 GiB memory in use. Of the allocated memory 21.51 GiB is allocated by PyTorch, and 1.71 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 8 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 866.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 687.56 MiB is free. Process 203406 has 26.81 GiB memory in use. Process 211047 has 26.87 GiB memory in use. Including non-PyTorch memory, this process has 24.97 GiB memory in use. Of the allocated memory 21.51 GiB is allocated by PyTorch, and 1.71 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 9 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 866.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 651.56 MiB is free. Process 203406 has 26.81 GiB memory in use. Process 211047 has 26.91 GiB memory in use. Including non-PyTorch memory, this process has 24.96 GiB memory in use. Of the allocated memory 21.25 GiB is allocated by PyTorch, and 1.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 10 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 856.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 651.56 MiB is free. Process 203406 has 26.90 GiB memory in use. Process 211047 has 26.91 GiB memory in use. Including non-PyTorch memory, this process has 24.88 GiB memory in use. Of the allocated memory 21.19 GiB is allocated by PyTorch, and 1.94 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 11 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 864.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 683.56 MiB is free. Process 203406 has 26.90 GiB memory in use. Process 211047 has 26.81 GiB memory in use. Including non-PyTorch memory, this process has 24.95 GiB memory in use. Of the allocated memory 21.24 GiB is allocated by PyTorch, and 1.95 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 12 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 864.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 479.56 MiB is free. Process 203406 has 27.01 GiB memory in use. Process 211047 has 26.89 GiB memory in use. Including non-PyTorch memory, this process has 24.95 GiB memory in use. Of the allocated memory 21.25 GiB is allocated by PyTorch, and 1.95 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 13 **********
-The 2th chunk:  94%|█████████▍| 76/81 [27:32<01:06, 13.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  89%|████████▉ | 72/81 [27:13<01:46, 11.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  89%|████████▉ | 72/81 [26:30<02:17, 15.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  95%|█████████▌| 77/81 [25:56<00:39,  9.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  95%|█████████▌| 77/81 [27:42<00:50, 12.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  90%|█████████ | 73/81 [27:23<01:30, 11.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  96%|█████████▋| 78/81 [26:05<00:29,  9.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  90%|█████████ | 73/81 [26:44<01:59, 14.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  96%|█████████▋| 78/81 [27:53<00:35, 11.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  91%|█████████▏| 74/81 [27:33<01:17, 11.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  98%|█████████▊| 79/81 [26:15<00:19,  9.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  91%|█████████▏| 74/81 [26:59<01:43, 14.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  93%|█████████▎| 75/81 [27:43<01:04, 10.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  98%|█████████▊| 79/81 [28:04<00:23, 11.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  99%|█████████▉| 80/81 [26:25<00:09,  9.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  94%|█████████▍| 76/81 [27:54<00:53, 10.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  99%|█████████▉| 80/81 [28:15<00:11, 11.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  93%|█████████▎| 75/81 [27:12<01:25, 14.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk: 100%|██████████| 81/81 [26:34<00:00,  9.62s/it]The 7th chunk: 100%|██████████| 81/81 [26:34<00:00, 19.69s/it]
-An unexpected error occurred: CUDA out of memory. Tried to allocate 864.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 839.56 MiB is free. Process 212524 has 26.06 GiB memory in use. Process 222083 has 27.47 GiB memory in use. Including non-PyTorch memory, this process has 24.97 GiB memory in use. Of the allocated memory 21.25 GiB is allocated by PyTorch, and 1.97 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 1 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 840.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 735.56 MiB is free. Process 212524 has 26.95 GiB memory in use. Process 222083 has 26.93 GiB memory in use. Including non-PyTorch memory, this process has 24.72 GiB memory in use. Of the allocated memory 21.07 GiB is allocated by PyTorch, and 1.90 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 2 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 870.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 375.56 MiB is free. Process 212524 has 26.95 GiB memory in use. Process 222083 has 26.93 GiB memory in use. Including non-PyTorch memory, this process has 25.07 GiB memory in use. Of the allocated memory 21.29 GiB is allocated by PyTorch, and 2.03 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 3 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 866.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 831.56 MiB is free. Process 212524 has 26.60 GiB memory in use. Process 222083 has 26.93 GiB memory in use. Including non-PyTorch memory, this process has 24.98 GiB memory in use. Of the allocated memory 21.25 GiB is allocated by PyTorch, and 1.98 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 4 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 866.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 481.56 MiB is free. Process 212524 has 26.94 GiB memory in use. Process 222083 has 26.93 GiB memory in use. Including non-PyTorch memory, this process has 24.98 GiB memory in use. Of the allocated memory 21.25 GiB is allocated by PyTorch, and 1.98 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 5 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 868.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 487.56 MiB is free. Process 212524 has 26.89 GiB memory in use. Process 222083 has 26.95 GiB memory in use. Including non-PyTorch memory, this process has 25.00 GiB memory in use. Of the allocated memory 21.27 GiB is allocated by PyTorch, and 1.98 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 6 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 868.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 503.56 MiB is free. Process 212524 has 26.89 GiB memory in use. Process 222083 has 26.96 GiB memory in use. Including non-PyTorch memory, this process has 24.98 GiB memory in use. Of the allocated memory 21.27 GiB is allocated by PyTorch, and 1.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 7 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 866.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 819.56 MiB is free. Process 212524 has 26.93 GiB memory in use. Process 222083 has 26.60 GiB memory in use. Including non-PyTorch memory, this process has 24.99 GiB memory in use. Of the allocated memory 21.51 GiB is allocated by PyTorch, and 1.73 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 8 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 856.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 737.56 MiB is free. Process 212524 has 26.91 GiB memory in use. Process 222083 has 26.81 GiB memory in use. Including non-PyTorch memory, this process has 24.88 GiB memory in use. Of the allocated memory 21.19 GiB is allocated by PyTorch, and 1.94 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 9 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 864.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 833.56 MiB is free. Process 212524 has 26.62 GiB memory in use. Process 222083 has 26.91 GiB memory in use. Including non-PyTorch memory, this process has 24.97 GiB memory in use. Of the allocated memory 21.24 GiB is allocated by PyTorch, and 1.97 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 10 **********
-An unexpected error occurred: CUDA out of memory. Tried to allocate 872.00 MiB. GPU 0 has a total capacity of 79.32 GiB of which 397.56 MiB is free. Process 212524 has 26.98 GiB memory in use. Process 222083 has 26.91 GiB memory in use. Including non-PyTorch memory, this process has 25.04 GiB memory in use. Of the allocated memory 21.30 GiB is allocated by PyTorch, and 1.99 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables). Total failed runs: 11 **********
-
-The 5th chunk:  75%|███████▌  | 61/81 [07:29<02:33,  7.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  86%|████████▋ | 70/81 [08:07<00:49,  4.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  81%|████████▏ | 66/81 [07:49<01:15,  5.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  70%|███████   | 57/81 [06:55<03:02,  7.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  94%|█████████▍| 77/82 [08:46<00:22,  4.46s/it]The 0th chunk: 100%|██████████| 82/82 [09:04<00:00,  4.48s/it]The 0th chunk: 100%|██████████| 82/82 [09:04<00:00,  6.65s/it]
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  93%|█████████▎| 75/81 [08:29<00:26,  4.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  88%|████████▊ | 71/81 [08:11<00:45,  4.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  83%|████████▎ | 67/81 [07:54<01:08,  4.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  74%|███████▍  | 60/81 [07:18<02:40,  7.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  77%|███████▋  | 62/81 [07:37<02:25,  7.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  95%|█████████▌| 78/82 [08:50<00:17,  4.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  94%|█████████▍| 76/81 [08:34<00:22,  4.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  89%|████████▉ | 72/81 [08:15<00:40,  4.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  72%|███████▏  | 58/81 [07:02<02:54,  7.59s/it]The 4th chunk:  84%|████████▍ | 68/81 [07:58<01:01,  4.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  78%|███████▊  | 63/81 [07:41<02:00,  6.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  96%|█████████▋| 79/82 [08:55<00:13,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  95%|█████████▌| 77/81 [08:38<00:17,  4.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  90%|█████████ | 73/81 [08:20<00:35,  4.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  85%|████████▌ | 69/81 [08:03<00:55,  4.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  75%|███████▌  | 61/81 [07:25<02:31,  7.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  79%|███████▉  | 64/81 [07:46<01:43,  6.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  98%|█████████▊| 80/82 [08:59<00:09,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  73%|███████▎  | 59/81 [07:10<02:46,  7.56s/it]The 3th chunk:  91%|█████████▏| 74/81 [08:24<00:30,  4.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  96%|█████████▋| 78/81 [08:43<00:13,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  86%|████████▋ | 70/81 [08:07<00:50,  4.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  80%|████████  | 65/81 [07:50<01:29,  5.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk:  99%|█████████▉| 81/82 [09:04<00:04,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  93%|█████████▎| 75/81 [08:28<00:26,  4.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  77%|███████▋  | 62/81 [07:33<02:23,  7.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  98%|█████████▊| 79/81 [08:48<00:09,  4.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  88%|████████▊ | 71/81 [08:11<00:44,  4.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  74%|███████▍  | 60/81 [07:17<02:38,  7.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  81%|████████▏ | 66/81 [07:55<01:18,  5.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 1th chunk: 100%|██████████| 82/82 [09:09<00:00,  4.50s/it]The 1th chunk: 100%|██████████| 82/82 [09:09<00:00,  6.70s/it]
-The 3th chunk:  94%|█████████▍| 76/81 [08:33<00:21,  4.38s/it]The 6th chunk:  78%|███████▊  | 63/81 [07:37<01:58,  6.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk:  99%|█████████▉| 80/81 [08:52<00:04,  4.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  89%|████████▉ | 72/81 [08:16<00:39,  4.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  83%|████████▎ | 67/81 [07:59<01:10,  5.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  79%|███████▉  | 64/81 [07:41<01:39,  5.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  95%|█████████▌| 77/81 [08:37<00:17,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 2th chunk: 100%|██████████| 81/81 [08:57<00:00,  4.50s/it]The 2th chunk: 100%|██████████| 81/81 [08:57<00:00,  6.63s/it]
-The 4th chunk:  90%|█████████ | 73/81 [08:20<00:35,  4.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  75%|███████▌  | 61/81 [07:25<02:30,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  84%|████████▍ | 68/81 [08:04<01:03,  4.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  80%|████████  | 65/81 [07:46<01:27,  5.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  96%|█████████▋| 78/81 [08:42<00:13,  4.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  91%|█████████▏| 74/81 [08:24<00:30,  4.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  85%|████████▌ | 69/81 [08:08<00:57,  4.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  81%|████████▏ | 66/81 [07:50<01:16,  5.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  98%|█████████▊| 79/81 [08:46<00:08,  4.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  77%|███████▋  | 62/81 [07:32<02:23,  7.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  93%|█████████▎| 75/81 [08:29<00:26,  4.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  86%|████████▋ | 70/81 [08:13<00:51,  4.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  83%|████████▎ | 67/81 [07:54<01:08,  4.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk:  99%|█████████▉| 80/81 [08:51<00:04,  4.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  78%|███████▊  | 63/81 [07:37<01:59,  6.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  94%|█████████▍| 76/81 [08:33<00:22,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  88%|████████▊ | 71/81 [08:17<00:45,  4.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  84%|████████▍ | 68/81 [07:59<01:01,  4.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 3th chunk: 100%|██████████| 81/81 [08:55<00:00,  4.45s/it]The 3th chunk: 100%|██████████| 81/81 [08:55<00:00,  6.61s/it]
-The 7th chunk:  79%|███████▉  | 64/81 [07:41<01:40,  5.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  95%|█████████▌| 77/81 [08:38<00:17,  4.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  89%|████████▉ | 72/81 [08:21<00:40,  4.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  85%|████████▌ | 69/81 [08:03<00:54,  4.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  80%|████████  | 65/81 [07:45<01:26,  5.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  96%|█████████▋| 78/81 [08:42<00:13,  4.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  90%|█████████ | 73/81 [08:26<00:35,  4.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  86%|████████▋ | 70/81 [08:07<00:49,  4.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  81%|████████▏ | 66/81 [07:50<01:16,  5.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  98%|█████████▊| 79/81 [08:47<00:08,  4.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  91%|█████████▏| 74/81 [08:30<00:30,  4.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  88%|████████▊ | 71/81 [08:11<00:43,  4.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  83%|████████▎ | 67/81 [07:54<01:09,  4.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk:  99%|█████████▉| 80/81 [08:51<00:04,  4.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  93%|█████████▎| 75/81 [08:34<00:26,  4.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  89%|████████▉ | 72/81 [08:16<00:39,  4.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  84%|████████▍ | 68/81 [07:58<01:01,  4.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 4th chunk: 100%|██████████| 81/81 [08:56<00:00,  4.47s/it]The 4th chunk: 100%|██████████| 81/81 [08:56<00:00,  6.62s/it]
-The 6th chunk:  90%|█████████ | 73/81 [08:20<00:34,  4.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  94%|█████████▍| 76/81 [08:39<00:22,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  85%|████████▌ | 69/81 [08:03<00:55,  4.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  91%|█████████▏| 74/81 [08:24<00:30,  4.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  95%|█████████▌| 77/81 [08:43<00:17,  4.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  86%|████████▋ | 70/81 [08:07<00:49,  4.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  93%|█████████▎| 75/81 [08:28<00:25,  4.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  96%|█████████▋| 78/81 [08:48<00:13,  4.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  88%|████████▊ | 71/81 [08:11<00:43,  4.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  94%|█████████▍| 76/81 [08:33<00:21,  4.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  98%|█████████▊| 79/81 [08:52<00:08,  4.48s/it]The 7th chunk:  89%|████████▉ | 72/81 [08:15<00:37,  4.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  95%|█████████▌| 77/81 [08:37<00:17,  4.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  90%|█████████ | 73/81 [08:19<00:33,  4.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk:  99%|█████████▉| 80/81 [08:57<00:04,  4.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  96%|█████████▋| 78/81 [08:42<00:13,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  91%|█████████▏| 74/81 [08:23<00:29,  4.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 5th chunk: 100%|██████████| 81/81 [09:01<00:00,  4.50s/it]The 5th chunk: 100%|██████████| 81/81 [09:01<00:00,  6.69s/it]
-The 6th chunk:  98%|█████████▊| 79/81 [08:46<00:08,  4.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  93%|█████████▎| 75/81 [08:28<00:25,  4.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk:  99%|█████████▉| 80/81 [08:51<00:04,  4.44s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  94%|█████████▍| 76/81 [08:32<00:21,  4.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 6th chunk: 100%|██████████| 81/81 [08:55<00:00,  4.45s/it]The 6th chunk: 100%|██████████| 81/81 [08:55<00:00,  6.61s/it]
-The 7th chunk:  95%|█████████▌| 77/81 [08:37<00:17,  4.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  96%|█████████▋| 78/81 [08:41<00:13,  4.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  98%|█████████▊| 79/81 [08:46<00:08,  4.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk:  99%|█████████▉| 80/81 [08:50<00:04,  4.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-The 7th chunk: 100%|██████████| 81/81 [08:54<00:00,  4.44s/it]The 7th chunk: 100%|██████████| 81/81 [08:54<00:00,  6.60s/it]
-[1mAll generated data has been successfully stored in tasks/'ability'/'benchmark_name'/prediction/2_CE[0m
-./tasks/01M_31D_16H_15m/output_table.xlsx
-[1mresults_table is saved in ./tasks/01M_31D_16H_15m/output_table.xlsx[0m
-  0%|          | 0/13 [00:00<?, ?it/s][1m****************************************  evaluating  ****************************************[0m
-eval benchmark:RULER_32000:   0%|          | 0/13 [00:00<?, ?it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 18.73it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 18.73it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 18.73it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 18.73it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 20.72it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 20.72it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 20.72it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 20.72it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 22.51it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 22.51it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 22.51it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 22.51it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 20.81it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 20.81it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 20.21it/s]
-eval benchmark:RULER_32000:   8%|▊         | 1/13 [00:00<00:07,  1.55it/s]eval benchmark:RULER_32000:   8%|▊         | 1/13 [00:00<00:07,  1.55it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.40it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.40it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.40it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.40it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.08it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 23.08it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 23.08it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.08it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.47it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.47it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.47it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.47it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 21.61it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 21.61it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.43it/s]
-eval benchmark:RULER_32000:  15%|█▌        | 2/13 [00:01<00:06,  1.61it/s]eval benchmark:RULER_32000:  15%|█▌        | 2/13 [00:01<00:06,  1.61it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.79it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.79it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.79it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.79it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.62it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 23.62it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 23.62it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.62it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.71it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.71it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.71it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.71it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 22.08it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 22.08it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.86it/s]
-eval benchmark:RULER_32000:  23%|██▎       | 3/13 [00:01<00:06,  1.64it/s]eval benchmark:RULER_32000:  23%|██▎       | 3/13 [00:01<00:06,  1.64it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.19it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.19it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.19it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.19it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 20.33it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 20.33it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 20.33it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 20.33it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 22.53it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 22.53it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 22.53it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 22.53it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 21.20it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 21.20it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 20.72it/s]
-eval benchmark:RULER_32000:  31%|███       | 4/13 [00:02<00:05,  1.62it/s]eval benchmark:RULER_32000:  31%|███       | 4/13 [00:02<00:05,  1.62it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.17it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.17it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.17it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.17it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.22it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 23.22it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 23.22it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.22it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.34it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.34it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.34it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.34it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 21.36it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 21.36it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.29it/s]
-eval benchmark:RULER_32000:  38%|███▊      | 5/13 [00:03<00:04,  1.63it/s]eval benchmark:RULER_32000:  38%|███▊      | 5/13 [00:03<00:04,  1.63it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 21.95it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 21.95it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 21.95it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 21.95it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 24.04it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 24.04it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 24.04it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 24.04it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 25.37it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 25.37it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 25.37it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 25.37it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 22.40it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 22.40it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 22.06it/s]
-eval benchmark:RULER_32000:  46%|████▌     | 6/13 [00:03<00:04,  1.65it/s]eval benchmark:RULER_32000:  46%|████▌     | 6/13 [00:03<00:04,  1.65it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.65it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.65it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.65it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.65it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.56it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 23.56it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 23.56it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.56it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.81it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.81it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.81it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.81it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 21.79it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 21.79it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.68it/s]
-eval benchmark:RULER_32000:  54%|█████▍    | 7/13 [00:04<00:03,  1.65it/s]eval benchmark:RULER_32000:  54%|█████▍    | 7/13 [00:04<00:03,  1.65it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.91it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.91it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.91it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.91it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.66it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 23.66it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 23.66it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.66it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.57it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.57it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.57it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.57it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 21.80it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 21.80it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.67it/s]
-eval benchmark:RULER_32000:  62%|██████▏   | 8/13 [00:04<00:03,  1.66it/s]eval benchmark:RULER_32000:  62%|██████▏   | 8/13 [00:04<00:03,  1.66it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.40it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.40it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.40it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.40it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 22.95it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 22.95it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 22.95it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 22.95it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.16it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.16it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.16it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.16it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 21.70it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 21.70it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.44it/s]
-eval benchmark:RULER_32000:  69%|██████▉   | 9/13 [00:05<00:02,  1.65it/s]eval benchmark:RULER_32000:  69%|██████▉   | 9/13 [00:05<00:02,  1.65it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.39it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.39it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.39it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.39it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.21it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 23.21it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 23.21it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.21it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.43it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.43it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.43it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.43it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 21.76it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 21.76it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.48it/s]
-eval benchmark:RULER_32000:  77%|███████▋  | 10/13 [00:06<00:01,  1.65it/s]eval benchmark:RULER_32000:  77%|███████▋  | 10/13 [00:06<00:01,  1.65it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 20.22it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 20.22it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 20.22it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 20.22it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 22.44it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 22.44it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 22.44it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 22.44it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.46it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.46it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.46it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.46it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 21.75it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 21.75it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.32it/s]
-eval benchmark:RULER_32000:  85%|████████▍ | 11/13 [00:06<00:01,  1.65it/s]eval benchmark:RULER_32000:  85%|████████▍ | 11/13 [00:06<00:01,  1.65it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.82it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.82it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.82it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.82it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.66it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 23.66it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 23.66it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.66it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 25.03it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 25.03it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 25.03it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 25.03it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 22.18it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 22.18it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 21.92it/s]
-eval benchmark:RULER_32000:  92%|█████████▏| 12/13 [00:07<00:00,  1.66it/s]eval benchmark:RULER_32000:  92%|█████████▏| 12/13 [00:07<00:00,  1.66it/s]
-  0%|          | 0/13 [00:00<?, ?it/s][A
-eval task:fwe_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<fwe_32000>> Final Metric is: {'string_match_all': 84.96}[0m
-
-eval task:niah_multikey_3_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multikey_3_32000>> Final Metric is: {'string_match_all': 97.53}[0m
-
-eval task:niah_multiquery_:   0%|          | 0/13 [00:00<?, ?it/s][A[1m<<niah_multiquery_32000>> Final Metric is: {'string_match_all': 87.2}[0m
-
-eval task:niah_multiquery_:  23%|██▎       | 3/13 [00:00<00:00, 22.87it/s][A
-eval task:niah_single_2_:  23%|██▎       | 3/13 [00:00<00:00, 22.87it/s]  [A[1m<<niah_single_2_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:cwe_:  23%|██▎       | 3/13 [00:00<00:00, 22.87it/s]          [A[1m<<cwe_32000>> Final Metric is: {'string_match_all': 75.43}[0m
-
-eval task:qa_1_:  23%|██▎       | 3/13 [00:00<00:00, 22.87it/s][A[1m<<qa_1_32000>> Final Metric is: {'string_match_part': 62.0}[0m
-
-eval task:qa_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.63it/s][A
-eval task:vt_:  46%|████▌     | 6/13 [00:00<00:00, 23.63it/s]  [A[1m<<vt_32000>> Final Metric is: {'string_match_all': 99.2}[0m
-
-eval task:qa_2_:  46%|████▌     | 6/13 [00:00<00:00, 23.63it/s][A[1m<<qa_2_32000>> Final Metric is: {'string_match_part': 52.0}[0m
-
-eval task:niah_single_1_:  46%|████▌     | 6/13 [00:00<00:00, 23.63it/s][A[1m<<niah_single_1_32000>> Final Metric is: {'string_match_all': 98.21}[0m
-
-eval task:niah_single_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.90it/s][A
-eval task:niah_multikey_1_:  69%|██████▉   | 9/13 [00:00<00:00, 24.90it/s][A[1m<<niah_multikey_1_32000>> Final Metric is: {'string_match_all': 93.83}[0m
-
-eval task:niah_single_3_:  69%|██████▉   | 9/13 [00:00<00:00, 24.90it/s]  [A[1m<<niah_single_3_32000>> Final Metric is: {'string_match_all': 100.0}[0m
-
-eval task:niah_multikey_2_:  69%|██████▉   | 9/13 [00:00<00:00, 24.90it/s][A[1m<<niah_multikey_2_32000>> Final Metric is: {'string_match_all': 83.95}[0m
-
-eval task:niah_multikey_2_:  92%|█████████▏| 12/13 [00:00<00:00, 16.39it/s][A
-eval task:niah_multivalue_:  92%|█████████▏| 12/13 [00:00<00:00, 16.39it/s][A[1m<<niah_multivalue_32000>> Final Metric is: {'string_match_all': 91.36}[0m
-eval task:niah_multivalue_: 100%|██████████| 13/13 [00:00<00:00, 18.19it/s]
-eval benchmark:RULER_32000: 100%|██████████| 13/13 [00:08<00:00,  1.57it/s]eval benchmark:RULER_32000: 100%|██████████| 13/13 [00:08<00:00,  1.62it/s]
-[1m|  BenchMark  |             Tasks             |        Metric        |  Score   |   AVG    |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |           fwe_32000           |   string_match_all   |  84.96   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multikey_3_32000     |   string_match_all   |  97.53   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multiquery_32000     |   string_match_all   |   87.2   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |      niah_single_2_32000      |   string_match_all   |  100.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |           cwe_32000           |   string_match_all   |  75.43   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |           qa_1_32000          |  string_match_part   |   62.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |            vt_32000           |   string_match_all   |   99.2   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |           qa_2_32000          |  string_match_part   |   52.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |      niah_single_1_32000      |   string_match_all   |  98.21   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multikey_1_32000     |   string_match_all   |  93.83   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |      niah_single_3_32000      |   string_match_all   |  100.0   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multikey_2_32000     |   string_match_all   |  83.95   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |     niah_multivalue_32000     |   string_match_all   |  91.36   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m| RULER_32000 |            Average            |       Overall        |  86.59   |          |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1m|    Total    |            Average            |       Overall        |          |  86.59   |[0m
-[1m|-------------|-------------------------------|----------------------|----------|----------|[0m
-[1mresults_table is saved in ./tasks/results/2_CE/output_table.xlsx[0m
-[1mThe total running time was : 00:12:53[0m
