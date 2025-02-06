@@ -83,10 +83,6 @@ class RULER(Base):
             "output": data["answer"],
             "processed_output": data["answer"],
         }
-
-
-    def modify(self,prompt,model,model_path,**kwargs):
-        return prompt
     
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)

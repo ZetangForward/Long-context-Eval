@@ -2,6 +2,7 @@
 
 An open source framework for evaluating foundation models
 
+[[中文版](README_ZH.md)] [[English](README.md)]
 ## Overview
 
 This project provides a unified framework to test long-text-language models on a large number of different evaluation tasks.

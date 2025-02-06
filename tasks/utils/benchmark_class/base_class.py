@@ -39,8 +39,4 @@ class Base:
                 [{"role": "user", "content": prompt}],
                 tokenize=False, add_generation_prompt=True
             )
-        # else:
-        #     tokenized_prompt = model.tokenizer(prompt, truncation=False, return_tensors="pt").input_ids[0]
-        # if args.max_lenth:
-        #     tokenized_prompt = tokenized_prompt[:args.max_lenth]
         return prompt

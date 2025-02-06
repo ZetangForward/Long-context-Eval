@@ -10,10 +10,10 @@ tasks/*/*/prediction/*
 tasks/*/*/result/*
 tasks/*/*/*.yaml
 lte.egg-info
-/lte/lte.egg-info
 *.xlsx
 *.log
 *.json
 *.png
+*.sh
 dataset/General/data/
 dataset/General/tmp_Rawdata/
