@@ -32,7 +32,7 @@ pip install -e .
 
 ### 用户指南
 
-[此处](./lte/interface.md)提供了详细说明所支持参数完整列表的用户指南，也可以在终端上通过调用`lte -h`来查看。[此处](./tasks/README.md)提供了任务描述和相应子文件夹的链接。如果您想向框架添加任务，请阅读[此处](./tasks/ADD.md)的文档。
+[此处](./lte/interface.md)提供了详细说明所支持参数完整列表的用户指南，也可以在终端上通过调用`lte -h`来查看。[此处](./tasks/README_ZH.md)提供了任务描述和相应子文件夹的链接。如果您想向框架添加任务，请阅读[此处](./tasks/ADD.md)的文档。
 
 ### Hugging Face `transformers`
 
@@ -43,13 +43,13 @@ pip install -e .
 ```bash
 
 lte.run --model_path meta-llama/Llama-3.1-8B-Instruct \
-    # The '--eval' option indicates that the framework should not only generate data but also perform evaluations.
+    # '--eval' 选项表示该框架不仅应生成数据，还应执行评估。
     --eval \
-    # The '--benchmark_configs' option is used to provide the path(s) to the configuration file(s) for the evaluation tasks. Multiple paths can be specified and separated by commas.
+    # '--benchmark_configs' 选项用于提供评估任务的配置文件路径。可以指定多个路径，并用逗号分隔。
     --benchmark_configs tasks/General/RULER/RULER.yaml \
-    # The '--device' option specifies the device (e.g., GPU) on which the evaluation will be carried out.
+    # '--device' 选项用于指定执行评估的设备（例如 GPU）。
     --device 0 \
-    # The '--save_tag' option determines the name of the folder where the evaluation results will be saved.
+    # '--save_tag' 选项用于指定保存评估结果的文件夹名称。
     --save_tag "tmp";
 or
 
@@ -65,7 +65,7 @@ python lte/main.py --model_path meta-llama/Llama-3.1-8B-Instruct   --eval  --ben
 如果在初始运行期间没有选择--eval选项，则可以使用以下命令单独执行评估：
 
 ```bash
-## --folder_name the folder name that saves the result such as Llama-3.1-8B-Instruct_02M_04D_14H_53m 
+## --folder_name 选项用于指定保存结果的文件夹名称，例如 Llama-3.1-8B-Instruct_02M_04D_14H_53m 
 lte.eval --folder_name  Llama-3.1-8B-Instruct_02M_04D_14H_53m  --model_name your_model_name 
 or 
 python lte/eval.py --folder_name Llama-3.1-8B-Instruct_02M_04D_14H_53m   --model_name your_model_name

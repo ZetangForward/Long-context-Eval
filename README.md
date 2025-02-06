@@ -10,7 +10,7 @@ This project provides a unified framework to test long-text-language models on a
 **Features:**
 
 - Over 5 standard academic benchmarks for LLMs, with hundreds of subtasks and variants implemented.
-- Support for models loaded via [transformers](https://github.com/huggingface/transformers/) (including information retrieval implemented via [BM25], [Raptors],[opeenai])(https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG), [Snapkv](https://github.com/FasterDecoding/SnapKV), [SelfExtend](https://github.com/datamllab/LongLM), and [streaming_llm](https://github.com/mit-han-lab/streaming-llm) to accelerate model inference,
+- Support for models loaded via [transformers](https://github.com/huggingface/transformers/),including information retrieval methods such as [BM25](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG), [Raptors](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG), [opeenai](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG), as well as accelerated model inference methods like [Snapkv](https://github.com/FasterDecoding/SnapKV), [SelfExtend](https://github.com/datamllab/LongLM) and [streaming_llm](https://github.com/mit-han-lab/streaming-llm).
 - Support for fast and memory-efficient inference with [vLLM](https://github.com/vllm-project/vllm).
 - Support for evaluation on adapters (e.g. LoRA) supported in [HuggingFace&#39;s PEFT library](https://github.com/huggingface/peft).
 - Support for local models and benchmarks.
