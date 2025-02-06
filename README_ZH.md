@@ -9,7 +9,7 @@ lte是一个用于评估基础模型的开源框架
 **特征:**
 
 - 超过5个LLM标准学术基准，包括数百个子任务和变体。
-- 支持通过[transformer](https://github.com/huggingface/transformers/)加载的模型，包括[BM25](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG)、[Raptors](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG)、[opeenai](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG)信息检索方法,以及[Snapkv](https://github.com/FasterDecoding/SnapKV)、[SelfExtend](https://github.com/datamllab/LongLM)和[streaming_llm](https://github.com/mit-han-lab/streaming-llm)加速模型推理方法。
+- 支持通过[transformer](https://github.com/huggingface/transformers/)加载的模型，包括[BM25](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG)、[Raptors](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG)、[opeenai](https://github.com/lixinze777/LC_VS_RAG/blob/main/RAG)信息检索方法，以及[Snapkv](https://github.com/FasterDecoding/SnapKV)、[SelfExtend](https://github.com/datamllab/LongLM)和[streaming_llm](https://github.com/mit-han-lab/streaming-llm)加速模型推理方法。
 - 支持使用[vLLM](https://github.com/vllm-project/vllm)快速且内存高效的推理。
 - 支持对[HuggingFace&#39;s PEFT library](https://github.com/huggingface/peft)中提供的适配器（例如 LoRA）进行评估。
 - 支持本地模型和基准。
@@ -76,21 +76,21 @@ python lte/eval.py --folder_name Llama-3.1-8B-Instruct_02M_04D_14H_53m   --model
 
 使用时，还有更多相关参数，例如
 
-- `save_tag`:可选参数。使用它来指定要保存的文件的名称。
-- `torch_dtype`:指定要使用的 PyTorch 数据类型。default="torch.bfloat16"
-- `limit`:接受一个整数，或者只是`auto`。它将限制要评估的文档数量为前 X 个文档。default=“auto”
-- `adapter_path`:指定适配器模型的位置。
-- `template`:指定在数据中添加模板，供模型生成，例如：'''[INST] Below is a context and an instruction.Context:{YOUR LONG CONTEXT}Instruction:{YOUR QUESTION & INSTRUCTION} [/INST]''
-- `max_lenth`:最大长度，指数据的最大长度，如果长度超出此限制，数据将会在中间被分割。
-- `device_split_num`:每个任务需要的gpu数量。default=1
+- `save_tag`：可选参数。使用它来指定要保存的文件的名称。
+- `torch_dtype`：指定要使用的 PyTorch 数据类型。default="torch.bfloat16"
+- `limit`：接受一个整数，或者只是`auto`。它将限制要评估的文档数量为前 X 个文档。default=“auto”
+- `adapter_path`：指定适配器模型的位置。
+- `template`：指定在数据中添加模板，供模型生成，例如：'''[INST] Below is a context and an instruction.Context:{YOUR LONG CONTEXT}Instruction:{YOUR QUESTION & INSTRUCTION} [/INST]''
+- `max_lenth`：最大长度，指数据的最大长度，如果长度超出此限制，数据将会在中间被分割。
+- `device_split_num`：每个任务需要的gpu数量。default=1
 
 ### 框架和加速选项
 
-您可以使用--server选择要使用的推理框架、--rag决定是否启用信息检索并选择检索系统以及、--acceleration确定是否启用加速框架并选择具体的加速方法。
+您可以使用 --server 选择要使用的推理框架、--rag 决定是否启用信息检索并选择检索系统以及、--acceleration 确定是否启用加速框架并选择具体的加速方法。
 
 #### 1. rag
 
-我们的框架整合了信息检索功能，为用户提供了四种不同的方法：BM25、contriever、llamaindex 和 openai。每种方法都具有从大型数据集中检索相关信息的独特优势。但需要注意的是，这些检索方法的处理速度相对较慢。
+我们的框架整合了信息检索功能，为用户提供了四种不同的方法：BM25、contriever、llamaindex和openai。每种方法都具有从大型数据集中检索相关信息的独特优势。但需要注意的是，这些检索方法的处理速度相对较慢。
 
 ```bash
 lte.run --model_path meta-llama/Llama-3.1-8B-Instruct \
