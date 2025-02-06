@@ -1,3 +1,0 @@
-[console_scripts]
-lte.eval = lte.eval:eval
-lte.run = lte.main:main
