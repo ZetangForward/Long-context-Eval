@@ -58,9 +58,6 @@ class NIAH(Base):
             "processed_output": data["answer"],
         }
 
-    def modify(self, prompt, model, model_path,args,**kwargs):
-        
-        return prompt
 
 
 
