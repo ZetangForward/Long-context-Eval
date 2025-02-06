@@ -112,7 +112,7 @@ lte.run --model_path meta-llama/Llama-3.1-8B-Instruct \
 
 #### 3. acceleration
 
-我们的框架支持加速框架，例如[Snapkv](https://github.com/FasterDecoding/SnapKV), [SelfExtend](https://github.com/datamllab/LongLM), and [streaming_llm](https://github.com/mit-han-lab/streaming-llm)来加速模型推理。需要注意的是，这些框架对环境设置和模型兼容性都有严格的要求。请根据每个框架的官方文档（或 ./models_deploy/server 中的 README 文件）配置您的环境，并确保您的模型兼容。
+我们的框架支持加速框架，例如[Snapkv](https://github.com/FasterDecoding/SnapKV)，[SelfExtend](https://github.com/datamllab/LongLM)，和[streaming_llm](https://github.com/mit-han-lab/streaming-llm)来加速模型推理。需要注意的是，这些框架对环境设置和模型兼容性都有严格的要求。请根据每个框架的官方文档（或 ./models_deploy/server 中的 README 文件）配置您的环境，并确保您的模型兼容。
 
 > [!Note]
 > 正确设置环境后，请取消注释 ./models_deploy/init.py 中的相关代码以使用加速框架。
