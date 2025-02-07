@@ -2,6 +2,7 @@
 
 lte是一个用于评估基础模型的开源框架
 
+[[中文版](README_ZH.md)] [[English](README.md)]
 ## 概述
 
 该项目提供了一个集成大量不同的评估任务的长文本语言模型评测框架。
@@ -32,7 +33,7 @@ pip install -e .
 
 ### 用户指南
 
-[此处](./lte/interface.md)提供了详细说明所支持参数完整列表的用户指南，也可以在终端上通过调用`lte -h`来查看。[此处](./tasks/README_ZH.md)提供了任务描述和相应子文件夹的链接。如果您想向框架添加任务，请阅读[此处](./tasks/ADD.md)的文档。
+[此处](./lte/interface.md)提供了详细说明所支持参数完整列表的用户指南，也可以在终端上通过调用`lte -h`来查看。[此处](./tasks/README_ZH.md)提供了任务描述和如何运行的的链接。如果您想向框架添加benchmark，请阅读[此处](./tasks/ADD.md)的文档。
 
 ### Hugging Face `transformers`
 
@@ -90,7 +91,7 @@ python lte/eval.py --folder_name Llama-3.1-8B-Instruct_02M_04D_14H_53m   --model
 
 #### 1. rag
 
-我们的框架整合了信息检索功能，为用户提供了四种不同的方法：BM25、contriever、llamaindex和openai。每种方法都具有从大型数据集中检索相关信息的独特优势。但需要注意的是，这些检索方法的处理速度相对较慢。
+我们的框架整合了信息检索功能，为用户提供了三种不同的方法：BM25、contriever和openai。每种方法都具有从大型数据集中检索相关信息的独特优势。但需要注意的是，这些检索方法的处理速度相对较慢。
 
 ```bash
 lte.run --model_path meta-llama/Llama-3.1-8B-Instruct \

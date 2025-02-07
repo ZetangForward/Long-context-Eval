@@ -6,6 +6,7 @@ from tqdm import tqdm
 from transformers import  AutoTokenizer
 import numpy as np
 import pdb,sys
+from multiprocessing import Pool
 import argparse
 from loguru import logger
 logger.remove()
@@ -31,6 +32,8 @@ class NeedleHaystackDataSy:
         logger.info (f"- Document Depths: {len(self.document_depth_percents)}, Min: {min(self.document_depth_percents)}%, Max: {max(self.document_depth_percents)}%")
         logger.info (f"- Needle: {self.needle.strip()}")
         logger.info ("\n")
+
+
     def run(self, args):
         # Run through each iteration of context_lengths and depths
         path = "./tasks/Retrieve/NIAH/data/niah.json"
@@ -41,9 +44,8 @@ class NeedleHaystackDataSy:
                 progress_bar.set_description(f"Processing context length_{context_length}")
                 for depth_percent in  self.document_depth_percents:
                     context = self.generate_context(context_length, depth_percent)
-                    data =  {'context_length' : int(context_length),'depth_percent' : float(depth_percent),'needle' : self.needle,"passage": context,"question": self.config["retrieval_question"],"choices": "","answer": self.config["needle"]}
+                    data =  {'context_length' : int(context_length),'depth_percent' : float(depth_percent),'needle' : self.needle,"passage": context,"question": self.config["retrieval_question"],"choices": "","answer": self.config["answer"]}
                     f.write(json.dumps(data, ensure_ascii=False) + "\n")
-
 
     def generate_context(self, context_length, depth_percent):
         # Load up tiktoken so we navigate tokens more easily

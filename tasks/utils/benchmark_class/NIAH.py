@@ -51,14 +51,14 @@ class NIAH(Base):
     def transform(self,data,task_name,**kwargs):
         question = data['question']
         context = data["passage"]
-        prompt = f"This is a very long story book:  {context} \n Based on the content of the book, Question: {question}\nAnswer:"
+        prompt = f"<|im_start|> This is a very long story book: <book> {context} </book>.\n Based on the content of the book, Question: {question}\nAnswer:"
         return {
             "input": prompt,
             "output": data["answer"],
             "processed_output": data["answer"],
         }
 
-
-
-
+    def modify(self, prompt, model, model_path,**kwargs):
+        """Adjust input prompt to fit within the model's token limit."""
+        return prompt
 

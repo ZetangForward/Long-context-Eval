@@ -7,6 +7,7 @@
 benchmark_name: NIAH
 tasks: ["niah"]
 needle: "\nThe best thing to do in San Francisco is eat a sandwich and sit in Dolores Park on a sunny day.\n"
+answer: "eat a sandwich and sit in Dolores Park on a sunny day."
 haystack_file: "./tasks/Retrieve/NIAH/tmp_Rawdata/PaulGrahamEssays.json"
 retrieval_question: "What is the best thing to do in San Francisco?"
 context_lengths_min: 1000 
