@@ -33,7 +33,7 @@ pip install -e .
 
 ### 用户指南
 
-[此处](./lte/interface.md)提供了详细说明所支持参数完整列表的用户指南，也可以在终端上通过调用`lte -h`来查看。[此处](./tasks/README_ZH.md)提供了任务描述和如何运行的的链接。如果您想向框架添加benchmark，请阅读[此处](./tasks/ADD.md)的文档。
+[此处](./lte/interface_ZH.md)提供了详细说明所支持参数完整列表的用户指南，也可以在终端上通过调用`lte -h`来查看。[此处](./tasks/README_ZH.md)提供了任务描述和相应子文件夹的链接。如果您想向框架添加任务，请阅读[此处](./tasks/ADD_ZH.md)的文档。
 
 ### Hugging Face `transformers`
 

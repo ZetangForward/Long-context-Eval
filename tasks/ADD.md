@@ -5,7 +5,7 @@ reate your benchmark.py in ./tasks/utils/benchmark_class and inherit from BASE i
 ```python
 llm_param = {
 }
-metric1 = {"metric_name1":None} #The None position can be a dictionary that stores the parameters required for evaluation.
+metric1 = {"metric_name1":None} #The None position can be a dictionary that stores the parameters required for evaluation
 Class benchmark(Base):
     def __init__(self,limit):
         super().__init__()
@@ -15,10 +15,10 @@ Class benchmark(Base):
         data_path = f"tasks/{ability}/{benchmark_name}/data"
         limit = int(limit) if limit!="auto" else 10000
         hf = ""  #for download data
-        llm_params = {"task_name1":llm_paramm} #he llm_params attribute is a dictionary where the keys are the task names specified in task_names, and the values are the parameters for model inference corresponding to each task
-        metric = {"task_name1":metric1} #The parameter is a string. Please add it to the METRICS_REGISTRY function in lab/lte/metrics/__init__.py for importing the evaluation metrics.
+        llm_params = {"task_name1":llm_paramm} #The llm_params attribute is a dictionary where the keys are the task names specified in task_names, and the values are the parameters for model inference corresponding to each task
+        metric = {"task_name1":metric1} #The parameter is a string. Please add it to the METRICS_REGISTRY function in lab/lte/metrics/__init__.py for importing the evaluation metrics
 ``` 
-### evaluation metrics.
+### evaluation metrics
 The evaluation functions obtained through METRICS_REGISTRY are as follows:
 
 ``` python
