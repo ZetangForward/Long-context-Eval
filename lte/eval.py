@@ -1,4 +1,4 @@
-## python lte/eval.py --folder_name Llama-3.1-8B-Instruct_02M_05D_18H_15m --model_name Llama-3.1-8B-Instruct
+## python lte/eval.py --data_save_path Llama-3.1-8B_02M_04D_14H_52m
 #02M_03D_14H_32m
 from transformers import pipeline
 import os
@@ -21,47 +21,7 @@ logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")
 from tasks.utils.benchmark_class import get_benchmark_class
-def make_df_niah(data,PRETRAINED_LEN,save_path):
-    df = pd.DataFrame(data)
-    locations = list(df["Context Length"].unique())
-    locations.sort()
-    for li, l in enumerate(locations):
-        if(l > PRETRAINED_LEN): break
-    pretrained_len = li
-    pivot_table = pd.pivot_table(df, values='Score', index=['Document Depth', 'Context Length'], aggfunc='mean').reset_index() # This will aggregate
-    pivot_table = pivot_table.pivot(index="Document Depth", columns="Context Length", values="Score") # This will turn into a proper pivot
-    pivot_table.iloc[:5, :5]
-    pivot_table.to_excel(save_path+'/heatmap.xlsx')
-    logger.info(f"heatmap_excel  in {save_path}/niah.xlsx...")
-    return pivot_table,pretrained_len
-def draw_heatmap_niah(pivot_table,model_name,pretrained_len,save_path):
-    import seaborn as sns
-    import matplotlib.pyplot as plt
-    from matplotlib.colors import LinearSegmentedColormap
-    cmap = LinearSegmentedColormap.from_list("custom_cmap", ["#F0496E", "#EBB839", "#0CD79F"])
-    # Create the heatmap with better aesthetics
-    f = plt.figure(figsize=(17.5, 8))  # Can adjust these dimensions as needed
-    heatmap = sns.heatmap(
-        pivot_table,
-        vmin=0, vmax=1,
-        cmap=cmap,
-        cbar_kws={'label': 'Score'},
-        linewidths=0.5,  # Adjust the thickness of the grid lines here
-        linecolor='grey',  # Set the color of the grid lines
-        linestyle='--'
-    )
-    # More aesthetics
-    model_name_ = model_name
-    plt.title(f'Pressure Testing {model_name_} \nFact Retrieval Across Context Lengths ("Needle In A HayStack")')  # Adds a title
-    plt.xlabel('Token Limit')  # X-axis label
-    plt.ylabel('Depth Percent')  # Y-axis label
-    plt.xticks(rotation=45)  # Rotates the x-axis labels to prevent overlap
-    plt.yticks(rotation=0)  # Ensures the y-axis labels are horizontal
-    plt.tight_layout()  # Fits everything neatly into the figure area
-    # Add a vertical line at the desired column index
-    plt.axvline(x=pretrained_len + 0.8, color='white', linestyle='--', linewidth=4)
-    logger.info("heatmap saving at %s" % save_path+"/image.png" )
-    plt.savefig(save_path+"/image.png", dpi=150)
+
 def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, metric_max_len, excel_file_path):
     # 定义每列的宽度，新增 AVG 列
     column_widths = [benchmark_name_max_len + 2, task_name_max_len + 10, metric_max_len + 5, 10, 10]
@@ -151,6 +111,7 @@ def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, 
             "-" * column_widths[4]
         ))
         rows.append(["Total", "Average", "Overall", "", total_avg])
+
     # 创建 DataFrame
     df = pd.DataFrame(rows, columns=header)
     # 保存到 Excel 文件
@@ -173,12 +134,12 @@ def eval():
     args = handle_cli_args()
     args.limit = "auto"
     benchmark_list = []
-    folder_name = args.folder_name
+    data_save_path = args.data_save_path
     for ability in os.listdir("tasks"):
         ability_path = os.path.join("tasks", ability)
         if os.path.isdir(ability_path):
             for benchmark in os.listdir(ability_path):
-                benchmark_path = os.path.join(ability_path, benchmark, "prediction",folder_name)
+                benchmark_path = os.path.join(ability_path, benchmark, "prediction",data_save_path)
                 if os.path.exists(benchmark_path):
                     if benchmark =="RULER":
                         for task_name in  os.listdir(benchmark_path):
@@ -189,8 +150,6 @@ def eval():
     progress_bar = tqdm(benchmark_list)
     logger.info("*"*40+"  evaluating  "+"*"*40)
     for benchmark_name in progress_bar:
-        if benchmark_name=="NIAH":
-            data_niah=[]
         benchmark_name_max_len = max(benchmark_name_max_len,len(benchmark_name))
         benchmark_dict[benchmark_name] = {}
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
@@ -199,7 +158,7 @@ def eval():
             benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1],args)
         else:
             benchmark = get_benchmark_class(benchmark_name)(args)
-        task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{folder_name}")
+        task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{data_save_path}")
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:
             task_name = task_name[:-5]
@@ -210,12 +169,12 @@ def eval():
                 if length!=benchmark.length:
                     continue
                 metrics = construct_metrics(benchmark.metric["_".join(task_name.split("_")[:-1])])
-                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"results",folder_name,task_name+".json")
-                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",folder_name,task_name+".json")
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",data_save_path,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",data_save_path,task_name+".json")
             else:
                 metrics = construct_metrics(benchmark.metric[task_name])
-                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"results",folder_name,task_name+".json")
-                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",folder_name,task_name+".json")
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",data_save_path,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",data_save_path,task_name+".json")
             task_name_max_len = max(task_name_max_len,len(task_name))
             os.makedirs(save_task_path, exist_ok=True)
             if not os.path.exists(generation_results_path):
@@ -239,10 +198,6 @@ def eval():
                                 gathered_metrics[metric_name_sub].append(score[metric_name_sub])
                         else:
                             gathered_metrics[metric_name].append(score)
-                        if benchmark_name=="NIAH":
-                            data_niah.append({"Document Depth": eval_dict["depth_percent"],
-                            "Context Length": eval_dict["context_length"],
-                            "Score": eval_dict["score"]})
             with open(generation_results_path, "w", encoding="utf-8") as f:
                 for eval_dict in data:
                     f.write(json.dumps(eval_dict, ensure_ascii=False) + '\n')
@@ -253,8 +208,10 @@ def eval():
                     final_metrics[metric] = round(np.array(gathered_metrics[metric]).mean(),2)
                 else:
                     final_metrics[metric] = round(100*np.array(gathered_metrics[metric]).mean(),2)
+            
             benchmark_dict[benchmark_name][task_name] = final_metrics
             logger.info("<<{}>> Final Metric is: {}".format(task_name, final_metrics))
+
             dump_data = {
                 "task_name": task_name,
                 "instance_result": gathered_metrics,
@@ -265,15 +222,14 @@ def eval():
             ) as fout:
                 json.dump(dump_data, fout, indent=4, ensure_ascii=False)
             if benchmark.benchmark_name == "NIAH":
-                save_path = f"./tasks/Retrieve/NIAH/results/{folder_name}"
-                PRETRAINED_LEN=81920
-                pivot_table,pretrained_len =make_df_niah(data_niah,PRETRAINED_LEN,save_path)
-                if benchmark.config["draw_heatmap"]:
-                    draw_heatmap_niah(pivot_table,args.model_name,pretrained_len,save_path)
-        output_path = f"./tasks/{benchmark.ability}/{benchmark.benchmark_name}/results/{folder_name}"
-        os.makedirs(output_path,exist_ok=True)
-        print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/{benchmark.ability}/{benchmark.benchmark_name}/results/{folder_name}/output_table.xlsx")
-        logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
+                command = ["python","../lte/tasks/utils/draw/niah.py",
+                    "--file_path",f"./tasks/Retrieve/NIAH/prediction/{data_save_path}",
+                    "--model_name",data_save_path.split("_")[-1]]
+                subprocess.run(command)
+    output_path = f"./tasks/results/{data_save_path}"
+    os.makedirs(output_path,exist_ok=True)
+    print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/results/{data_save_path}/output_table.xlsx")
+    logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
     
 if __name__ =="__main__":
     eval()
