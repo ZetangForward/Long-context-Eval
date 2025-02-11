@@ -172,16 +172,15 @@ def construct_metrics(metrics_configs):
 
 def eval():
     benchmark_dict = defaultdict(lambda: defaultdict(dict))
-    benchmark_name_max_len,task_name_max_len,metric_max_len = 0,0,0
     args = handle_cli_args()
     args.limit = "auto"
     benchmark_list = []
-    data_save_path = args.data_save_path
+    folder_name = args.folder_name
     for ability in os.listdir("tasks"):
         ability_path = os.path.join("tasks", ability)
         if os.path.isdir(ability_path):
             for benchmark in os.listdir(ability_path):
-                benchmark_path = os.path.join(ability_path, benchmark, "prediction",data_save_path)
+                benchmark_path = os.path.join(ability_path, benchmark, "prediction",folder_name)
                 if os.path.exists(benchmark_path):
                     if benchmark =="RULER":
                         for task_name in  os.listdir(benchmark_path):
@@ -192,7 +191,8 @@ def eval():
     progress_bar = tqdm(benchmark_list)
     logger.info("*"*40+"  evaluating  "+"*"*40)
     for benchmark_name in progress_bar:
-        benchmark_name_max_len = max(benchmark_name_max_len,len(benchmark_name))
+        if benchmark_name=="NIAH":
+            data_niah=[]
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
         match = re.compile(r'_(\d+)').search(benchmark_name)
         if match:
@@ -211,13 +211,12 @@ def eval():
                 if length!=benchmark.length:
                     continue
                 metrics = construct_metrics(benchmark.metric["_".join(task_name.split("_")[:-1])])
-                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",data_save_path,task_name+".json")
-                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",data_save_path,task_name+".json")
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",folder_name,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",folder_name,task_name+".json")
             else:
                 metrics = construct_metrics(benchmark.metric[task_name])
-                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",data_save_path,task_name+".json")
-                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",data_save_path,task_name+".json")
-            task_name_max_len = max(task_name_max_len,len(task_name))
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",folder_name,task_name+".json")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",folder_name,task_name+".json")
             os.makedirs(save_task_path, exist_ok=True)
             if not os.path.exists(generation_results_path):
                 continue
@@ -240,12 +239,15 @@ def eval():
                                 gathered_metrics[metric_name_sub].append(score[metric_name_sub])
                         else:
                             gathered_metrics[metric_name].append(score)
+                        if benchmark_name=="NIAH":
+                            data_niah.append({"Document Depth": eval_dict["depth_percent"],
+                            "Context Length": eval_dict["context_length"],
+                            "Score": eval_dict["score"]})
             with open(generation_results_path, "w", encoding="utf-8") as f:
                 for eval_dict in data:
                     f.write(json.dumps(eval_dict, ensure_ascii=False) + '\n')
             final_metrics = {}
             for metric in gathered_metrics:
-                metric_max_len = max(len(metric),metric_max_len)
                 if metric in ["cite_num","niah"]:
                     final_metrics[metric] = round(np.array(gathered_metrics[metric]).mean(),2)
                 else:
@@ -268,20 +270,14 @@ def eval():
                 os.path.join(save_task_path, "final_metrics.json"), "w", encoding="utf-8"
             ) as fout:
                 json.dump(dump_data, fout, indent=4, ensure_ascii=False)
+                
             if benchmark.benchmark_name == "NIAH":
-                command = ["python","../lte/tasks/utils/draw/niah.py",
-                    "--file_path",f"./tasks/Retrieve/NIAH/prediction/{data_save_path}",
-                    "--model_name",data_save_path.split("_")[-1]]
-                subprocess.run(command)
-    output_path = f"./tasks/results/{data_save_path}"
-    os.makedirs(output_path,exist_ok=True)
-    print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/results/{data_save_path}/output_table.xlsx")
-    logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
                 save_path = f"./tasks/Retrieve/NIAH/results/{folder_name}"
                 PRETRAINED_LEN=81920
                 pivot_table,pretrained_len =make_df_niah(data_niah,PRETRAINED_LEN,save_path)
-                if benchmark.config["draw_heatmap"]:
-                    draw_heatmap_niah(pivot_table,args.model_name,pretrained_len,save_path)
+                draw_heatmap_niah(pivot_table,args.model_name,pretrained_len,save_path)
+
+
         output_path = f"./tasks/{benchmark.ability}/{benchmark.benchmark_name}/results/{folder_name}"
         os.makedirs(output_path,exist_ok=True)
         print_dict_in_table_format(benchmark_dict,f"./tasks/{benchmark.ability}/{benchmark.benchmark_name}/results/{folder_name}/output_table.xlsx")

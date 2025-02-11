@@ -17,3 +17,4 @@ lte.egg-info
 *.sh
 dataset/General/data/
 dataset/General/tmp_Rawdata/
+nohup.out
