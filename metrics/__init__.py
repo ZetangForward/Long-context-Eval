@@ -8,11 +8,13 @@ from .couting_stars.counting_stars_reasoning import Counting_Stars_Reasoning
 from .general_metrics.meteor_score import METEOR
 from .gpt import GPT_Loogle_Su,GPT_Loogle_Qa
 from .longbench_metrics import Count_Score,Retrieval_Score,Retrieval_ZH_Score,Code_Sim_Score,Classification_Score,Rouge_Score,F1_Score,Qa_F1_Score,Qa_F1_ZH_Score,Precision,Recall,Qa_Recall,Qa_Precision,Qa_F1_Zh_Score,Rouge_Zh_Score
-
 from .couting_stars.counting_stars_citation import  Counting_Stars_Citation_ACC,Counting_Stars_Citation_Precision,Counting_Stars_Citation_Recall,Counting_Stars_Citation_F1
 from .general_metrics.string_math import  String_Match_Part, String_Match_All
 from .l_citeeavl_metrics import L_cite_eavl_Counting_Stars,L_cite_eavl_Niah,L_cite_eavl_Qa_Score,L_cite_eavl_Rouge_Score,L_cite_eavl_cite,L_cite_eavl_niah_cite,L_cite_eavl_counting_stars_cite
 from .niah import niah
+from .LEval.f1 import le_f1
+from .LEval.rouge import le_rouge
+from .LEval.em import le_em
 METRICS_REGISTRY = {
     "bert_score":Bert_Score,
     "bleu1": BLEU1,
@@ -51,7 +53,10 @@ METRICS_REGISTRY = {
     "l_cite_eavl_cite":L_cite_eavl_cite,
     "l_cite_eavl_niah_cite":L_cite_eavl_niah_cite,
     "l_cite_eavl_counting_stars_cite":L_cite_eavl_counting_stars_cite,
-    "niah":niah
+    "niah":niah,
+    "le_f1":le_f1,
+    "le_em":le_em,
+    "le_rouge":le_rouge,
 }
 
 

@@ -20,7 +20,7 @@ task_download_name = {
 "counting_stars_zh_searching": "Counting_Stars_ZH_multi-evidence-retrieval-searching_128000_32_32.jsonl"}
 
 class Counting_Stars(Base):
-    def __init__(self,args):
+    def __init__(self,args,**kwargs):
         super().__init__()
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000

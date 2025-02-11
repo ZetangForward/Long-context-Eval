@@ -53,7 +53,6 @@ class Transformer():
         if "max_tokens" in params_:
             params_["max_new_tokens"]=params_["max_tokens"]
             params_.pop("max_tokens")
-        # zecheng_note
         input = self.tokenizer(prompt, truncation=False, return_tensors="pt").to(self.model.device)
         context_length = input.input_ids.shape[-1]
         if "glm" in self.args.model_path:

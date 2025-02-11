@@ -18,7 +18,7 @@ llm_param = {"narrativeqa":llm_params3, "qasper":llm_params3, "multifieldqa_en":
 task_metric = {'vcsum': {'rouge_zh_score': None}, 'triviaqa_e': {'qa_f1_score': None}, 'triviaqa': {'qa_f1_score': None}, 'trec_e': {'classification_score': None}, 'trec': {'classification_score': None}, 'samsum_e': {'rouge_score': None}, 'samsum': {'rouge_score': None}, 'repobench-p_e': {'code_sim_score': None}, 'repobench-p': {'code_sim_score': None}, 'qmsum': {'rouge_score': None}, 'qasper_e': {'qa_f1_score': None}, 'qasper': {'qa_f1_score': None}, 'passage_retrieval_zh': {'retrieval_zh_score': None}, 'passage_retrieval_en_e': {'retrieval_score': None}, 'passage_retrieval_en': {'retrieval_score': None}, 'passage_count_e': {'count_score': None}, 'passage_count': {'count_score': None}, 'narrativeqa': {'qa_f1_score': None}, 'musique': {'qa_f1_score': None}, 'multifieldqa_zh': {'qa_f1_zh_score': None}, 'multifieldqa_en_e': {'qa_f1_score': None}, 'multifieldqa_en': {'qa_f1_score': None}, 'multi_news_e': {'rouge_score': None}, 'multi_news': {'rouge_score': None}, 'lsht': {'classification_score': None}, 'lcc_e': {'code_sim_score': None}, 'lcc': {'code_sim_score': None}, 'hotpotqa_e': {'qa_f1_score': None}, 'hotpotqa': {'qa_f1_score': None}, 'gov_report_e': {'rouge_score': None}, 'gov_report': {'rouge_score': None}, 'dureader': {'rouge_zh_score': None}, '2wikimqa_e': {'qa_f1_score': None}, '2wikimqa': {'qa_f1_score': None}}
 
 class LongBench(Base):
-    def __init__(self,args):
+    def __init__(self,args,**kwargs):
         super().__init__()
         self.benchmark_name = "LongBench"
         self.task_names = task_list
@@ -75,11 +75,8 @@ class LongBench(Base):
         "lcc": "Please complete the code given below. \n{context}Next line of code:\n",
         "repobench-p": "Please complete the code given below. \n{context}{input}Next line of code:\n"
     }
-        return {
-            "input": prompt_list[task_name].format(context=data["passage"],input=data["question"],choices = data["choices"]),
-            "output": data["answer"],
-            "processed_output": data["answer"],
-        }
+        return prompt_list[task_name].format(context=data["passage"],input=data["question"],choices = data["choices"])
+   
     
     def transform_data(self,raw_data):
         return {

@@ -20,7 +20,7 @@ metric_list = {"bleu1":None,"bleu4":None,"rouge":None,"meteor_score":None,"bert_
 from tasks.utils.benchmark_class.base_class import Base
 
 class LooGLE(Base):
-    def __init__(self,args):
+    def __init__(self,args,**kwargs):
         super().__init__()
         self.benchmark_name = "LooGLE"
         self.task_names = ["longdep_qa","longdep_summarization"]
@@ -89,11 +89,7 @@ class LooGLE(Base):
             prompt = prompt_list["longdep_qa"]
         else:
             prompt = prompt_list["longdep_summarization"]
-        return {
-            "input": prompt.format(input=data["passage"],question=data["question"]),
-            "output": data["answer"],
-            "processed_output": data["answer"],
-        }
+        return  prompt.format(input=data["passage"],question=data["question"])
     def transform_data(self,raw_data):
         return {
             "passage": raw_data["input"],

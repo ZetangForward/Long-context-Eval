@@ -14,7 +14,7 @@ metric1 = {"l_cite_eavl_cite":None}
 metric2 = {"l_cite_eavl_counting_stars_cite":None}
 metric3 = {"l_cite_eavl_niah_cite":None}
 class L_CiteEval(Base):
-    def __init__(self,args):
+    def __init__(self,args,**kwargs):
         super().__init__()
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
@@ -66,12 +66,8 @@ class L_CiteEval(Base):
                 with open("./tasks/utils/demo_prompt/L-CiteEval/{}".format(prompt+"_default.json"), 'r') as f:
                     demo_prompt = json.load(f)
                 model_input= self.get_instruction_template(prompt, demo_prompt, data)
-                return{
-                    "input": model_input,
-                    "output": data["answer"],
-                    "processed_output": data["answer"],
-                }
-
+                return model_input
+      
     def make_doc_prompt(self,doc, doc_id, doc_prompt):
         if type(doc) == str:
             text = doc

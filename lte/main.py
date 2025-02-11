@@ -54,7 +54,7 @@ class Evaluator():
                         raw_input = Instance(json.loads(line.strip()))
                         prompt_input = benchmark.transform(raw_input.data, task_name)
                         self.tasks_list.append([task_name,benchmark,Request(
-                            instances=prompt_input,
+                            prompt_input=prompt_input,
                             params=benchmark.llm_params[task_name],
                             raw_example=raw_input,
                         )])
@@ -70,7 +70,7 @@ class Evaluator():
             os.environ["CUDA_VISIBLE_DEVICES"] = devices
             p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
             p.start()
-            time.sleep(3)
+            time.sleep(5)
             processes.append(p)
         for p in processes:
             p.join()
@@ -87,21 +87,23 @@ class Evaluator():
         model.deploy()
         failed = 0
         for task_name,benchmark,request in tqdm(raw_data,desc="The {}th chunk".format(i)):
-            request.instances["input"] = benchmark.modify(request.instances["input"],model,model_path,args=self.args)
+            request.prompt_input = benchmark.modify(request.prompt_input,model,model_path,args=self.args)
             try:
                 with torch.no_grad(): 
-                    result = model.generate(request.params, request.instances["input"])
+                    result = model.generate(request.params, request.prompt_input)
             except Exception as general_err:
                 failed += 1
                 logger.info(f"An unexpected error occurred: {general_err}. Total failed runs: {failed} **********")
                         #Post-processing
-            raw_outputs, processed_outputs = result[::],result[::]
+            if "sci_fi" in task_name:
+                text_inputs = request.raw_example.data["question"].replace("based on the world described in the document.", "based on the real-world knowledge and facts up until your last training") + "Please directly answer without any additional output or explanation. \nAnswer:"
+                result += f" [fact: {model.generate(request.params, text_inputs)}]"
             if  hasattr(benchmark, 'postprocess'):
-                processed_outputs = benchmark.postprocess(raw_outputs)
-            request.raw_example.raw_outputs = raw_outputs
-            request.raw_example.processed_outputs = processed_outputs
-            request.raw_example.ground_truth = request.instances["processed_output"]
-            request.raw_example.prompt_inputs = request.instances["input"]
+                if benchmark.benchmark_name=="LEval":
+                    request.raw_example.data["answer"],processed_outputs = benchmark.postprocess(task_name,request.raw_example.data["answer"],result)
+                else:
+                    processed_outputs = benchmark.postprocess(task_name,result)
+ 
             if hasattr(benchmark, 'length'):
                 path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.folder_name}",task_name+f"_{benchmark.length}"+".json")
                 os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.folder_name}"), exist_ok=True)
@@ -111,9 +113,10 @@ class Evaluator():
 
             with open(path, "a", encoding="utf-8") as f:
                 data = request.raw_example.data
+                data["passage"]= ""
                 data["choices"] = data["passage"]
-                data["pred"] = request.raw_example.processed_outputs
-                data["model_input"] = request.instances["input"]
+                data["pred"] = processed_outputs
+                data["model_input"] = request.prompt_input
                 json.dump(data, f, ensure_ascii=False)
                 f.write('\n')
 
@@ -170,7 +173,7 @@ def main():
                     task_len += len(benchmark.task_names)
                     all_tasks[benchmark.benchmark_name]=benchmark.task_names
             else:
-                benchmark = get_benchmark_class(benchmark_name)(args)
+                benchmark = get_benchmark_class(benchmark_name)(args,config)
                 benchmark.task_names = config["tasks"]
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
@@ -204,7 +207,6 @@ def main():
             logger.info("performing information retrieval")
             rag.traverse_task()    
     
-   
 
     #start to generate
     logger.info("The model has initiated the data generation process.")

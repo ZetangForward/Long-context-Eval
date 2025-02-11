@@ -21,7 +21,7 @@ metric_list = {"niah": None}
 from tasks.utils.benchmark_class.base_class import Base
 
 class NIAH(Base):
-    def __init__(self,args):
+    def __init__(self,args,config,**kwargs):
         super().__init__()
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
@@ -33,8 +33,7 @@ class NIAH(Base):
         self.llm_params = {"niah":llm_params}
         self.metric = {"niah":metric_list}
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-        with open("./tasks/Retrieve/NIAH/NIAH.yaml", "r") as f:
-            self.config = yaml.safe_load(f)
+        self.config = config
         
         
     def download_and_transform_data(self,args,**kwargs):
@@ -52,11 +51,8 @@ class NIAH(Base):
         question = data['question']
         context = data["passage"]
         prompt = f"<|im_start|> This is a very long story book: <book> {context} </book>.\n Based on the content of the book, Question: {question}\nAnswer:"
-        return {
-            "input": prompt,
-            "output": data["answer"],
-            "processed_output": data["answer"],
-        }
+        return prompt
+
 
     def modify(self, prompt, model, model_path,**kwargs):
         """Adjust input prompt to fit within the model's token limit."""

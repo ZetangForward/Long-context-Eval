@@ -22,17 +22,10 @@ class Base:
         raise NotImplementedError("Subclasses must implement this method.")
     
     def transform(self, data, task_name,**kwargs):
-
-        return {
-            "input": data["question"],
-            "output": data["answer"],
-            "processed_output": data["answer"],
-        }
-    
+        return  data["question"]
     def modify(self, prompt, model, model_path,**kwargs):
         """Adjust input prompt to fit within the model's token limit."""
-        args = handle_cli_args()
-        if args.template:
+        if self.args.template:
             prompt = self.args.template.format(user_input=prompt, assistant_response='')
         elif hasattr(model.tokenizer, 'apply_chat_template') and hasattr(model.tokenizer, 'chat_template') and model.tokenizer.chat_template:
             prompt = model.tokenizer.apply_chat_template(

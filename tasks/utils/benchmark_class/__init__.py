@@ -6,13 +6,15 @@ from tasks.utils.benchmark_class.LongBench import LongBench
 from tasks.utils.benchmark_class.Counting_Stars import Counting_Stars
 from tasks.utils.benchmark_class.L_CiteEval import L_CiteEval
 from tasks.utils.benchmark_class.NIAH import NIAH
+from tasks.utils.benchmark_class.LEval import LEval
 Class_REGISTRY = {
     "LooGLE":LooGLE,
     "RULER":RULER,
     "LongBench":LongBench,
     "Counting_Stars":Counting_Stars,
     "L_CiteEval":L_CiteEval,
-    "NIAH":NIAH
+    "NIAH":NIAH,
+    "LEval":LEval
 }
 
 def get_benchmark_class(benchmark_name):

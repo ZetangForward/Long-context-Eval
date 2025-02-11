@@ -31,7 +31,7 @@ metric_list2 = {"string_match_part": None}
 from tasks.utils.benchmark_class.base_class import Base
 
 class RULER(Base):
-    def __init__(self,length,args):
+    def __init__(self,length,args,**kwargs):
         super().__init__()
         with open("./tasks/General/RULER/RULER.yaml") as f:
             config = yaml.safe_load(f)
@@ -78,12 +78,8 @@ class RULER(Base):
 
     def transform(self,data,task_name,**kwargs):
 
-        return {
-            "input": data["question"],
-            "output": data["answer"],
-            "processed_output": data["answer"],
-        }
-    
+        return data["question"]
+   
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)

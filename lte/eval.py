@@ -1,4 +1,4 @@
-## python lte/eval.py --folder_name Llama-3.1-8B-Instruct_02M_05D_18H_15m --model_name Llama-3.1-8B-Instruct
+## x'qxq
 #02M_03D_14H_32m
 from transformers import pipeline
 import os
@@ -62,8 +62,10 @@ def draw_heatmap_niah(pivot_table,model_name,pretrained_len,save_path):
     plt.axvline(x=pretrained_len + 0.8, color='white', linestyle='--', linewidth=4)
     logger.info("heatmap saving at %s" % save_path+"/image.png" )
     plt.savefig(save_path+"/image.png", dpi=150)
-def print_dict_in_table_format(data, benchmark_name_max_len, task_name_max_len, metric_max_len, excel_file_path):
-    # 定义每列的宽度，新增 AVG 列
+def print_dict_in_table_format(data, excel_file_path):
+    benchmark_name_max_len = max(len(name) for name in data.keys())
+    task_name_max_len = max(len(task) for tasks in data.values() for task in tasks.keys())
+    metric_max_len = max(len(metric) for tasks in data.values() for metrics in tasks.values() for metric in metrics.keys())
     column_widths = [benchmark_name_max_len + 2, task_name_max_len + 10, metric_max_len + 5, 10, 10]
     header = ["BenchMark", "Tasks", "Metric", "Score", "AVG"]
     # 打印表头
@@ -168,7 +170,7 @@ def construct_metrics(metrics_configs):
     return metrics_configs
 
 def eval():
-    benchmark_dict = {}
+    benchmark_dict = defaultdict(lambda: defaultdict(dict))
     benchmark_name_max_len,task_name_max_len,metric_max_len = 0,0,0
     args = handle_cli_args()
     args.limit = "auto"
@@ -192,16 +194,16 @@ def eval():
         if benchmark_name=="NIAH":
             data_niah=[]
         benchmark_name_max_len = max(benchmark_name_max_len,len(benchmark_name))
-        benchmark_dict[benchmark_name] = {}
         progress_bar.set_description(f"eval benchmark:{benchmark_name}")
         match = re.compile(r'_(\d+)').search(benchmark_name)
         if match:
             benchmark = get_benchmark_class(benchmark_name.split("_")[0])(benchmark_name.split("_")[-1],args)
         else:
-            benchmark = get_benchmark_class(benchmark_name)(args)
+            benchmark = get_benchmark_class(benchmark_name)(args,config={"max_length":1000})
         task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{folder_name}")
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:
+            print(task_name)
             task_name = task_name[:-5]
             progress_bar2.set_description(f"eval task:{task_name[:-5]}")
             gathered_metrics = defaultdict(list)
@@ -253,7 +255,13 @@ def eval():
                     final_metrics[metric] = round(np.array(gathered_metrics[metric]).mean(),2)
                 else:
                     final_metrics[metric] = round(100*np.array(gathered_metrics[metric]).mean(),2)
-            benchmark_dict[benchmark_name][task_name] = final_metrics
+            if benchmark_name=="LEval":
+                if task_name in benchmark.datasets_closed_ended:
+                    benchmark_dict[benchmark_name+"_closed"][task_name] = final_metrics
+                else:
+                    benchmark_dict[benchmark_name+"_open"][task_name] = final_metrics
+            else:
+                benchmark_dict[benchmark_name][task_name] = final_metrics
             logger.info("<<{}>> Final Metric is: {}".format(task_name, final_metrics))
             dump_data = {
                 "task_name": task_name,
@@ -272,7 +280,7 @@ def eval():
                     draw_heatmap_niah(pivot_table,args.model_name,pretrained_len,save_path)
         output_path = f"./tasks/{benchmark.ability}/{benchmark.benchmark_name}/results/{folder_name}"
         os.makedirs(output_path,exist_ok=True)
-        print_dict_in_table_format(benchmark_dict,benchmark_name_max_len,task_name_max_len,metric_max_len,f"./tasks/{benchmark.ability}/{benchmark.benchmark_name}/results/{folder_name}/output_table.xlsx")
+        print_dict_in_table_format(benchmark_dict,f"./tasks/{benchmark.ability}/{benchmark.benchmark_name}/results/{folder_name}/output_table.xlsx")
         logger.info("results_table is saved in {}".format(output_path+"/output_table.xlsx"))
     
 if __name__ =="__main__":
