@@ -53,17 +53,18 @@ class Base:
                     if index>=self.limit:
                         break
                     raw_data = json.loads(line.strip())
+
                     new_data = self.transform_data(raw_data)
                     f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
     def convert_from_datasets(self,dataset, output_path):
-         with open(output_path, "w", encoding="utf-8") as f2:
-                for index, raw_data in enumerate(dataset):
-                    if index>=self.limit:
-                        break
-                    new_data = self.transform_data(raw_data)
-                    f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
+        with open(output_path, "w", encoding="utf-8") as f2:
+            for index, raw_data in enumerate(dataset):
+                if index>=self.limit:
+                    break
+                new_data = self.transform_data(raw_data)
+                f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
     def make_data(self,dataset,ability,task_name):
-        output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
+        output_path = "./tasks/{}/{}/data/{}.jsonl".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
         if isinstance(dataset,str):
             data_path = dataset
@@ -73,7 +74,6 @@ class Base:
     def download():
         print("Connection refused>")
         return 
-           
     def download_and_transform_data(self,**kwargs):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
@@ -87,8 +87,8 @@ class Base:
                 self.make_data(data,self.ability,task_name)
             except Exception as e:
                 print(f"{type(e).__name__}: {e}")
-                print(f"You can refer to the corresponding README to manually download the data.")
-                path = "./tasks/{}/{}/tmp_Rawdata/{}.json".format(self.ability,self.benchmark_name,task_name)
-                self.make_data(path,self.ability,task_name)
-            finally:
-                raise ImportError(f"cannot load {task_name}, check your network")
+                path = "./tasks/{}/{}/tmp_Rawdata/{}.jsonl".format(self.ability,self.benchmark_name,task_name)
+                try:
+                    self.make_data(path, self.ability, task_name)
+                except Exception as inner_e:
+                        print(f"cannot load {task_name}, check your network. or You can refer to the corresponding README to manually download the data")

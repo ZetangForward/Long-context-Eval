@@ -1,13 +1,10 @@
-# Faithfulness
+# Retrieve
 
-## Benchmarks
+## NIAH
 
-1. L-CiteEval
-
-
-
-## Example Code
-
+### Example Code
+NIAH
 ```python
-lte.run --model_path "meta-llama/Llama-3.1-8B-Instruct" --eval --benchmark_configs tasks/faithfulness/L_CiteEval/L_CiteEval.yaml --device 2,5,6,7 --save_tag "tag"
-```
+lte.run --model_path caskcsg/Llama-3-8B-NExtLong-512K-Instruct --eval --benchmark_configs /tasks/Retrieve/NIAH/NIAH.yaml --device 1,3,4,7 --save_tag "tag"
+
+

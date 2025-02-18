@@ -3,7 +3,7 @@
 import json
 from tasks.utils.benchmark_class.base_class import Base
 from datasets import load_dataset, config
-import subprocess
+from tqdm import tqdm
 
 llm_param1 = {"max_tokens": 128,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
 llm_param2 = {"max_tokens": 200,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
@@ -26,7 +26,24 @@ class L_CiteEval(Base):
         self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
         self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-
+    def download_and_transform_data(self,**kwargs):
+        progress_bar = tqdm(self.task_names)
+        for task_name in progress_bar:
+            progress_bar.set_description(f"Downloading task {task_name}")
+            default_cache_dir = config.HF_DATASETS_CACHE
+            try:
+                if self.check_cache_exists(self.hf, task_name, default_cache_dir):
+                    data = load_dataset(self.hf,task_name,split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
+                else:
+                    data = load_dataset(self.hf,task_name,cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
+                self.make_data(data,self.ability,task_name)
+            except Exception as e:
+                print(f"{type(e).__name__}: {e}")
+                path = "./tasks/{}/{}/tmp_Rawdata/{}.jsonl".format(self.ability,self.benchmark_name,task_name)
+                try:
+                    self.make_data(path, self.ability, task_name)
+                except Exception as inner_e:
+                        print(f"cannot load {task_name}, check your network. or You can refer to the corresponding README to manually download the data")
     def transform(self,data,task_name,**kwargs):
         prompt_list = {
             "2wikimultihopqa":"{D}\n\nWrite an accurate, engaging, and concise answer to the given question using only the provided passages (some of which might be irrelevant). Use an unbiased and journalistic tone. Every sentence must include a citation at the end, referencing at least one passage and at most three. When citing several passages, use separate brackets for each index number, like [a][b][c], instead of combining them in one set of brackets, like [a, b, c]. Here, a, b and c represent different index numbers. If multiple passages support the sentence, only cite a minimum sufficient subset of the passages.\n\nQuestion: {Q}\nAnswer: ",
@@ -43,7 +60,7 @@ class L_CiteEval(Base):
         }
         for prompt in prompt_list:
             if prompt in task_name:
-                with open("./tasks/utils/demo_prompt/L-CiteEval/{}".format(prompt+"_default.json"), 'r') as f:
+                with open("./tasks/utils/demo_prompt/L-CiteEval/{}".format(prompt+"_default.jsonl"), 'r') as f:
                     demo_prompt = json.load(f)
                 model_input= self.get_instruction_template(prompt, demo_prompt, data)
                 return model_input

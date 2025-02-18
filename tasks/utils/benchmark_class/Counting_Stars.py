@@ -38,14 +38,18 @@ class Counting_Stars(Base):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
             progress_bar.set_description(f"Downloading task {task_name}")
-            download_path = "./tasks/{}/{}/tmp_Rawdata/{}.json".format(self.ability,self.benchmark_name,task_name)
+            download_path = "./tasks/{}/{}/tmp_Rawdata/{}.jsonl".format(self.ability,self.benchmark_name,task_name)
             os.makedirs("./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name),exist_ok=True)
             command = ["wget","-c",self.hf+task_download_name[task_name],"-O",download_path]
             try:
                 subprocess.run(command)
                 self.make_data(download_path,self.ability,task_name)
             except:
+                print()
+                self.make_data(download_path,self.ability,task_name)
+            finally:
                 raise ImportError(f"cannot load {task_name}, check your network or You can refer to the corresponding README to manually download the data.")
+                
 
 
     def transform_data(self,raw_data):

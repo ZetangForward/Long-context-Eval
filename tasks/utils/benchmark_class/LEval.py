@@ -53,14 +53,25 @@ class LEval(Base):
         self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
         self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
     def make_data(self,dataset,ability,task_name):
-        output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
+        output_path = "./tasks/{}/{}/data/{}.jsonl".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
-        with open(output_path, "w", encoding="utf-8") as f2:
-             for index, raw_data in enumerate(dataset):
-                if index>=self.limit:
-                    break
-                new_data = self.transform_data(raw_data,task_name)
-                f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
+        if isinstance(dataset,str):
+            data_path = dataset
+            with open(data_path, "r", encoding="utf-8") as f1:
+                with open(output_path, "w", encoding="utf-8") as f2:
+                    for index, line in enumerate(f1):
+                        if index>=self.limit:
+                            break
+                        raw_data = json.loads(line.strip())
+                        new_data = self.transform_data(raw_data)
+                        f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
+        else:
+            with open(output_path, "w", encoding="utf-8") as f2:
+                for index, raw_data in enumerate(dataset):
+                    if index>=self.limit:
+                        break
+                    new_data = self.transform_data(raw_data,task_name)
+                    f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
     def transform_data(self,raw_data,task_name):
         sys_prompt = self.get_sys_prompt("exam" if task_name in self.datasets_closed_ended else "test", task_name)
         document = raw_data['input']
