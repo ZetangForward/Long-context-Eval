@@ -48,6 +48,7 @@ class Transformer():
 
         params_ = deepcopy(self.params_dict)
         params_.update(params_dict)
+
         if "stop" in params_:
             params_["eos_token_id"]=[self.tokenizer.eos_token_id, self.tokenizer.encode("{}".format(params_["stop"]), add_special_tokens=False)[-1]]
             params_.pop("stop")
@@ -55,7 +56,9 @@ class Transformer():
             params_["max_new_tokens"]=params_["max_tokens"]
             params_.pop("max_tokens")
         input = self.tokenizer(prompt, truncation=False, return_tensors="pt").to(self.model.device)
+
         context_length = input.input_ids.shape[-1]
+
         if "glm" in self.args.model_path:
             params_ = {"max_new_tokens":params_["max_new_tokens"],"do_sample": False}
 
