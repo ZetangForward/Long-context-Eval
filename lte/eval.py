@@ -234,7 +234,7 @@ def eval():
                         eval_dict = json.loads(line.strip())
                     except:
                         continue
-                    passage,choices,pred,label = eval_dict["passage"],eval_dict["choices"],eval_dict["pred"],eval_dict["answer"]  # label
+                    passage,choices,pred,label = eval_dict["passage"],eval_dict["choices"],eval_dict["pred"],eval_dict["label"]
                     if task_name in ["trec", "triviaqa", "samsum", "lsht"]:
                         pred= pred.lstrip('\n').split('\n')[0]
                     for metric_name,metric in metrics.items():
