@@ -171,7 +171,7 @@ def main():
                     task_len += len(benchmark.task_names)
                     all_tasks[benchmark.benchmark_name]=benchmark.task_names
             else:
-                benchmark = get_benchmark_class(benchmark_name)(args,config)
+                benchmark = get_benchmark_class(benchmark_name)(args,config=config)
                 benchmark.task_names = config["tasks"]
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)
