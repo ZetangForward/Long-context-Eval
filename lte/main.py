@@ -100,9 +100,9 @@ class Evaluator():
                 result += f" [fact: {model.generate(request.params, text_inputs)}]"
             if  hasattr(benchmark, 'postprocess'):
                 if benchmark.benchmark_name=="LEval":
-                    request.raw_example.data["answer"],processed_outputs = benchmark.postprocess(task_name,request.raw_example.data["answer"],result)
+                    request.raw_example.data["answer"],result = benchmark.postprocess(task_name,request.raw_example.data["answer"],result)
                 else:
-                    processed_outputs = benchmark.postprocess(task_name,result)
+                    result = benchmark.postprocess(task_name,result)
  
             if hasattr(benchmark, 'length'):
                 path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+f"_{benchmark.length}"+".json")
@@ -115,7 +115,7 @@ class Evaluator():
                 data = request.raw_example.data
                 data["passage"]= ""
                 data["choices"] = data["passage"]
-                data["pred"] = processed_outputs
+                data["pred"] = result
                 data["model_input"] = request.prompt_input
                 json.dump(data, f, ensure_ascii=False)
                 f.write('\n')
