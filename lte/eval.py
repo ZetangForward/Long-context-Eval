@@ -1,11 +1,10 @@
-## python lte/eval.py --folder_name _02M_18D_22H_11m --model_name test
+## python lte/eval.py --folder_name Meta-Llama-3.1-8B-Instruct_02M_18D_22H_02m --model_name Meta-Llama-3.1-8B-Instruct
 from transformers import pipeline
 import os
 import re
 import sys
 import pandas as pd
 import json
-sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 from tqdm import tqdm
 from metrics import get_metric
 from collections import defaultdict
@@ -180,7 +179,10 @@ def eval():
                 if os.path.exists(benchmark_path):
                     if benchmark =="RULER":
                         for task_name in  os.listdir(benchmark_path):
-                            length = task_name.split("_")[-1][:-6]
+                            if task_name.endswith(".json"):
+                                length = task_name.split("_")[-1][:-5]
+                            elif task_name.endswith(".jsonl"):
+                                length = task_name.split("_")[-1][:-6]
                             benchmark_list.append(benchmark+f"_{length}")
                     else:
                         benchmark_list.append(benchmark)
@@ -198,9 +200,11 @@ def eval():
         task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{folder_name}")
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:
-            print(task_name)
-            task_name = task_name[:-6]
-            progress_bar2.set_description(f"eval task:{task_name[:-6]}")
+            if task_name.endswith(".json"):
+                task_name = task_name[:-5]
+            elif task_name.endswith(".jsonl"):
+                task_name = task_name[:-6]
+            progress_bar2.set_description(f"eval task:{task_name}")
             gathered_metrics = defaultdict(list)
             if "RULER" in benchmark_name:
                 length = task_name.split("_")[-1]
@@ -223,14 +227,14 @@ def eval():
                         eval_dict = json.loads(line.strip())
                     except:
                         continue
-                    passage,choices,pred,answer = eval_dict["passage"],eval_dict["choices"],eval_dict["pred"],eval_dict["answer"]
+                    passage,choices,pred,label = eval_dict["passage"],eval_dict["choices"],eval_dict["pred"],eval_dict["label"]
                     if task_name in ["trec", "triviaqa", "samsum", "lsht"]:
                         pred= pred.lstrip('\n').split('\n')[0]
                     for metric_name,metric in metrics.items():
                         if metric_name in ["l_cite_eavl_cite","l_cite_eavl_niah_cite","l_cite_eavl_counting_stars_cite","l_cite_eavl_counting_stars"]:
-                            score = metrics[metric_name]["evaluation"](passage,answer, pred)
+                            score = metrics[metric_name]["evaluation"](passage,label, pred)
                         else:
-                            score = metrics[metric_name]["evaluation"](choices,answer, pred)
+                            score = metrics[metric_name]["evaluation"](choices,label, pred)
       
                         eval_dict["score"] = score 
                         data.append(eval_dict)
