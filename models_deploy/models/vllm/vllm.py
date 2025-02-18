@@ -43,7 +43,7 @@ class Vllm():
             "truncate_prompt_tokens": None,
             "output_kind": "CUMULATIVE"
         }
-    # 将 num_beams 和 do_sample 转换为 vllm 的参数
+   
     def deploy(self):
         time_start = time.time()
         self.tokenizer =  AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)
