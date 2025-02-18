@@ -2,12 +2,11 @@
 import os
 import sys
 import yaml
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import time
 import json
 import subprocess
 from tasks.utils.benchmark_class import get_benchmark_class
-import re
 from loguru import logger
 logger.remove()
 logger.add(sys.stdout,
@@ -23,6 +22,7 @@ from lte.utils.main_args import handle_cli_args
 import torch.multiprocessing as mp
 import torch
 from models_deploy.rag import get_rag_method
+
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #Set parameters
@@ -31,8 +31,6 @@ class Evaluator():
         self.limit = int(args.limit) if args.limit!="auto" else 10000
         self.build_tasks(all_benchmarks) #Create a task based on the configuration file.
         self.model_name = self.args.model_name
-        
-
 
     def build_tasks(self,all_benchmarks):
         for benchmark in all_benchmarks:
@@ -100,9 +98,9 @@ class Evaluator():
                 result += f" [fact: {model.generate(request.params, text_inputs)}]"
             if  hasattr(benchmark, 'postprocess'):
                 if benchmark.benchmark_name=="LEval":
-                    request.raw_example.data["answer"],processed_outputs = benchmark.postprocess(task_name,request.raw_example.data["answer"],result)
+                    request.raw_example.data["answer"],result = benchmark.postprocess(task_name,request.raw_example.data["answer"],result)
                 else:
-                    processed_outputs = benchmark.postprocess(task_name,result)
+                    result = benchmark.postprocess(task_name,result)
  
             if hasattr(benchmark, 'length'):
                 path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+f"_{benchmark.length}"+".json")
@@ -115,7 +113,7 @@ class Evaluator():
                 data = request.raw_example.data
                 data["passage"]= ""
                 data["choices"] = data["passage"]
-                data["pred"] = processed_outputs
+                data["pred"] = result
                 data["model_input"] = request.prompt_input
                 json.dump(data, f, ensure_ascii=False)
                 f.write('\n')
