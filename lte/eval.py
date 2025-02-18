@@ -19,6 +19,8 @@ logger.add(sys.stdout,
         colorize=True, 
         format="<level>{message}</level>")
 from tasks.utils.benchmark_class import get_benchmark_class
+
+
 def make_df_niah(data,PRETRAINED_LEN,save_path):
     df = pd.DataFrame(data)
     locations = list(df["Context Length"].unique())
@@ -32,6 +34,8 @@ def make_df_niah(data,PRETRAINED_LEN,save_path):
     pivot_table.to_excel(save_path+'/heatmap.xlsx')
     logger.info(f"heatmap_excel  in {save_path}/niah.xlsx...")
     return pivot_table,pretrained_len
+
+
 def draw_heatmap_niah(pivot_table,model_name,pretrained_len,save_path):
     import seaborn as sns
     import matplotlib.pyplot as plt
@@ -200,8 +204,10 @@ def eval():
         task_list = os.listdir(f"tasks/{benchmark.ability}/{benchmark.benchmark_name}/prediction/{folder_name}")
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:
-            print(task_name)
-            task_name = task_name[:-6]
+            if task_name.endswith(".json"):
+                task_name = task_name[:-5]
+            elif task_name.endswith(".jsonl"):
+                task_name = task_name[:-6]
             progress_bar2.set_description(f"eval task:{task_name[:-6]}")
             gathered_metrics = defaultdict(list)
             if "RULER" in benchmark_name:

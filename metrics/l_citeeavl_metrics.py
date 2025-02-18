@@ -271,6 +271,7 @@ class L_cite_eavl_cite:
         score["recall"]=entail / len(sents)
         score['cite_num']=total_citations
         return score
+    
 class L_cite_eavl_niah_cite:
     def __init__(self,pipe,**kwargs):
         self.pipe = pipe
@@ -278,6 +279,7 @@ class L_cite_eavl_niah_cite:
         result = self.pipe([dict(text=passage, text_pair=claim)])[0]['label']
         inference = 1 if result == "entailment" else 0
         return inference
+    
     def __call__(self, passage, ground_truth, results):
         score = {"f1":0,"recall":0,"precision":0,"cite_num":0}
 
