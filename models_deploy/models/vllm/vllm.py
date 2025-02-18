@@ -48,11 +48,17 @@ class Vllm():
         time_start = time.time()
         self.tokenizer =  AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)
         # Load the model and tokenizer
-        self.model = LLM(
-            model=self.args.model_path,
-            trust_remote_code = True,
-            tensor_parallel_size=len(self.args.device.split(",")),
-        )
+        if self.args.max_model_len:
+            self.model = LLM(
+                model=self.args.model_path,
+                trust_remote_code = True,
+                tensor_parallel_size=len(self.devices.split(",")),
+                max_model_len = self.args.max_model_len)
+        else:
+            self.model = LLM(
+                model=self.args.model_path,
+                trust_remote_code = True,
+                tensor_parallel_size=len(self.devices.split(",")),)
         # Check and add pad token if necessary
         logger.info("Model and tokenizer initialized.",flush=True )
         time_cost = time.time()-time_start

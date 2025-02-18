@@ -1,5 +1,4 @@
-## python lte/eval.py --data_save_path Llama-3.1-8B_02M_04D_14H_52m
-#02M_03D_14H_32m
+## python lte/eval.py --folder_name _02M_18D_22H_11m --model_name test
 from transformers import pipeline
 import os
 import fileinput
@@ -183,7 +182,7 @@ def eval():
                 if os.path.exists(benchmark_path):
                     if benchmark =="RULER":
                         for task_name in  os.listdir(benchmark_path):
-                            length = task_name.split("_")[-1][:-5]
+                            length = task_name.split("_")[-1][:-6]
                             benchmark_list.append(benchmark+f"_{length}")
                     else:
                         benchmark_list.append(benchmark)
@@ -202,20 +201,20 @@ def eval():
         progress_bar2 = tqdm(task_list)
         for task_name in progress_bar2:
             print(task_name)
-            task_name = task_name[:-5]
-            progress_bar2.set_description(f"eval task:{task_name[:-5]}")
+            task_name = task_name[:-6]
+            progress_bar2.set_description(f"eval task:{task_name[:-6]}")
             gathered_metrics = defaultdict(list)
             if "RULER" in benchmark_name:
                 length = task_name.split("_")[-1]
                 if length!=benchmark.length:
                     continue
                 metrics = construct_metrics(benchmark.metric["_".join(task_name.split("_")[:-1])])
-                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",folder_name,task_name+".json")
-                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",folder_name,task_name+".json")
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"result",folder_name,task_name+".jsonl")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name.split("_")[0],"prediction",folder_name,task_name+".jsonl")
             else:
                 metrics = construct_metrics(benchmark.metric[task_name])
-                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",folder_name,task_name+".json")
-                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",folder_name,task_name+".json")
+                save_task_path = os.path.join("tasks",benchmark.ability,benchmark_name,"result",folder_name,task_name+".jsonl")
+                generation_results_path = os.path.join("tasks",benchmark.ability,benchmark_name,"prediction",folder_name,task_name+".jsonl")
             os.makedirs(save_task_path, exist_ok=True)
             if not os.path.exists(generation_results_path):
                 continue
@@ -226,11 +225,15 @@ def eval():
                         eval_dict = json.loads(line.strip())
                     except:
                         continue
-                    choices,pred,answer = eval_dict["choices"],eval_dict["pred"],eval_dict["answer"]
+                    passage,choices,pred,answer = eval_dict["passage"],eval_dict["choices"],eval_dict["pred"],eval_dict["answer"]
                     if task_name in ["trec", "triviaqa", "samsum", "lsht"]:
                         pred= pred.lstrip('\n').split('\n')[0]
                     for metric_name,metric in metrics.items():
-                        score = metrics[metric_name]["evaluation"](choices,answer, pred)
+                        if metric_name in ["l_cite_eavl_cite","l_cite_eavl_niah_cite","l_cite_eavl_counting_stars_cite","l_cite_eavl_counting_stars"]:
+                            score = metrics[metric_name]["evaluation"](passage,answer, pred)
+                        else:
+                            score = metrics[metric_name]["evaluation"](choices,answer, pred)
+      
                         eval_dict["score"] = score 
                         data.append(eval_dict)
                         if isinstance(score,dict):
@@ -266,7 +269,7 @@ def eval():
                 "overall_result": final_metrics,
             }
             with open(
-                os.path.join(save_task_path, "final_metrics.json"), "w", encoding="utf-8"
+                os.path.join(save_task_path, "final_metrics.jsonl"), "w", encoding="utf-8"
             ) as fout:
                 json.dump(dump_data, fout, indent=4, ensure_ascii=False)
                 

@@ -38,14 +38,14 @@ class Evaluator():
             for task_name in benchmark.task_names:
                 if self.args.rag!="":
                     if hasattr(benchmark, 'length'):
-                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+f"_{benchmark.length}"+".json"
+                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+f"_{benchmark.length}"+".jsonl"
                     else:
-                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+".json"
+                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+".jsonl"
                 else:
                     if hasattr(benchmark, 'length'):
-                        path = benchmark.data_path+"/"+task_name+f"_{benchmark.length}"+".json"
+                        path = benchmark.data_path+"/"+task_name+f"_{benchmark.length}"+".jsonl"
                     else:
-                        path = benchmark.data_path+"/"+task_name+".json"
+                        path = benchmark.data_path+"/"+task_name+".jsonl"
                 with open(path, "r", encoding="utf-8") as file:
                     for index, line in enumerate(file):
                         if index>=self.limit:
@@ -106,16 +106,16 @@ class Evaluator():
                     result = benchmark.postprocess(task_name,result)
  
             if hasattr(benchmark, 'length'):
-                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+f"_{benchmark.length}"+".json")
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+f"_{benchmark.length}"+".jsonl")
                 os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}"), exist_ok=True)
             else:
-                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+".json")
+                path = os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}",task_name+".jsonl")
                 os.makedirs(os.path.join("tasks",benchmark.ability,benchmark.benchmark_name,"prediction",f"{self.args.file_name}"), exist_ok=True)
 
             with open(path, "a", encoding="utf-8") as f:
                 data = request.raw_example.data
-                data["passage"]= ""
-                data["choices"] = data["passage"]
+                data["passage"]= data["passage"]
+                data["choices"] = data["choices"]
                 data["pred"] = result
                 data["model_input"] = request.prompt_input
                 json.dump(data, f, ensure_ascii=False)
@@ -193,11 +193,11 @@ def main():
 
     for benchmark in progress_bar:   
         progress_bar.set_description(f"Downloading {benchmark.benchmark_name} data")
-        # benchmark.download_and_transform_data(args=args)
+        benchmark.download_and_transform_data(args=args)
         if args.rag!="":
             data_path = benchmark.data_path
             for task_name in benchmark.task_names:
-                task_path = data_path+"/"+task_name+".json"
+                task_path = data_path+"/"+task_name+".jsonl"
                 tasks_path_list.append(task_path)
     if args.rag!="":
         with open("models_deploy/rag/rag_configs.yaml","r") as f:
@@ -223,9 +223,9 @@ def main():
     #eval
     if args.eval:
         command = ["python","./lte/eval.py",
-                    "--data_save_path",f"{args.file_name}"]
+                    "--folder_name",f"{args.file_name}",
+                    "--model_name",f"{args.model_name}"]
         subprocess.run(command)
-
 
     #execution_time
     execution_time = time.time()-start_time

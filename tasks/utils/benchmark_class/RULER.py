@@ -28,7 +28,7 @@ for i,llm_params in enumerate([llm_params2,llm_params3,llm_params4,llm_params5])
 
 metric_list1 = {"string_match_all": None}
 metric_list2 = {"string_match_part": None}
-tasks_meta = {'cwe': {'llm_params': llm_params5, 'metric': metric_list1}, 'fwe': {'llm_params': llm_params3, 'metric': metric_list1}, 'niah_multikey_1': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_multikey_2': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_multikey_3': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_multiquery': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_multivalue': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_single_1': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_single_2': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_single_3': {'llm_params': llm_params5, 'metric': metric_list1}, 'qa_1': {'llm_params': llm_params2, 'metric': metric_list2}, 'qa_2': {'llm_params': llm_params2, 'metric': metric_list2}, 'vt': {'llm_params': llm_params1, 'metric': metric_list1}}
+tasks_meta_data = {'cwe': {'llm_params': llm_params5, 'metric': metric_list1}, 'fwe': {'llm_params': llm_params3, 'metric': metric_list1}, 'niah_multikey_1': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_multikey_2': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_multikey_3': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_multiquery': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_multivalue': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_single_1': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_single_2': {'llm_params': llm_params5, 'metric': metric_list1}, 'niah_single_3': {'llm_params': llm_params5, 'metric': metric_list1}, 'qa_1': {'llm_params': llm_params2, 'metric': metric_list2}, 'qa_2': {'llm_params': llm_params2, 'metric': metric_list2}, 'vt': {'llm_params': llm_params1, 'metric': metric_list1}}
 from tasks.utils.benchmark_class.base_class import Base
 
 class RULER(Base):
@@ -45,10 +45,10 @@ class RULER(Base):
         self.hf = None
         self.download_all =False
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-        self.tasks_meta = tasks_meta 
-        self.task_names = list(self.tasks_meta.keys())
-        self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
-        self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
+        self.tasks_meta_data = tasks_meta_data
+        self.task_names = list(self.tasks_meta_data.keys())
+        self.llm_params = {task_name:self.tasks_meta_data[task_name]["llm_params"] for task_name in self.task_names} 
+        self.metric = {task_name:self.tasks_meta_data[task_name]["metric"] for task_name in self.task_names} 
     def download_and_transform_data(self,args,**kwargs):
         logger.info("downloading paulgraham_essay")
         command = ["python","./tasks/utils/data_synthetic/RULER/data/synthetic/json/download_paulgraham_essay.py"]
