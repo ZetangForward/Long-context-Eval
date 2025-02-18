@@ -48,7 +48,6 @@ class L_CiteEval(Base):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
             progress_bar.set_description(f"Loading task {task_name}")
-            import pdb; pdb.set_trace()
             try:
                 data = load_dataset(
                     self.hf, task_name, split="test",
