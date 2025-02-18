@@ -29,7 +29,7 @@ llm_param = { "do_sample": False, "max_tokens": 512}#,"stop":"words"
 metric1 = {"le_em":None}
 metric2 = {"le_f1":None}
 metric3 = {"le_rouge":None}
-tasks_meta = {'coursera': {'llm_params': llm_param, 'metric': metric1}, 'quality': {'llm_params': llm_param, 'metric': metric1}, 'topic_retrieval_longchat': {'llm_params': llm_param, 'metric': metric1}, 'tpo': {'llm_params': llm_param, 'metric': metric1}, 'gsm100': {'llm_params': llm_param, 'metric': metric1}, 'codeU': {'llm_params': llm_param, 'metric': metric1}, 'sci_fi': {'llm_params': llm_param, 'metric': metric1}, 'financial_qa': {'llm_params': llm_param, 'metric': metric2}, 'gov_report_summ': {'llm_params': llm_param, 'metric': metric3}, 'legal_contract_qa': {'llm_params': llm_param, 'metric': metric2}, 'meeting_summ': {'llm_params': llm_param, 'metric': metric3}, 'multidoc_qa': {'llm_params': llm_param, 'metric': metric2}, 'narrative_qa': {'llm_params': llm_param, 'metric': metric2}, 'natural_question': {'llm_params': llm_param, 'metric': metric2}, 'news_summ': {'llm_params': llm_param, 'metric': metric3}, 'paper_assistant': {'llm_params': llm_param, 'metric': metric3}, 'patent_summ': {'llm_params': llm_param, 'metric': metric3}, 'review_summ': {'llm_params': llm_param, 'metric': metric3}, 'scientific_qa': {'llm_params': llm_param, 'metric': metric2}, 'tv_show_summ': {'llm_params': llm_param, 'metric': metric3}}
+tasks_meta_data = {'coursera': {'llm_params': llm_param, 'metric': metric1}, 'quality': {'llm_params': llm_param, 'metric': metric1}, 'topic_retrieval_longchat': {'llm_params': llm_param, 'metric': metric1}, 'tpo': {'llm_params': llm_param, 'metric': metric1}, 'gsm100': {'llm_params': llm_param, 'metric': metric1}, 'codeU': {'llm_params': llm_param, 'metric': metric1}, 'sci_fi': {'llm_params': llm_param, 'metric': metric1}, 'financial_qa': {'llm_params': llm_param, 'metric': metric2}, 'gov_report_summ': {'llm_params': llm_param, 'metric': metric3}, 'legal_contract_qa': {'llm_params': llm_param, 'metric': metric2}, 'meeting_summ': {'llm_params': llm_param, 'metric': metric3}, 'multidoc_qa': {'llm_params': llm_param, 'metric': metric2}, 'narrative_qa': {'llm_params': llm_param, 'metric': metric2}, 'natural_question': {'llm_params': llm_param, 'metric': metric2}, 'news_summ': {'llm_params': llm_param, 'metric': metric3}, 'paper_assistant': {'llm_params': llm_param, 'metric': metric3}, 'patent_summ': {'llm_params': llm_param, 'metric': metric3}, 'review_summ': {'llm_params': llm_param, 'metric': metric3}, 'scientific_qa': {'llm_params': llm_param, 'metric': metric2}, 'tv_show_summ': {'llm_params': llm_param, 'metric': metric3}}
 class LEval(Base):
     def __init__(self,args,config,**kwargs):
         super().__init__()
@@ -48,10 +48,10 @@ class LEval(Base):
         if hasattr(self.args, 'model_path'):
             self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)
         self.max_length = self.config["max_length"]
-        self.tasks_meta = tasks_meta
-        self.task_names = list(self.tasks_meta.keys())
-        self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
-        self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
+        self.tasks_meta_data = tasks_meta_data
+        self.task_names = list(self.tasks_meta_data.keys())
+        self.llm_params = {task_name:self.tasks_meta_data[task_name]["llm_params"] for task_name in self.task_names} 
+        self.metric = {task_name:self.tasks_meta_data[task_name]["metric"] for task_name in self.task_names} 
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.jsonl".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)

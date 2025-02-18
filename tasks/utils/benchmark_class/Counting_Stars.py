@@ -28,10 +28,10 @@ class Counting_Stars(Base):
         self.ability = "Reasoning"
         self.hf = "https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/"
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-        self.tasks_meta = {"counting_stars_en_reasoning": {'llm_params': llm_param,'metric':metric1},"counting_stars_en_searching":{'llm_params': llm_param,'metric':metric2},"counting_stars_zh_reasoning":{'llm_params': llm_param,'metric':metric1},"counting_stars_zh_searching":{'llm_params': llm_param,'metric':metric2}}
-        self.task_names = list(self.tasks_meta.keys())
-        self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
-        self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
+        self.tasks_meta_data = {"counting_stars_en_reasoning": {'llm_params': llm_param,'metric':metric1},"counting_stars_en_searching":{'llm_params': llm_param,'metric':metric2},"counting_stars_zh_reasoning":{'llm_params': llm_param,'metric':metric1},"counting_stars_zh_searching":{'llm_params': llm_param,'metric':metric2}}
+        self.task_names = list(self.tasks_meta_data.keys())
+        self.llm_params = {task_name:self.tasks_meta_data[task_name]["llm_params"] for task_name in self.task_names} 
+        self.metric = {task_name:self.tasks_meta_data[task_name]["metric"] for task_name in self.task_names} 
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
   
     def download_and_transform_data(self,**kwargs):

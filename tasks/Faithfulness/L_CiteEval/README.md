@@ -19,18 +19,18 @@ download the data from the website "(https://huggingface.co/datasets/L4NLP/LEval
 L-CiteEval_Data
 
 ```python
-lte.run --model_path caskcsg/Llama-3-8B-NExtLong-512K-Instruct --eval --benchmark_configs tasks/faithfulness/L_CiteEval/L_CiteEval_Data.yaml --device 1,3,4,7 --save_tag "tag"
+lte.run --model_path caskcsg/Llama-3-8B-NExtLong-512K-Instruct --eval --benchmark_configs tasks/Faithfulness/L_CiteEval/L_CiteEval_Data.yaml --device 1,3,4,7 --save_tag "tag"
 ```
 
 L-CiteEval_Length
 
 ```python
-lte.run --model_path caskcsg/Llama-3-8B-NExtLong-512K-Instruct --eval --benchmark_configs tasks/faithfulness/L_CiteEval/L_CiteEval_Length.yaml --device 1,3,4,7 --save_tag "tag"
+lte.run --model_path caskcsg/Llama-3-8B-NExtLong-512K-Instruct --eval --benchmark_configs tasks/Faithfulness/L_CiteEval/L_CiteEval_Length.yaml --device 1,3,4,7 --save_tag "tag"
 ```
 
 L-CiteEval_Hardness
 
 ```python
-lte.run --model_path caskcsg/Llama-3-8B-NExtLong-512K-Instruct --eval --benchmark_configs tasks/faithfulness/L_CiteEval/L_CiteEval_Hardness.yaml --device 1,3,4,7 --save_tag "tag"
+lte.run --model_path caskcsg/Llama-3-8B-NExtLong-512K-Instruct --eval --benchmark_configs tasks/Faithfulness/L_CiteEval/L_CiteEval_Hardness.yaml --device 1,3,4,7 --save_tag "tag"
 ```
 
