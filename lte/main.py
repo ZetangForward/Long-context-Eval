@@ -69,7 +69,6 @@ class Evaluator():
             os.environ["CUDA_VISIBLE_DEVICES"] = devices
             p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
             p.start()
-            time.sleep(5)
             processes.append(p)
         for p in processes:
             p.join()
@@ -209,7 +208,6 @@ def main():
             logger.info("performing information retrieval")
             rag.traverse_task()    
     
-   
 
     #start to generate
     logger.info("The model has initiated the data generation process.")
