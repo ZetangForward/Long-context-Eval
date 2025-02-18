@@ -139,13 +139,11 @@ def main():
     args = handle_cli_args()
     args.model_name = args.model_path.split("/")[-1]
     args.current_time = formatted_time
-    
     if args.save_tag=="":
         args.file_name = f"{args.model_name}_{args.current_time}"
         args.model_name = args.model_path.split("/")[-1]
     else:
         args.model_name = args.save_tag
-    if args.device ==" ":
     if len(args.device.strip()) == 0:
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
