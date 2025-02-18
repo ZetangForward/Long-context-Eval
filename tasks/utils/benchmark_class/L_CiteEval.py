@@ -41,10 +41,13 @@ class L_CiteEval(Base):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
             progress_bar.set_description(f"Downloading task {task_name}")
-            data = load_dataset(self.hf,task_name,cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), split="test",trust_remote_code=True)
+            default_cache_dir = os.path.expanduser("~/.cache/huggingface/datasets")
+            if self.check_cache_exists(self.hf, task_name, default_cache_dir):
+                data = load_dataset(self.hf,task_name,split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
+            else:
+                data = load_dataset(self.hf,task_name,cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
             self.make_data(data,self.ability,task_name)
     
-
     def transform(self,data,task_name,**kwargs):
 
         prompt_list = {
