@@ -38,14 +38,14 @@ class Evaluator():
             for task_name in benchmark.task_names:
                 if self.args.rag!="":
                     if hasattr(benchmark, 'length'):
-                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+f"_{benchmark.length}"+".json"
+                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+f"_{benchmark.length}"+".jsonl"
                     else:
-                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+".json"
+                        path = benchmark.data_path+"/"+f"{task_name}_{self.args.rag}"+".jsonl"
                 else:
                     if hasattr(benchmark, 'length'):
-                        path = benchmark.data_path+"/"+task_name+f"_{benchmark.length}"+".json"
+                        path = benchmark.data_path+"/"+task_name+f"_{benchmark.length}"+".jsonl"
                     else:
-                        path = benchmark.data_path+"/"+task_name+".json"
+                        path = benchmark.data_path+"/"+task_name+".jsonl"
                 with open(path, "r", encoding="utf-8") as file:
                     for index, line in enumerate(file):
                         if index>=self.limit:
