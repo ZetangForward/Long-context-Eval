@@ -23,6 +23,7 @@ import torch.multiprocessing as mp
 import torch
 from models_deploy.rag import get_rag_method
 
+
 class Evaluator():
     def __init__(self,args,all_benchmarks):
         #Set parameters
@@ -134,16 +135,21 @@ def main():
     mp.set_start_method('spawn')
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
+    
     args = handle_cli_args()
-    args.model_name = args.model_path.split("/")[-1] if args.model_path.split("/")[-1]!="" else args.model_path.split("/")[-2]
+    args.model_name = args.model_path.split("/")[-1] if args.model_path.split("/")[-1]!="" else args.model_path.split("/")[-2]  # zecheng_note: 这里的model path args.model_path.split("/")[-2] 这里是什么意思？
     args.current_time = formatted_time
+    
     if args.save_tag=="":
         args.file_name = f"{args.model_name}_{args.current_time}"
-    if args.device ==" ":
+    if len(args.device.strip()) == 0:
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
 
-    seed = 0;random.seed(seed);np.random.seed(seed)
+    seed = 0
+    random.seed(seed)
+    np.random.seed(seed)
+
     start_time = time.time()
     if len(args.device.split(","))%args.device_split_num!=0:
         raise ValueError("The number of GPUs cannot be divided evenly by the number of blocks.")
@@ -169,7 +175,7 @@ def main():
                     task_len += len(benchmark.task_names)
                     all_tasks[benchmark.benchmark_name]=benchmark.task_names
             else:
-                benchmark = get_benchmark_class(benchmark_name)(args,config)
+                benchmark = get_benchmark_class(benchmark_name)(args, config)
                 benchmark.task_names = config["tasks"]
                 all_benchmarks.append(benchmark)
                 task_len += len(benchmark.task_names)

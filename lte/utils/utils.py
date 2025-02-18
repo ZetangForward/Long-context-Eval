@@ -1,6 +1,16 @@
 import importlib
-#从filepath返回函数名为func_name的函数
+import torch
 import os
+
+
+def seed_everything(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
+
 
 def import_function_from_path(filepath: str, func_name: str):
     module_name = os.path.basename(filepath).rstrip(".py")

@@ -14,7 +14,7 @@ metric1 = {"l_cite_eavl_cite":None}
 metric2 = {"l_cite_eavl_counting_stars_cite":None}
 metric3 = {"l_cite_eavl_niah_cite":None}
 class L_CiteEval(Base):
-    def __init__(self,args,**kwargs):
+    def __init__(self, args, *configs, **kwargs):
         super().__init__()
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
@@ -35,7 +35,6 @@ class L_CiteEval(Base):
                     break
                 new_data = self.transform_data(raw_data)
                 f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
-            # 更新记录文件，写入当前已写入的行数
 
     def download_and_transform_data(self,**kwargs):
         progress_bar = tqdm(self.task_names)
