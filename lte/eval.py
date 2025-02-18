@@ -63,13 +63,14 @@ def draw_heatmap_niah(pivot_table,model_name,pretrained_len,save_path):
     plt.axvline(x=pretrained_len + 0.8, color='white', linestyle='--', linewidth=4)
     logger.info("heatmap saving at %s" % save_path+"/image.png" )
     plt.savefig(save_path+"/image.png", dpi=150)
+
 def print_dict_in_table_format(data, excel_file_path):
     benchmark_name_max_len = max(len(name) for name in data.keys())
     task_name_max_len = max(len(task) for tasks in data.values() for task in tasks.keys())
     metric_max_len = max(len(metric) for tasks in data.values() for metrics in tasks.values() for metric in metrics.keys())
     column_widths = [benchmark_name_max_len + 2, task_name_max_len + 10, metric_max_len + 5, 10, 10]
     header = ["BenchMark", "Tasks", "Metric", "Score", "AVG"]
-    # 打印表头
+
     logger.info("|{}|{}|{}|{}|{}|".format(
         header[0].center(column_widths[0], ' '),
         header[1].center(column_widths[1], ' '),
@@ -101,12 +102,10 @@ def print_dict_in_table_format(data, excel_file_path):
                 rows.append([benchmark_name, task, metric, value, ""])
 
                 try:
-                    # 尝试将值转换为浮点数
                     score = float(value)
                     benchmark_scores.append(score)
                     all_scores.append(score)
                 except ValueError:
-                    # 处理无法转换为浮点数的情况
                     logger.warning(f"无法将 {value} 转换为浮点数，跳过该值。")
             logger.info("|{}|{}|{}|{}|{}|".format(
                 "-" * column_widths[0],
@@ -116,7 +115,7 @@ def print_dict_in_table_format(data, excel_file_path):
                 "-" * column_widths[4]
             ))
 
-        # 计算当前 BenchMark 的平均分
+
         if benchmark_scores:
             benchmark_avg = round(np.mean(benchmark_scores), 2)
             logger.info("|{}|{}|{}|{}|{}|".format(
@@ -254,6 +253,7 @@ def eval():
                             data_niah.append({"Document Depth": eval_dict["depth_percent"],
                             "Context Length": eval_dict["context_length"],
                             "Score": eval_dict["score"]})
+            
             with open(generation_results_path, "w", encoding="utf-8") as f:
                 for eval_dict in data:
                     f.write(json.dumps(eval_dict, ensure_ascii=False) + '\n')
