@@ -8,10 +8,14 @@ from tqdm import tqdm
 llm_param1 = {"max_tokens": 128,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
 llm_param2 = {"max_tokens": 200,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
 llm_param3 = {"max_tokens": 800,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
+
 metric1 = {"l_cite_eavl_cite":None}
 metric2 = {"l_cite_eavl_counting_stars_cite":None}
 metric3 = {"l_cite_eavl_niah_cite":None}
+
 tasks_meta = {'L-CiteEval-Length_narrativeqa': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Length_locomo': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Length_hotpotqa': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Length_gov_report': {'llm_params': llm_param3, 'metric':metric1}, 'L-CiteEval-Length_counting_stars': {'llm_params': llm_param1, 'metric':metric2}, 'L-CiteEval-Hardness_narrativeqa': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Hardness_locomo': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Hardness_hotpotqa': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Hardness_gov_report': {'llm_params': llm_param3, 'metric':metric1}, 'L-CiteEval-Hardness_counting_stars': {'llm_params': llm_param1, 'metric':metric2}, 'L-CiteEval-Data_qmsum': {'llm_params': llm_param3, 'metric':metric1}, 'L-CiteEval-Data_niah': {'llm_params': llm_param1, 'metric':metric3}, 'L-CiteEval-Data_natural_questions': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Data_narrativeqa': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Data_multi_news': {'llm_params': llm_param3, 'metric':metric1}, 'L-CiteEval-Data_locomo': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Data_hotpotqa': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Data_gov_report': {'llm_params': llm_param3, 'metric':metric1}, 'L-CiteEval-Data_dialsim': {'llm_params': llm_param2, 'metric':metric1}, 'L-CiteEval-Data_counting_stars': {'llm_params': llm_param1, 'metric':metric2}, 'L-CiteEval-Data_2wikimultihopqa': {'llm_params': llm_param2, 'metric':metric1}}
+
+
 class L_CiteEval(Base):
     def __init__(self, args, *configs, **kwargs):
         super().__init__()
