@@ -29,6 +29,7 @@ llm_param = { "do_sample": False, "max_tokens": 512}#,"stop":"words"
 metric1 = {"le_em":None}
 metric2 = {"le_f1":None}
 metric3 = {"le_rouge":None}
+tasks_meta = {'coursera': {'llm_params': llm_param, 'metric': metric1}, 'quality': {'llm_params': llm_param, 'metric': metric1}, 'topic_retrieval_longchat': {'llm_params': llm_param, 'metric': metric1}, 'tpo': {'llm_params': llm_param, 'metric': metric1}, 'gsm100': {'llm_params': llm_param, 'metric': metric1}, 'codeU': {'llm_params': llm_param, 'metric': metric1}, 'sci_fi': {'llm_params': llm_param, 'metric': metric1}, 'financial_qa': {'llm_params': llm_param, 'metric': metric2}, 'gov_report_summ': {'llm_params': llm_param, 'metric': metric3}, 'legal_contract_qa': {'llm_params': llm_param, 'metric': metric2}, 'meeting_summ': {'llm_params': llm_param, 'metric': metric3}, 'multidoc_qa': {'llm_params': llm_param, 'metric': metric2}, 'narrative_qa': {'llm_params': llm_param, 'metric': metric2}, 'natural_question': {'llm_params': llm_param, 'metric': metric2}, 'news_summ': {'llm_params': llm_param, 'metric': metric3}, 'paper_assistant': {'llm_params': llm_param, 'metric': metric3}, 'patent_summ': {'llm_params': llm_param, 'metric': metric3}, 'review_summ': {'llm_params': llm_param, 'metric': metric3}, 'scientific_qa': {'llm_params': llm_param, 'metric': metric2}, 'tv_show_summ': {'llm_params': llm_param, 'metric': metric3}}
 class LEval(Base):
     def __init__(self,args,config,**kwargs):
         super().__init__()
@@ -41,17 +42,16 @@ class LEval(Base):
         self.ability = "General"
         self.hf = "L4NLP/LEval"
         self.download_all =False
-        self.llm_params = {}
-        for task_name in self.task_names:
-            self.llm_params[task_name]=llm_param
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
         if hasattr(self.args, 'model_path'):
             self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_path,mean_resizing=False)
         self.max_length = self.config["max_length"]
-        self.metric = {'coursera': metric1, 'gsm100': metric1, 'quality': metric1, 'topic_retrieval_longchat': metric1, 'tpo': metric1, 'codeU': metric1, 'sci_fi': metric1, 'financial_qa': metric2, 'gov_report_summ': metric3, 'legal_contract_qa': metric2, 'meeting_summ': metric3, 'multidoc_qa': metric2, 'narrative_qa': metric2, 'natural_question': metric2, 'news_summ': metric3, 'paper_assistant': metric3, 'patent_summ': metric3, 'review_summ': metric3, 'scientific_qa': metric2, 'tv_show_summ': metric3}
-
+        self.tasks_meta = tasks_meta
+        self.task_names = list(self.tasks_meta.keys())
+        self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
+        self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
@@ -59,58 +59,58 @@ class LEval(Base):
              for index, raw_data in enumerate(dataset):
                 if index>=self.limit:
                     break
-                sys_prompt = self.get_sys_prompt("exam" if task_name in self.datasets_closed_ended else "test", task_name)
-                document = raw_data['input']
-                cnt = 0
-                while self.num_tokens_from_string(document, self.tokenizer) > self.max_length:
-                    if "code" not in task_name:
-                        document = " ".join(document.split(" ")[:self.max_length - cnt]) # chunk the input len from right
-                    else:
-                        document = " ".join(document.split(" ")[cnt - self.max_length:]) # chunk the input len from left
-                    cnt += 250                
-                instructions = raw_data['instructions']
-                outputs = raw_data['outputs']
-                for inst, out in zip(instructions, outputs):
-                    save_d = {}
-                    save_d['query'] = inst
-                    save_d['gt'] = out
-                    if "gsm" in task_name or "codeU" in task_name:
-                        context = document + "\n\n" + inst
-                        message =  sys_prompt + context
-                    elif "topic" in task_name:
-                        context = document + "\n\n" + inst
-                        message = sys_prompt + context 
-                    elif task_name in self.datasets_closed_ended:
-                        context = "Document is as follows. {document} \nQuestion: {inst}.  Please directly give the answer without any additional output or explanation "
-                        message =  sys_prompt + context 
-                        message += "\nAnswer:"
-                    else:
-                        context = "Document is as follows. {document} Instruction: {inst} " + f"\nAnswer this question with {len(out.split())} words."
-                        message =  sys_prompt + context 
-                    try:
-                        text_inputs = message.format(document=document, inst=inst)
-                    except:
-                        text_inputs = message
-                    new_data = {
-                    "passage": text_inputs,
-                    "question": inst,
-                    "choices": "",
-                    "answer": out,
-                    "evaluation":raw_data["evaluation"],
-                }
-                    f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
-
-
-    def download_and_transform_data(self,**kwargs):
-        progress_bar = tqdm(self.task_names)
-        for task_name in progress_bar:
-            progress_bar.set_description(f"Downloading task {task_name}")
-            default_cache_dir = os.path.expanduser("~/.cache/huggingface/datasets")
-            if self.check_cache_exists(self.hf, task_name, default_cache_dir):
-                data = load_dataset(self.hf,task_name,split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
+                new_data = self.transform_data(raw_data,task_name)
+                f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
+    def transform_data(self,raw_data,task_name):
+        sys_prompt = self.get_sys_prompt("exam" if task_name in self.datasets_closed_ended else "test", task_name)
+        document = raw_data['input']
+        cnt = 0
+        while self.num_tokens_from_string(document, self.tokenizer) > self.max_length:
+            if "code" not in task_name:
+                document = " ".join(document.split(" ")[:self.max_length - cnt]) # chunk the input len from right
             else:
-                data = load_dataset(self.hf,task_name,cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
-            self.make_data(data,self.ability,task_name)
+                document = " ".join(document.split(" ")[cnt - self.max_length:]) # chunk the input len from left
+            cnt += 250                
+        instructions = raw_data['instructions']
+        outputs = raw_data['outputs']
+        for inst, out in zip(instructions, outputs):
+            save_d = {}
+            save_d['query'] = inst
+            save_d['gt'] = out
+            if "gsm" in task_name or "codeU" in task_name:
+                context = document + "\n\n" + inst
+                message =  sys_prompt + context
+            elif "topic" in task_name:
+                context = document + "\n\n" + inst
+                message = sys_prompt + context 
+            elif task_name in self.datasets_closed_ended:
+                context = "Document is as follows. {document} \nQuestion: {inst}.  Please directly give the answer without any additional output or explanation "
+                message =  sys_prompt + context 
+                message += "\nAnswer:"
+            else:
+                context = "Document is as follows. {document} Instruction: {inst} " + f"\nAnswer this question with {len(out.split())} words."
+                message =  sys_prompt + context 
+            try:
+                text_inputs = message.format(document=document, inst=inst)
+            except:
+                text_inputs = message
+            return {
+            "passage": text_inputs,
+            "question": inst,
+            "choices": "",
+            "answer": out,
+            "evaluation":raw_data["evaluation"],
+        }
+
+    def convert(self,input_path, output_path,task_name):
+        with open(input_path, "r", encoding="utf-8") as f1:
+            with open(output_path, "w", encoding="utf-8") as f2:
+                for index, line in enumerate(f1):
+                    if index>=self.limit:
+                        break
+                    raw_data = json.loads(line.strip())
+                    new_data = self.transform_data(raw_data,task_name)
+                    f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
     
 
     # def download_and_transform_data(self,**kwargs):
@@ -123,7 +123,6 @@ class LEval(Base):
     def transform(self,data,task_name,**kwargs):
         return  data["passage"]
      
-
     # def modify(self, prompt, model, model_path,args,**kwargs):
     #     return prompt
     def get_sys_prompt(self,metric, file_name):

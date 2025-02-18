@@ -35,7 +35,6 @@ class NIAH(Base):
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
         self.config = config
         
-        
     def download_and_transform_data(self,args,**kwargs):
         logger.info("downloading paulgraham_essay")
         command = ["python","./tasks/utils/data_synthetic/NIAH/download_paulgraham_essay.py"]

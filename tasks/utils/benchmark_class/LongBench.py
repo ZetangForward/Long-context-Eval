@@ -7,50 +7,33 @@ from datasets import load_dataset
 import subprocess
 from lte.utils.main_args import handle_cli_args
 
-
-task_list = ["narrativeqa", "qasper", "multifieldqa_en", "multifieldqa_zh", "hotpotqa", "2wikimqa", "musique", "dureader", "gov_report", "qmsum", "multi_news", "vcsum", "trec", "triviaqa", "samsum", "lsht", "passage_count", "passage_retrieval_en", "passage_retrieval_zh", "lcc", "repobench-p","qasper_e", "multifieldqa_en_e", "hotpotqa_e", "2wikimqa_e", "gov_report_e", "multi_news_e", "trec_e", "triviaqa_e", "samsum_e", "passage_count_e", "passage_retrieval_en_e", "lcc_e", "repobench-p_e"]
 llm_params1 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 32}
 llm_params2 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 64}
 llm_params3 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 128}
 llm_params4 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 512}
 llm_params5 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 64,"stop":"\n"}
-llm_param = {"narrativeqa":llm_params3, "qasper":llm_params3, "multifieldqa_en":llm_params2, "multifieldqa_zh":llm_params2, "hotpotqa":llm_params1, "2wikimqa":llm_params1, "musique":llm_params1, "dureader":llm_params3, "gov_report":llm_params4, "qmsum":llm_params4, "multi_news":llm_params4, "vcsum":llm_params4, "trec":llm_params5, "triviaqa":llm_params1, "samsum":llm_params3, "lsht":llm_params2, "passage_count":llm_params1, "passage_retrieval_en":llm_params1, "passage_retrieval_zh":llm_params1, "lcc":llm_params2, "repobench-p":llm_params2,"qasper_e":llm_params3, "multifieldqa_en_e":llm_params2, "hotpotqa_e":llm_params1, "2wikimqa_e":llm_params1, "gov_report_e":llm_params4, "multi_news_e":llm_params4, "trec_e":llm_params5, "triviaqa_e":llm_params1, "samsum_e":llm_params3, "passage_count_e":llm_params1, "passage_retrieval_en_e":llm_params1, "lcc_e":llm_params2, "repobench-p_e":llm_params2}
-task_metric = {'vcsum': {'rouge_zh_score': None}, 'triviaqa_e': {'qa_f1_score': None}, 'triviaqa': {'qa_f1_score': None}, 'trec_e': {'classification_score': None}, 'trec': {'classification_score': None}, 'samsum_e': {'rouge_score': None}, 'samsum': {'rouge_score': None}, 'repobench-p_e': {'code_sim_score': None}, 'repobench-p': {'code_sim_score': None}, 'qmsum': {'rouge_score': None}, 'qasper_e': {'qa_f1_score': None}, 'qasper': {'qa_f1_score': None}, 'passage_retrieval_zh': {'retrieval_zh_score': None}, 'passage_retrieval_en_e': {'retrieval_score': None}, 'passage_retrieval_en': {'retrieval_score': None}, 'passage_count_e': {'count_score': None}, 'passage_count': {'count_score': None}, 'narrativeqa': {'qa_f1_score': None}, 'musique': {'qa_f1_score': None}, 'multifieldqa_zh': {'qa_f1_zh_score': None}, 'multifieldqa_en_e': {'qa_f1_score': None}, 'multifieldqa_en': {'qa_f1_score': None}, 'multi_news_e': {'rouge_score': None}, 'multi_news': {'rouge_score': None}, 'lsht': {'classification_score': None}, 'lcc_e': {'code_sim_score': None}, 'lcc': {'code_sim_score': None}, 'hotpotqa_e': {'qa_f1_score': None}, 'hotpotqa': {'qa_f1_score': None}, 'gov_report_e': {'rouge_score': None}, 'gov_report': {'rouge_score': None}, 'dureader': {'rouge_zh_score': None}, '2wikimqa_e': {'qa_f1_score': None}, '2wikimqa': {'qa_f1_score': None}}
+tasks_meta = {'narrativeqa': {'llm_params': llm_params3, 'metric': {'qa_f1_score': None}}, 'qasper': {'llm_params': llm_params3, 'metric': {'qa_f1_score': None}}, 'multifieldqa_en': {'llm_params': llm_params2, 'metric': {'qa_f1_score': None}}, 'multifieldqa_zh': {'llm_params': llm_params2, 'metric': {'qa_f1_zh_score': None}}, 'hotpotqa': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, '2wikimqa': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'musique': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'dureader': {'llm_params': llm_params3, 'metric': {'rouge_zh_score': None}}, 'gov_report': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'qmsum': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'multi_news': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'vcsum': {'llm_params': llm_params4, 'metric': {'rouge_zh_score': None}}, 'trec': {'llm_params': llm_params5, 'metric': {'classification_score': None}}, 'triviaqa': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'samsum': {'llm_params': llm_params3, 'metric': {'rouge_score': None}}, 'lsht': {'llm_params': llm_params2, 'metric': {'classification_score': None}}, 'passage_count': {'llm_params': llm_params1, 'metric': {'count_score': None}}, 'passage_retrieval_en': {'llm_params': llm_params1, 'metric': {'retrieval_score': None}}, 'passage_retrieval_zh': {'llm_params': llm_params1, 'metric': {'retrieval_zh_score': None}}, 'lcc': {'llm_params': llm_params2, 'metric': {'code_sim_score': None}}, 'repobench-p': {'llm_params': llm_params2, 'metric': {'code_sim_score': None}}, 'qasper_e': {'llm_params': llm_params3, 'metric': {'qa_f1_score': None}}, 'multifieldqa_en_e': {'llm_params': llm_params2, 'metric': {'qa_f1_score': None}}, 'hotpotqa_e': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, '2wikimqa_e': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'gov_report_e': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'multi_news_e': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'trec_e': {'llm_params': llm_params5, 'metric': {'classification_score': None}}, 'triviaqa_e': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'samsum_e': {'llm_params': llm_params3, 'metric': {'rouge_score': None}}, 'passage_count_e': {'llm_params': llm_params1, 'metric': {'count_score': None}}, 'passage_retrieval_en_e': {'llm_params': llm_params1, 'metric': {'retrieval_score': None}}, 'lcc_e': {'llm_params': llm_params2, 'metric': {'code_sim_score': None}}, 'repobench-p_e': {'llm_params': llm_params2, 'metric': {'code_sim_score': None}}}
 
 class LongBench(Base):
     def __init__(self,args,**kwargs):
         super().__init__()
         self.benchmark_name = "LongBench"
-        self.task_names = task_list
         self.ability = "General"
         self.hf = "THUDM/LongBench"
         self.download_all =False
-        self.llm_params = llm_param
-        self.metric = task_metric
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
+        self.tasks_meta = {}
+        for task_names in self.task_names:
+            self.tasks_meta[task_names] = {"llm_params":self.llm_params[task_names],"metric":self.metric[task_names]}
+        print(self.tasks_meta)
+        self.tasks_meta = tasks_meta
+        self.task_names = list(self.tasks_meta.keys())
+        self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
+        self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
 
-    def make_data(self,dataset,ability,task_name):
-        output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
-        os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
-        with open(output_path, "w", encoding="utf-8") as f2:
-             for index, raw_data in enumerate(dataset):
-                if index>=self.limit:
-                    break
-                new_data = self.transform_data(raw_data)
-                f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
 
-    def download_and_transform_data(self,**kwargs):
-        progress_bar = tqdm(self.task_names)
-        for task_name in progress_bar:
-            progress_bar.set_description(f"Downloading task {task_name}")
-            default_cache_dir = os.path.expanduser("~/.cache/huggingface/datasets")
-            if self.check_cache_exists(self.hf, task_name, default_cache_dir):
-                data = load_dataset(self.hf,task_name,split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
-            else:
-                data = load_dataset(self.hf,task_name,cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
-            self.make_data(data,self.ability,task_name)
     
 
     def transform(self,data,task_name,**kwargs):

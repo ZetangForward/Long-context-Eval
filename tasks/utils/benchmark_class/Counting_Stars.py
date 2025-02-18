@@ -25,27 +25,15 @@ class Counting_Stars(Base):
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
         self.benchmark_name = "Counting_Stars"
-        self.task_names = ["counting_stars_en_reasoning","counting_stars_en_searching","counting_stars_zh_reasoning","counting_stars_zh_searching"]
         self.ability = "Reasoning"
         self.hf = "https://raw.githubusercontent.com/nick7nlp/Counting-Stars/refs/heads/main/test_data/"
-        self.llm_params = {"counting_stars_en_reasoning":llm_param,"counting_stars_en_searching":llm_param,"counting_stars_zh_reasoning":llm_param,"counting_stars_zh_searching":llm_param}
-        self.metric = {"counting_stars_en_reasoning":metric1,"counting_stars_en_searching":metric2,"counting_stars_zh_reasoning":metric1,"counting_stars_zh_searching":metric2}
+        self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
+        self.tasks_meta = {"counting_stars_en_reasoning": {'llm_params': llm_param,'metric':metric1},"counting_stars_en_searching":{'llm_params': llm_param,'metric':metric2},"counting_stars_zh_reasoning":{'llm_params': llm_param,'metric':metric1},"counting_stars_zh_searching":{'llm_params': llm_param,'metric':metric2}}
+        self.task_names = list(self.tasks_meta.keys())
+        self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
+        self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
   
-
-
-    def make_data(self,input_path,ability,task_name):
-        output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
-        os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
-        with open(output_path, "w", encoding="utf-8") as f2:
-            with open(input_path, "r", encoding="utf-8") as f3:
-                for index, line in enumerate(f3):
-                    if index>=self.limit:
-                            break
-                    raw_data = json.loads(line)
-                    new_data = self.transform_data(raw_data)
-                    f2.write(json.dumps(new_data, ensure_ascii=False) + "\n")
-
     def download_and_transform_data(self,**kwargs):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
@@ -53,8 +41,11 @@ class Counting_Stars(Base):
             download_path = "./tasks/{}/{}/tmp_Rawdata/{}.json".format(self.ability,self.benchmark_name,task_name)
             os.makedirs("./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name),exist_ok=True)
             command = ["wget","-c",self.hf+task_download_name[task_name],"-O",download_path]
-            subprocess.run(command)
-            self.make_data(download_path,self.ability,task_name)
+            try:
+                subprocess.run(command)
+                self.make_data(download_path,self.ability,task_name)
+            except:
+                raise ImportError(f"cannot load {task_name}, check your network or You can refer to the corresponding README to manually download the data.")
 
 
     def transform_data(self,raw_data):
