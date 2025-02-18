@@ -2,7 +2,8 @@
 
 import json
 from tasks.utils.benchmark_class.base_class import Base
-
+from datasets import load_dataset, config
+import subprocess
 
 llm_param1 = {"max_tokens": 128,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
 llm_param2 = {"max_tokens": 200,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
