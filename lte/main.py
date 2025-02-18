@@ -64,17 +64,17 @@ class Evaluator():
         chunk_num = len(devices_list)//device_split_num
         for i in range(0, len(devices_list), device_split_num):   
             raw_data = self.tasks_list[i//device_split_num::chunk_num]
-            devices = ",".join(devices_list[i:i + device_split_num])
+            devices = ",".join(devices_list[i: i + device_split_num])
             logger.info("devices:{}".format(devices))
             os.environ["CUDA_VISIBLE_DEVICES"] = devices
-            p = mp.Process(target=self.get_pred, args=(i//device_split_num,raw_data,devices))
+            p = mp.Process(target=self.get_pred, args=(i//device_split_num, raw_data, devices))
             p.start()
             processes.append(p)
         for p in processes:
             p.join()
 
 
-    def get_pred(self,i,raw_data,devices):
+    def get_pred(self, i, raw_data, devices):
         #model depoly     
         try:
             model = get_model(self.args.acceleration)(self.args, devices)
@@ -84,15 +84,18 @@ class Evaluator():
             model_path = self.args.model_path
         model.deploy()
         failed = 0
-        for task_name,benchmark,request in tqdm(raw_data,desc="The {}th chunk".format(i)):
-            request.prompt_input = benchmark.modify(request.prompt_input,model,model_path,args=self.args)
+        for task_name, benchmark, request in tqdm(raw_data, desc="The {}th chunk".format(i)):
+            request.prompt_input = benchmark.modify(
+                request.prompt_input, 
+                model, model_path, args=self.args
+            )
             try:
                 with torch.no_grad(): 
                     result = model.generate(request.params, request.prompt_input)
             except Exception as general_err:
                 failed += 1
                 print(f"An unexpected error occurred: {general_err}. Total failed runs: {failed} **********")
-                        #Post-processing
+
             if "sci_fi" in task_name:
                 text_inputs = request.raw_example.data["question"].replace("based on the world described in the document.", "based on the real-world knowledge and facts up until your last training") + "Please directly answer without any additional output or explanation. \nAnswer:"
                 result += f" [fact: {model.generate(request.params, text_inputs)}]"

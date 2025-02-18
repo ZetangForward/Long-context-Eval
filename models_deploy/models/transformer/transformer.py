@@ -44,8 +44,8 @@ class Transformer():
         time_cost = time.time()-time_start
         logger.info("Model_deploy time :{}".format(time_cost),flush=True)
 
-    def generate(self,params_dict,prompt):
-
+    def generate(self, params_dict, prompt):
+        
         params_ = deepcopy(self.params_dict)
         params_.update(params_dict)
 
@@ -66,7 +66,7 @@ class Transformer():
                 **input,
                 **params_
             )[0]
-        
+
         pred = self.tokenizer.decode(output[context_length:], skip_special_tokens=True)
         torch.cuda.empty_cache()
         del input
