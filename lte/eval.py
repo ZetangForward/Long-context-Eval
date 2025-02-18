@@ -9,7 +9,6 @@ import pandas as pd
 import json
 sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 from tqdm import tqdm
-import pdb
 from metrics import get_metric
 from collections import defaultdict
 from utils.eval_args import handle_cli_args
