@@ -30,7 +30,7 @@ class L_CiteEval(Base):
         self.llm_params = {task_name:self.tasks_meta_data[task_name]["llm_params"] for task_name in self.task_names} 
         self.metric = {task_name:self.tasks_meta_data[task_name]["metric"] for task_name in self.task_names} 
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-    def download_and_transform_data(self,**kwargs):
+    def download_and_transform_data(self, **kwargs):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
             progress_bar.set_description(f"Downloading and transforming task {task_name}")
