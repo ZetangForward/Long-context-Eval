@@ -1,6 +1,7 @@
 from transformers import AutoConfig
 from lte.utils.main_args import handle_cli_args
-
+from datasets import load_dataset_builder
+import os
 class Base:
     def __init__(self,**kwargs):
         self.benchmark_name = None
@@ -33,3 +34,11 @@ class Base:
                 tokenize=False, add_generation_prompt=True
             )
         return prompt
+    def check_cache_exists(self,hf, task_name, cache_dir):
+        builder = load_dataset_builder(hf, name=task_name, cache_dir=cache_dir)
+        cache_path = builder._cache_dir
+        if os.path.exists(cache_path):
+            for root, dirs, files in os.walk(cache_path):
+                if files:
+                    return True
+        return False

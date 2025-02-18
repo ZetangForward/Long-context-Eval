@@ -1,8 +1,8 @@
 # python lte/main.py --model_path /nvme1/hf_models/Llama-3.1-8B-Instruct --rag raptor   --eval    --benchmark tasks/General/LooGLE/LooGLE.yaml --device 3 --device_split_num 2 --limit 1
-import os
+import os,sys
+sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 import sys
 import yaml
-# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import time
 import json
 import subprocess
@@ -134,13 +134,15 @@ def main():
     mp.set_start_method('spawn')
     current_time = time.localtime()
     formatted_time = time.strftime("%mM_%dD_%HH_%Mm", current_time)
-    
+
     args = handle_cli_args()
-    args.model_name = args.model_path.split("/")[-1] if args.model_path.split("/")[-1]!="" else args.model_path.split("/")[-2]  # zecheng_note: 这里的model path args.model_path.split("/")[-2] 这里是什么意思？
+    args.model_name = args.model_path.split("/")[-1]
     args.current_time = formatted_time
-    
-    if args.save_tag=="":
+    if not args.save_tag:
         args.file_name = f"{args.model_name}_{args.current_time}"
+    else:
+        args.model_name = args.save_tag
+        args.file_name = args.save_tag
     if len(args.device.strip()) == 0:
         gpu_count = torch.cuda.device_count()
         args.device = ','.join(map(str, range(gpu_count)))
