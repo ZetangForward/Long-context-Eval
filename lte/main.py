@@ -111,8 +111,8 @@ class Evaluator():
 
             with open(path, "a", encoding="utf-8") as f:
                 data = request.raw_example.data
-                data["passage"]= ""
-                data["choices"] = data["passage"]
+                data["passage"]= data["passage"]
+                data["choices"] = data["choices"]
                 data["pred"] = result
                 data["model_input"] = request.prompt_input
                 json.dump(data, f, ensure_ascii=False)

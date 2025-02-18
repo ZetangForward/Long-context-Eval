@@ -1,4 +1,4 @@
-## python lte/eval.py --folder_name _02M_18D_21H_45m --model_name test
+## python lte/eval.py --folder_name _02M_18D_22H_11m --model_name test
 from transformers import pipeline
 import os
 import fileinput
@@ -225,11 +225,15 @@ def eval():
                         eval_dict = json.loads(line.strip())
                     except:
                         continue
-                    choices,pred,answer = eval_dict["choices"],eval_dict["pred"],eval_dict["answer"]
+                    passage,choices,pred,answer = eval_dict["passage"],eval_dict["choices"],eval_dict["pred"],eval_dict["answer"]
                     if task_name in ["trec", "triviaqa", "samsum", "lsht"]:
                         pred= pred.lstrip('\n').split('\n')[0]
                     for metric_name,metric in metrics.items():
-                        score = metrics[metric_name]["evaluation"](choices,answer, pred)
+                        if metric_name in ["l_cite_eavl_cite","l_cite_eavl_niah_cite","l_cite_eavl_counting_stars_cite","l_cite_eavl_counting_stars"]:
+                            score = metrics[metric_name]["evaluation"](passage,answer, pred)
+                        else:
+                            score = metrics[metric_name]["evaluation"](choices,answer, pred)
+      
                         eval_dict["score"] = score 
                         data.append(eval_dict)
                         if isinstance(score,dict):
