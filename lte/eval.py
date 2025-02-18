@@ -1,9 +1,7 @@
 ## python lte/eval.py --folder_name _02M_18D_22H_11m --model_name test
 from transformers import pipeline
 import os
-import fileinput
 import re
-import subprocess
 import sys
 import pandas as pd
 import json
