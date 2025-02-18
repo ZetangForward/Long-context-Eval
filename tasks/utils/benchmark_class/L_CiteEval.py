@@ -33,7 +33,7 @@ class L_CiteEval(Base):
     def download_and_transform_data(self, **kwargs):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
-            progress_bar.set_description(f"Downloading task {task_name}")
+            progress_bar.set_description(f"Downloading and transforming task {task_name}")
             default_cache_dir = config.HF_DATASETS_CACHE
             try:
                 if self.check_cache_exists(self.hf, task_name, default_cache_dir):
@@ -144,5 +144,5 @@ class L_CiteEval(Base):
             "passage": raw_data["docs"],
             "question": raw_data["question"],
             "choices":"",
-            "answer": raw_data["answer"],
+            "label": raw_data["answer"],
         }

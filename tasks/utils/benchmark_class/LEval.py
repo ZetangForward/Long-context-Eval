@@ -109,7 +109,7 @@ class LEval(Base):
             "passage": text_inputs,
             "question": inst,
             "choices": "",
-            "answer": out,
+            "label": out,
             "evaluation":raw_data["evaluation"],
         }
 

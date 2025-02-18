@@ -57,7 +57,7 @@ class Counting_Stars(Base):
             "passage": "",
             "question": raw_data["question"],
             "choices": "",
-            "answer": raw_data["reference_counting_results"],
+            "label": raw_data["reference_counting_results"],
         }
 
 

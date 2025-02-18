@@ -4,7 +4,8 @@
 
 ### metric
 
-"tasksource/deberta-base-long-nli"
+"tasksource/deberta-base-long-nli":
+Download the "tasksource/deberta-base-long-nli" model to the local machine to confirm that it can be evaluated normally.
 
 ### Data Downloading
 

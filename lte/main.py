@@ -101,7 +101,7 @@ class Evaluator():
                 result += f" [fact: {model.generate(request.params, text_inputs)}]"
             if  hasattr(benchmark, 'postprocess'):
                 if benchmark.benchmark_name=="LEval":
-                    request.raw_example.data["answer"],result = benchmark.postprocess(task_name,request.raw_example.data["answer"],result)
+                    request.raw_example.data["label"],result = benchmark.postprocess(task_name,request.raw_example.data["label"],result)
                 else:
                     result = benchmark.postprocess(task_name,result)
  

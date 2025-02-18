@@ -282,7 +282,6 @@ class L_cite_eavl_niah_cite:
     
     def __call__(self, passage, ground_truth, results):
         score = {"f1":0,"recall":0,"precision":0,"cite_num":0}
-
         for j in range(len(passage)):
             if ground_truth in passage[j]:
                 gold_ind = j
@@ -296,9 +295,7 @@ class L_cite_eavl_niah_cite:
         if '\n' in model_ans:
             ind = model_ans.index('\n')
             model_ans = model_ans[:ind]
-
         ref = [int(r[1:])-1 for r in re.findall(r"\[\d+", model_ans)][:3]
-
         if gold_ind in ref:
             score["recall"]=1
             score['precision']=1/len(ref)
@@ -310,10 +307,8 @@ class L_cite_eavl_niah_cite:
 class L_cite_eavl_counting_stars_cite:
     def __init__(self,**kwargs):
         pass
-
     def __call__(self, passage, ground_truth, results):
         score = {"f1":0,"recall":0,"precision":0,"cite_num":0}
-
         gold_ind_lst = []
         gold_ans_lst = []
         for j in range(len(passage)):
@@ -327,28 +322,20 @@ class L_cite_eavl_counting_stars_cite:
         except:
             model_ans = results
         if not isinstance(model_ans,dict):
-                
             try:
                 ind1 = model_ans.index("{")
                 ind2 = model_ans.index('}')
                 model_ans = json.loads(model_ans[ind1:ind2+1])
-
             except:
                 
                 return score 
-
         total_correct = cite_correct = 0
-
         if 'passage_id' not in model_ans:
             return score
-
         model_ans['passage_id'] = list(set(model_ans['passage_id']))
-
         for idx, psg_id in enumerate(model_ans['passage_id']):
-
             if psg_id in gold_ind_lst:
                 cite_correct += 1
-        
         precision = cite_correct / len(model_ans['passage_id'])
         recall = cite_correct / len(gold_ind_lst)
         if precision + recall == 0:

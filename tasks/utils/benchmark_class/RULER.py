@@ -95,7 +95,7 @@ class RULER(Base):
             "passage": "",
             "question": raw_data["input"],
             "choices": "",
-            "answer": raw_data["outputs"],
+            "label": raw_data["outputs"],
         }
 
 
