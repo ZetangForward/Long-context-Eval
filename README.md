@@ -108,8 +108,23 @@ lte.run --model_path meta-llama/Llama-3.1-8B-Instruct \
 
 #### 2. server
 
-We supports various model deployment frameworks, such as vllm and transformers,mamba. These frameworks offer different advantages for deploying and running large language models (LLMs) efficiently.
+We support various model deployment frameworks, such as vllm and transformers,mamba. These frameworks offer different advantages for deploying and running large language models (LLMs) efficiently. 
+For example, running vLLM is as follows.
 
+```bash
+lte.run --model_path meta-llama/Llama-3.1-8B-Instruct \
+    # The '--eval' option indicates that the framework should not only generate data but also perform evaluations.
+    --eval \
+    # The '--benchmark_configs' option is used to provide the path(s) to the configuration file(s) for the evaluation tasks. Multiple paths can be specified and separated by commas.
+    --benchmark_configs tasks/General/RULER/RULER.yaml \
+    # The '--device' option specifies the device (e.g., GPU) on which the evaluation will be carried out.
+    --device 0 \
+    # The '--save_tag' option determines the name of the folder where the evaluation results will be saved.
+    --save_tag "tmp";
+    --server vllm
+    --max_model_len 16000
+    # The '--save_tag' option determines the maximum input length supported by vLLM. If not specified, the default setting of the model will be used.
+or
 > [!Note]
 > Please note that the selected framework and model must be compatible with each other.
 

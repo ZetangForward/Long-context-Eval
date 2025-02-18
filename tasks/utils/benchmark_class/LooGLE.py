@@ -29,10 +29,10 @@ class LooGLE(Base):
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
-        self.tasks_meta = {"longdep_qa":{'llm_params': llm_params,'metric':metric_list},"longdep_summarization":{'llm_params': llm_params,'metric':metric_list}}
-        self.task_names = list(self.tasks_meta.keys())
-        self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
-        self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
+        self.tasks_meta_data = {"longdep_qa":{'llm_params': llm_params,'metric':metric_list},"longdep_summarization":{'llm_params': llm_params,'metric':metric_list}}
+        self.task_names = list(self.tasks_meta_data.keys())
+        self.llm_params = {task_name:self.tasks_meta_data[task_name]["llm_params"] for task_name in self.task_names} 
+        self.metric = {task_name:self.tasks_meta_data[task_name]["metric"] for task_name in self.task_names} 
     
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)

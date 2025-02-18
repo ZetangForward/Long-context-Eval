@@ -25,10 +25,10 @@ class L_CiteEval(Base):
         self.ability = "Faithfulness"
         self.hf = "Jonaszky123/L-CiteEval"
         self.download_all =False
-        self.tasks_meta = tasks_meta
-        self.task_names = list(self.tasks_meta.keys())
-        self.llm_params = {task_name:self.tasks_meta[task_name]["llm_params"] for task_name in self.task_names} 
-        self.metric = {task_name:self.tasks_meta[task_name]["metric"] for task_name in self.task_names} 
+        self.tasks_meta_data = tasks_meta
+        self.task_names = list(self.tasks_meta_data.keys())
+        self.llm_params = {task_name:self.tasks_meta_data[task_name]["llm_params"] for task_name in self.task_names} 
+        self.metric = {task_name:self.tasks_meta_data[task_name]["metric"] for task_name in self.task_names} 
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
     def download_and_transform_data(self, **kwargs):
         progress_bar = tqdm(self.task_names)
