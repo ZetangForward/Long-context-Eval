@@ -1,5 +1,6 @@
 from transformers import AutoConfig
 from tqdm import tqdm
+from datasets import config
 import json
 import os
 from tasks.utils.benchmark_class.base_class import Base
@@ -7,29 +8,48 @@ from datasets import load_dataset
 import subprocess
 from lte.utils.main_args import handle_cli_args
 
-llm_params1 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 32}
-llm_params2 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 64}
-llm_params3 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 128}
-llm_params4 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 512}
-llm_params5 = {"num_beams": 1, "do_sample": False, "temperature": 1.0, "max_tokens": 64,"stop":"\n"}
-tasks_meta_data = {'narrativeqa': {'llm_params': llm_params3, 'metric': {'qa_f1_score': None}}, 'qasper': {'llm_params': llm_params3, 'metric': {'qa_f1_score': None}}, 'multifieldqa_en': {'llm_params': llm_params2, 'metric': {'qa_f1_score': None}}, 'multifieldqa_zh': {'llm_params': llm_params2, 'metric': {'qa_f1_zh_score': None}}, 'hotpotqa': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, '2wikimqa': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'musique': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'dureader': {'llm_params': llm_params3, 'metric': {'rouge_zh_score': None}}, 'gov_report': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'qmsum': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'multi_news': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'vcsum': {'llm_params': llm_params4, 'metric': {'rouge_zh_score': None}}, 'trec': {'llm_params': llm_params5, 'metric': {'classification_score': None}}, 'triviaqa': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'samsum': {'llm_params': llm_params3, 'metric': {'rouge_score': None}}, 'lsht': {'llm_params': llm_params2, 'metric': {'classification_score': None}}, 'passage_count': {'llm_params': llm_params1, 'metric': {'count_score': None}}, 'passage_retrieval_en': {'llm_params': llm_params1, 'metric': {'retrieval_score': None}}, 'passage_retrieval_zh': {'llm_params': llm_params1, 'metric': {'retrieval_zh_score': None}}, 'lcc': {'llm_params': llm_params2, 'metric': {'code_sim_score': None}}, 'repobench-p': {'llm_params': llm_params2, 'metric': {'code_sim_score': None}}, 'qasper_e': {'llm_params': llm_params3, 'metric': {'qa_f1_score': None}}, 'multifieldqa_en_e': {'llm_params': llm_params2, 'metric': {'qa_f1_score': None}}, 'hotpotqa_e': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, '2wikimqa_e': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'gov_report_e': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'multi_news_e': {'llm_params': llm_params4, 'metric': {'rouge_score': None}}, 'trec_e': {'llm_params': llm_params5, 'metric': {'classification_score': None}}, 'triviaqa_e': {'llm_params': llm_params1, 'metric': {'qa_f1_score': None}}, 'samsum_e': {'llm_params': llm_params3, 'metric': {'rouge_score': None}}, 'passage_count_e': {'llm_params': llm_params1, 'metric': {'count_score': None}}, 'passage_retrieval_en_e': {'llm_params': llm_params1, 'metric': {'retrieval_score': None}}, 'lcc_e': {'llm_params': llm_params2, 'metric': {'code_sim_score': None}}, 'repobench-p_e': {'llm_params': llm_params2, 'metric': {'code_sim_score': None}}}
 
+from datasets import load_dataset
+dataset = load_dataset('THUDM/LongBench-v2', split='train')
 class LongBench(Base):
     def __init__(self,args,**kwargs):
         super().__init__()
         self.benchmark_name = "LongBench"
         self.ability = "General"
-        self.hf = "THUDM/LongBench"
+        self.hf = "THUDM/LongBench-v2"
         self.download_all =False
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
         self.args = args
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
-        self.tasks_meta_data = tasks_meta_data
         self.task_names = list(self.tasks_meta_data.keys())
         self.llm_params = {task_name:self.tasks_meta_data[task_name]["llm_params"] for task_name in self.task_names} 
         self.metric = {task_name:self.tasks_meta_data[task_name]["metric"] for task_name in self.task_names} 
+        template_rag = open('prompts/0shot_rag.txt', encoding='utf-8').read()
+        template_no_context = open('prompts/0shot_no_context.txt', encoding='utf-8').read()
+        template_0shot = open('prompts/0shot.txt', encoding='utf-8').read()
+        template_0shot_cot = open('prompts/0shot_cot.txt', encoding='utf-8').read()
+        template_0shot_cot_ans = open('prompts/0shot_cot_ans.txt', encoding='utf-8').read()
 
 
+
+    def download_and_transform_data(self,**kwargs):
+        progress_bar = tqdm(self.task_names)
+        for task_name in progress_bar:
+            progress_bar.set_description(f"Downloading task {task_name}")
+            default_cache_dir = config.HF_DATASETS_CACHE
+            try:
+                if self.check_cache_exists(self.hf, default_cache_dir):
+                    data = load_dataset(self.hf,split="train",trust_remote_code=True,download_mode="reuse_cache_if_exists")
+                else:
+                    data = load_dataset(self.hf,cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), split="train",trust_remote_code=True,download_mode="reuse_cache_if_exists")
+                self.make_data(data,self.ability,task_name)
+            except Exception as e:
+                print(f"{type(e).__name__}: {e}")
+                path = "./tasks/{}/{}/tmp_Rawdata/{}.jsonl".format(self.ability,self.benchmark_name,task_name)
+                try:
+                    self.make_data(path, self.ability, task_name)
+                except Exception as inner_e:
+                        print(f"cannot load {task_name}, check your network. or You can refer to the corresponding README to manually download the data")
     
 
     def transform(self,data,task_name,**kwargs):

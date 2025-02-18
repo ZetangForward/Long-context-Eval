@@ -1,5 +1,7 @@
 ## python lte/eval.py --folder_name Meta-Llama-3.1-8B-Instruct_02M_18D_22H_02m --model_name Meta-Llama-3.1-8B-Instruct
 from transformers import pipeline
+import os,sys
+sys.path.append(os.path.dirname( os.path.dirname(os.path.abspath(__file__))))
 import os
 import re
 import sys
@@ -182,6 +184,7 @@ def eval():
                             if task_name.endswith(".json"):
                                 length = task_name.split("_")[-1][:-5]
                             elif task_name.endswith(".jsonl"):
+
                                 length = task_name.split("_")[-1][:-6]
                             benchmark_list.append(benchmark+f"_{length}")
                     else:

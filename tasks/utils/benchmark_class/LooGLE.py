@@ -77,7 +77,7 @@ class LooGLE(Base):
             "passage": raw_data["input"],
             "question": raw_data["qa_pairs"],
             "choices": {},
-            "answer": raw_data["output"],
+            "label": raw_data["output"],
         }
 
     def transform_data_qa(self,raw_data, qa):
@@ -86,7 +86,7 @@ class LooGLE(Base):
             "passage": raw_data["input"],
             "question": qa["Q"],
             "choices": "",
-            "answer": qa["A"],
+            "label": qa["A"],
         }
 
     def convert(self,input_path, output_path):
