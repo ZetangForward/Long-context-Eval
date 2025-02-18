@@ -3,16 +3,18 @@ from tqdm import tqdm
 import json
 import os
 from tasks.utils.benchmark_class.base_class import Base
-from datasets import load_dataset
+from datasets import load_dataset, config
 import subprocess
 
 llm_param1 = {"max_tokens": 128,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
 llm_param2 = {"max_tokens": 200,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
 llm_param3 = {"max_tokens": 800,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
 llm_param4 = {"max_tokens": 1000,"temperature": 0,"top_p": 1,"stop":"\n","do_sample":False}
+
 metric1 = {"l_cite_eavl_cite":None}
 metric2 = {"l_cite_eavl_counting_stars_cite":None}
 metric3 = {"l_cite_eavl_niah_cite":None}
+
 class L_CiteEval(Base):
     def __init__(self, args, *configs, **kwargs):
         super().__init__()
@@ -20,12 +22,18 @@ class L_CiteEval(Base):
         self.limit = int(self.args.limit) if args.limit!="auto" else 10000
         self.benchmark_name = "L_CiteEval"
         self.task_names = ['L-CiteEval-Length_narrativeqa', 'L-CiteEval-Length_locomo', 'L-CiteEval-Length_hotpotqa', 'L-CiteEval-Length_gov_report', 'L-CiteEval-Length_counting_stars', 'L-CiteEval-Hardness_narrativeqa', 'L-CiteEval-Hardness_locomo', 'L-CiteEval-Hardness_hotpotqa', 'L-CiteEval-Hardness_gov_report', 'L-CiteEval-Hardness_counting_stars', 'L-CiteEval-Data_qmsum', 'L-CiteEval-Data_niah', 'L-CiteEval-Data_natural_questions', 'L-CiteEval-Data_narrativeqa', 'L-CiteEval-Data_multi_news', 'L-CiteEval-Data_locomo', 'L-CiteEval-Data_hotpotqa', 'L-CiteEval-Data_gov_report', 'L-CiteEval-Data_dialsim', 'L-CiteEval-Data_counting_stars', 'L-CiteEval-Data_2wikimultihopqa']
+        
         self.ability = "Factuality"
         self.hf = "Jonaszky123/L-CiteEval"
         self.download_all =False
+        
         self.llm_params = {'L-CiteEval-Length_narrativeqa':llm_param2, 'L-CiteEval-Length_locomo':llm_param2, 'L-CiteEval-Length_hotpotqa':llm_param2, 'L-CiteEval-Length_gov_report':llm_param3, 'L-CiteEval-Length_counting_stars':llm_param1, 'L-CiteEval-Hardness_narrativeqa':llm_param2, 'L-CiteEval-Hardness_locomo':llm_param2, 'L-CiteEval-Hardness_hotpotqa':llm_param2, 'L-CiteEval-Hardness_gov_report':llm_param3, 'L-CiteEval-Hardness_counting_stars':llm_param1, 'L-CiteEval-Data_qmsum':llm_param3, 'L-CiteEval-Data_niah':llm_param1, 'L-CiteEval-Data_natural_questions':llm_param2, 'L-CiteEval-Data_narrativeqa':llm_param2, 'L-CiteEval-Data_multi_news':llm_param3, 'L-CiteEval-Data_locomo':llm_param2, 'L-CiteEval-Data_hotpotqa':llm_param2, 'L-CiteEval-Data_gov_report':llm_param3, 'L-CiteEval-Data_dialsim':llm_param2, 'L-CiteEval-Data_counting_stars':llm_param1, 'L-CiteEval-Data_2wikimultihopqa':llm_param2}
+        
         self.metric = {'L-CiteEval-Length_narrativeqa':metric1, 'L-CiteEval-Length_locomo':metric1, 'L-CiteEval-Length_hotpotqa':metric1, 'L-CiteEval-Length_gov_report':metric1, 'L-CiteEval-Length_counting_stars':metric2, 'L-CiteEval-Hardness_narrativeqa':metric1, 'L-CiteEval-Hardness_locomo':metric1, 'L-CiteEval-Hardness_hotpotqa':metric1, 'L-CiteEval-Hardness_gov_report':metric1, 'L-CiteEval-Hardness_counting_stars':metric2, 'L-CiteEval-Data_qmsum':metric1, 'L-CiteEval-Data_niah':metric3, 'L-CiteEval-Data_natural_questions':metric1, 'L-CiteEval-Data_narrativeqa':metric1, 'L-CiteEval-Data_multi_news':metric1, 'L-CiteEval-Data_locomo':metric1, 'L-CiteEval-Data_hotpotqa':metric1, 'L-CiteEval-Data_gov_report':metric1, 'L-CiteEval-Data_dialsim':metric1, 'L-CiteEval-Data_counting_stars':metric2, 'L-CiteEval-Data_2wikimultihopqa':metric1}
+        
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
+    
+    
     def make_data(self,dataset,ability,task_name):
         output_path = "./tasks/{}/{}/data/{}.json".format(ability,self.benchmark_name,task_name)
         os.makedirs("./tasks/{}/{}/data".format(ability,self.benchmark_name), exist_ok=True)
@@ -39,12 +47,23 @@ class L_CiteEval(Base):
     def download_and_transform_data(self,**kwargs):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
-            progress_bar.set_description(f"Downloading task {task_name}")
-            default_cache_dir = os.path.expanduser("~/.cache/huggingface/datasets")
-            if self.check_cache_exists(self.hf, task_name, default_cache_dir):
-                data = load_dataset(self.hf,task_name,split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
-            else:
-                data = load_dataset(self.hf,task_name,cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), split="test",trust_remote_code=True,download_mode="reuse_cache_if_exists")
+            progress_bar.set_description(f"Loading task {task_name}")
+            import pdb; pdb.set_trace()
+            try:
+                data = load_dataset(
+                    self.hf, task_name, split="test",
+                    trust_remote_code=True,
+                    download_mode="reuse_cache_if_exists"
+                )
+            except:
+                data = load_dataset(
+                    self.hf, task_name, cache_dir="./tasks/{}/{}/tmp_Rawdata".format(self.ability,self.benchmark_name), 
+                    split="test", trust_remote_code=True, 
+                    download_mode="reuse_cache_if_exists"
+                )
+            finally:
+                raise ImportError(f"cannot load {task_name}, check your network")
+            
             self.make_data(data,self.ability,task_name)
     
     def transform(self,data,task_name,**kwargs):
