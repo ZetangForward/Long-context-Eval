@@ -30,7 +30,7 @@ class L_CiteEval(Base):
         self.llm_params = {task_name:self.tasks_meta_data[task_name]["llm_params"] for task_name in self.task_names} 
         self.metric = {task_name:self.tasks_meta_data[task_name]["metric"] for task_name in self.task_names} 
         self.data_path = f"tasks/{self.ability}/{self.benchmark_name}/data"
-    def download_and_transform_data(self, **kwargs):
+    def download_and_transform_data(self,**kwargs):
         progress_bar = tqdm(self.task_names)
         for task_name in progress_bar:
             progress_bar.set_description(f"Downloading and transforming task {task_name}")
@@ -47,7 +47,8 @@ class L_CiteEval(Base):
                 try:
                     self.make_data(path, self.ability, task_name)
                 except Exception as inner_e:
-                        print(f"cannot load {task_name}, check your network. or You can refer to the corresponding README to manually download the data")
+                    print(f"cannot load {task_name}, check your network. or You can refer to the corresponding README to manually download the data")
+                    raise
     def transform(self,data,task_name,**kwargs):
         prompt_list = {
             "2wikimultihopqa":"{D}\n\nWrite an accurate, engaging, and concise answer to the given question using only the provided passages (some of which might be irrelevant). Use an unbiased and journalistic tone. Every sentence must include a citation at the end, referencing at least one passage and at most three. When citing several passages, use separate brackets for each index number, like [a][b][c], instead of combining them in one set of brackets, like [a, b, c]. Here, a, b and c represent different index numbers. If multiple passages support the sentence, only cite a minimum sufficient subset of the passages.\n\nQuestion: {Q}\nAnswer: ",
