@@ -8,7 +8,8 @@ version = "0.1"
 description = "A framework for evaluating lont language models"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["matplotlib>=3.9.2","seaborn","rouge_score", "accelerate", "vllm", "loguru",  "replicate", "umap-learn==0.5.5", "llama_index.embeddings.huggingface", "pillow>=10.3.0","llama_index.llms.huggingface", "llama_index.readers.string_iterable", "scikit-learn", "sentence-transformers", "bs4", "rank_bm25", "llama_index", "fabric>=3.0",  "bert_score", "flask", "gevent", "pandas", "peft", "sacrebleu", "hydra-core", "nltk", "nvidia-ml-py", "openai", "openpyxl", "rouge", "rouge_chinese", "jieba", "fuzzywuzzy", "pandas", "wonderwords", "tenacity", "python-Levenshtein", "scipy", "PyYAML", "tqdm", "datasets", "html2text", "nemo", "huggingface_hub","transformers", "torch<=2.3","flash_attn"]
+dependencies = ["vllm==0.6.4.post1","loguru","peft","llama_index","llama_index.readers.string_iterable","llama_index.llms.huggingface","llama_index.embeddings.huggingface","rank_bm25","rouge","bert_score","jieba","fuzzywuzzy","rouge_score","openpyxl"]
+
 
 [tool.setuptools.packages.find]
 include = ["*"]

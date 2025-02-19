@@ -26,9 +26,13 @@ git clone https://gitlab.com/nlp_sora/lte.git
 cd lte
 conda create -n lte python=3.10 -y
 conda activate lte
+pip install torch==2.5.1
 pip install -e .
+# Download the appropriate version of flash_attn from the following link
+Download the suitable version of flash_attn from https://github.com/Dao-AILab/flash-attention/releases
+pip install <path_to_flash_attn_whl_file>
 ```
-
+> [!Note] Since we have a large number of Python packages, to prevent conflicts, pyproject.toml only contains the most basic functionality by default. If you encounter a missing Python package during runtime, please install it directly. Alternatively, you can try installing all the packages in requirements.txt.
 # Basic Usage
 
 ### User Guide
