@@ -52,8 +52,8 @@ class Vllm():
             self.model = LLM(
                 model=self.args.model_path,
                 trust_remote_code = True,
-                tensor_parallel_size=len(self.devices.split(",")),
-                max_model_len = self.args.max_model_len)
+                tensor_parallel_size=len(self.devices.split(",")))
+                # max_model_len = self.args.max_model_len)
         else:
             self.model = LLM(
                 model=self.args.model_path,
