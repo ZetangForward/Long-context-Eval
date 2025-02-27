@@ -1,0 +1,2 @@
+benchmark_name: LooGLE
+tasks: ["longdep_qa","longdep_summarization"]

@@ -1,0 +1,4 @@
+benchmark_name: RULER
+tasks: ["cwe"]
+length: [32000]
+num_samples: 50

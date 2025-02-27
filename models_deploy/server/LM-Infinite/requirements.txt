@@ -1,0 +1,12 @@
+torch==2.0.1
+Datasets==2.14.4
+Tokenizers ==0.13.3
+Transformers== 4.32.1
+SentencePiece ==0.1.99
+Evaluate ==0.4.0
+Rouge-Score== 0.1.2
+Protobuf ==3.20.3
+Accelerate== 0.22.0
+DeepSpeed== 0.10.2
+Tqdm== 4.66.1
+Einops ==0.6.1

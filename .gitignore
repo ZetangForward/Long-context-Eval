@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+*.cpython*
+*.txt
+tasks/*/*/data/*
+tasks/*/*/tmp_Rawdata/*
+tasks/*/*/prediction/*
+tasks/*/*/result/*
+test/*
+lte.egg-info
+*.xlsx
+*.log
+*.json
+*.png
+*.sh
+*.jsonl
+dataset/General/data/
+dataset/General/tmp_Rawdata/
+nohup.out
+local_log/

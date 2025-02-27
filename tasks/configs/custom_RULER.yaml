@@ -1,0 +1,3 @@
+#[4096,8192,16384,32768,65536,131072]
+tasks: ["niah_multikey_1", "niah_multikey_2", "niah_multikey_3", "niah_multivalue", "niah_single_3", "vt"]
+length: [4096,8192,16384,32768,65536,131072]

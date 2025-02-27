@@ -1,0 +1,4 @@
+benchmark_name: LongBench_v2
+tasks: ["longbench_v2"]
+no_context: false
+cot: true
